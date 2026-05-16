@@ -1,0 +1,36 @@
+.Container{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding:  50px 100px;
+}
+.GioHang{
+    flex: 2.2;
+}
+.ThongTinGioHang{
+    display: flex;
+    flex-direction: row;
+}
+
+.TomTatDon{
+    flex: 0.8;
+    background-color: #fff8e7;
+    border-radius: 5%;
+    border: 1px solid #d2b48c;
+    padding: 20px;
+    margin-left: 20px;
+}
+.hrTomTatDon{
+    height:1px;
+    background-color: #d2b48c;
+    border: none;
+}
+.btnThanhToanCart{
+    background-color: #967451;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
