@@ -11,6 +11,8 @@ function loadComponent(id, file) {
         .catch(error => console.error('Lỗi khi tải file:', file, error));
 }
 document.addEventListener("DOMContentLoaded", () => {
+    loadComponent('header-placeholder', '/includes/header.html');
+    loadComponent('footer-placeholder', '/includes/footer.html');
     const myCart = new Cart();
     const products = window.manager.products;
     
