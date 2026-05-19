@@ -29,11 +29,10 @@
 .cart-item-row{
     border: 1px solid rgba(243, 234, 234, 0.596);
     border-radius: 15px;
-    padding: 20px 20px;
-    margin-bottom: 15px;
     background: #fff;
     padding: 25px 40px;
     margin-bottom: 12px;
+    margin-right: 9%;
 }
 .cart-item-row:hover{
     box-shadow: 0 10px 10px rgba(68, 63, 63, 0.144);
@@ -69,7 +68,7 @@
 .item-info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 10px;
 }
 
 .item-category {
@@ -120,34 +119,39 @@
     align-items: center;
     justify-content: center;
 }
-
+.item-quantity-input::-webkit-outer-spin-button,
+.item-quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 .item-quantity-input {
     width: 24px;
     text-align: center;
     border: none;
     font-size: 13px;
     font-weight: 600;
+    color: #999;  
+    background: transparent;
+    line-height: 20px;
+    padding: 0;
 }
 
 .remove-item-btn {
     background: none;
     border: none;
-    color: #bbb;
-    font-size: 14px;  /* nhỏ lại */
     cursor: pointer;
-    padding: 4px;
 }
-
-.remove-item-btn:hover {
-    color: #e74c3c;
+.remove-item-icon:hover {
+    content: url("/assets/images/icon/delete_red.png");
 }
 /* Tóm tắt đơn hàng */
 .TomTatDon {
     width: 320px;
     min-width: 280px; 
-    flex-shrink: 0;
+    flex-shrink: 10%;
     position: sticky;
-    top: 20px;
+    margin-top: 20px;
+    top: 10px;
     background-color: #fff8e7;
     border-radius: 16px;
     border: 1px solid #d2b48c;
@@ -190,7 +194,7 @@
     width: 100%;
     padding: 14px;
     margin-top: 8px;
-    background-color: #8B6914;
+    background-color: #967451;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -223,7 +227,7 @@
 }
 
 .shipping-free {
-    color: #4CAF50;
+    color: #848408;
     font-weight: 700;
 }
 

@@ -61,11 +61,11 @@ export class Cart {
             <div class="item-actions">
                 <div class="quantity-controls">
                     <button class="qty-btn qty-decrease">-</button>
-                    <input type="number" class="item-quantity-input" value="${item.quantity}" readonly>
+                    <input type="number"  class="item-quantity-input" value="${item.quantity}" >
                     <button class="qty-btn qty-increase">+</button>
                 </div>
                 <button class="remove-item-btn">
-                    <i class="fas fa-trash-alt"></i>
+                    <img src="/assets/images/icon/delete_gray.png" alt ="delete_icon" class="remove-item-icon">
                 </button>
             </div>
         </div>
