@@ -1,1 +1,53 @@
-<div id="header-container"></div>
+<style>
+    .nav-links a {
+        transition: all 0.2s ease;
+        display: inline-block;
+        padding-bottom: 4px;
+        border-bottom: 2.5px solid transparent;
+    }
+    .nav-links a:hover {
+        -webkit-text-stroke: 0.8px #967451; 
+        text-shadow: 0 0 1px #967451;
+    }
+</style>
+
+<header class="navbar" style="background-color: #FFF8E7; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100vw; margin-left: calc(50% - 50vw); margin-top: -35px; box-sizing: border-box; position: sticky; top: 0; z-index: 1000;">
+    <div class="logo" style="display: flex; align-items: center; gap: 15px;">
+        <img src="./assets/images/logo.png" alt="Mộc Miên Garden Logo" style="height: 50px; width: auto; mix-blend-mode: multiply;">
+        <a href="index.html" style="color: #808000; font-size: 26px; font-weight: bold; text-decoration: none; font-family: serif; letter-spacing: 1px;">MỘC MIÊN</a>
+    </div>
+    
+    <nav>
+        <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; font-family: sans-serif; font-size: 15px;">
+            <li><a href="index.html" style="color: #967451; text-decoration: none; font-weight: bold;">Trang chủ</a></li>
+            <li><a href="products.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
+            <li><a href="blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
+            <li><a href="about.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
+            <li><a href="contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-actions" style="display: flex; gap: 20px; align-items: center;">
+        <a href="wishlist.html" title="Yêu thích" style="text-decoration: none; font-size: 22px;">❤️</a>
+        <a href="cart.html" title="Giỏ hàng" style="position: relative; text-decoration: none; font-size: 22px;">
+            🛒 <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: -10px; right: -10px; font-weight: bold;">0</span>
+        </a>
+    </div>
+</header>
+
+<svg style="display:none" onload="
+    setTimeout(() => {
+        const currentUrl = window.location.href;
+        const currentPath = window.location.pathname;
+        const links = document.querySelectorAll('.nav-links a');
+        
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            // Nếu URL chứa tên trang (vd: products.html) hoặc đang ở trang chủ (/)
+            if (currentUrl.includes(href) || (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('252IS19A01_Nhom4/')))) {
+                link.style.borderBottom = '2.5px solid #967451';
+                link.style.webkitTextStroke = '0.8px #967451';  
+            }
+        });
+    }, 200);
+"></svg>
