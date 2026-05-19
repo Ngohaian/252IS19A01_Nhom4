@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     myCart.addItem(products[1], 1);
     myCart.addItem(products[2], 3);
     myCart.addItem(products[0], 1);
-
+    myCart.addItem(products[3], 1);
+    myCart.addItem(products[4], 1);
+    myCart.addItem(products[2], 1);
+    myCart.addItem(products[5], 1);
     myCart.render();
 });

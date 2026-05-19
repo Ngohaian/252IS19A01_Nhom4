@@ -120,7 +120,7 @@ export class Cart {
                 </div>
                 <hr class="summary-hr">
                 <div class="summary-line total-line">
-                    <span class="summary-label">TỔNG CỘNG: </span>
+                    <span class="summary-label total-price">TỔNG CỘNG: </span>
                     <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
                 <button class="checkout-submit-btn">THANH TOÁN MỘC</button>

@@ -7,30 +7,36 @@
     max-width: 1200px; 
     width: 100%;
     margin: 0 auto;   
-    padding: 50px 24px;
+    padding: 50px 0px;
     box-sizing: border-box;
 }
+/*Gio hàng*/
 .GioHang{
     flex: 1;
+}
+.GioHang h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;       
+    font-size: 32px;      
+    color: #333333;          
+    margin-bottom: 25px;   
 }
 .ThongTinGioHang{
     display: flex;
     flex-direction: column;
 }
+/* row sản phẩm */
 .cart-item-row{
     border: 1px solid rgba(243, 234, 234, 0.596);
     border-radius: 15px;
     padding: 20px 20px;
     margin-bottom: 15px;
+    background: #fff;
+    padding: 25px 40px;
+    margin-bottom: 12px;
 }
 .cart-item-row:hover{
     box-shadow: 0 10px 10px rgba(68, 63, 63, 0.144);
-}
-.cart-item-row {
-    background: #fff;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 12px;
 }
 
 .cart-item-container {
@@ -38,20 +44,26 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-}z
+}
 
 .item-visuals {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 16px;
 }
 
 .item-cart-image {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 8px;
     background: #f5f5f5;
+    display: inline-block;
+    margin-right: 15px;
+    min-width: 60px;      
+    font-size: 11px;    
+    color: #999;
 }
 
 .item-info {
@@ -99,10 +111,10 @@
 .qty-btn {
     background: none;
     border: none;
-    font-size: 14px;  /* nhỏ lại */
+    font-size: 14px;
     cursor: pointer;
     color: #555;
-    width: 20px;      /* nhỏ lại */
+    width: 20px;      
     height: 20px;
     display: flex;
     align-items: center;
@@ -110,7 +122,7 @@
 }
 
 .item-quantity-input {
-    width: 24px;      /* nhỏ lại */
+    width: 24px;
     text-align: center;
     border: none;
     font-size: 13px;
@@ -161,8 +173,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0ebe3;
+    padding: 5px 0;
 }
 
 .summary-line:last-of-type {
@@ -199,11 +210,14 @@
 }
 .summary-label {
     color: #555;
-    font-size: 14px;
+    font-size: 16px;
 }
-
+.total-line .summary-label.total-price {
+    font-size: 18px; 
+    color: #333;
+}
 .summary-value {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: #2d2d2d;
 }
