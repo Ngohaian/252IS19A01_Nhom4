@@ -338,3 +338,4 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 
 // ================= FIRST RENDER =================
 pagination.update();
+

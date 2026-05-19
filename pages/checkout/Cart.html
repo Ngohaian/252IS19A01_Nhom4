@@ -6,26 +6,22 @@
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="../../assets/css/Cart.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="../../assets/js/cart.js"></script>
 </head>
-<body class="CarPage">
+<body class="CartPage">
     <div id="header-placeholder"></div>
     <main>
-    <div class = "Container">
+    <div class="Container">
         <div class="GioHang">
             <h1>Giỏ mầm của bạn</h1>
-            <div class = "ThongTinGioHang">
-
+            
+            <div class="ThongTinGioHang" id="cart-items-list">
+                
             </div>
         </div>
-        <div class="TomTatDon">
-            <h2>Tóm tắt đơn hàng</h2>
-            <hr class="hrTomTatDon">
-            <p>Tạm tính: </p>
-            <p>Phí vận chuyển: </p>
-            <hr class="hrTomTatDon">
-            <p>Tổng cộng: </p>
-            <button class="btnThanhToanCart"> Thanh toán</button>
-        </div>
+        
+        <div class="TomTatDon" id="cart-summary">
+            </div>
     </div>
     </main>
     <div id="footer-placeholder"></div>
@@ -34,5 +30,6 @@
         loadComponent('header-placeholder', '../../includes/header.html');
         loadComponent('footer-placeholder', '../../includes/footer.html');
     </script>
+    <script type="module" src="../../assets/js/main.js"></script>
 </body>    
 </html>
