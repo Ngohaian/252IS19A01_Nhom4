@@ -6,30 +6,26 @@
     <title>Giỏ hàng</title>
     <link rel="stylesheet" href="../../assets/css/Cart.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <script src="../../assets/js/cart.js"></script>
 </head>
 <body class="CartPage">
     <div id="header-placeholder"></div>
     <main>
-    <div class="Container">
-        <div class="GioHang">
-            <h1>Giỏ mầm của bạn</h1>
-            
-            <div class="ThongTinGioHang" id="cart-items-list">
-                
+        <div class="Container">
+            <div class="GioHang">
+                <h1>Giỏ mầm của bạn</h1>
+                <div class="ThongTinGioHang" id="cart-items-list">
+
+                </div>
             </div>
+            <div class="TomTatDon" id="cart-summary"></div>
         </div>
-        
-        <div class="TomTatDon" id="cart-summary">
-            </div>
-    </div>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script>
-        loadComponent('header-placeholder', '../../includes/header.html');
-        loadComponent('footer-placeholder', '../../includes/footer.html');
-    </script>
+
+    <script src="../../assets/js/Product.js"></script>
+    <script src="../../assets/js/ProductManager.js"></script>
+    <script src="../../assets/js/Pagination.js"></script>
+    <script src="../../assets/js/addProduct.js"></script>
     <script type="module" src="../../assets/js/main.js"></script>
-</body>    
+</body>
 </html>
