@@ -1,16 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xác nhận đặt hàng</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/Payment.css">
 </head>
-<body>
+<body class="PaymentPage">
+
     <div id="header-placeholder"></div>
+
     <main>
+        <div class="container">
+
+        <div class="TTDatHang">
+            <h1>Xác nhận đặt mầm</h1>
+            <div class="TTGiaoHang">
+            <p>1. Thông tin giao mầm</p>
+            <div class="form-row">
+                <input type="text"  placeholder="Họ và tên">
+                <input type="tel"   placeholder="Số điện thoại">
+            </div>
+            <div class="form-row full">
+                <input type="email" placeholder="Email nhận thông báo">
+            </div>
+            <div class="form-row full">
+                <input type="text"  placeholder="Địa chỉ chi tiết (Số nhà, đường...)">
+            </div>
+            </div>
+
+            <div class="HinhThucTT">
+            <p>2. Hình thức thanh toán</p>
+            <div class="payment-options">
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="cod" checked>
+                    <div class="payment-option-label">
+                        <span>Trả tiền khi nhận mầm (COD)</span>
+                        <small>Được kiểm tra cây trước khi trả tiền</small>
+                    </div>
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="transfer">
+                    <div class="payment-option-label">
+                        <span>Chuyển khoản / Ví điện tử</span>
+                        <small>An toàn và nhanh chóng</small>
+                    </div>
+                </label>
+                <div id="transfer-details" class="transfer-info">
+                    <p><strong>Ngân hàng:</strong> Vietcombank (VCB)</p>
+                    <p><strong>Số tài khoản:</strong> 1023456789</p>
+                    <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                    <p><strong>Nội dung CK:</strong> <span id="transfer-content" style="color: red; font-weight: bold;">MOCMIEN [Số điện thoại của bạn]</span></p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="TTSanPham">
+            <p class="order-title">Đơn mầm</p>
+
+            <div class="order-items">
+            </div>
+            <div class="order-total">
+            </div>
+
+            <button class="btn-checkout" onclick="handleCheckout()">
+            Hoàn tất đặt mầm
+            </button>
+        </div>
+
+        </div>
     </main>
+
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
+
+    <script src="../../assets/js/Product.js"></script>
+    <script src="../../assets/js/ProductManager.js"></script>
+    <script src="../../assets/js/Pagination.js"></script>
+    <script src="../../assets/js/addProduct.js"></script>
     <script type="module" src="../../assets/js/main.js"></script>
-</body>    
+    <script src="../../assets/js/payment.js"></script>
+    <script>
+        function handleCheckout() {
+        const name  = document.querySelector('input[placeholder="Họ và tên"]').value.trim();
+        const phone = document.querySelector('input[placeholder="Số điện thoại"]').value.trim();
+        const email = document.querySelector('input[placeholder="Email nhận thông báo"]').value.trim();
+        const addr  = document.querySelector('input[placeholder="Địa chỉ chi tiết (Số nhà, đường...)"]').value.trim();
+
+        if (!name || !phone || !addr) {
+            alert('Vui lòng điền đầy đủ họ tên, số điện thoại và địa chỉ.');
+            return;
+        }
+        alert('Đặt mầm thành công! Cảm ơn bạn đã tin tưởng Mộc Miên 🌱');
+        }
+    </script>
+</body>
 </html>

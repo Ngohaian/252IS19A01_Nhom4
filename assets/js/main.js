@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(r => r.text())
     .then(data => {
         document.getElementById('header-placeholder').innerHTML = data;
-        myCart.updateCartBadge(); // ← lúc này header đã có DOM rồi
+        myCart.updateCartBadge(); 
     });
     myCart.addItem(products[0], 2);
     myCart.addItem(products[1], 1);
@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     myCart.render();
     document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
-        cart.addItem(product, 1);
-        cart.updateCartBadge();
+        myCart.addItem(product[0], 1);
+        myCart.updateCartBadge();
+        this.saveToLocalStorage();
     });
 });

@@ -13,12 +13,28 @@ export class CartItem {
 export class Cart {
     constructor() {
         this.items = []; 
+        this.loadFromLocalStorage();
     }
 
     get totalAmount() {
         return this.items.reduce((total, item) => total + item.subTotal, 0);
     }
-
+    saveToLocalStorage() {
+        localStorage.setItem('cart', JSON.stringify(this.items));
+    }
+    loadFromLocalStorage() {
+        const storedItems = localStorage.getItem('mocmien_cart');
+        if (storedItems) {
+            try {
+                const parsedItems = JSON.parse(storedItems);
+                this.items = parsedItems.map(item => new CartItem(item.product, item.quantity));
+            } catch (error) {
+                console.error("Lỗi đọc dữ liệu giỏ hàng từ localStorage:", error);
+                this.items = [];
+            }
+        }
+        this.updateCartBadge();
+    }
     addItem(product, quantity) {
         const existingItem = this.items.find(item => item.product.id === product.id);
         if (existingItem) {
@@ -27,6 +43,7 @@ export class Cart {
             this.items.push(new CartItem(product, quantity));
         }
         this.updateCartBadge(); 
+        this.saveToLocalStorage();
     }
 
     updateQuantity(productId, quantity) {
@@ -39,11 +56,13 @@ export class Cart {
             }
         }
         this.updateCartBadge();
+        this.saveToLocalStorage();
     }
 
     removeItem(productId) {
         this.items = this.items.filter(item => item.product.id !== productId);
         this.updateCartBadge();
+        this.saveToLocalStorage();
     }
 
     createItemRow(item) {

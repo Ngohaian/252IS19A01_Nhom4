@@ -1,41 +1,62 @@
+
+:root {
+  --green-dark: #4a6741;
+  --green-mid: #6b8f5e;
+  --green-btn: #7a9a3c;
+  --gold-text: #b8860b;
+  --cream: #faf7f0;
+  --cream-card: #f5f0e8;
+  --border: #ddd5c4;
+  --text-main: #2c2c2c;
+  --text-muted: #888;
+  --price-color: #c8860b;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+}
+
 .Container {
-    background-color: white;
     display: flex;
     flex-direction: row;
     gap: 25px;
     align-items: flex-start;
-    max-width: 1200px; 
+    max-width: 1200px;
     width: 100%;
-    margin: 0 auto;   
+    margin: 0 auto;
     padding: 50px 0px;
     box-sizing: border-box;
 }
-/*Gio hàng*/
-.GioHang{
+
+/* ===== GIỎ HÀNG ===== */
+.GioHang {
     flex: 1;
 }
+
 .GioHang h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;       
-    font-size: 32px;      
-    color: #333333;          
-    margin-bottom: 25px;   
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--text-main);
+    margin-bottom: 25px;
 }
-.ThongTinGioHang{
+
+.ThongTinGioHang {
     display: flex;
     flex-direction: column;
 }
+
 /* row sản phẩm */
-.cart-item-row{
-    border: 1px solid rgba(243, 234, 234, 0.596);
+.cart-item-row {
+    border: 1.5px solid var(--border);
     border-radius: 15px;
     background: #fff;
     padding: 25px 40px;
     margin-bottom: 12px;
     margin-right: 3%;
+    transition: box-shadow 0.2s;
 }
-.cart-item-row:hover{
-    box-shadow: 0 10px 10px rgba(68, 63, 63, 0.144);
+
+.cart-item-row:hover {
+    box-shadow: 0 10px 10px rgba(68, 63, 63, 0.10);
 }
 
 .cart-item-container {
@@ -57,12 +78,12 @@
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
-    background: #f5f5f5;
+    background: var(--cream-card);
     display: inline-block;
     margin-right: 15px;
-    min-width: 60px;      
-    font-size: 11px;    
-    color: #999;
+    min-width: 60px;
+    font-size: 11px;
+    color: var(--text-muted);
 }
 
 .item-info {
@@ -73,7 +94,7 @@
 
 .item-category {
     font-size: 11px;
-    color: #8B7355;
+    color: var(--green-mid);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -82,12 +103,12 @@
 .item-name {
     font-size: 16px;
     font-weight: 600;
-    color: #2d2d2d;
+    color: var(--text-main);
 }
 
 .item-price {
     font-size: 15px;
-    color: #8B7355;
+    color: var(--price-color);
     font-weight: 600;
 }
 
@@ -102,9 +123,10 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    border: 1px solid #ddd;
+    border: 1.5px solid var(--border);
     border-radius: 8px;
     padding: 2px 6px;
+    background: #fff;
 }
 
 .qty-btn {
@@ -112,25 +134,33 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
-    color: #555;
-    width: 20px;      
+    color: var(--green-dark);
+    width: 20px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
+    transition: color 0.15s;
 }
+
+.qty-btn:hover {
+    color: var(--green-btn);
+}
+
 .item-quantity-input::-webkit-outer-spin-button,
 .item-quantity-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 .item-quantity-input {
     width: 24px;
     text-align: center;
     border: none;
     font-size: 13px;
     font-weight: 600;
-    color: #999;  
+    color: var(--text-main);
     background: transparent;
     line-height: 20px;
     padding: 0;
@@ -141,29 +171,34 @@
     border: none;
     cursor: pointer;
 }
+
 .remove-item-icon:hover {
     content: url("/assets/images/icon/delete_red.png");
 }
+
+/* Empty cart */
 .empty-cart-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 60px 40px;
     margin-right: 9%;
-    border: 1px solid rgba(210,180,140,0.35);
+    border: 1.5px solid var(--border);
     border-radius: 16px;
-    background: #fffdf7;
+    background: var(--cream-card);
     gap: 16px;
 }
+
 .empty-cart-text {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2.5px;
-    color: #b0a090;
+    color: var(--text-muted);
     margin: 0;
 }
+
 .find-plant-btn {
-    background: #808000;
+    background: var(--green-btn);
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
@@ -171,22 +206,28 @@
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
+    transition: background 0.2s;
 }
-.find-plant-btn:hover { background: #6d6d01; }
-/* Tóm tắt đơn hàng */
+
+.find-plant-btn:hover {
+    background: var(--green-dark);
+}
+
+/* ===== TÓM TẮT ĐƠN ===== */
 .TomTatDon {
     width: 320px;
-    min-width: 280px; 
-    flex-shrink: 10%;
+    min-width: 280px;
+    flex-shrink: 0;
     position: sticky;
     margin-top: 20px;
     top: 10px;
-    background-color: #fff8e7;
+    background-color: var(--cream-card);
     border-radius: 16px;
-    border: 1px solid #d2b48c;
+    border: 1px solid var(--border);
     padding: 20px;
     box-sizing: border-box;
 }
+
 .order-summary-box {
     display: flex;
     flex-direction: column;
@@ -195,8 +236,9 @@
 }
 
 .order-summary-box h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display);
     font-size: 20px;
+    color: var(--text-muted);
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 4px;
@@ -209,13 +251,9 @@
     padding: 5px 0;
 }
 
-.summary-line:last-of-type {
-    border-bottom: none;
-}
-
 .summary-hr {
     border: none;
-    border-top: 2px solid #e8e0d5;
+    border-top: 2px solid var(--border);
     margin: 4px 0;
 }
 
@@ -223,42 +261,41 @@
     width: 100%;
     padding: 14px;
     margin-top: 8px;
-    background-color: #967451;
+    background-color: var(--green-btn);
     color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 15px;
     font-weight: 700;
+    font-family: var(--font-body);
     letter-spacing: 2px;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
 }
 
 .checkout-submit-btn:hover {
-    background-color: #6e5210;
+    background-color: var(--green-dark);
 }
 
 .checkout-submit-btn:active {
     transform: scale(0.98);
 }
+
 .summary-label {
-    font-family: 'Montserrat', sans-serif;
-    color: #555;
+    font-family: var(--font-body);
+    color: var(--text-main);
     font-size: 14px;
     font-weight: 600;
 }
-.total-line .summary-label.total-price {
-    font-size: 16px; 
-    color: #333;
-}
+
 .summary-value {
     font-size: 16px;
     font-weight: 600;
-    color: #2d2d2d;
+    color: var(--text-main);
 }
 
 .shipping-free {
-    color: #848408;
+    color: var(--green-btn);
     font-weight: 700;
 }
 
@@ -266,14 +303,16 @@
     font-weight: 700;
     font-size: 13px;
     letter-spacing: 1px;
-    color: #2d2d2d;
+    color: var(--text-muted);
 }
 
 .total-price {
     font-size: 22px;
     font-weight: 800;
-    color: #808000;
+    color: var(--price-color);
 }
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .Container {
         flex-direction: column;
