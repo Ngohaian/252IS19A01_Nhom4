@@ -10,14 +10,16 @@ class Pagination {
     }
 
     get totalPages() {
-        return Math.ceil(this.manager.products.length / this.perPage);
-    }
+    return Math.ceil(
+        this.manager.getVisibleProducts().length / this.perPage
+    );
+}
 
     getPaginatedProducts() {
         const start = (this.currentPage - 1) * this.perPage;
         const end = start + this.perPage;
-
-        return this.manager.products.slice(start, end);
+        const products = this.manager.getVisibleProducts();
+        return products.slice(start, end);
     }
 
     renderProducts() {

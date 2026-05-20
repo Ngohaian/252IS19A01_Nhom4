@@ -13,7 +13,6 @@ export class CartItem {
 export class Cart {
     constructor() {
         this.items = []; 
-        this.loadFromLocalStorage();
     }
 
     get totalAmount() {
@@ -42,6 +41,7 @@ export class Cart {
         } else {
             this.items.push(new CartItem(product, quantity));
         }
+        this.saveToStorage();
         this.updateCartBadge(); 
         this.saveToLocalStorage();
     }
@@ -55,12 +55,14 @@ export class Cart {
                 item.quantity = quantity;
             }
         }
+        this.saveToStorage();
         this.updateCartBadge();
         this.saveToLocalStorage();
     }
 
     removeItem(productId) {
         this.items = this.items.filter(item => item.product.id !== productId);
+        this.saveToStorage();
         this.updateCartBadge();
         this.saveToLocalStorage();
     }
@@ -158,11 +160,13 @@ export class Cart {
         `;
     }
     updateCartBadge() {
+        const total = this.items.length; 
+        localStorage.setItem('cartCount', total);
+
         const badge = document.getElementById('cart-badge-bg');
         const text = document.getElementById('cart-badge-text');
         if (!badge || !text) return;
 
-        const total = this.items.length;
         if (total > 0) {
             badge.style.display = 'flex';
             text.textContent = total > 99 ? '99+' : total;
@@ -171,3 +175,8 @@ export class Cart {
         }
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const myCart = new Cart();
+    myCart.render();
+    myCart.updateCartBadge();
+});

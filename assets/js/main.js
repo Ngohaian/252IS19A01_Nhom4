@@ -1,18 +1,27 @@
 import { Cart } from './cart.js';
+
 function loadComponent(id, file) {
-    fetch(file)
-        .then(response => response.text())
-        .then(data => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.innerHTML = data;
-            }
+    return fetch(file)
+        .then(res => res.text())
+        .then(html => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.innerHTML = html;
+            el.querySelectorAll('script').forEach(old => {
+                const s = document.createElement('script');
+                [...old.attributes].forEach(a => s.setAttribute(a.name, a.value));
+                s.textContent = old.textContent;
+                document.body.appendChild(s);
+                old.remove();
+            });
         })
-        .catch(error => console.error('Lỗi khi tải file:', file, error));
+        .catch(err => console.error('Lỗi tải:', file, err));
 }
-document.addEventListener("DOMContentLoaded", () => {
-    loadComponent('header-placeholder', '/includes/header.html');
-    loadComponent('footer-placeholder', '/includes/footer.html');
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadComponent('header-placeholder', '/includes/header.html');
+    await loadComponent('footer-placeholder', '/includes/footer.html');
+
     const myCart = new Cart();
     const products = window.manager.products;
     fetch('/includes/header.html')
