@@ -37,5 +37,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         badge.style.display = 'flex';
         text.textContent = savedCount > 99 ? '99+' : savedCount;
     }
-    
+    document.addEventListener('click', function (e) {
+        const target = e.target.closest('a');
+        if (target && target.href) {
+            const url = target.href;
+
+            if (url.startsWith(window.location.origin)) {
+            e.preventDefault();
+
+            fetch(url, { method: 'HEAD' })
+                .then(response => {
+                if (response.status === 404) {
+                    window.location.href = '/NotFound.html';
+                } else {
+                    window.location.href = url;
+                }
+                })
+                .catch(() => {
+                window.location.href = url;
+                });
+            }
+        }
+    });
 });
