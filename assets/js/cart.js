@@ -139,17 +139,16 @@ export class Cart {
         `;
     }
     updateCartBadge() {
-        const total = this.items.length;
-        // Thử update trực tiếp trước
         const badge = document.getElementById('cart-badge-bg');
         const text = document.getElementById('cart-badge-text');
-        if (badge && text) {
-            badge.style.display = total > 0 ? 'block' : 'none';
-            text.style.display = total > 0 ? 'block' : 'none';
+        if (!badge || !text) return;
+
+        const total = this.items.length;
+        if (total > 0) {
+            badge.style.display = 'flex';
             text.textContent = total > 99 ? '99+' : total;
         } else {
-            // Header chưa load xong thì bắn event, header tự lắng nghe
-            document.dispatchEvent(new CustomEvent('cartReady', { detail: total }));
+            badge.style.display = 'none';
         }
     }
 }

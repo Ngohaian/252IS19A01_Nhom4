@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 <style>
     body {
         margin: 0 !important;
@@ -21,45 +22,41 @@
     }
 </style>
 
-<header class="navbar" style="background-color: #FFF8E7; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100vw; margin-left: calc(50% - 50vw); margin-top: 0; box-sizing: border-box; position: sticky; top: 0; z-index: 1000;">
+<header class="navbar" style="background-color: #FFF8E7; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100%; box-sizing: border-box; position: sticky; top: 0; z-index: 1000;">
     <div class="logo" style="display: flex; align-items: center; gap: 15px;">
-        <img src="./assets/images/logo.png" alt="Mộc Miên Garden Logo" style="height: 50px; width: auto; mix-blend-mode: multiply;">
+        <img src="/assets/images/image.png" alt="Mộc Miên Garden Logo" style="height: 50px; width: auto; mix-blend-mode: multiply;">
         <a href="index.html" style="color: #808000; font-size: 26px; font-weight: bold; text-decoration: none; font-family: serif; letter-spacing: 1px;">MỘC MIÊN</a>
     </div>
     
     <nav>
         <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; font-family: sans-serif; font-size: 15px;">
-            <li><a href="index.html" style="color: #967451; text-decoration: none; font-weight: bold;">Trang chủ</a></li>
-            <li><a href="ProductList.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
-            <li><a href="Blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
-            <li><a href="AboutUs.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
-            <li><a href="Contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
+            <li><a href="/index.html" style="color: #967451; text-decoration: none; font-weight: bold;">Trang chủ</a></li>
+            <li><a href="/pages/products/ProductList.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
+            <li><a href="/pages/blog/Blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
+            <li><a href="/pages/info/AboutUs.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
+            <li><a href="/pages/info/Contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
         </ul>
     </nav>
     <div class="search-box" style="display: flex; align-items: center; border: 1.5px solid #808000; border-radius: 20px; padding: 4px 12px; background: #fff; transition: all 0.3s ease;">
         <input type="text" id="searchInput" placeholder="Tìm kiếm..." onkeypress="handleSearchKeyPress(event)" style="border: none; outline: none; background: transparent; font-size: 14px; width: 130px; color: #333;">
-        <button onclick="executeSearch()" style="background: none; border: none; cursor: pointer; padding: 0; font-size: 16px; margin-left: 5px;">🔍</button>
+        <button onclick="executeSearch()" style="background: none; border: none; cursor: pointer; padding: 0; display:flex; align-items:center;">
+            <span class="material-symbols-outlined" style="font-size:20px; color:#808000;">search</span>
+        </button>
     </div>
-    <div class="header-actions" style="display: flex; gap: 20px; align-items: center;">
-        <a href="wishlist.html" title="Yêu thích" style="text-decoration: none;">
-            <svg width="25" height="25" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 24S3 17 3 9.5A5.5 5.5 0 0 1 14 7.22 5.5 5.5 0 0 1 25 9.5C25 17 14 24 14 24Z" 
-                 stroke="#7a5c3a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
+    <div class="header-actions" style="display: flex; gap: 12px; align-items: center;">
+        <a href="/pages/account/Wishlist.html" title="Yêu thích" style="text-decoration: none; display:flex; align-items:center;">
+            <span class="material-symbols-outlined" style="font-size:24px; color:#7a5c3a;">favorite</span>
         </a>
 
-        <a href="cart.html" title="Giỏ hàng" style="position: relative; text-decoration: none;">
-           <svg id="cart-svg-icon" width="35" height="30" viewBox="0 0 28 28" overflow="visible" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 2H6L9 18H22L25 7H7" stroke="#7a5c3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="11" cy="22" r="2" fill="#7a5c3a"/>
-                <circle cx="20" cy="22" r="2" fill="#7a5c3a"/>
-                <circle id="cart-badge-bg" cx="26" cy="2" r="7" fill="#808000" style="display:none"/>
-                <text id="cart-badge-text" x="26" y="6" text-anchor="middle" font-size="9" font-weight="750" fill="white" font-family = "'Montserrat', sans-serif" style="display:none">0</text>
-            </svg>
+        <a href="/pages/checkout/Cart.html" title="Giỏ hàng" style="text-decoration: none; display:flex; align-items:center; position: relative;">
+            <span class="material-symbols-outlined" style="font-size:28px; color:#7a5c3a; font-variation-settings:'FILL' 0,'wght' 300;">shopping_cart</span>
+            <span id="cart-badge-bg" style="display:none; position:absolute; top:-6px; right:-8px; background:#808000; color:white; border-radius:50%; width:16px; height:16px; font-size:10px; font-weight:700; align-items:center; justify-content:center; line-height:16px; text-align:center;">
+                <span id="cart-badge-text">0</span>
+            </span>
         </a>
-
-        <a href="Profile.html" title="Tài khoản" style="text-decoration: none; font-size: 22px; display: flex; align-items: center;">👤</a>
-        
+        <a href="/pages/account/Profile.html" title="Tài khoản" style="text-decoration: none; display:flex; align-items:center;">
+            <span class="material-symbols-outlined" style="font-size:30px; color:#7a5c3a;">person</span>
+        </a>
     </div>
 </header>
 
