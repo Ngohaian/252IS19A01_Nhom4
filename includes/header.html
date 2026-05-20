@@ -3,11 +3,16 @@
         transition: all 0.2s ease;
         display: inline-block;
         padding-bottom: 4px;
-        border-bottom: 2.5px solid transparent;
+        border-bottom: 2.5px solid transparent; 
     }
     .nav-links a:hover {
         -webkit-text-stroke: 0.8px #967451; 
         text-shadow: 0 0 1px #967451;
+        border-bottom-color: #967451; 
+    }
+    .search-box:focus-within {
+        border-color: #967451 !important;
+        box-shadow: 0 0 0 2px rgba(150, 116, 81, 0.2);
     }
 </style>
 
@@ -20,18 +25,30 @@
     <nav>
         <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; font-family: sans-serif; font-size: 15px;">
             <li><a href="index.html" style="color: #967451; text-decoration: none; font-weight: bold;">Trang chủ</a></li>
-            <li><a href="products.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
-            <li><a href="blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
-            <li><a href="about.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
-            <li><a href="contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
+            <li><a href="ProductList.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
+            <li><a href="Blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
+            <li><a href="AboutUs.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
+            <li><a href="Contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
         </ul>
     </nav>
 
     <div class="header-actions" style="display: flex; gap: 20px; align-items: center;">
-        <a href="wishlist.html" title="Yêu thích" style="text-decoration: none; font-size: 22px;">❤️</a>
-        <a href="cart.html" title="Giỏ hàng" style="position: relative; text-decoration: none; font-size: 22px;">
+        
+        <div class="search-box" style="display: flex; align-items: center; border: 1.5px solid #808000; border-radius: 20px; padding: 4px 12px; background: #fff; transition: all 0.3s ease;">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm..." onkeypress="handleSearchKeyPress(event)" style="border: none; outline: none; background: transparent; font-size: 14px; width: 130px; color: #333;">
+            <button onclick="executeSearch()" style="background: none; border: none; cursor: pointer; padding: 0; font-size: 16px; margin-left: 5px;">🔍</button>
+        </div>
+
+        <a href="Wishlist.html" title="Yêu thích" style="text-decoration: none; font-size: 22px; display: flex; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#314D1C"><path d="M120-120v-66.67h720V-120H120Zm97-384q-29-27-42.5-64T161-644q0-81 55.5-138.5T352-840q36 0 69 13t59 38q26-25 59-38t69-13q81 0 136.5 58T800-643q0 39-14.5 74.5T744-505L535-302q-11 11-25 16.5t-30 5.5q-16 0-30-5.5T425-302L217-504Zm46.67-46.67L480-341.33l218-210.34q19-18 27.67-41.89 8.66-23.88 8.66-49.44 0-53.33-36.38-91.33t-88.99-38q-24.63 0-47.57 9.53t-39.72 27.47l-22 22q-4.06 4-9.13 6-5.06 2-10.47 2-5.4 0-10.07-2t-8.67-6l-22-22q-18.13-17.89-40.23-27.94-22.1-10.06-47.1-10.06-52.32 0-88.49 38-36.18 38-36.84 91.33 0 25.75 9 50.37 9 24.63 28 42.96ZM480-557.33Z"/></svg>
+        </a>
+        
+        <a href="Cart.html" title="Giỏ hàng" style="position: relative; text-decoration: none; font-size: 22px; display: flex; align-items: center;">
             🛒 <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 11px; position: absolute; top: -10px; right: -10px; font-weight: bold;">0</span>
         </a>
+
+        <a href="Profile.html" title="Tài khoản" style="text-decoration: none; font-size: 22px; display: flex; align-items: center;">👤</a>
+        
     </div>
 </header>
 
@@ -43,7 +60,6 @@
         
         links.forEach(link => {
             const href = link.getAttribute('href');
-            // Nếu URL chứa tên trang (vd: products.html) hoặc đang ở trang chủ (/)
             if (currentUrl.includes(href) || (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('252IS19A01_Nhom4/')))) {
                 link.style.borderBottom = '2.5px solid #967451';
                 link.style.webkitTextStroke = '0.8px #967451';  
@@ -51,3 +67,22 @@
         });
     }, 200);
 "></svg>
+
+<script>
+    function executeSearch() {
+        const keyword = document.getElementById('searchInput').value.trim();
+        
+        if (keyword !== "") {
+            window.location.href = `ProductList.html?search=${encodeURIComponent(keyword)}`;
+        } else {
+            alert("Vui lòng nhập từ khóa bạn muốn tìm kiếm!");
+            document.getElementById('searchInput').focus(); 
+        }
+    }
+
+    function handleSearchKeyPress(event) {
+        if (event.key === "Enter") {
+            executeSearch();
+        }
+    }
+</script>
