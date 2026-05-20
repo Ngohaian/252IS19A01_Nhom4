@@ -29,14 +29,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         myCart.addItem(products[0], 2);
         myCart.addItem(products[1], 1); 
     }
+    myCart.render();
     myCart.updateCartBadge();
-    const savedCount = parseInt(localStorage.getItem('cartCount') || '0');
     const badge = document.getElementById('cart-badge-bg');
     const text = document.getElementById('cart-badge-text');
-    if (badge && text && savedCount > 0) {
-        badge.style.display = 'flex';
-        text.textContent = savedCount > 99 ? '99+' : savedCount;
-    }
     document.addEventListener('click', function (e) {
         const target = e.target.closest('a');
         if (target && target.href) {

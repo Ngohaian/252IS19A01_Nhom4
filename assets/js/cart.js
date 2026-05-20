@@ -176,8 +176,3 @@ export class Cart {
         }
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const myCart = new Cart();
-    myCart.render();
-    myCart.updateCartBadge();
-});
