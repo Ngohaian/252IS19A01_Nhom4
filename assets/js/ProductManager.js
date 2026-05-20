@@ -126,23 +126,18 @@ class ProductManager {
             return { success: false, message: "Không đủ hàng!" };
         }
 
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+         let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
         const exist = cart.find(p => p.id === id);
 
         if (exist) {
             exist.quantity += quantity;
         } else {
-            cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity
-            });
+            cartItems.push({ product, quantity })
         }
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        localStorage.setItem("cartCount", cartItems.length);
 
         return { success: true, message: "Đã thêm vào giỏ!" };
     }

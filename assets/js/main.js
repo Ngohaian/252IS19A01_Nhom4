@@ -1,38 +1,41 @@
 import { Cart } from './cart.js';
+
 function loadComponent(id, file) {
-    fetch(file)
-        .then(response => response.text())
-        .then(data => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.innerHTML = data;
-            }
+    return fetch(file)
+        .then(res => res.text())
+        .then(html => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.innerHTML = html;
+            el.querySelectorAll('script').forEach(old => {
+                const s = document.createElement('script');
+                [...old.attributes].forEach(a => s.setAttribute(a.name, a.value));
+                s.textContent = old.textContent;
+                document.body.appendChild(s);
+                old.remove();
+            });
         })
-        .catch(error => console.error('Lỗi khi tải file:', file, error));
+        .catch(err => console.error('Lỗi tải:', file, err));
 }
-document.addEventListener("DOMContentLoaded", () => {
-    loadComponent('header-placeholder', '/includes/header.html');
-    loadComponent('footer-placeholder', '/includes/footer.html');
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadComponent('header-placeholder', '/includes/header.html');
+    await loadComponent('footer-placeholder', '/includes/footer.html');
+
     const myCart = new Cart();
-    const products = window.manager.products;
-    fetch('/includes/header.html')
-    .then(r => r.text())
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        myCart.updateCartBadge(); // ← lúc này header đã có DOM rồi
-    });
-    myCart.addItem(products[0], 2);
-    myCart.addItem(products[1], 1);
-    myCart.addItem(products[2], 3);
-    myCart.addItem(products[0], 1);
-    myCart.addItem(products[3], 1);
-    myCart.addItem(products[4], 1);
-    myCart.addItem(products[2], 1);
-    myCart.addItem(products[5], 1);
+
+    const products = window.manager?.products;
+    if (products && products.length > 0) {
+        myCart.addItem(products[0], 2);
+        myCart.addItem(products[1], 1); 
+    }
+    myCart.updateCartBadge();
+    const savedCount = parseInt(localStorage.getItem('cartCount') || '0');
+    const badge = document.getElementById('cart-badge-bg');
+    const text = document.getElementById('cart-badge-text');
+    if (badge && text && savedCount > 0) {
+        badge.style.display = 'flex';
+        text.textContent = savedCount > 99 ? '99+' : savedCount;
+    }
     
-    myCart.render();
-    document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
-        cart.addItem(product, 1);
-        cart.updateCartBadge();
-    });
 });

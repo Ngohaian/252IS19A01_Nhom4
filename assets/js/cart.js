@@ -12,9 +12,28 @@ export class CartItem {
 
 export class Cart {
     constructor() {
-        this.items = []; 
+        this.items = this.loadFromStorage();
     }
 
+    saveToStorage() {
+        localStorage.setItem('cartItems', JSON.stringify(
+            this.items.map(item => ({
+                product: item.product,
+                quantity: item.quantity
+            }))
+        ));
+        localStorage.setItem('cartCount', this.items.length);
+    }
+
+    loadFromStorage() {
+        try {
+            const saved = localStorage.getItem('cartItems');
+            if (!saved) return [];
+            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity));
+        } catch {
+            return [];
+        }
+    }
     get totalAmount() {
         return this.items.reduce((total, item) => total + item.subTotal, 0);
     }
@@ -26,6 +45,7 @@ export class Cart {
         } else {
             this.items.push(new CartItem(product, quantity));
         }
+        this.saveToStorage();
         this.updateCartBadge(); 
     }
 
@@ -38,11 +58,13 @@ export class Cart {
                 item.quantity = quantity;
             }
         }
+        this.saveToStorage();
         this.updateCartBadge();
     }
 
     removeItem(productId) {
         this.items = this.items.filter(item => item.product.id !== productId);
+        this.saveToStorage();
         this.updateCartBadge();
     }
 
@@ -139,11 +161,13 @@ export class Cart {
         `;
     }
     updateCartBadge() {
+        const total = this.items.length; 
+        localStorage.setItem('cartCount', total);
+
         const badge = document.getElementById('cart-badge-bg');
         const text = document.getElementById('cart-badge-text');
         if (!badge || !text) return;
 
-        const total = this.items.length;
         if (total > 0) {
             badge.style.display = 'flex';
             text.textContent = total > 99 ? '99+' : total;
@@ -152,3 +176,8 @@ export class Cart {
         }
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const myCart = new Cart();
+    myCart.render();
+    myCart.updateCartBadge();
+});
