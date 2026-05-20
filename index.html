@@ -7,7 +7,52 @@
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main>
+    <main id="main-content" style="background-color: #FFF8E7; padding-bottom: 50px; overflow-x: hidden;">
+        <section class="hero-container flex-layout">
+            <div class="hero-content fade-in-up">
+                <span class="badge-tag">MỘC MẠC & TỰ NHIÊN</span>
+                <h1 class="hero-title">BỘ SƯU TẬP<br>CÂY CẢNH ĐÔ THỊ</h1>
+                <p class="hero-desc">Mang thiên nhiên về gần hơn với ngôi nhà bạn. Sự kết hợp giữa vẻ đẹp thuần khiết và sự mộc mạc của ánh nắng sớm mai.</p>
+                <div class="hero-buttons flex-layout">
+                    <button class="btn-primary pulse-effect" onclick="window.location.href='products/ProducList.html'">XEM BỘ SƯU TẬP</button>
+                    <button class="btn-secondary" onclick="window.location.href='info/AboutUs.html'">TÌM HIỂU THÊM</button>
+                </div>
+            </div>
+            <div class="hero-image-box fade-in-right">
+                <img src="assets/images/trangchu.png" alt="Cây cảnh dưới nắng" class="hero-img float-animation">
+            </div>
+        </section>
+        
+        <section class="featured-section">
+            <div class="section-header flex-layout fade-in-up">
+                <div class="section-title-box">
+                    <h2>SẢN PHẨM TIÊU BIỂU</h2>
+                    <p>Lựa chọn hàng đầu cho không gian mộc mạc</p>
+                </div>
+                <a href="products/ProductList.html" class="view-all-link hover-slide">KHÁM PHÁ HẾT &rarr;</a>
+            </div>
+            <div id="featured-products-section" class="product-grid-flex"></div>
+        </section>
+
+        <section class="pasel-zen-banner flex-layout fade-in-up">
+            <div class="pasel-image-box">
+                <img src="assets/images/bonsai.png" alt="Vườn cây mộc mạc">
+            </div>
+            <div class="pasel-content-box">
+                <h2 class="pasel-title">PASEL ZEN<br>THIẾT KẾ CÂY CẢNH</h2>
+                <p class="pasel-desc">*Thêm nét độc đáo cho không gian cây xanh của bạn. Chúng tôi mang đến sự cân bằng hoàn hảo giữa phong cách sống mộc mạc và thiết kế đương đại.</p>
+                <div class="pasel-stats flex-layout">
+                    <div class="stat-box">
+                        <h3>500+</h3>
+                        <p>DỰ ÁN MỘC MẠC</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>100%</h3>
+                        <p>THUẦN TỰ NHIÊN</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <div id="footer-placeholder"></div>
     <script src="assets/js/main.js"></script>
