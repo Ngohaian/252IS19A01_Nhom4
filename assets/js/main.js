@@ -35,27 +35,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     const text = document.getElementById('cart-badge-text');
     document.addEventListener('click', function (e) {
         const target = e.target.closest('a');
-        if (target && target.href) {
-            const url = target.href;
+        
+        if (!target || !target.href || target.getAttribute('href') === '#' || target.getAttribute('href').startsWith('#')) {
+            return;
+        }
 
-            if (url.startsWith(window.location.origin)) {
+        const url = target.href;
+
+        if (url.startsWith(window.location.origin)) {
             e.preventDefault();
 
             fetch(url, { method: 'HEAD' })
                 .then(response => {
-                if (response.status === 404) {
-                    window.location.href = '/NotFound.html';
-                } else {
-                    window.location.href = url;
-                }
+                    if (response.status === 404) {
+                        window.location.href = '/NotFound.html';
+                    } else {
+                        window.location.href = url;
+                    }
                 })
                 .catch(() => {
-                window.location.href = url;
+                    window.location.href = url;
                 });
-            }
         }
-    });
-
+    }); 
+});
 // RENDER SẢN PHẨM TIÊU BIỂU TRANG CHỦ (HIỆU ỨNG SINH ĐỘNG)
 function renderFeaturedProducts() {
     const featuredProducts = [
@@ -89,4 +92,3 @@ function renderFeaturedProducts() {
 document.addEventListener("DOMContentLoaded", () => {
     if(typeof renderFeaturedProducts === "function") renderFeaturedProducts();
 });
-})
