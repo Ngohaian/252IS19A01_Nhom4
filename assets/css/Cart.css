@@ -2,7 +2,7 @@
     background-color: white;
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 25px;
     align-items: flex-start;
     max-width: 1200px; 
     width: 100%;
@@ -32,7 +32,7 @@
     background: #fff;
     padding: 25px 40px;
     margin-bottom: 12px;
-    margin-right: 9%;
+    margin-right: 3%;
 }
 .cart-item-row:hover{
     box-shadow: 0 10px 10px rgba(68, 63, 63, 0.144);
@@ -144,6 +144,35 @@
 .remove-item-icon:hover {
     content: url("/assets/images/icon/delete_red.png");
 }
+.empty-cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    margin-right: 9%;
+    border: 1px solid rgba(210,180,140,0.35);
+    border-radius: 16px;
+    background: #fffdf7;
+    gap: 16px;
+}
+.empty-cart-text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #b0a090;
+    margin: 0;
+}
+.find-plant-btn {
+    background: #808000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 13px 36px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.find-plant-btn:hover { background: #6d6d01; }
 /* Tóm tắt đơn hàng */
 .TomTatDon {
     width: 320px;
@@ -166,11 +195,11 @@
 }
 
 .order-summary-box h2 {
-    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 4px;
-    
 }
 
 .summary-line {
@@ -213,11 +242,13 @@
     transform: scale(0.98);
 }
 .summary-label {
+    font-family: 'Montserrat', sans-serif;
     color: #555;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 600;
 }
 .total-line .summary-label.total-price {
-    font-size: 18px; 
+    font-size: 16px; 
     color: #333;
 }
 .summary-value {
@@ -241,7 +272,7 @@
 .total-price {
     font-size: 22px;
     font-weight: 800;
-    color: #8B6914;
+    color: #808000;
 }
 @media (max-width: 768px) {
     .Container {

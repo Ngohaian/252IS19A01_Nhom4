@@ -26,6 +26,7 @@ export class Cart {
         } else {
             this.items.push(new CartItem(product, quantity));
         }
+        this.updateCartBadge(); 
     }
 
     updateQuantity(productId, quantity) {
@@ -37,10 +38,12 @@ export class Cart {
                 item.quantity = quantity;
             }
         }
+        this.updateCartBadge();
     }
 
     removeItem(productId) {
         this.items = this.items.filter(item => item.product.id !== productId);
+        this.updateCartBadge();
     }
 
     createItemRow(item) {
@@ -97,34 +100,55 @@ export class Cart {
         summaryContainer.innerHTML = '';
 
         if (this.items.length === 0) {
-            cartItemsList.innerHTML = '<div class="empty-cart">Giỏ hàng của bạn đang trống rỗng.</div>';
-        } else {
-            this.items.forEach(item => {
-                const cardElement = this.createItemRow(item); 
-                cartItemsList.appendChild(cardElement);     
-            });
+            cartItemsList.innerHTML = `
+            <div class="empty-cart-wrapper">
+                <svg width="90" height="80" viewBox="0 0 90 80" fill="none" >
+                    <path d="M5 5H18L28 54H68L78 18H22" stroke="#c9bba0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="36" cy="68" r="6" fill="#c9bba0"/>
+                    <circle cx="62" cy="68" r="6" fill="#c9bba0"/>
+                </svg>
+                <p class="empty-cart-text">GIỎ HÀNG ĐANG TRỐNG...</p>
+                <a href="/shop" class="find-plant-btn">TÌM CÂY MỚI</a>
+            </div>`;
+            summaryContainer.style.display = 'none';
+            return;
         }
-
+        this.items.forEach(item => {
+            cartItemsList.appendChild(this.createItemRow(item));
+        });
         const subtotal = this.totalAmount;
         summaryContainer.style.display = 'block';
         summaryContainer.innerHTML = `
             <div class="order-summary-box">
                 <h2>TÓM TẮT ĐƠN</h2>
                 <div class="summary-line">
-                    <span class="summary-label">Tạm tính: </span>
+                    <span class="summary-label">Tạm tính </span>
                     <span class="summary-value">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
                 <div class="summary-line">
-                    <span class="summary-label">Vận chuyển: </span>
+                    <span class="summary-label">Vận chuyển </span>
                     <span class="summary-value shipping-free">MIỄN PHÍ</span>
                 </div>
                 <hr class="summary-hr">
                 <div class="summary-line total-line">
-                    <span class="summary-label total-price">TỔNG CỘNG: </span>
+                    <span class="summary-label total-price">TỔNG CỘNG </span>
                     <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
                 <button class="checkout-submit-btn">THANH TOÁN MỘC</button>
             </div>
         `;
+    }
+    updateCartBadge() {
+        const badge = document.getElementById('cart-badge-bg');
+        const text = document.getElementById('cart-badge-text');
+        if (!badge || !text) return;
+
+        const total = this.items.length;
+        if (total > 0) {
+            badge.style.display = 'flex';
+            text.textContent = total > 99 ? '99+' : total;
+        } else {
+            badge.style.display = 'none';
+        }
     }
 }
