@@ -23,26 +23,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadComponent('footer-placeholder', '/includes/footer.html');
 
     const myCart = new Cart();
-    const products = window.manager.products;
-    fetch('/includes/header.html')
-    .then(r => r.text())
-    .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        myCart.updateCartBadge(); 
-    });
-    myCart.addItem(products[0], 2);
-    myCart.addItem(products[1], 1);
-    myCart.addItem(products[2], 3);
-    myCart.addItem(products[0], 1);
-    myCart.addItem(products[3], 1);
-    myCart.addItem(products[4], 1);
-    myCart.addItem(products[2], 1);
-    myCart.addItem(products[5], 1);
-    
-    myCart.render();
-    document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
-        myCart.addItem(product[0], 1);
-        myCart.updateCartBadge();
-        this.saveToLocalStorage();
+
+    const products = window.manager?.products;
+    if (products && products.length > 0) {
+        myCart.addItem(products[0], 2);
+        myCart.addItem(products[1], 1); 
+    }
+    myCart.updateCartBadge();
+    const savedCount = parseInt(localStorage.getItem('cartCount') || '0');
+    const badge = document.getElementById('cart-badge-bg');
+    const text = document.getElementById('cart-badge-text');
+    if (badge && text && savedCount > 0) {
+        badge.style.display = 'flex';
+        text.textContent = savedCount > 99 ? '99+' : savedCount;
+    }
+    document.addEventListener('click', function (e) {
+        const target = e.target.closest('a');
+        if (target && target.href) {
+            const url = target.href;
+
+            if (url.startsWith(window.location.origin)) {
+            e.preventDefault();
+
+            fetch(url, { method: 'HEAD' })
+                .then(response => {
+                if (response.status === 404) {
+                    window.location.href = '/NotFound.html';
+                } else {
+                    window.location.href = url;
+                }
+                })
+                .catch(() => {
+                window.location.href = url;
+                });
+            }
+        }
     });
 });
