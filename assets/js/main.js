@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     myCart.render();
     myCart.updateCartBadge();
-    const badge = document.getElementById('cart-badge-bg');
-    const text = document.getElementById('cart-badge-text');
     document.addEventListener('click', function (e) {
         const target = e.target.closest('a');
         if (target && target.href) {
@@ -49,9 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     window.location.href = url;
                 }
                 })
-                .catch(() => {
-                window.location.href = url;
-                });
+                .catch(() => {window.location.href = url;});
             }
         }
     });

@@ -101,6 +101,7 @@ export class Cart {
             this.render();
         });
         row.querySelector('.qty-increase').addEventListener('click', () => {
+            if(item.quantity >= item.product.stock){return;}
             this.updateQuantity(item.product.id, item.quantity + 1);
             this.render();
         });
@@ -108,11 +109,34 @@ export class Cart {
             this.removeItem(item.product.id);
             this.render();
         });
-
+        row.querySelector('.item-quantity-input').addEventListener('change', (e) => {
+            const newQty = parseInt(e.target.value);
+            if (isNaN(newQty) || newQty < 1) {
+                e.target.value = item.quantity; 
+                return;
+            }
+            if(newQty > item.product.stock){
+                e.target.value = item.quantity; 
+                return;
+            }
+            this.updateQuantity(item.product.id, newQty);
+            this.render();
+        });
         return row;
     }
-
+    validateStock() {
+        this.items.forEach(item => {
+            if(item.product.stock == 0){
+                this.removeItem(item.productId);
+            }
+            if (item.quantity > item.product.stock) {
+                item.quantity = item.product.stock; 
+            }
+        });
+        this.saveToStorage();
+    }
     render() {
+        this.validateStock();
         const cartItemsList = document.getElementById('cart-items-list'); 
         const summaryContainer = document.getElementById('cart-summary'); 
 
