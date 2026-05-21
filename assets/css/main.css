@@ -10,3 +10,8 @@ body{
     display: inline-flex;
     align-items: center;
 }
+#header-placeholder,
+#footer-placeholder {
+    width: 100%;
+    display: block;
+}
