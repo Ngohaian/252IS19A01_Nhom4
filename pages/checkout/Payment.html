@@ -63,14 +63,12 @@
         <div class="TTSanPham">
             <p class="order-title">Đơn mầm</p>
 
-            <div class="order-items">
+            <div id="render-order-items">
             </div>
-            <div class="order-total">
+            <div id="render-order-total">
             </div>
 
-            <button class="btn-checkout" onclick="handleCheckout()">
-            Hoàn tất đặt mầm
-            </button>
+            <button class="btn-checkout" onclick="handleCheckout()">Hoàn tất đặt mầm</button>
         </div>
 
         </div>
@@ -84,19 +82,5 @@
     <script src="../../assets/js/addProduct.js"></script>
     <script type="module" src="../../assets/js/main.js"></script>
     <script src="../../assets/js/payment.js"></script>
-    <script>
-        function handleCheckout() {
-        const name  = document.querySelector('input[placeholder="Họ và tên"]').value.trim();
-        const phone = document.querySelector('input[placeholder="Số điện thoại"]').value.trim();
-        const email = document.querySelector('input[placeholder="Email nhận thông báo"]').value.trim();
-        const addr  = document.querySelector('input[placeholder="Địa chỉ chi tiết (Số nhà, đường...)"]').value.trim();
-
-        if (!name || !phone || !addr) {
-            alert('Vui lòng điền đầy đủ họ tên, số điện thoại và địa chỉ.');
-            return;
-        }
-        alert('Đặt mầm thành công! Cảm ơn bạn đã tin tưởng Mộc Miên 🌱');
-        }
-    </script>
 </body>
 </html>

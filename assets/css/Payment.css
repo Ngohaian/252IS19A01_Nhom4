@@ -1,11 +1,6 @@
 /* ===== PAYMENT PAGE ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 :root {
   --green-dark: #4a6741;
@@ -30,15 +25,18 @@ body.PaymentPage {
 }
 
 .container {
-  max-width: 1100px;
-  margin: 48px auto;
-  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 70px 24px;
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 40px;
+  grid-template-columns: 1fr 320px;
+  gap: 75px;
   align-items: start;
+  box-sizing: border-box;
 }
-
+.TTDatHang{
+  min-width: 0;
+}
 .TTDatHang h1 {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -86,6 +84,13 @@ input[type="email"] {
   color: var(--text-main);
   outline: none;
   transition: border-color 0.2s;
+}
+
+.TTDatHang input[type="text"],
+.TTDatHang input[type="tel"],
+.TTDatHang input[type="email"] {
+    box-sizing: border-box;
+    width: 100%;
 }
 
 input[type="text"]::placeholder,
@@ -171,7 +176,8 @@ input[type="email"]:focus {
 }
 
 .order-title {
-  font-size: 0.7rem;
+  font-family: var(--font-display);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -194,62 +200,73 @@ input[type="email"]:focus {
   gap: 14px;
 }
 
+.order-item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.order-item-img-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
 .order-item-img {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #dde8cc;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .order-item-info {
-  flex: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.order-item-info .name {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.3;
+.order-item-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-main);
 }
 
-.order-item-info .qty {
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  margin-top: 2px;
+.order-item-qty {
+    font-size: 13px;
+    color: #888;
 }
 
 .order-item-price {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--price-color);
-  white-space: nowrap;
-}
-.order-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
-.order-total .label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+.order-divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0;
 }
 
-.order-total .amount {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--price-color);
-  font-family: var(--font-display);
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.total-label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.total-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green-btn);
 }
 
 .btn-checkout {
@@ -259,6 +276,7 @@ input[type="email"]:focus {
   color: #fff;
   border: none;
   border-radius: 10px;
+  margin-top:20px;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 700;
@@ -276,14 +294,22 @@ input[type="email"]:focus {
   transform: scale(0.98);
 }
 
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr 280px; /* ← thu nhỏ cột phải trước */
+    gap: 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
     margin: 24px auto;
+    padding: 24px 16px;
   }
 
   .TTSanPham {
     position: static;
-    order: -1;
+    order: 1;
   }
 }
