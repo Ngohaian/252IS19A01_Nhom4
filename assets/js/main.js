@@ -17,48 +17,6 @@ function loadComponent(id, file) {
         })
         .catch(err => console.error('Lỗi tải:', file, err));
 }
-
-document.addEventListener("DOMContentLoaded", async () => {
-    await loadComponent('header-placeholder', '/includes/header.html');
-    await loadComponent('footer-placeholder', '/includes/footer.html');
-
-    const myCart = new Cart();
-
-    const products = window.manager?.products;
-    if (products && products.length > 0) {
-        myCart.addItem(products[0], 2);
-        myCart.addItem(products[1], 1); 
-    }
-    myCart.render();
-    myCart.updateCartBadge();
-    const badge = document.getElementById('cart-badge-bg');
-    const text = document.getElementById('cart-badge-text');
-    document.addEventListener('click', function (e) {
-        const target = e.target.closest('a');
-        
-        if (!target || !target.href || target.getAttribute('href') === '#' || target.getAttribute('href').startsWith('#')) {
-            return;
-        }
-
-        const url = target.href;
-
-        if (url.startsWith(window.location.origin)) {
-            e.preventDefault();
-
-            fetch(url, { method: 'HEAD' })
-                .then(response => {
-                    if (response.status === 404) {
-                        window.location.href = '/NotFound.html';
-                    } else {
-                        window.location.href = url;
-                    }
-                })
-                .catch(() => {
-                    window.location.href = url;
-                });
-        }
-    }); 
-});
 // RENDER SẢN PHẨM TIÊU BIỂU TRANG CHỦ (HIỆU ỨNG SINH ĐỘNG)
 function renderFeaturedProducts() {
     const featuredProducts = [
@@ -88,7 +46,57 @@ function renderFeaturedProducts() {
         `).join("");
     }
 }
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadComponent('header-placeholder', '/includes/header.html');
+    await loadComponent('footer-placeholder', '/includes/footer.html');
 
-document.addEventListener("DOMContentLoaded", () => {
-    if(typeof renderFeaturedProducts === "function") renderFeaturedProducts();
+    const myCart = new Cart();
+
+    const products = window.manager?.products;
+    if (products && products.length > 0) {
+        myCart.addItem(products[0], 2);
+        myCart.addItem(products[1], 1); 
+    }
+    myCart.render();
+    myCart.updateCartBadge();
+    renderFeaturedProducts();
+    document.addEventListener('click', function (e) {
+    const target = e.target.closest('a');
+    if (!target || !target.href) return;
+
+    const href = target.getAttribute('href');
+    if (!href || href === '#' || href.startsWith('#')) return;
+
+    const url = target.href;
+    if (!url.startsWith(window.location.origin)) return;
+
+    e.preventDefault();
+
+    const testFrame = document.createElement('iframe');
+    testFrame.style.display = 'none';
+    testFrame.src = url;
+    document.body.appendChild(testFrame);
+
+    testFrame.onload = function() {
+        try {
+            const frameDoc = testFrame.contentDocument || testFrame.contentWindow.document;
+            if (frameDoc.body.innerText.includes('Cannot GET')) {
+                window.location.href = '/NotFound.html';
+            } else {
+                window.location.href = url;
+            }
+        } catch {
+            window.location.href = url; // Cross-origin → cho qua
+        } finally {
+            document.body.removeChild(testFrame);
+        }
+    };
+
+    testFrame.onerror = function() {
+        window.location.href = '/NotFound.html';
+        document.body.removeChild(testFrame);
+    };
 });
+    
+});
+
