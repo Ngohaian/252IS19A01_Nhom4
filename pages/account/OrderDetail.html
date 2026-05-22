@@ -4,13 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/orderDetail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main>
+    <main class="OrderDetailPage">
+        <div class="Container">
+            <div class="HeaderDonHang">
+                <div id="TTDon">
+                    
+                </div>
+                <a class="btnMuaLai" style="text-decoration: none;">
+                    <span class="material-symbols-outlined" style="font-size:24px; color: var(--cream);">shopping_bag</span>
+                    Mua lại đơn này</a>
+            </div>
+            <div class="TrangThaiDonHang">
+                <h2><span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">local_shipping</span>
+                    Trạng thái đơn hàng</h2>
+                <div class="TrangThaiDonHangContent"></div>
+            </div>
+            <div class="NoiDungDonHang">
+                <div class="SanPham">
+                    <div class="TTSanPham">
+                        <h2><span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">eco</span>
+                            Sản phẩm đã mua</h2>
+                        <div class="TTSanPhamContent">
+
+                        </div>
+                    </div>
+                    <div class="TongQuanDonHang">
+                        <h2><span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">receipt_long</span>
+                            Tổng quan đơn hàng</h2>
+                        <div class="TongQuanContent">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="TTGiaoHang">
+                    <div class="TTNguoiNhan">
+                        <h2><span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">map</span>
+                            Thông tin giao hàng</h2>
+                        <div class="TTNguoiNhanContent"></div>
+                    </div>
+                    <div class="TTThanhToan">
+                        <h2>
+                            <span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">credit_card</span>
+                            Thanh toán</h2>
+                        <div class="TTThanhToanContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
     <script type="module" src="../../assets/js/main.js"></script>
+    <script type="module" src="../../assets/js/order.js"></script>
 </body>    
 </html>

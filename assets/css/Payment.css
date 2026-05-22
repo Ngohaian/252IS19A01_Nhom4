@@ -1,21 +1,4 @@
-/* ===== PAYMENT PAGE ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap');
 
-
-:root {
-  --green-dark: #4a6741;
-  --green-mid: #6b8f5e;
-  --green-btn: #7a9a3c;
-  --gold-text: #b8860b;
-  --cream: #faf7f0;
-  --cream-card: #f5f0e8;
-  --border: #ddd5c4;
-  --text-main: #2c2c2c;
-  --text-muted: #888;
-  --price-color: #c8860b;
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Be Vietnam Pro', sans-serif;
-}
 
 body.PaymentPage {
   background-color: var(--cream);
@@ -45,11 +28,11 @@ body.PaymentPage {
   margin-bottom: 32px;
 }
 
-.TTGiaoHang,.HinhThucTT {
+.TTGiaoHang,.HinhThucTT,.note {
   margin-bottom: 24px;
 }
 
-.TTGiaoHang p,.HinhThucTT p {
+.TTGiaoHang p,.HinhThucTT p, .note p {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -71,9 +54,10 @@ body.PaymentPage {
   grid-template-columns: 1fr;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"] {
+.TTDatHang input[type="text"],
+.TTDatHang input[type="tel"],
+.TTDatHang input[type="email"], 
+textarea {
   width: 100%;
   padding: 13px 16px;
   border: 1.5px solid var(--border);
@@ -88,23 +72,28 @@ input[type="email"] {
 
 .TTDatHang input[type="text"],
 .TTDatHang input[type="tel"],
-.TTDatHang input[type="email"] {
+.TTDatHang input[type="email"],
+.note textarea {
     box-sizing: border-box;
     width: 100%;
 }
 
-input[type="text"]::placeholder,
-input[type="tel"]::placeholder,
-input[type="email"]::placeholder {
+.TTDatHang input[type="text"]::placeholder,
+.TTDatHang input[type="tel"]::placeholder,
+.TTDatHang input[type="email"]::placeholder,
+textarea::placeholder {
   color: #bbb;
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="email"]:focus {
+.TTDatHang input[type="text"]:focus,
+.TTDatHang input[type="tel"]:focus,
+.TTDatHang input[type="email"]:focus, 
+textarea:focus {
   border-color: var(--green-mid);
 }
-
+#notedathang{
+  resize: none;
+}
 .payment-options {
   display: flex;
   flex-direction: column;
@@ -165,7 +154,7 @@ input[type="email"]:focus {
 .transfer-info.active {
     display: block; 
 }
-/* ===== RIGHT COLUMN — ORDER SUMMARY ===== */
+
 .TTSanPham {
   background: var(--cream-card);
   border: 1px solid var(--border);
@@ -269,7 +258,7 @@ input[type="email"]:focus {
     color: var(--green-btn);
 }
 
-.btn-checkout {
+#btn-checkout {
   width: 100%;
   padding: 16px;
   background: var(--green-btn);

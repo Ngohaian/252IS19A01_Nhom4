@@ -1,0 +1,396 @@
+.Container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 50px 120px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+}
+.HeaderDonHang{
+    display: grid;
+    grid-template-columns: 2fr 0.45fr;
+    align-items: start;
+    
+}
+#TTDon{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.TTChung{
+    display: flex;
+    flex-direction: column;
+}
+#orderId{
+    color: var(--text-main);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#ngayorder{
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+}
+.btnTTDonHang {
+    border: 2px solid var(--green-btn);
+    background-color: #f9fff9;
+    max-height: fit-content;
+    color: var(--green-btn);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+.btnMuaLai{
+    border: 3px solid var(--green-btn);
+    background-color: var(--green-btn);
+    color: var(--cream);
+    max-width: fit-content;
+    max-height: fit-content;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    justify-self: end;
+}
+.TrangThaiDonHang{
+    display: block;
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 15px 20px;
+    padding-bottom: 30px;
+    transition: border-color 0.2s;
+}
+.TrangThaiDonHang h2{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    color: var(--text-main);
+}
+.timeline {
+    display: flex;
+    align-items: center;
+    padding: 16px 8px 8px;
+}
+
+.timeline-line {
+    flex: 1;
+    height: 3px;
+    background-color: var(--border);
+    margin: 0 4px;
+    margin-bottom: 28px; 
+    transition: background-color 0.3s;
+}
+
+.timeline-line.filled {
+    background-color: var(--green-btn);
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.timeline-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.3s;
+}
+
+.timeline-step.done .timeline-icon {
+    background-color: var(--green-btn);
+    border-color: var(--green-btn);
+    color: #fff;
+}
+
+.timeline-step.active .timeline-icon {
+    background-color: var(--green-btn);
+    border-color: var(--green-btn);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(76, 153, 0, 0.15);
+}
+
+.timeline-label {
+    font-size: 12px;
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.timeline-step.done .timeline-label,
+.timeline-step.active .timeline-label {
+    color: var(--green-btn);
+    font-weight: 600;
+}
+.NoiDungDonHang{
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 35px;
+    
+}
+.TTSanPham, .TongQuanDonHang, .TTNguoiNhan, .TTThanhToan{
+    border: 1px solid var(--border);
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    transition: border-color 0.2s;
+}
+.NoiDungDonHang h2{
+    font-family: var(--font-display);
+    color: var(--text-main);
+    font-size: 20px;
+}
+.TTSanPham h2,
+ .TongQuanDonHang h2,
+  .TTNguoiNhan h2, 
+  .TTThanhToan h2{
+    display: flex;
+    gap: 10px;
+}
+.TTSanPham{
+    display: flex;
+    flex-direction: column;
+}
+.orderDetailRow {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.orderDetailRow:last-child {
+    border-bottom: none;
+}
+
+.orderDetailContainer {
+    display: flex;
+    align-items: center;
+}
+
+.item-visuals {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+}
+
+.orderDetailImg {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.item-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.item-category {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.item-quantity {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.item-quantity::before {
+    content: "Số lượng: ";
+}
+
+.item-price {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--green-dark);
+    white-space: nowrap;
+}
+.TongQuanContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.tq-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.tq-divider {
+    border-top: 1px solid var(--border);
+    margin: 4px 0;
+}
+
+.tq-total {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.tq-total span:last-child {
+    color: var(--green-dark);
+    font-size: 20px;
+}
+.TTGiaoHang{
+    display: flex;
+    flex-direction: column;
+}
+.TTNguoiNhanContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.gh-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gh-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.gh-name {
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.gh-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-muted);
+    background-color: var(--bg-light, #f7f7f5);
+    padding: 6px 10px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.gh-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 8px 10px;
+}
+
+.gh-note {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-main);
+    font-style: italic;
+    line-height: 1.6;
+    padding: 8px 12px;
+}
+
+.gh-divider {
+    border-top: 1px solid var(--border);
+}
+.TTThanhToanContent {
+    padding-top: 8px;
+}
+
+.tt-method {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--bg-light, #f7f7f5);
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+.tt-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tt-icon.banking {
+    background-color: #fff3e0;
+    color: var(--green-btn);
+}
+
+.tt-icon.cod {
+    background-color: #fff3e0;
+    color: var(--green-btn);
+}
+
+.tt-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tt-name {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.tt-status {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--green-dark);
+    font-weight: 500;
+}

@@ -20,43 +20,47 @@
             <div class="TTGiaoHang">
             <p>1. Thông tin giao mầm</p>
             <div class="form-row">
-                <input type="text"  placeholder="Họ và tên">
-                <input type="tel"   placeholder="Số điện thoại">
+                <input type="text" id="tendathang" placeholder="Họ và tên">
+                <input type="tel" id="sdtdathang" placeholder="Số điện thoại">
             </div>
             <div class="form-row full">
-                <input type="email" placeholder="Email nhận thông báo">
+                <input type="email" id="emaildathang" placeholder="Email nhận thông báo">
             </div>
             <div class="form-row full">
-                <input type="text"  placeholder="Địa chỉ chi tiết (Số nhà, đường...)">
+                <input type="text" id="diachidathang" placeholder="Địa chỉ chi tiết (Số nhà, đường...)">
             </div>
             </div>
 
             <div class="HinhThucTT">
-            <p>2. Hình thức thanh toán</p>
-            <div class="payment-options">
+                <p>2. Hình thức thanh toán</p>
+                <div class="payment-options">
 
-                <label class="payment-option">
-                    <input type="radio" name="payment" value="cod" checked>
-                    <div class="payment-option-label">
-                        <span>Trả tiền khi nhận mầm (COD)</span>
-                        <small>Được kiểm tra cây trước khi trả tiền</small>
-                    </div>
-                </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod" checked>
+                        <div class="payment-option-label">
+                            <span>Trả tiền khi nhận mầm (COD)</span>
+                            <small>Được kiểm tra cây trước khi trả tiền</small>
+                        </div>
+                    </label>
 
-                <label class="payment-option">
-                    <input type="radio" name="payment" value="transfer">
-                    <div class="payment-option-label">
-                        <span>Chuyển khoản / Ví điện tử</span>
-                        <small>An toàn và nhanh chóng</small>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="transfer">
+                        <div class="payment-option-label">
+                            <span>Chuyển khoản / Ví điện tử</span>
+                            <small>An toàn và nhanh chóng</small>
+                        </div>
+                    </label>
+                    <div id="transfer-details" class="transfer-info">
+                        <p><strong>Ngân hàng:</strong> Vietcombank (VCB)</p>
+                        <p><strong>Số tài khoản:</strong> 1023456789</p>
+                        <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                        <p><strong>Nội dung CK:</strong> <span id="transfer-content" style="color: red; font-weight: bold;">MOCMIEN [Số điện thoại của bạn]</span></p>
                     </div>
-                </label>
-                <div id="transfer-details" class="transfer-info">
-                    <p><strong>Ngân hàng:</strong> Vietcombank (VCB)</p>
-                    <p><strong>Số tài khoản:</strong> 1023456789</p>
-                    <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
-                    <p><strong>Nội dung CK:</strong> <span id="transfer-content" style="color: red; font-weight: bold;">MOCMIEN [Số điện thoại của bạn]</span></p>
                 </div>
-            </div>
+                <div class="note">
+                    <p>3. Ghi chú</p>
+                    <textarea id="notedathang" placeholder="Ghi chú thêm cho đơn hàng" rows="8"></textarea>
+                </div>
             </div>
         </div>
 
@@ -68,7 +72,7 @@
             <div id="render-order-total">
             </div>
 
-            <button class="btn-checkout" onclick="handleCheckout()">Hoàn tất đặt mầm</button>
+            <button id="btn-checkout">Đặt hàng</button>
         </div>
 
         </div>
@@ -81,6 +85,6 @@
     <script src="../../assets/js/Pagination.js"></script>
     <script src="../../assets/js/addProduct.js"></script>
     <script type="module" src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/payment.js"></script>
+    <script type="module" src="../../assets/js/payment.js"></script>
 </body>
 </html>

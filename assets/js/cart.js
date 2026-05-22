@@ -1,5 +1,3 @@
-// File: assets/js/cart.js
-
 export class CartItem {
     constructor(product, quantity) {
         this.product = product;   

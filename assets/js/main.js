@@ -1,5 +1,5 @@
 import { Cart } from './cart.js';
-
+import {order, orderDetailUI} from './order.js';
 function loadComponent(id, file) {
     return fetch(file)
         .then(res => res.text())
@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     myCart.render();
     myCart.updateCartBadge();
     renderFeaturedProducts();
+    const orders = order.loadFromStorage();
+
     document.addEventListener('click', function (e) {
     const target = e.target.closest('a');
     if (!target || !target.href) return;
@@ -86,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 window.location.href = url;
             }
         } catch {
-            window.location.href = url; // Cross-origin → cho qua
+            window.location.href = url;
         } finally {
             document.body.removeChild(testFrame);
         }

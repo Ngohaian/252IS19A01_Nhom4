@@ -1,3 +1,4 @@
+import {order, orderDetailUI} from "./order.js";
 window.addEventListener('DOMContentLoaded', () => {
     const paymentOptions = document.querySelectorAll('input[name="payment"]');
     const transferDetails = document.getElementById('transfer-details');
@@ -18,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     renderOrderAndCalculateTotal();
+    document.getElementById('btn-checkout').addEventListener('click', handleCheckout);
 });
 
 function renderOrderAndCalculateTotal() {
@@ -64,12 +66,12 @@ function renderOrderAndCalculateTotal() {
 
 
 function handleCheckout() {
-    const name  = document.querySelector('input[placeholder="Họ và tên"]').value.trim();
-    const phone = document.querySelector('input[placeholder="Số điện thoại"]').value.trim();
-    const email = document.querySelector('input[placeholder="Email nhận thông báo"]').value.trim();
-    const addr  = document.querySelector('input[placeholder="Địa chỉ chi tiết (Số nhà, đường...)"]').value.trim();
+    const name  = document.getElementById('tendathang').value.trim();
+    const phone = document.getElementById('sdtdathang').value.trim();
+    const email = document.getElementById('tendathang').value.trim();
+    const addr  = document.getElementById('diachidathang').value.trim();
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-
+    const note = document.getElementById('notedathang').value.trim();
     if (!name || !phone || !addr) {
         alert('Vui lòng điền đầy đủ họ tên, số điện thoại và địa chỉ nhận mầm nhé.');
         return;
@@ -78,7 +80,25 @@ function handleCheckout() {
         alert("Số điện thoại không hợp lệ");
         return;
     }
-    if (paymentMethod === 'transfer') {
+    const orderItems = JSON.parse(localStorage.getItem('orderItems')) || [];
+    const order1= new order(
+        2,
+        {
+            name: name,
+            phone: phone,
+            email: email,
+            address: addr,
+        },
+        Date.now(),
+        "Đã đặt hàng",
+        paymentMethod,
+        note
+     );
+    orderItems.forEach(item =>{
+        order1.addItem(item.product, item.quantity, item.product.price);
+     })
+    order1.saveToStorage();
+     if (paymentMethod === 'transfer') {
         alert('Mộc Miên đã ghi nhận đơn hàng Chuyển Khoản của bạn. Vui lòng thanh toán theo thông tin trên màn hình để mầm sớm được đi đường nhé! 🌱');
     } else {
         alert('Đặt mầm thành công! Cảm ơn bạn đã tin tưởng Mộc Miên 🌱. Đơn hàng sẽ được thanh toán khi giao (COD).');
