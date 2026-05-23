@@ -1,14 +1,10 @@
 .Container {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1.25fr minmax(260px, 0.65fr);
+    gap: 50px;
     max-width: 1200px;
     margin: 0px auto;
     padding: 70px 24px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
     align-items: start;
 }
 
@@ -34,7 +30,7 @@
     border: 1.5px solid var(--border);
     border-radius: 0.9375rem;
     background: #fff;
-    padding: 25px 40px;
+    padding: 1rem 1.5rem;
     margin-bottom: 0.75rem;
     transition: box-shadow 0.2s;
 }
@@ -308,7 +304,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .Container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         padding: 24px 16px;
     }
 
