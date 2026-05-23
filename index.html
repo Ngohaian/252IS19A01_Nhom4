@@ -2,11 +2,10 @@
 <html lang="vi">
 <head>
     <script>
-        const base = document.createElement('base');
-        base.href = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
             ? '/'
             : '/252IS19A01_Nhom4/';
-        document.head.prepend(base);
+        document.write('<base href="' + basePath + '">');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
