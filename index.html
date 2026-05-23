@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const base = document.createElement('base');
+        base.href = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.head.prepend(base);
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/252IS19A01_Nhom4/">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/Index.css">
 </head>
