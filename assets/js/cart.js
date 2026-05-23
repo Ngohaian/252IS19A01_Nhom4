@@ -1,5 +1,3 @@
-// File: assets/js/cart.js
-
 export class CartItem {
     constructor(product, quantity) {
         this.product = product;   
@@ -67,7 +65,29 @@ export class Cart {
         this.saveToStorage();
         this.updateCartBadge();
     }
+    getSelectedItems() {
+        return this.items.filter(item => item.selected !== false);
+    }
 
+    get selectedTotal() {
+        return this.getSelectedItems().reduce((total, item) => total + item.subTotal, 0);
+    }
+    updateSummary() {
+        const summaryContainer = document.getElementById('cart-summary');
+        if (!summaryContainer) return;
+
+        const subtotal = this.selectedTotal;
+
+        const valueEls = summaryContainer.querySelectorAll('.summary-value');
+        if (valueEls.length > 0) {
+            valueEls[0].textContent = subtotal.toLocaleString('vi-VN') + 'đ'; // tạm tính
+        }
+
+        const totalEls = summaryContainer.querySelectorAll('.total-price.summary-value');
+        if (totalEls.length > 0) {
+            totalEls[0].textContent = subtotal.toLocaleString('vi-VN') + 'đ'; // tổng cộng
+        }
+    }
     createItemRow(item) {
         const row = document.createElement('div');
         row.className = 'cart-item-row';
@@ -75,6 +95,7 @@ export class Cart {
 
         row.innerHTML = `
         <div class="cart-item-container">
+            <input type="checkbox" class="item-checkbox" checked>
             <div class="item-visuals">
                 <img src="${item.product.image}" alt="${item.product.name}" class="item-cart-image">
                 <div class="item-info">
@@ -101,6 +122,7 @@ export class Cart {
             this.render();
         });
         row.querySelector('.qty-increase').addEventListener('click', () => {
+            if(item.quantity >= item.product.stock){return;}
             this.updateQuantity(item.product.id, item.quantity + 1);
             this.render();
         });
@@ -108,11 +130,38 @@ export class Cart {
             this.removeItem(item.product.id);
             this.render();
         });
-
+        row.querySelector('.item-quantity-input').addEventListener('change', (e) => {
+            const newQty = parseInt(e.target.value);
+            if (isNaN(newQty) || newQty < 1) {
+                e.target.value = item.quantity; 
+                return;
+            }
+            if(newQty > item.product.stock){
+                e.target.value = item.quantity; 
+                return;
+            }
+            this.updateQuantity(item.product.id, newQty);
+            this.render();
+        });
+        row.querySelector('.item-checkbox').addEventListener('change', (e) => {
+            item.selected = e.target.checked;
+            this.updateSummary();
+        });
         return row;
     }
-
+    validateStock() {
+        this.items.forEach(item => {
+            if(item.product.stock == 0){
+                this.removeItem(item.productId);
+            }
+            if (item.quantity > item.product.stock) {
+                item.quantity = item.product.stock; 
+            }
+        });
+        this.saveToStorage();
+    }
     render() {
+        this.validateStock();
         const cartItemsList = document.getElementById('cart-items-list'); 
         const summaryContainer = document.getElementById('cart-summary'); 
 
@@ -138,7 +187,7 @@ export class Cart {
         this.items.forEach(item => {
             cartItemsList.appendChild(this.createItemRow(item));
         });
-        const subtotal = this.totalAmount;
+        const subtotal = this.selectedTotal;
         summaryContainer.style.display = 'block';
         summaryContainer.innerHTML = `
             <div class="order-summary-box">
@@ -156,9 +205,23 @@ export class Cart {
                     <span class="summary-label total-price">TỔNG CỘNG </span>
                     <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
-                <button class="checkout-submit-btn">THANH TOÁN MỘC</button>
+                <a class="checkout-submit-btn" href="/pages/checkout/Payment.html">THANH TOÁN MỘC</a>
             </div>
         `;
+        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', ()=>{
+            let orderItems = this.getSelectedItems();
+            if (orderItems.length === 0) {
+                e.preventDefault();
+                alert('Vui lòng chọn ít nhất 1 sản phẩm!');
+                return;
+            }
+            localStorage.setItem("orderItems", JSON.stringify(
+                orderItems.map(item => ({
+                product: item.product,
+                quantity: item.quantity
+            }))
+        ));
+        });
     }
     updateCartBadge() {
         const total = this.items.length; 

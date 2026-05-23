@@ -1,28 +1,15 @@
-
-:root {
-  --green-dark: #4a6741;
-  --green-mid: #6b8f5e;
-  --green-btn: #7a9a3c;
-  --gold-text: #b8860b;
-  --cream: #faf7f0;
-  --cream-card: #f5f0e8;
-  --border: #ddd5c4;
-  --text-main: #2c2c2c;
-  --text-muted: #888;
-  --price-color: #c8860b;
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Be Vietnam Pro', sans-serif;
-}
-
 .Container {
-    display: grid;
-    grid-template-columns: 1.25fr 0.5fr;
-    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: flex-start;
     max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 0px;
-    box-sizing: border-box;
+    margin: 0px auto;
+    padding: 70px 24px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    align-items: start;
 }
 
 /* ===== GIỎ HÀNG ===== */
@@ -61,8 +48,13 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 12px;
 }
-
+.item-checkbox{
+    width: 18px;
+    height: 18px;
+    accent-color: var(--green-btn);
+}
 .item-visuals {
     display: flex;
     flex-direction: row;
@@ -177,6 +169,7 @@
 .empty-cart-wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
     padding: 60px 40px;
     border: 1.5px solid var(--border);
@@ -254,6 +247,9 @@
 }
 
 .checkout-submit-btn {
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
     width: 100%;
     padding: 0.875rem;
     margin-top: 8px;
@@ -267,6 +263,7 @@
     letter-spacing: 2px;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
 }
 
 .checkout-submit-btn:hover {
@@ -280,12 +277,12 @@
 .summary-label {
     font-family: var(--font-body);
     color: var(--text-main);
-    font-size: 0.8125rem;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .summary-value {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-main);
 }
@@ -297,13 +294,13 @@
 
 .total-line .summary-label {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: var(--text-muted);
 }
 
 .total-price {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     color: var(--price-color);
 }
@@ -311,8 +308,8 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .Container {
-        grid-template-columns: 1fr;
-        padding: 24px 1rem;
+        flex-direction: column;
+        padding: 24px 16px;
     }
 
     .TomTatDon {
