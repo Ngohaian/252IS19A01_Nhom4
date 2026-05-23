@@ -47,8 +47,12 @@ function renderFeaturedProducts() {
     }
 }
 document.addEventListener("DOMContentLoaded", async () => {
-    await loadComponent('header-placeholder', 'includes/header.html');
-    await loadComponent('footer-placeholder', 'includes/footer.html');
+    const BASE = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+    ? '/'
+    : '/252IS19A01_Nhom4/';
+
+await loadComponent('header-placeholder', `${BASE}includes/header.html`);
+await loadComponent('footer-placeholder', `${BASE}includes/footer.html`);
 
     const myCart = new Cart();
 
