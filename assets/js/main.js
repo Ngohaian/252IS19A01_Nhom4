@@ -47,8 +47,8 @@ function renderFeaturedProducts() {
     }
 }
 document.addEventListener("DOMContentLoaded", async () => {
-    await loadComponent('header-placeholder', '/includes/header.html');
-    await loadComponent('footer-placeholder', '/includes/footer.html');
+    await loadComponent('header-placeholder', 'includes/header.html');
+    await loadComponent('footer-placeholder', 'includes/footer.html');
 
     const myCart = new Cart();
 
