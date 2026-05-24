@@ -133,8 +133,8 @@ const productsData = [
         },
 
         3
-    ));
-
+    )
+]
 manager.saveToLocalStorage();
 
 

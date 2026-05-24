@@ -8,12 +8,6 @@ html{
     box-sizing: border-box;
 }
 
-body{
-    background: #f5f7f2;
-    color: #2d2d2d;
-    font-family: sans-serif;
-}
-
 
 
 /* ================= LAYOUT ================= */
@@ -75,18 +69,18 @@ body{
 }
 
 .breadcrumb a{
-    color: #2e7d32;
+    color: var(--green-dark);
     text-decoration: none;
     transition: color .2s ease;
 }
 
 .breadcrumb a:hover{
-    color: #1b5e20;
+    color: var(--green-mid);
     text-decoration: underline;
 }
 
 .breadcrumb span{
-    color: #718096;
+    color: var(--text-muted);
 }
 
 /* ================= SEARCH ================= */
@@ -106,7 +100,7 @@ body{
     color: #888;
 }
 
-.search-box input{
+.filter-wrapper .search-box input{
     width: 100%;
     height: 3.375rem;
 
@@ -122,7 +116,7 @@ body{
 }
 
 .search-box input:focus{
-    border-color: #8a9800;
+    border-color: var(--green-oliu);
     background: white;
 }
 
@@ -137,15 +131,15 @@ body{
 }
 
 .filter-group label{
-    font-size: .875rem;
-    font-weight: 600;
-    color: #555;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
 }
 
 .filter-group select{
     width: 100%;
     height: 3.25rem;
-
+    font-size: 1rem;
     border-radius: .875rem;
     border: 1px solid #ddd;
 
@@ -185,7 +179,7 @@ body{
     width: 100%;
     height: .3125rem;
 
-    background: #8a9800;
+    background: var(--green-oliu);
 
     position: absolute;
 
@@ -286,7 +280,7 @@ body{
 
     background: #edf2d0;
 
-    color: #7a8600;
+    color: var(--green-mid);
 
     font-size: .8125rem;
     font-weight: 600;
@@ -356,7 +350,7 @@ body{
 
     border-radius: .875rem;
 
-    background: #8a9800;
+    background: var(--green-oliu);
 
     color: white;
 
@@ -368,7 +362,7 @@ body{
 }
 
 .blog-btn:hover{
-    background: #6f7b00;
+    background: var(--green-dark); 
 }
 
 

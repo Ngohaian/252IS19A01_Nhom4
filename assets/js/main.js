@@ -29,13 +29,11 @@ function renderFeaturedProducts() {
     const productsContainer = document.getElementById("featured-products-section");
     if (productsContainer) {
         productsContainer.innerHTML = featuredProducts.map((p, index) => `
+            <a href="/pages/products/ProductDetail.html?id=${p.id}"
+                style="text-decoration:none; color:inherit; display:contents;">
             <div class="home-product-card fade-in-up" style="animation-delay: ${index * 0.2}s">
                 <div class="product-img-wrapper">
                     <img src="${p.img}" alt="${p.name}">
-                    <div class="heart-icon heart-bounce">♡</div>
-                    <div class="hover-overlay">
-                        <button class="btn-buy" onclick="window.location.href='./pages/products/ProductDetail.html'">Chi tiết</button>
-                    </div>
                 </div>
                 <div class="product-info">
                     <span class="product-category">${p.category}</span>
@@ -43,6 +41,7 @@ function renderFeaturedProducts() {
                     <p class="product-price">${p.price.toLocaleString("vi-VN")}đ</p>
                 </div>
             </div>
+        </a>
         `).join("");
     }
 }
@@ -56,11 +55,6 @@ await loadComponent('footer-placeholder', `${BASE}includes/footer.html`);
 
     const myCart = new Cart();
 
-    const products = window.manager?.products;
-    if (products && products.length > 0) {
-        myCart.addItem(products[0], 2);
-        myCart.addItem(products[1], 1); 
-    }
     myCart.render();
     myCart.updateCartBadge();
     renderFeaturedProducts();
@@ -178,21 +172,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Render giao diện ngay tại phần "Sản phẩm tiêu biểu"
                 if (filteredProducts.length > 0) {
-                    productsContainer.innerHTML = filteredProducts.map((p, index) => `
-                        <div class="home-product-card fade-in-up" style="animation-delay: ${index * 0.1}s">
-                            <div class="product-img-wrapper">
-                                <div class="heart-icon" onclick="this.classList.toggle('liked')">♡</div>
-                                <img src="${p.img || p.image}" alt="${p.name}">
-                                <div class="hover-overlay">
-                                    <a href="/pages/products/ProductDetail.html?id=${p.id}" class="btn-buy">Chi tiết</a>
+                    productsContainer.innerHTML = featuredProducts.map((p, index) => `
+                        <a href="/pages/products/ProductDetail.html?id=${p.id}" 
+                        style="text-decoration:none; color:inherit; display:contents;">
+                            <div class="home-product-card fade-in-up" style="animation-delay: ${index * 0.2}s; cursor: pointer;">
+                                <div class="product-img-wrapper">
+                                    <img src="${p.img}" alt="${p.name}">
+                                    <div class="heart-icon heart-bounce" onclick="event.stopPropagation(); this.classList.toggle('liked')">♡</div>
+                                </div>
+                                <div class="product-info">
+                                    <span class="product-category">${p.category}</span>
+                                    <h3 class="product-name">${p.name}</h3>
+                                    <p class="product-price">${p.price.toLocaleString("vi-VN")}đ</p>
                                 </div>
                             </div>
-                            <div class="product-info">
-                                <span class="product-category">${p.category || 'Cây cảnh'}</span>
-                                <h3 class="product-name">${p.name}</h3>
-                                <p class="product-price">${(p.price || 0).toLocaleString("vi-VN")}đ</p>
-                            </div>
-                        </div>
+                        </a>
                     `).join("");
                 } else {
                     // Trạng thái không tìm thấy

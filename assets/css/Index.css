@@ -30,8 +30,11 @@
 .home-product-card {
     width: calc(25% - 19px);
     min-width: 260px;
-    margin-bottom: 25px; /* Thêm lề dưới để không bị dính hàng */
-    position: relative; /* Cực kỳ quan trọng để neo nút bấm không bị bay lên top */
+    margin-bottom: 25px;
+    position: relative;
+    border-radius: 12px;        
+    overflow: hidden; 
+    cursor: pointer;
 }
 .home-product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(150,116,81,0.2); }
 .product-img-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; }

@@ -1,9 +1,6 @@
 
 
 body.PaymentPage {
-  background-color: var(--cream);
-  font-family: var(--font-body);
-  color: var(--text-main);
   min-height: 100vh;
 }
 
