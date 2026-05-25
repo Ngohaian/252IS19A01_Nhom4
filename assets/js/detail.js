@@ -1,5 +1,6 @@
 //detail.js
 const detailManager = new ProductManager();
+const cart = new Cart();
 detailManager.loadFromLocalStorage();
 
 const detail = document.querySelector(".detail");
@@ -63,7 +64,7 @@ if (!product) {
 
     // ================= CART =================
     document.getElementById("cartBtn").onclick = () => {
-        detailManager.addToCart(product.id, quantity);
+        cart.addItem(product, quantity);
         location.reload();
     };
 

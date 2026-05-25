@@ -1,4 +1,4 @@
-import { Cart } from './cart.js';
+
 import {order, orderDetailUI} from './order.js';
 function loadComponent(id, file) {
     return fetch(file)
@@ -50,10 +50,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     ? '/'
     : '/252IS19A01_Nhom4/';
 
-await loadComponent('header-placeholder', `${BASE}includes/header.html`);
-await loadComponent('footer-placeholder', `${BASE}includes/footer.html`);
+    await loadComponent('header-placeholder', `${BASE}includes/header.html`);
+    await loadComponent('footer-placeholder', `${BASE}includes/footer.html`);
 
     const myCart = new Cart();
+    window.cart = myCart;
 
     myCart.render();
     myCart.updateCartBadge();
