@@ -99,11 +99,11 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    box-sizing: border-box;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
     padding: 14px;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -118,9 +118,11 @@
 }
 
 .contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
+    min-height: 7.5rem;
+    resize: none;
 }
+
+
 /* ===== TRÍCH DẪN NGHỆ THUẬT (BLOCKQUOTE) ===== */
 .nature-quote {
     font-family: var(--font-display, 'Playfair Display', serif);
