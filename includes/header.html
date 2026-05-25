@@ -12,49 +12,49 @@
         border-bottom: 2.5px solid transparent; 
     }
     .nav-links a:hover {
-        -webkit-text-stroke: 0.8px #967451; 
-        text-shadow: 0 0 1px #967451;
-        border-bottom-color: #967451; 
+        -webkit-text-stroke: 0.8px var(--color-nau-dat); 
+        text-shadow: 0 0 1px var(--color-nau-dat);
+        border-bottom-color: var(--color-nau-dat); 
     }
     .search-box:focus-within {
-        border-color: #967451 !important;
+        border-color: var(--color-nau-dat) !important;
         box-shadow: 0 0 0 2px rgba(150, 116, 81, 0.2);
     }
 </style>
 
-<header class="navbar" style="background-color: #FFF8E7; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100%; box-sizing: border-box; position: sticky; top: 0; z-index: 1000;">
+<header class="navbar" style="background-color: #FFF; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100%; box-sizing: border-box; position: sticky; top: 0; z-index: 1000;">
     <div class="logo" style="display: flex; align-items: center; gap: 15px;">
-        <img src="/assets/images/logo.png" alt="Mộc Miên Garden Logo" style="height: 65px; width: auto; mix-blend-mode: multiply;">
-        <a href="/index.html" style="color: #808000; font-size: 26px; font-weight: bold; text-decoration: none; font-family: serif; letter-spacing: 1px;">MỘC MIÊN</a>
+        <img src="assets/images/logo.png" alt="Mộc Miên Garden Logo" style="height: 65px; width: auto; mix-blend-mode: multiply;">
+        <a href="index.html" style="color: var(--green-oliu); font-size: 26px; font-weight: bold; text-decoration: none; font-family: serif; letter-spacing: 1px;">MỘC MIÊN</a>
     </div>
     
     <nav>
         <ul class="nav-links" style="list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; font-family: sans-serif; font-size: 15px;">
-            <li><a href="/index.html" style="color: #967451; text-decoration: none; font-weight: bold;">Trang chủ</a></li>
-            <li><a href="/pages/products/ProductList.html" style="color: #967451; text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
-            <li><a href="/pages/blog/Blog.html" style="color: #967451; text-decoration: none; font-weight: bold;">Blog</a></li>
-            <li><a href="/pages/info/AboutUs.html" style="color: #967451; text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
-            <li><a href="/pages/info/Contact.html" style="color: #967451; text-decoration: none; font-weight: bold;">Liên hệ</a></li>
+            <li><a href="index.html" style="color: var(--color-nau-dat); text-decoration: none; font-weight: bold;">Trang chủ</a></li>
+            <li><a href="pages/products/ProductList.html" style="color: var(--color-nau-dat); text-decoration: none; font-weight: bold;">Sản phẩm</a></li>
+            <li><a href="pages/blog/Blog.html" style="color: var(--color-nau-dat); text-decoration: none; font-weight: bold;">Blog</a></li>
+            <li><a href="pages/info/AboutUs.html" style="color: var(--color-nau-dat); text-decoration: none; font-weight: bold;">Giới thiệu</a></li>
+            <li><a href="pages/info/Contact.html" style="color: var(--color-nau-dat); text-decoration: none; font-weight: bold;">Liên hệ</a></li>
         </ul>
     </nav>
-    <div class="search-box" style="display: flex; align-items: center; border: 1.5px solid #808000; border-radius: 20px; padding: 4px 12px; background: #fff; transition: all 0.3s ease;">
+    <div class="search-box" style="display: flex; align-items: center; border: 1.5px solid var(--green-oliu); border-radius: 20px; padding: 4px 12px; background: #fff; transition: all 0.3s ease;">
         <input type="text" id="searchInput" placeholder="Tìm kiếm..." onkeypress="handleSearchKeyPress(event)" style="border: none; outline: none; background: transparent; font-size: 14px; width: 130px; color: #333;">
         <button onclick="executeSearch()" style="background: none; border: none; cursor: pointer; padding: 0; display:flex; align-items:center;">
-            <span class="material-symbols-outlined" style="font-size:20px; color:#808000;">search</span>
+            <span class="material-symbols-outlined" style="font-size:20px; color:var(--green-oliu);">search</span>
         </button>
     </div>
     <div class="header-actions" style="display: flex; gap: 12px; align-items: center;">
-        <a href="/pages/account/Wishlist.html" title="Yêu thích" style="text-decoration: none; display:flex; align-items:center;">
+        <a href="pages/account/Wishlist.html" title="Yêu thích" style="text-decoration: none; display:flex; align-items:center;">
             <span class="material-symbols-outlined" style="font-size:24px; color:#7a5c3a;">favorite</span>
         </a>
 
-        <a href="/pages/checkout/Cart.html" title="Giỏ hàng" style="text-decoration: none; display:flex; align-items:center; position: relative;">
+        <a href="pages/checkout/Cart.html" title="Giỏ hàng" style="text-decoration: none; display:flex; align-items:center; position: relative;">
             <span class="material-symbols-outlined" style="font-size:28px; color:#7a5c3a; font-variation-settings:'FILL' 0,'wght' 300;">shopping_cart</span>
-            <span id="cart-badge-bg" style="display:none; position:absolute; top:-6px; right:-8px; background:#808000; color:white; border-radius:50%; width:16px; height:16px; font-size:10px; font-weight:700; align-items:center; justify-content:center; line-height:16px; text-align:center;">
+            <span id="cart-badge-bg" style="display:none; position:absolute; top:-6px; right:-8px; background:var(--green-oliu); color:white; border-radius:50%; width:16px; height:16px; font-size:10px; font-weight:700; align-items:center; justify-content:center; line-height:16px; text-align:center;">
                 <span id="cart-badge-text">0</span>
             </span>
         </a>
-        <a href="/pages/account/Profile.html" title="Tài khoản" style="text-decoration: none; display:flex; align-items:center;">
+        <a href="pages/account/Profile.html" title="Tài khoản" style="text-decoration: none; display:flex; align-items:center;">
             <span class="material-symbols-outlined" style="font-size:30px; color:#7a5c3a;">person</span>
         </a>
     </div>
@@ -69,8 +69,8 @@
         links.forEach(link => {
             const href = link.getAttribute('href');
             if (currentUrl.includes(href) || (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('252IS19A01_Nhom4/')))) {
-                link.style.borderBottom = '2.5px solid #967451';
-                link.style.webkitTextStroke = '0.8px #967451';  
+                link.style.borderBottom = '2.5px solid var(--color-nau-dat)';
+                link.style.webkitTextStroke = '0.8px var(--color-nau-dat)';  
             }
         });
     }, 200);
@@ -80,8 +80,19 @@
     function executeSearch() {
         const keyword = document.getElementById('searchInput').value.trim();
         
+        // Kiểm tra xem trang hiện tại có khu vực "Sản phẩm tiêu biểu" (Trang chủ) không
+        const productsContainer = document.getElementById('featured-products-section');
+
         if (keyword !== "") {
-            window.location.href = `ProductList.html?search=${encodeURIComponent(keyword)}`;
+            if (productsContainer) {
+                // 1. NẾU ĐANG Ở TRANG CHỦ: Không chuyển trang! 
+                // Chỉ tự động cuộn màn hình xuống khu vực sản phẩm để khách xem kết quả (do main.js đã lọc sẵn)
+                productsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // 2. NẾU ĐANG Ở TRANG KHÁC (Giới thiệu, Liên hệ...): Chuyển sang trang Sản phẩm
+                // Đã sửa lại đường dẫn tuyệt đối để không bị lỗi 404
+                window.location.href = `/pages/products/ProductList.html?search=${encodeURIComponent(keyword)}`;
+            }
         } else {
             alert("Vui lòng nhập từ khóa bạn muốn tìm kiếm!");
             document.getElementById('searchInput').focus(); 
@@ -90,6 +101,7 @@
 
     function handleSearchKeyPress(event) {
         if (event.key === "Enter") {
+            event.preventDefault(); // Khóa cứng hành vi load lại trang mặc định của phím Enter
             executeSearch();
         }
     }

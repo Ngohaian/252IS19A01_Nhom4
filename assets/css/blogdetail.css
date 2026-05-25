@@ -1,0 +1,657 @@
+/* ==========================================================================
+   RESET & CÀI ĐẶT CHUNG
+   ========================================================================== */
+html{
+    font-size: 1rem;
+}
+:root {
+    --primary-color: var(--green-oliu);
+    --primary-light: #edf2d0;
+    --primary-hover: var(--green-dark);
+    --text-main: #2d3748;
+    --text-muted: var(--color-xam-da);
+    --bg-body: var(--cream);
+    --bg-card: #ffffff;
+    --shadow-soft: 0 0.625rem 1.875rem rgba(0,0,0,.04);
+    --shadow-hover: 0 1.25rem 2.5rem rgba(0,0,0,.08);
+    --radius-lg: 1.5rem;
+    --radius-md: 1rem;
+    --radius-sm: .75rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+     max-width: 77.5rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+}
+
+/* ==========================================================================
+   BREADCRUMB (ĐƯỜNG DẪN LIÊN KẾT)
+   ========================================================================== */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1.875rem;
+    font-size: .875rem;
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   BỐ CỤC CHÍNH (TWO-COLUMN GRID LAYOUT)
+   ========================================================================== */
+.blog-layout {
+    display: grid;
+    grid-template-columns: 7fr 3fr; /* Tỷ lệ 70% nội dung bài viết - 30% sidebar */
+    gap: 2.5rem;
+    align-items: start;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   CHI TIẾT BÀI VIẾT (CỘT TRÁI - MAIN CONTENT)
+   ========================================================================== */
+.blog-detail {
+    background: #fff;
+    border-radius: 1.25rem;
+    overflow: visible;
+    box-shadow: 0 .5rem 1.875rem rgba(0,0,0,.08);
+
+    /* Kích hoạt Grid Layout */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột bằng nhau */
+    gap: 1.25rem;
+
+    padding-bottom: 2.1875rem;
+}
+.detail-image,
+.detail-header {
+    grid-column: 1 / -1; 
+}
+
+/* Ảnh bìa bài viết */
+.detail-image {
+    display: block;
+    width: 100%;
+    height: 28.125rem;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 .25rem .9375rem rgba(0,0,0,.05);
+}
+
+/* Header bài viết */
+.detail-header {
+    padding: 2.1875rem 2.1875rem .9375rem;
+}
+
+.detail-category {
+    display: inline-block;
+    padding: .5rem 1rem;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 3.125rem;
+
+    font-size: .8125rem;
+    font-weight: 600;
+
+    margin-bottom: .9375rem;
+}
+
+.detail-header h1 {
+    font-size: 2.375rem;
+    line-height: 1.3;
+    margin-bottom: .9375rem;
+    color: #222;
+}
+
+.detail-meta {
+    display: flex;
+    gap: 1.25rem;
+    color: #777;
+    margin-bottom: 1.25rem;
+
+    font-size: .875rem;
+}
+
+.detail-shortdesc {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Các hộp nội dung từng phần (Sections) */
+.detail-section {
+    /* Khoảng cách ngoài đã có grid-gap lo */
+    margin: 0 2.1875rem;
+
+    padding: 1.875rem 1.5625rem;
+
+    border-radius: 1.5rem;
+
+    /* Màu nền xanh cực nhẹ, dịu mắt */
+    background: #f7fbf9; 
+    
+    /* XÓA VIỀN XUNG QUANH - CHỈ GIỮ LẠI ĐƯỜNG VIỀN DỌC BÊN TRÁI */
+    border: none;
+    border-left: .3125rem solid #2e7d32;
+
+    
+    transition: all 0.3s ease;
+    
+    /* Giúp các ô tự bằng chiều cao nhau theo hàng */
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-section:nth-of-type(odd) {
+    margin-right: 0; /* Ô bên trái sát vào giữa */
+}
+
+.detail-section:nth-of-type(even) {
+    margin-left: 0; /* Ô bên phải sát vào giữa */
+}
+
+.detail-section:hover {
+    transform: translateY(-.1875rem);
+    background: #eff7f3;
+    box-shadow: 0 .625rem 1.5625rem rgba(46,125,50,.04);
+}
+
+.detail-section h2 {
+    color: #2e7d32;
+    margin-bottom: 1.125rem;
+
+    font-size: 1.375rem;
+
+    position: relative; 
+    padding-bottom: .5rem;
+}
+.detail-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2.8125rem;
+    height: .1875rem;
+
+    background-color: var(--primary-color);
+
+    border-radius: 3.125rem;
+}
+.detail-section p {
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: .75rem;
+}
+
+.detail-section strong {
+    color: #222;
+}
+
+.detail-section p:last-child {
+    margin-bottom: 0;
+}
+
+
+.detail-section .text-muted {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SIDEBAR (CỘT PHẢI - CHỨA BÌNH LUẬN & BÀI VIẾT LIÊN QUAN)
+   ========================================================================== */
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.comments-section, 
+.related-section {
+    background: var(--bg-card);
+    padding: 1.875rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Tiêu đề các khối trong sidebar */
+.comments-section h3, 
+.related-section h3 {
+    color: #1a202c;
+    margin: 0 0 1.5625rem;
+    font-size: 1.375rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: .625rem;
+    border-bottom: .125rem solid #edf2f7;
+}
+
+.comments-section h3::after, 
+.related-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -.125rem;
+    left: 0;
+
+    width: 3.125rem;
+    height: .125rem;
+    background: var(--primary-color);
+}
+
+/* --- Block Bình Luận --- */
+.comment-list {
+    max-height: 21.875rem;
+
+    overflow-y: auto;
+
+    margin-bottom: 1.25rem;
+
+    padding-right: .3125rem;
+}
+
+.comment-item {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: #f8fafc;
+    margin-bottom: .9375rem;
+
+    border: .0625rem solid transparent;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0;
+}
+
+.comment-item b {
+    color: var(--primary-color);
+    font-size: .9375rem;
+}
+
+.comment-item p {
+    margin: .375rem 0 0;
+    line-height: 1.6;
+    color: #4a5568;
+    font-size: .90625rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 6.25rem;
+
+    padding: .875rem;
+
+    border: .0625rem solid #e2e8f0;
+    border-radius: var(--radius-sm);
+    resize: vertical;
+    outline: none;
+   margin-bottom: .9375rem;
+
+    font-size: .875rem;
+    background: #f8fafc;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.comment-form textarea:focus {
+    background: #fff;
+    border-color: var(--primary-color);
+   box-shadow: 0 0 0 .1875rem rgba(46,125,50,.1);
+}
+
+.comment-form button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: .75rem;
+
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: .9375rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.comment-form button:hover {
+    background: var(--primary-hover);
+}
+
+/* --- Block Bài Viết Liên Quan --- */
+.related-blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.blog-card {
+    display: flex;
+    gap: .9375rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: .0625rem solid #edf2f7;
+    transition: all .3s ease;
+    padding: .625rem;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+     transform: translateY(-0.125rem);
+    box-shadow: var(--shadow-hover);
+    border-color: #cbd5e1;
+}
+
+.blog-image {
+    flex-shrink: 0;
+    width: 5.625rem;
+    height: 5.625rem;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Ẩn bớt các thuộc tính thừa của thẻ liên quan khi xếp ở sidebar cho tối giản */
+.blog-category,
+.blog-desc, 
+.blog-meta {
+    display: none !important; 
+}
+.blog-content .blog-btn {
+    display: inline-block !important; /* Hiện lại nút */
+    background: transparent; /* Bỏ màu nền thô cứng */
+    color: var(--primary-color); /* Dùng màu xanh chủ đạo */
+    padding: 0.25rem 0 0 0; /* 4px */
+
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.blog-content .blog-btn:hover {
+    background: transparent;
+    color: var(--primary-hover);
+    text-decoration: underline; /* Gạch chân khi hover cho rõ ràng */
+}
+.blog-title {
+    margin: 0;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1a202c;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   SCROLL TOP BUTTON (NÚT LÊN ĐẦU TRANG)
+   ========================================================================== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 .25rem .875rem rgba(46,125,50,.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+#scrollTopBtn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-0.1875rem); /* -3px */
+    box-shadow: 0 0.375rem 1.25rem rgba(46, 125, 50, 0.4); /* 6px 20px */
+}
+
+/* ==========================================================================
+   RESPONSIVE (TỐI ƯU CHO DI ĐỘNG & TABLET)
+   ========================================================================== */
+/* ========================================================================== 
+   RESPONSIVE - TABLET LARGE (<= 1024px)
+   ========================================================================== */
+@media (max-width: 64rem) {
+
+    .container {
+        padding: 2rem 1.25rem;
+    }
+
+    .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .blog-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .comments-section,
+    .related-section {
+        flex: 1;
+        min-width: 18.75rem;
+    }
+
+    .detail-header h1 {
+        font-size: 2rem;
+    }
+
+    .detail-image {
+        height: 20rem;
+    }
+}
+
+
+/* ========================================================================== 
+   RESPONSIVE - TABLET (<= 768px)
+   ========================================================================== */
+@media (max-width: 48rem) {
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .blog-detail {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .detail-image {
+        height: 15.625rem;
+    }
+
+    .detail-header {
+        padding: 1.5rem 1.25rem 0.75rem;
+    }
+
+    .detail-header h1 {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .detail-shortdesc {
+        font-size: 1rem;
+    }
+
+    .detail-section {
+        margin: 0.75rem 1rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .detail-meta {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .blog-sidebar {
+        flex-direction: column;
+    }
+
+    .comments-section,
+    .related-section {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .blog-card {
+        gap: 0.75rem;
+    }
+
+    .blog-image {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+
+    .blog-title {
+        font-size: 0.875rem;
+    }
+}
+
+
+/* ========================================================================== 
+   RESPONSIVE - MOBILE (<= 480px)
+   ========================================================================== */
+@media (max-width: 30rem) {
+
+    .container {
+        padding: 1rem;
+    }
+
+    .breadcrumb {
+        flex-wrap: wrap;
+        font-size: 0.8125rem;
+    }
+
+    .detail-image {
+        height: 12.5rem;
+    }
+
+    .detail-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .detail-category {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .detail-section {
+        margin: 0.5rem 0.75rem;
+        padding: 1rem;
+    }
+
+    .detail-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .detail-section p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .comment-item {
+        padding: 0.75rem;
+    }
+
+    .comment-form textarea {
+        min-height: 5rem;
+    }
+
+    .comment-form button {
+        font-size: 0.875rem;
+    }
+
+    .blog-card {
+        flex-direction: column;
+        padding: 0.75rem;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: 9rem;
+    }
+
+    .blog-title {
+        font-size: 0.9375rem;
+    }
+
+    #scrollTopBtn {
+        width: 2.5rem;
+        height: 2.5rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+
+/* ========================================================================== 
+   VERY SMALL DEVICES (<= 360px)
+   ========================================================================== */
+@media (max-width: 22.5rem) {
+
+    .detail-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .detail-image {
+        height: 10rem;
+    }
+
+    .comments-section h3,
+    .related-section h3 {
+        font-size: 1.125rem;
+    }
+
+    .blog-title {
+        font-size: 0.875rem;
+    }
+
+    .blog-image {
+        height: 8rem;
+    }
+}

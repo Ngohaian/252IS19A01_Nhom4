@@ -1,0 +1,780 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+html{
+    font-size: 16px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container chính bao bọc toàn bộ code render của bạn */
+.detail {
+    max-width: 75rem; /*1200px*/
+    margin: 0 auto;
+    padding: 1.25rem 0.9375rem; /*20px 15px*/
+}
+
+/* ==========================================================================
+   1. BREADCRUMB (Thanh điều hướng)
+   ========================================================================== */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem; /*15px*/
+    color: #777777;
+    margin-bottom: 1.875rem; /*30px*/
+}
+
+.breadcrumb a {
+    color: #777777;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: #808000; /* Màu chủ đạo mộc chi */
+}
+
+.breadcrumb span {
+    color: #cccccc;
+}
+
+/* ==========================================================================
+   2. DETAIL MAIN LAYOUT (Chia 2 cột Trái - Phải)
+   ========================================================================== */
+.detail-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi tỷ lệ 50% - 50% chuẩn */
+    gap: 3.125rem; /*50px*/
+    align-items: start;
+    margin-bottom: 3.75rem; /*60px*/
+}
+
+/* --- BÊN TRÁI: HÌNH ẢNH --- */
+.detail-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem; /*15px*/
+}
+
+.main-image {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 1.5rem; /*24px*/
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1; /* Giữ ảnh luôn vuông */
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-list {
+    display: flex;
+    gap: 0.625rem; /* 10px */
+}
+
+.thumb {
+    width: 5rem; /*80px*/
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 1px solid #eeeeee;
+}
+
+/* --- BÊN PHẢI: THÔNG TIN SẢN PHẨM --- */
+.detail-right {
+    display: flex;
+    flex-direction: column;
+}
+/*category*/
+.product-tag-cat {
+    display: inline-block;
+    background-color: #7a8a00; /* Màu xanh lá mộc chi */
+    color: #ffffff;
+    font-size: 0.8125rem; /*13px*/
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.25rem 0.875rem; /*4px 14px*/
+    border-radius: 1.25rem;
+    width: max-content;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03125rem;
+}
+
+/* Tên sản phẩm */
+.product-name {
+    font-size: 2.5rem; /*40px*/
+    font-family: 'Playfair Display', serif, Georgia; /* Font chữ có chân sang trọng */
+    color: #333333;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+/* Đánh giá ngôi sao */
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* 8px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.rating-box h3 {
+    display: none; /* Ẩn chữ "Đánh giá" thừa để giống hình mẫu */
+}
+
+.rating-box p {
+    color: #ffb400;
+    font-size: 1rem;
+}
+
+
+
+/* Giá tiền hiển thị to rõ */
+.product-price {
+    font-size: 2.125rem; /* 34px */
+    font-weight: 700;
+    color: #a39266; /* Màu vàng đất/nâu gold của giá */
+    margin-bottom: 1.25rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Trạng thái kho hàng */
+.product-stock {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    margin-bottom: 0.9375rem;
+}
+
+/* Đoạn mô tả ngắn */
+.short-description {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 1.5625rem; /* 25px */
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 1.25rem; /* 20px */
+}
+
+/* Thông tin thuộc tính (Chiều cao, loại...) */
+.attributes {
+    margin-bottom: 1.5625rem; /* 25px */
+}
+
+.attributes h3 {
+    font-size: 1.0625rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.attributes ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.attributes li {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Ô chọn số lượng tăng giảm (- 1 +) */
+.quantity-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5625rem;
+}
+
+.quantity-box h3 {
+    font-size: 0.9375rem;
+    color: #888888;
+    font-weight: 500;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem; /* 8px */
+    width: max-content;
+    padding: 0.375rem; /* 6px */
+}
+
+.quantity-control button {
+    border: none;
+    background: transparent;
+    width: 2.375rem; /*38px*/
+    height: 2.375rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+    border-radius: 0.375rem; /* 6px */
+}
+
+.quantity-control button:hover {
+    background-color: #e0e0e0;
+}
+
+#quantityValue {
+    width: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/* Nút THÊM VÀO GIỎ và nút YÊU THÍCH */
+.action-buttons {
+    display: flex;
+    gap: 0.9375rem; /* 15px */
+    align-items: center;
+}
+
+#cartBtn {
+    flex-grow: 1;
+    max-width: 18.75rem; /* 300px */
+    background-color: #7a8a00; /* Màu xanh rêu úa chuẩn của nút */
+    color: white;
+    border: none;
+    padding: 0.9375rem 1.875rem; /* 15px 30px */
+    font-size: 0.9375rem; /* 15px */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03125rem; /* 0.5px */
+    border-radius: 0.5rem; /* 8px */
+    cursor: pointer;
+    box-shadow: 0 0.25rem 0.75rem rgba(122, 138, 0, 0.2); /* 4px 12px */
+    transition: background 0.2s, transform 0.1s;
+}
+
+#cartBtn:hover:not(:disabled) {
+    background-color: #637000;
+}
+
+#cartBtn:disabled {
+    background-color: #cccccc;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+#favoriteBtn {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    width: 3.125rem; /* 50px */
+    height: 3.125rem; /* 50px */
+    border-radius: 0.5rem; /* 8px */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem; /* 18px */
+    transition: background 0.2s;
+}
+
+#favoriteBtn:hover {
+    background-color: #f9f9f9;
+    border-color: #cccccc;
+}
+/* ================= BREADCRUMB (PRODUCT DETAIL) ================= */
+
+.detail .breadcrumb{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font-size: .875rem;
+    font-weight: 500;
+
+    margin-bottom: 1.5rem;
+}
+
+.detail .breadcrumb a{
+    color: #2e7d32;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.detail .breadcrumb a:hover{
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+.detail .breadcrumb span{
+    color: #718096;
+}
+
+/* ==========================================================================
+   3. TABS SECTION (Mô tả chi tiết & Hướng dẫn chăm sóc)
+   ========================================================================== */
+.tabs-section {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 2.5rem; /* 40px */
+    margin-bottom: 3.75rem; /* 60px */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.875rem; /* 30px */
+}
+.description-box, .care-guide {
+    background-color: #f3f6ee; /* Màu xanh lá pastel dịu mát */
+    border: 1px solid #e1e8d7; /* Viền xanh rêu nhạt */
+    border-radius: 1rem; /* 16px */
+    padding: 1.625rem; /* 26px */
+    box-shadow: 0 0.25rem 0.875rem rgba(122, 138, 0, 0.04); /* 4px 14px */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.description-box h2, 
+.care-guide h2 {
+    font-family: 'Segoe UI', 'Playfair Display', Georgia, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4a5400; /* Màu xanh rêu đậm hẳn để tạo điểm nhấn */
+    margin-bottom: 1.125rem; /* 18px */
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* 10px */
+    border-bottom: 1px dashed #d1d8a7; 
+    padding-bottom: 0.75rem; /* 12px */
+    letter-spacing: 0.05rem; /* Giúp các chữ có khoảng cách thanh thoát */
+}
+
+.description-box:hover, .care-guide:hover {
+    transform: translateY(-0.1875rem);
+    border-color: #7a8a00; /* Viền đậm lên thành màu thương hiệu */
+    box-shadow: 0 0.5rem 1.25rem rgba(122, 138, 0, 0.08);
+}
+
+.description-box p {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; /* Font không chân hiện đại, dễ đọc */
+    font-size: 0.9375rem; /* SỬA TỪ 1.25rem THÀNH 0.9375rem (~15px) để chữ nhỏ gọn như hình */
+    color: #555555;      /* Màu xám nhẹ hơn chút cho thanh thoát */
+    line-height: 1.6;    /* Giãn dòng vừa phải */
+    letter-spacing: 0.0125rem;
+    margin: 0;
+}
+
+.care-guide ul {
+    list-style: none; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem; /* Giãn cách các dòng rộng rãi hơn */
+    padding: 0;
+    margin: 0;
+}
+.care-guide li {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9375rem;
+    color: #444444;
+    line-height: 1.6;
+    padding-left: 1.25rem;
+    position: relative;
+    letter-spacing: 0.0125rem;
+}
+
+.care-guide li::before {
+    content: "•";
+    color: #7a8a00;
+    font-size: 1.25rem; /* Giữ kích thước to rõ như bản tối ưu trước */
+    position: absolute;
+    left: 0;
+    top: 0.125rem; /* 2px */               
+    transform: none;        
+    
+    line-height: 1;
+}
+.care-guide li strong {
+    color: #222222; 
+    font-weight: 600;
+    margin-right: 0.25rem; /* 4px */
+}
+
+
+/* ==========================================================================
+   4. RELATED PRODUCTS (Sản phẩm liên quan)
+   ========================================================================== */
+.related-products {
+    margin-bottom: 3.75rem; /* 60px */
+}
+
+.related-products h2 {
+    font-size: 1.5rem; /* 24px */
+    color: #333;
+    margin-bottom: 1.5625rem; /* 25px */
+    text-align: center;
+}
+
+.related-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem; /* 20px */
+}
+
+.related-item {
+    border: 1px solid #f0f0f0;
+    border-radius: 0.75rem; /* 12px */
+    padding: 0.9375rem; /* 15px */
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+
+.related-item:hover {
+    transform: translateY(-0.3125rem); /* 5px */
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.05);
+}
+
+.related-item img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 0.5rem; /* 8px */
+    margin-bottom: 0.75rem; /* 12px */
+}
+
+.related-item h4 {
+    font-size: 1rem; 
+    color: #333;
+    margin-bottom: 0.5rem; /* 8px */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.related-item p {
+    color: #a39266;
+    font-weight: bold;
+    margin-bottom: 0.75rem; /* 12px */
+}
+
+.related-item a {
+    display: inline-block;
+    color: #7a8a00;
+    text-decoration: none;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 500;
+    border: 1px solid #7a8a00;
+    padding: 0.3125rem 0.9375rem; /* 5px 15px */
+    border-radius: 0.375rem; /* 6px */
+    transition: all 0.2s;
+}
+
+.related-item a:hover {
+    background-color: #7a8a00;
+    color: white;
+}
+
+
+/* ==========================================================================
+   5. COMMENTS SECTION (Bình luận)
+   ========================================================================== */
+.comments-section {
+    border-top: 1px solid #eeeeee;
+    padding-top: 2.5rem; /* 40px */
+    max-width: 700px;
+}
+
+.comments-section h2 {
+    font-size: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+#commentInput {
+    width: 100%;
+    height: 6.25rem; /* 100px */
+    padding: 0.75rem; /* 12px */
+    border: 1px solid #dddddd;
+    border-radius: 0.5rem; /* 8px */
+    resize: none;
+    font-size: 0.875rem; /* 14px */
+    margin-bottom: 0.625rem; /* 10px */
+}
+
+
+
+#sendCommentBtn {
+    background-color: #7a8a00; 
+    color: white;
+    border: none;
+    padding: 0.625rem 1.5625rem; /* 10px 25px */
+    border-radius: 0.375rem; /* 6px */
+    cursor: pointer;
+    font-weight: 600; 
+    text-transform: uppercase; 
+    font-size: 0.8125rem; /* 13px */
+    letter-spacing: 0.03125rem; /* 0.5px */
+    transition: all 0.2s ease;
+}
+
+#sendCommentBtn:hover {
+    background-color: #637000; 
+    box-shadow: 0 0.25rem 0.625rem rgba(122, 138, 0, 0.15); 
+}
+
+/*commentList*/
+
+
+#commentList {
+    margin-bottom: 1.5625rem; /* 25px */
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem; /* 15px */
+}
+
+#commentList div, 
+#commentList .comment-item {
+    background-color: #f9f9f9;
+    padding: 0.75rem; /* 12px */
+    border-radius: 0.5rem; /* 8px */
+    border-left: 3px solid #7a8a00; 
+}
+
+
+#commentList strong, 
+#commentList h4 {
+    display: block;
+    font-size: 1.25rem; /* 20px */
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 0.25rem; /* 4px */
+}
+
+
+#commentList p {
+    font-size: 1.25rem; /* 20px */
+    color: #555555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+#commentInput {
+    width: 100%;
+    height: 5.625rem; /* 90px */
+    padding: 0.75rem; /* 12px */
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem; /* 8px */
+    resize: none;
+    font-size: 0.875rem; /* 14px */
+    margin-bottom: 0.75rem; /* 12px */
+    transition: border-color 0.2s;
+}
+
+#commentInput:focus {
+    outline: none;
+    border-color: #7a8a00; 
+}
+/* ==========================================================================
+   RESPONSIVE (Tương thích điện thoại di động)
+   ========================================================================== */
+/* ========================================================================== 
+   RESPONSIVE - TABLET (<= 1024px)
+   ========================================================================== */
+@media (max-width: 64rem) { /* 1024px */
+
+    .detail-main {
+        gap: 2.5rem;
+    }
+
+    .product-name {
+        font-size: 2.25rem;
+    }
+
+    .product-price {
+        font-size: 1.875rem;
+    }
+
+    .related-list {
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    }
+}
+
+
+/* ========================================================================== 
+   RESPONSIVE - TABLET SMALL (<= 768px)
+   ========================================================================== */
+@media (max-width: 48rem) { /* 768px */
+
+    .detail {
+        padding: 1rem;
+    }
+
+    .detail-main {
+        grid-template-columns: 1fr;
+        gap: 1.875rem;
+    }
+
+    .product-name {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+    }
+
+    .thumbnail-list {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .thumb {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .tabs-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .description-box,
+    .care-guide {
+        padding: 1.25rem;
+    }
+
+    .related-list {
+        grid-template-columns: repeat(auto-fill, minmax(10.625rem, 1fr));
+    }
+
+    .related-item a {
+        font-size: 0.875rem;
+    }
+
+    .comments-section {
+        max-width: 100%;
+    }
+}
+
+
+/* ========================================================================== 
+   RESPONSIVE - MOBILE (<= 480px)
+   ========================================================================== */
+@media (max-width: 30rem) { /* 480px */
+
+    html {
+        font-size: 14px;
+    }
+
+    .detail {
+        padding: 0.875rem;
+    }
+
+    .breadcrumb {
+        flex-wrap: wrap;
+        font-size: 0.8125rem;
+    }
+
+    .product-name {
+        font-size: 1.5rem;
+    }
+
+    .product-price {
+        font-size: 1.25rem;
+    }
+
+    .main-image {
+        border-radius: 1rem;
+    }
+
+    .thumb {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .quantity-control {
+        padding: 0.25rem;
+    }
+
+    .quantity-control button {
+        width: 2.125rem;
+        height: 2.125rem;
+        font-size: 1rem;
+    }
+
+    #quantityValue {
+        width: 2rem;
+        font-size: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cartBtn {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    #favoriteBtn {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .tabs-section {
+        gap: 1.25rem;
+    }
+
+    .description-box p,
+    .care-guide li {
+        font-size: 1rem;
+    }
+
+    .related-item {
+        padding: 0.75rem;
+    }
+
+    .related-item h4 {
+        font-size: 0.875rem;
+    }
+
+    #commentInput {
+        height: 5rem;
+    }
+
+    #sendCommentBtn {
+        width: 100%;
+    }
+}
+
+
+/* ========================================================================== 
+   VERY SMALL DEVICES (<= 360px)
+   ========================================================================== */
+@media (max-width: 22.5rem) { /* 360px */
+
+    .product-name {
+        font-size: 1.375rem;
+    }
+
+    .product-price {
+        font-size: 1.125rem;
+    }
+
+    .thumb {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .related-list {
+        grid-template-columns: 1fr;
+    }
+}

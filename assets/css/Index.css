@@ -1,13 +1,19 @@
 
 /* ================= BỐ CỤC FLEXBOX TỔNG THỂ ================= */
 .flex-layout { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
-.hero-container { justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+.hero-container { justify-content: space-between;  margin: 0 auto; margin: 0;
+    padding: 60px 8.5%; background-color: #FFF8E7;}
 .hero-content { flex: 1; min-width: 320px; }
 .hero-image-box { flex: 1; min-width: 320px; text-align: right; }
 .hero-buttons { margin-top: 30px; gap: 15px; }
 .featured-section { max-width: 1200px; margin: 20px auto 50px; padding: 0 20px; }
 .section-header { justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 2px dashed #967451; padding-bottom: 10px; }
-.product-grid-flex { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+.product-grid-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Thuộc tính này tạo khoảng trống giữa các thẻ */
+    justify-content: center;
+}
 
 /* ================= TYPOGRAPHY & NÚT BẤM ================= */
 .badge-tag { background: #808000; color: white; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 13px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px; }
@@ -23,9 +29,13 @@
 
 /* ================= CARD SẢN PHẨM & TIM ĐỎ ================= */
 .home-product-card {
-    background: white; border-radius: 15px; overflow: hidden; width: calc(25% - 19px);
-    min-width: 260px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.4s ease;
-    opacity: 0; animation-fill-mode: forwards;
+    width: calc(25% - 19px);
+    min-width: 260px;
+    margin-bottom: 25px;
+    position: relative;
+    border-radius: 12px;        
+    overflow: hidden; 
+    cursor: pointer;
 }
 .home-product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(150,116,81,0.2); }
 .product-img-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; }
@@ -39,9 +49,26 @@
 .heart-icon.liked { background-color: #f60404 !important; color: white !important; animation: heartPulse 0.3s ease-in-out; }
 
 /* Overlay Nút Mua */
-.hover-overlay { position: absolute; bottom: -60px; left: 0; width: 100%; padding: 20px; display: flex; justify-content: center; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: bottom 0.4s ease; }
+.hover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Độ cao vùng tối chứa nút */
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex !important;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
 .home-product-card:hover .hover-overlay { bottom: 0; }
-.btn-buy { background: #808000; color: white; width: 100%; border: none; }
+.btn-buy {
+    margin: 0 auto !important;
+    display: inline-block;
+    padding: 10px 18px; /* Giảm padding một chút để vừa chữ dài */
+    font-size: 13px; /* Cho chữ nhỏ lại xíu để vừa nút "Xem chi tiết sản phẩm" */
+    text-align: center;
+    border-radius: 8px;
+}
 .btn-buy:hover { background: #967451; }
 
 .product-info { padding: 20px; text-align: center; }
