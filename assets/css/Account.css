@@ -1,0 +1,422 @@
+
+/* ===== BỐ CỤC CHUNG PROFILE (GRID LAYOUT) ===== */
+.profile-layout {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Đảm bảo tính responsive trên màn hình nhỏ (Mobile/Tablet) */
+@media (max-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 20px auto;
+    }
+}
+
+/* ===== SIDEBAR MENU CÁ NHÂN ===== */
+.sidebar-menu {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border, #e5e7eb);
+    border-radius: 24px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(62, 59, 57, 0.03);
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: var(--text-main, #3E3B39);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Trạng thái active (Trang hiện tại) */
+.sidebar-menu ul li a.active {
+    background-color: var(--cream, #FFF8E7);
+    color: var(--primary, #808000);
+    border-left: 4px solid var(--primary, #808000);
+    padding-left: 16px; /* Bù lại phần border-left */
+}
+
+/* Hiệu ứng hover cho menu */
+.sidebar-menu ul li a:hover:not(.active) {
+    background-color: #f9fafb;
+    color: var(--earthyBrown, #967451);
+    transform: translateX(4px);
+}
+
+/* Màu riêng biệt cho nút Đăng xuất */
+#logoutBtn {
+    color: #dc2626 !important;
+    margin-top: 16px;
+    border-top: 1px dashed #e5e7eb;
+    border-radius: 0 0 12px 12px;
+    padding-top: 20px;
+}
+
+#logoutBtn:hover {
+    background-color: #fef2f2;
+}
+
+/* ===== KHU VỰC NỘI DUNG CHÍNH ===== */
+.profile-content {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border, #e5e7eb);
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(62, 59, 57, 0.02);
+}
+
+.profile-content h1 {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--text-main, #3E3B39);
+    margin-bottom: 30px;
+    border-block: 2px solid var(--cream, #FFF8E7);
+    padding-bottom: 12px;
+}
+
+/* Card thông tin người dùng */
+.user-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9fafb;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px dashed var(--sand, #D2B48C);
+}
+
+.user-info-card p {
+    font-size: 15px;
+    color: var(--text-main, #3E3B39);
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+
+.user-info-card p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.user-info-card p strong {
+    width: 150px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.user-info-card p span {
+    font-weight: 700;
+    color: var(--text-main, #3E3B39);
+}
+
+/* ===== BẢNG LỊCH SỬ ĐƠN HÀNG ===== */
+.order-history-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.order-history-table th {
+    background-color: var(--cream, #FFF8E7);
+    color: var(--text-main, #3E3B39);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 2px solid var(--sand, #D2B48C);
+}
+
+.order-history-table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.order-history-table th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.order-history-table td {
+    padding: 18px 20px;
+    font-size: 14px;
+    color: var(--text-main, #3E3B39);
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 500;
+}
+
+.order-history-table tr:last-child td {
+    border-bottom: none;
+}
+
+.order-history-table tr:hover td {
+    background-color: #fcfbf9;
+}
+
+/* Trạng thái đơn hàng (Badges) */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.status-shipping {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+.status-completed {
+    background-color: #dcfce7;
+    color: var(--primary, #808000);
+}
+
+/* Khung hiển thị khi rỗng (Bảng trống / Wishlist trống) */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+}
+
+.empty-state p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-shop-now {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--primary, #808000);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(128, 128, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-shop-now:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+/* ===== THANH TABS TRẠNG THÁI (TÔNG MỘC MIÊN) ===== */
+.order-tabs {
+    display: flex;
+    background: #fff;
+    margin-bottom: 24px;
+    border-bottom: 1.5px solid var(--border, #ddd5c4); /* Viền màu cát/nâu nhạt */
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main, #2c2c2c);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2.5px solid transparent;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+}
+
+.tab-item:hover {
+    color: var(--primary, #808000);
+}
+
+/* Tab đang được chọn - Chuyển sang xanh rêu */
+.tab-item.active {
+    color: var(--primary, #808000);
+    border-bottom: 2.5px solid var(--primary, #808000);
+}
+
+
+/* ===== GIAO DIỆN THẺ ĐƠN HÀNG (TÔNG MỘC MIÊN) ===== */
+.order-card {
+    background: #fff;
+    border-radius: 16px; /* Bo góc mềm mại hơn */
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1.5px solid var(--border, #ddd5c4);
+    box-shadow: 0 4px 15px rgba(62, 59, 57, 0.03); /* Bóng đổ siêu nhẹ */
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border, #ddd5c4); /* Đổi sang nét đứt nhìn mộc mạc hơn */
+    margin-bottom: 16px;
+}
+
+.shop-name {
+    font-weight: 700;
+    color: var(--text-main, #2c2c2c);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shop-name::before {
+    content: '🌱'; /* Thay icon cửa hàng thành icon Mầm xanh */
+}
+
+.order-status {
+    color: var(--green-dark, #4a6741); /* Màu xanh lá cây đậm */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.order-body {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--border, #ddd5c4);
+    margin-bottom: 16px;
+    align-items: flex-start;
+}
+
+.product-img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 10px; /* Bo góc ảnh sản phẩm */
+    border: 1px solid var(--border, #ddd5c4);
+}
+
+.product-info {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-name {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-main, #2c2c2c);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.product-details {
+    margin: 0;
+    color: var(--text-muted, #888);
+    font-size: 13px;
+}
+
+.product-price {
+    font-size: 15px;
+    color: var(--text-muted, #888);
+    font-weight: 600;
+}
+
+.order-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+}
+
+.total-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.total-label {
+    font-size: 15px;
+    color: var(--text-main, #2c2c2c);
+    font-weight: 500;
+}
+
+.total-price {
+    font-size: 24px;
+    color: var(--price-color, #c8860b); /* Màu vàng nâu nhạt quen thuộc của Mộc Miên */
+    font-weight: 800;
+}
+
+.order-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Nút Mua lại */
+.btn-again {
+    background: var(--green-btn, #7a9a3c);
+    color: #fff;
+    border: 1px solid var(--green-btn, #7a9a3c);
+    padding: 10px 24px;
+    border-radius: 8px; /* Bo tròn hợp tông với các nút khác trong web */
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+}
+
+.btn-again:hover {
+    background: var(--green-dark, #4a6741);
+    border-color: var(--green-dark, #4a6741);
+    transform: translateY(-2px);
+}
+
+/* Nút Liên hệ */
+.btn-contact {
+    background: #fff;
+    color: var(--text-main, #2c2c2c);
+    border: 1px solid var(--border, #ddd5c4);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+}
+
+.btn-contact:hover {
+    background: var(--cream, #fffbf3);
+    border-color: var(--earthyBrown, #967451);
+}

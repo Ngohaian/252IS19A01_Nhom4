@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/' : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử đơn hàng - Mộc Miên</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Account.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="profile-layout">
+        <aside class="sidebar-menu">
+            <ul>
+                <li><a href="pages/account/Profile.html">Thông tin tài khoản</a></li>
+                <li><a href="pages/account/OrderHistory.html" class="active">Lịch sử đơn hàng</a></li>
+                <li><a href="pages/account/Wishlist.html">Sản phẩm yêu thích</a></li>
+                <li><a href="pages/auth/Login.html" id="logoutBtn">Đăng xuất</a></li>
+            </ul>
+        </aside>
+
+        <section class="profile-content">
+            <h1>Lịch sử đơn hàng</h1>
+            
+            <div class="order-tabs">
+                <div class="tab-item active" data-status="all">Tất cả</div>
+                <div class="tab-item" data-status="Đã đặt hàng">Chờ xác nhận</div>
+                <div class="tab-item" data-status="Đang giao">Đang giao</div>
+                <div class="tab-item" data-status="Hoàn thành">Hoàn thành</div>
+                <div class="tab-item" data-status="Đã hủy">Đã hủy</div>
+            </div>
+
+            <div id="order-history-body" class="order-list"></div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/account.js"></script>
+</body>    
+</html>
+</body>    
+</html>
