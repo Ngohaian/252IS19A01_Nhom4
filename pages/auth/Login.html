@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Auth.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
     <main>
+        <section class="auth-section">
+    <div class="auth-container">
+        <header class="auth-header">
+            <h2 class="auth-title">CÂY CẢNH MỘC MIÊN</h2>
+            <p class="auth-subtitle">Đăng nhập vào không gian xanh</p>
+        </header>
+        
+        <form class="auth-form" id="loginForm">
+            <div class="form-group">
+                <input type="email" id="loginEmail" placeholder="Email đăng nhập" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
+            </div>
+            
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox" id="rememberMe"> Nhớ tài khoản
+                </label>
+                <a href="pages/auth/ForgotPassword.html" class="forgot-link">Quên mật khẩu?</a>
+            </div>
+            
+            <button type="submit" class="btn-auth">ĐĂNG NHẬP</button>
+            
+            <p class="auth-footer-text">
+                Chưa có tài khoản? <a href="pages/auth/Register.html" class="register-link">Đăng ký ngay</a>
+            </p>
+        </form>
+    </div>
+</section>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script>
-        loadComponent('header-placeholder', '../../includes/header.html');
-        loadComponent('footer-placeholder', '../../includes/footer.html');
-    </script>
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
 </body>    
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Auth.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+    <section class="auth-section">
+        <div class="auth-container">
+            <header class="auth-header">
+                <h2 class="auth-title">CÂY CẢNH MỘC MIÊN</h2>
+                <p class="auth-subtitle">Tạo tài khoản thành viên mới</p>
+            </header>
+            
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="registerName" placeholder="Họ và tên của bạn" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="registerPhone" placeholder="Số điện thoại" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email liên lạc" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Mật khẩu" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerConfirmPassword" placeholder="Xác nhận lại mật khẩu" required>
+                </div>
+                
+                <button type="submit" class="btn-auth">TẠO TÀI KHOẢN</button>
+                
+                <p class="auth-footer-text">
+                    Đã có tài khoản? <a href="pages/auth/Login.html" class="register-link">Đăng nhập ngay</a>
+                </p>
+            </form>
+        </div>
+    </section>
+</main>
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>    
+</html>
