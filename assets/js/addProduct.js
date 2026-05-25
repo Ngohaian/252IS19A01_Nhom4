@@ -164,5 +164,28 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 });
 
 // ================= FIRST RENDER =================
-pagination.update();
 
+// Đọc ?search= từ URL và áp dụng filter
+const urlParams = new URLSearchParams(window.location.search);
+const searchKeyword = urlParams.get("search");
+
+if (searchKeyword) {
+    manager.setSearch(searchKeyword);
+
+    // Hiển thị thông báo đang tìm kiếm
+    const toolbar = document.querySelector(".toolbar");
+    if (toolbar) {
+        const notice = document.createElement("p");
+        notice.id = "search-notice";
+        notice.style.cssText = "margin: 12px 0 16px 0; font-size: 14px; color: #666;";
+        notice.innerHTML = `Kết quả tìm kiếm cho: <strong style="color: var(--color-nau-dat, #7a5c3a);">"${searchKeyword}"</strong>
+            &nbsp;—&nbsp;<a href="pages/products/ProductList.html" style="color: #888; font-size: 13px;">Xóa tìm kiếm ✕</a>`;
+        toolbar.insertAdjacentElement("afterend", notice);
+    }
+
+    // Đồng bộ input ô tìm kiếm trên header (nếu đã load)
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) searchInput.value = searchKeyword;
+}
+
+pagination.update();
