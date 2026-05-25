@@ -1,22 +1,21 @@
 .Container {
+    display: grid;
+    grid-template-columns: 1.25fr minmax(260px, 0.65fr);
+    gap: 50px;
     max-width: 1200px;
     margin: 0px auto;
     padding: 70px 24px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
     align-items: start;
 }
 
 /* ===== GIỎ HÀNG ===== */
-.GioHang {
-    flex: 1;
+.GioHang{
+    min-width: 0;
 }
-
 .GioHang h1 {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--text-main);
     margin-bottom: 25px;
 }
@@ -29,11 +28,10 @@
 /* row sản phẩm */
 .cart-item-row {
     border: 1.5px solid var(--border);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     background: #fff;
-    padding: 25px 40px;
-    margin-bottom: 12px;
-    margin-right: 3%;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
     transition: box-shadow 0.2s;
 }
 
@@ -57,7 +55,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 }
 
 .item-cart-image {
@@ -69,7 +67,7 @@
     display: inline-block;
     margin-right: 15px;
     min-width: 60px;
-    font-size: 11px;
+    font-size: 0.6875rem;
     color: var(--text-muted);
 }
 
@@ -80,7 +78,7 @@
 }
 
 .item-category {
-    font-size: 11px;
+    font-size: 0.6875rem;
     color: var(--green-mid);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -88,7 +86,7 @@
 }
 
 .item-name {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-main);
 }
@@ -102,7 +100,7 @@
 .item-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
     margin-left: auto;
 }
 
@@ -119,11 +117,11 @@
 .qty-btn {
     background: none;
     border: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     cursor: pointer;
     color: var(--green-dark);
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,7 +147,7 @@
     font-weight: 600;
     color: var(--text-main);
     background: transparent;
-    line-height: 20px;
+    line-height: 1.25rem;
     padding: 0;
 }
 
@@ -170,15 +168,14 @@
     width: 100%;
     align-items: center;
     padding: 60px 40px;
-    margin-right: 9%;
     border: 1.5px solid var(--border);
-    border-radius: 16px;
+    border-radius: 1rem;
     background: var(--cream-card);
-    gap: 16px;
+    gap: 1rem;
 }
 
 .empty-cart-text {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 2.5px;
     color: var(--text-muted);
@@ -203,29 +200,29 @@
 
 /* ===== TÓM TẮT ĐƠN ===== */
 .TomTatDon {
-    width: 320px;
-    min-width: 280px;
     flex-shrink: 0;
     position: sticky;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     top: 10px;
+    width: 100%;
+    align-self: start;
     background-color: var(--cream-card);
-    border-radius: 16px;
+    border-radius: 1rem;
     border: 1px solid var(--border);
-    padding: 20px;
+    padding: 1.25rem;
     box-sizing: border-box;
 }
 
 .order-summary-box {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px 15px;
+    gap: 0.9375rem;
+    padding: 10px 0.9375rem;
 }
 
 .order-summary-box h2 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--text-muted);
     font-weight: 700;
     letter-spacing: 1px;
@@ -250,13 +247,13 @@
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    padding: 14px;
+    padding: 0.875rem;
     margin-top: 8px;
     background-color: var(--green-btn);
     color: #fff;
     border: none;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 700;
     font-family: var(--font-body);
     letter-spacing: 2px;
@@ -276,12 +273,12 @@
 .summary-label {
     font-family: var(--font-body);
     color: var(--text-main);
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .summary-value {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-main);
 }

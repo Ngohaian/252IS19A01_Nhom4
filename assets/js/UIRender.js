@@ -20,11 +20,7 @@ class UIRender{
                         ${p.price.toLocaleString("vi-VN")} đ
                     </p>
 
-                    <button class="product-btn"
-                        onclick="manager.addToCart(${p.id})">
-                        Add to cart
-                    </button>
-
+                    <button class="product-btn" data-id="${p.id}">Add to cart</button>
                     <a class="view-link"
                         href="pages/products/ProductDetail.html?id=${p.id}">
                         View
@@ -34,6 +30,13 @@ class UIRender{
             </div>
 
         `).join("");
+        container.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.id;
+                const product = products.find(p => String(p.id) === String(id));
+                cart.addItem(product, 1); 
+            });
+        });
     }
     static renderProductDetail(product, related = []) {
 

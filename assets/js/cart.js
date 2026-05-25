@@ -1,4 +1,4 @@
-export class CartItem {
+class CartItem {
     constructor(product, quantity) {
         this.product = product;   
         this.quantity = quantity; 
@@ -8,7 +8,7 @@ export class CartItem {
     }
 }
 
-export class Cart {
+class Cart {
     constructor() {
         this.items = this.loadFromStorage();
     }
@@ -238,4 +238,7 @@ export class Cart {
             badge.style.display = 'none';
         }
     }
+
+    
 }
+window.cart = new Cart(); 
