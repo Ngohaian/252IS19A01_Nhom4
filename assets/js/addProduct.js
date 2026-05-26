@@ -135,6 +135,11 @@ const productsData = [
         3
     )
 ]
+const existing = JSON.parse(localStorage.getItem("products"));
+if (!existing || existing.length === 0) {
+    productsData.forEach(p => manager.addProduct(p));
+}
+
 manager.saveToLocalStorage();
 
 
