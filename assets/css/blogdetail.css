@@ -277,10 +277,10 @@ body {
     display: flex;
     align-items: center;
     gap: .7rem;
-
-    font-size: 2rem;
-    font-weight: 800;
-
+    
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-body);
     color: #222;
     margin-bottom: 1.4rem;
     position: relative;
@@ -305,8 +305,8 @@ body {
     padding-left: 1.8rem;
 
     font-size: 1.05rem;
-    line-height: 1.9;
-
+    line-height: 1.4;
+    font-family: var(--font-body);
     color: #444;
 
     margin-bottom: .9rem;
@@ -363,7 +363,7 @@ body {
    ========================================================================== */
 .blog-sidebar{
     position: sticky;
-    top: 2rem;
+    top: 7rem;
 
     display: flex;
     flex-direction: column;

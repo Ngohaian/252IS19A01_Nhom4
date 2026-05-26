@@ -16,7 +16,7 @@
   --color-nau-dat:#967451;
   --color-xam-da:#A9A9A9;
   --font-display: 'Playfair Display', serif;
-  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 }
 body{
     background-color: var(--cream);
