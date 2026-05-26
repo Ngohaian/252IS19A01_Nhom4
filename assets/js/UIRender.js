@@ -48,7 +48,7 @@ class UIRender{
     <!-- BREADCRUMB -->
     <section class="breadcrumb">
 
-        <a href="index.html">Trang chủ</a>
+        <a href="../../index.html">Trang chủ</a>
         <span>/</span>
         <a href="pages/products/ProductList.html">Sản phẩm</a>
 
@@ -290,7 +290,7 @@ class UIRender{
                     </p>
 
                     <a
-                        href="pages/products/ProductDetail.html?id=${p.id}"
+                        href="../../pages/products/ProductDetail.html?id=${p.id}"
                     >
                         Xem
                     </a>
@@ -338,7 +338,7 @@ class UIRender{
                     <img src="${p.image}">
                     <h3>${p.name}</h3>
                     <p>${p.price.toLocaleString("vi-VN")}đ</p>
-                    <a href="pages/products/ProductDetail.html?id=${p.id}">Xem chi tiết</a>
+                    <a href="../../pages/products/ProductDetail.html?id=${p.id}">Xem chi tiết</a>
                 </div>
             `).join("");
     }
