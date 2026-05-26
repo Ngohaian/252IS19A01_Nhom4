@@ -16,8 +16,10 @@ class BlogRender {
             <div class="blog-card">
 
                 <div class="blog-image">
+                    <a href="pages/blog/BlogDetail.html?id=${blog.id}">
 
                     <img src="${blog.image}" alt="${blog.title}">
+                    </a>
 
                 </div>
 
@@ -47,12 +49,7 @@ class BlogRender {
 
                     </div>
 
-                    <a 
-                        href="pages/blog/BlogDetail.html?id=${blog.id}"
-                        class="blog-btn"
-                    >
-                        Đọc thêm
-                    </a>
+                    
 
                 </div>
 
