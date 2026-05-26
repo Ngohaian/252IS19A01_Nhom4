@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nếu chưa có phiên đăng nhập, bắt buộc quay về trang Login
     if (!user) {
-        alert("Vui lòng đăng nhập để xem không gian cá nhân!");
         window.location.href = 'pages/auth/Login.html';
         return;
     }

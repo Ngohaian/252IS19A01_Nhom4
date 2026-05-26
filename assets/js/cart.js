@@ -1,7 +1,8 @@
 class CartItem {
-    constructor(product, quantity) {
+    constructor(product, quantity, checked) {
         this.product = product;   
         this.quantity = quantity; 
+        this.checked = checked;
     }
     get subTotal() {
         return this.product.price * this.quantity;
@@ -10,14 +11,17 @@ class CartItem {
 
 class Cart {
     constructor() {
+        const user = JSON.parse(sessionStorage.getItem('currentUser'));
+        this.storageKey = user ? `cart_${user.id}` : 'guest_cart';
         this.items = this.loadFromStorage();
     }
 
     saveToStorage() {
-        localStorage.setItem('cartItems', JSON.stringify(
+        localStorage.setItem(this.storageKey, JSON.stringify(
             this.items.map(item => ({
                 product: item.product,
-                quantity: item.quantity
+                quantity: item.quantity,
+                checked: item.checked
             }))
         ));
         localStorage.setItem('cartCount', this.items.length);
@@ -25,9 +29,9 @@ class Cart {
 
     loadFromStorage() {
         try {
-            const saved = localStorage.getItem('cartItems');
+            const saved = localStorage.getItem(this.storageKey);
             if (!saved) return [];
-            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity));
+            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity, i.checked));
         } catch {
             return [];
         }
@@ -41,7 +45,7 @@ class Cart {
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
-            this.items.push(new CartItem(product, quantity));
+            this.items.push(new CartItem(product, quantity, true));
         }
         this.saveToStorage();
         this.updateCartBadge(); 
@@ -161,10 +165,21 @@ class Cart {
         this.saveToStorage();
     }
     render() {
-        this.validateStock();
         const cartItemsList = document.getElementById('cart-items-list'); 
-        const summaryContainer = document.getElementById('cart-summary'); 
-
+        const summaryContainer = document.getElementById('cart-summary');
+        if (!sessionStorage.getItem('currentUser')) {
+ 
+            if (cartItemsList) {
+                cartItemsList.innerHTML = `
+                <div class="empty-cart-wrapper" ">
+                    <p class="empty-cart-text" >VUI LÒNG ĐĂNG NHẬP ĐỂ XEM GIỎ HÀNG</p>
+                    <a href="/pages/auth/login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
+                </div>`;
+            }
+            if (summaryContainer) summaryContainer.style.display = 'none';
+            return;
+        }
+        this.validateStock();
         if (!cartItemsList || !summaryContainer) return; 
 
         cartItemsList.innerHTML = '';

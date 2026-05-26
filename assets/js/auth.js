@@ -78,9 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 sessionStorage.setItem('currentUser', JSON.stringify(sessionUser));
 
-                alert(`Chào mừng ${validUser.name} đã đến với Cây cảnh Mộc Miên!`);
                 
-                // Chuyển hướng về Trang Chủ (Bạn tự điều chỉnh đường dẫn ../../index.html cho đúng với file của nhóm nhé)
                 window.location.href = 'index.html'; 
             } else {
                 // Sai thông tin

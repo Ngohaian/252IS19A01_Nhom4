@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await loadComponent('header-placeholder', `${BASE}includes/header.html`);
     await loadComponent('footer-placeholder', `${BASE}includes/footer.html`);
-
+    
     const myCart = new Cart();
     window.cart = myCart;
 
