@@ -14,7 +14,7 @@ const productsData = [
 
         450000,
 
-        "assets/images/kimtien.jpg",
+        "../../assets/images/kimtien.jpg",
 
         "Phong thủy",
 
@@ -25,8 +25,8 @@ const productsData = [
         false,
 
         [
-           "assets/images/kimtien2.jpg",
-           "assets/images/kimtien.jpg"
+           "../../assets/images/kimtien2.jpg",
+           "../../assets/images/kimtien.jpg"
         ],
 
         "Cây mang ý nghĩa tài lộc và may mắn trong phong thủy, thường được đặt trong nhà hoặc văn phòng để thu hút năng lượng tích cực. Với màu xanh tươi và sức sống bền bỉ, cây còn tượng trưng cho sự phát triển, thành công và thịnh vượng lâu dài.",
@@ -57,7 +57,7 @@ const productsData = [
 
         700000,
 
-       "assets/images/monstera.jpg",
+       "../../assets/images/monstera.jpg",
 
         "Trong nhà",
 
@@ -100,7 +100,7 @@ const productsData = [
 
         320000,
 
-        "assets/images/luoiho.jpg",
+        "../../assets/images/luoiho.jpg",
 
         "Phong thủy",
 
@@ -165,7 +165,7 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 
 // ================= FIRST RENDER =================
 
-// Đọc ?search= từ URL và áp dụng filter
+
 const urlParams = new URLSearchParams(window.location.search);
 const searchKeyword = urlParams.get("search");
 
