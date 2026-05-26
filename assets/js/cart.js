@@ -173,7 +173,7 @@ class Cart {
                 cartItemsList.innerHTML = `
                 <div class="empty-cart-wrapper" ">
                     <p class="empty-cart-text" >VUI LÒNG ĐĂNG NHẬP ĐỂ XEM GIỎ HÀNG</p>
-                    <a href="/pages/auth/login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
+                    <a href="pages/auth/login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
                 </div>`;
             }
             if (summaryContainer) summaryContainer.style.display = 'none';
@@ -194,7 +194,7 @@ class Cart {
                     <circle cx="62" cy="68" r="6" fill="#c9bba0"/>
                 </svg>
                 <p class="empty-cart-text">GIỎ HÀNG ĐANG TRỐNG...</p>
-                <a href="/shop" class="find-plant-btn">TÌM CÂY MỚI</a>
+                <a href="pages/products/ProductList.html" class="find-plant-btn">TÌM CÂY MỚI</a>
             </div>`;
             summaryContainer.style.display = 'none';
             return;
