@@ -1,5 +1,4 @@
 
-import {order, orderDetailUI} from './order.js';
 function loadComponent(id, file) {
     return fetch(file)
         .then(res => res.text())
@@ -58,9 +57,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     myCart.render();
     myCart.updateCartBadge();
-    renderFeaturedProducts();
-    const orders = order.loadFromStorage();
+    const orders = new order();
+    window.Order = orders;
 
+    renderFeaturedProducts();
     document.addEventListener('click', function (e) {
     const target = e.target.closest('a');
     if (!target || !target.href) return;
@@ -103,7 +103,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // HIỆU ỨNG ACTIVE HEADER (IN ĐẬM & GẠCH CHÂN)
 document.addEventListener("DOMContentLoaded", () => {
-    // Dùng setTimeout chờ Header render xong
     setTimeout(() => {
         const currentPath = window.location.pathname;
         const currentUrl = window.location.href;
@@ -112,25 +111,20 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             
-            // Xóa trạng thái active cũ
             link.style.borderBottom = '2.5px solid transparent';
             link.style.webkitTextStroke = '0';
             link.style.fontWeight = 'normal';
-
-            // Kiểm tra nếu URL hiện tại chứa link của menu
             if (href && href !== '#' && (currentUrl.includes(href) || 
                (href === 'index.html' && (currentPath.endsWith('/') || currentPath.includes('index.html'))))) {
                 
-                // Đang ở trang nào thì Gạch chân và In đậm trang đó
                 link.style.borderBottom = '2.5px solid #967451';
                 link.style.webkitTextStroke = '0.8px #967451'; 
                 link.style.fontWeight = 'bold';
             }
         });
-    }, 500); // Đợi 0.5s để đảm bảo HTML của header đã được bơm vào
+    }, 500); 
 });
 
-// ================= HÀM TÌM KIẾM TRỰC TIẾP TRÊN TRANG CHỦ (DÙNG DỮ LIỆU THẬT) =================
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         const searchInput = document.getElementById('searchInput');
@@ -171,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     (p.category && p.category.toLowerCase().includes(keyword))
                 );
 
-                // Render giao diện ngay tại phần "Sản phẩm tiêu biểu"
                 if (filteredProducts.length > 0) {
                     productsContainer.innerHTML = featuredProducts.map((p, index) => `
                         <a href="/pages/products/ProductDetail.html?id=${p.id}" 

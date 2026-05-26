@@ -300,13 +300,6 @@
     content: '🌱'; /* Thay icon cửa hàng thành icon Mầm xanh */
 }
 
-.order-status {
-    color: var(--green-dark, #4a6741); /* Màu xanh lá cây đậm */
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-}
 
 .order-body {
     display: flex;

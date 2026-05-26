@@ -1,4 +1,5 @@
-export class order{
+
+class order{
     constructor(orderId, customer, date,status,payment,note, items = []){
         this.orderId=orderId;
         this.customer=customer;
@@ -7,6 +8,19 @@ export class order{
         this.payment = payment;
         this.note=note;
         this.items = items;
+    }
+    static generateOrderId() {
+        const orders = order.loadFromStorage();
+
+        if (orders.length === 0) return "INV001";
+        const maxNum = orders.reduce((max, o) => {
+            const match = o.orderId.match(/^INV(\d+)$/);
+            if (!match) return max;
+            return Math.max(max, parseInt(match[1]));
+        }, 0);
+
+        const next = String(maxNum + 1).padStart(3, "0");
+        return `INV${next}`;
     }
     addItem( product, quantity, price){
         this.items.push(new orderDetail(product, quantity, price));
@@ -50,7 +64,7 @@ export class order{
         }
     }
 }
-export class orderDetail{
+class orderDetail{
     constructor( product, quantity, price){
         this.product=product;
         this.quantity=quantity;
@@ -58,7 +72,7 @@ export class orderDetail{
     }
     
 }
-export class orderDetailUI{
+class orderDetailUI{
     renderTimeline(status) {
         const steps = [
             { key: "Đã đặt hàng", icon: "shopping_bag" },
@@ -180,7 +194,6 @@ export class orderDetailUI{
                 </div>
             </div>
         `;
-        container.appendChild(div);
     }
     render(order){
         const TTDon = document.getElementById("TTDon");
@@ -203,3 +216,22 @@ export class orderDetailUI{
         this.renderThanhToan(order);
     }
 }
+window.Order = order;
+window.OrderDetail = orderDetail;
+window.OrderDetailUI = orderDetailUI;
+document.addEventListener("DOMContentLoaded", () => {
+    if (!window.location.pathname.includes("OrderDetail")) return; 
+
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get("id");
+
+    if (!orderId) return;
+
+    const allOrders = Order.loadFromStorage();
+    const found = allOrders.find(o => o.orderId === orderId);
+
+    if (!found) return;
+
+    const ui = new OrderDetailUI();
+    ui.render(found);
+});

@@ -208,9 +208,10 @@ class Cart {
                 <a class="checkout-submit-btn" href="/pages/checkout/Payment.html">THANH TOÁN MỘC</a>
             </div>
         `;
-        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', ()=>{
+        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', (e)=>{
             let orderItems = this.getSelectedItems();
             if (orderItems.length === 0) {
+                
                 e.preventDefault();
                 alert('Vui lòng chọn ít nhất 1 sản phẩm!');
                 return;
