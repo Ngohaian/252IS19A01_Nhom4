@@ -16,7 +16,7 @@ if (blogManager.blogs.length === 0) {
 
         "Phong thủy",
 
-        "../../assets/images/kimtien2.jpg",
+        "assets/images/kimtien2.jpg",
 
         "Hướng dẫn chăm sóc cây Kim Tiền đúng cách giúp cây luôn xanh tốt và phát triển khỏe mạnh.",
 
