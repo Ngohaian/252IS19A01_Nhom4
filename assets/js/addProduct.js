@@ -4,7 +4,7 @@ const manager = new ProductManager();
 
 manager.loadFromLocalStorage();
 
-
+if (manager.products.length === 0) {
 const productsData = [
     new Product(
 
@@ -134,8 +134,13 @@ const productsData = [
 
         3
     )
-]
-manager.saveToLocalStorage();
+];
+productsData.forEach(product => {
+        manager.addProduct(product);
+    });
+
+    manager.saveToLocalStorage();
+}
 
 
 
