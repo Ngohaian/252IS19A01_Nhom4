@@ -1,3 +1,10 @@
+/* 1. Tự import phông chữ mà file gốc bị thiếu */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+/* 2. Áp dụng cho các ô nhập liệu và nút bấm */
+input, button, textarea, select {
+    font-family: var(--font-body);
+}
 
 /* ===== BỐ CỤC CHUNG PROFILE (GRID LAYOUT) ===== */
 .profile-layout {
@@ -300,13 +307,6 @@
     content: '🌱'; /* Thay icon cửa hàng thành icon Mầm xanh */
 }
 
-.order-status {
-    color: var(--green-dark, #4a6741); /* Màu xanh lá cây đậm */
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-}
 
 .order-body {
     display: flex;
@@ -419,4 +419,64 @@
 .btn-contact:hover {
     background: var(--cream, #fffbf3);
     border-color: var(--earthyBrown, #967451);
+}
+/* =========================================
+   FIX LỖI TRÀN VIỀN TRANG TÀI KHOẢN (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Ép layout chính không được tràn lề */
+    .profile-layout {
+        padding: 0 15px !important;
+        margin: 20px auto !important;
+    }
+
+    /* 2. Thu nhỏ padding các hộp nội dung và ép khung 100% */
+    .sidebar-menu,
+    .profile-content {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        padding: 24px 16px !important;
+        overflow: hidden !important; /* Cắt bỏ phần thò ra ngoài */
+    }
+
+    /* 3. TRỊ "SÁT THỦ" EMAIL VÀ CHUYỂN DỌC HÀNG THÔNG TIN */
+    .user-info-card p {
+        flex-direction: column !important; /* Đẩy chữ (Email, SĐT) rớt xuống dưới tiêu đề */
+        align-items: flex-start !important;
+        gap: 6px;
+    }
+
+    .user-info-card p strong {
+        width: 100% !important; /* Bỏ giới hạn chiều rộng cũ của tiêu đề */
+    }
+
+    .user-info-card p span {
+        word-wrap: break-word !important; 
+        word-break: break-all !important; /* Tới mép màn hình là bẻ đôi email luôn */
+        white-space: normal !important;
+        width: 100%;
+    }
+
+    /* 4. Fix tràn viền ở Tabs Lịch sử đơn hàng */
+    .order-tabs {
+        flex-wrap: wrap; /* Cho phép các tab rớt dòng nếu nhiều quá */
+    }
+
+    .tab-item {
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+
+    /* 5. Ép chữ tiêu đề Profile nhỏ lại cho cân đối */
+    .profile-content h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    /* 6. Cho phép các nút trong đơn hàng xuống dòng tránh kẹt */
+    .order-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
 }
