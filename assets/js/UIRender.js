@@ -290,7 +290,7 @@ class UIRender{
                     </p>
 
                     <a
-                        href="../../pages/products/ProductDetail.html?id=${p.id}"
+                        href="pages/products/ProductDetail.html?id=${p.id}"
                     >
                         Xem
                     </a>
