@@ -134,10 +134,7 @@ const productsData = [
 
         3
     )
-];
-productsData.forEach(product => {
-        manager.addProduct(product);
-    });
+]
 manager.saveToLocalStorage();
 
 
