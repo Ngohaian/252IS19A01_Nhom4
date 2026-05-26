@@ -202,8 +202,11 @@ body {
     color: #5b6574;     
 }
 /* Các hộp nội dung từng phần (Sections) */
-.detail-section{
-    background: #fff;
+.detail-section {
+    /* Khoảng cách ngoài đã có grid-gap lo */
+    margin: 0 2.1875rem;
+
+    padding: 1.2rem 1.3rem;
 
     border-radius: 1.5rem;
 
@@ -910,7 +913,8 @@ body {
 
     .detail-section p {
         font-size: 1.1rem;
-        line-height: 1.7;
+        margin: 0.25rem 0;
+        line-height: 1.6;
     }
 
     .comment-item {

@@ -78,19 +78,58 @@
             <div id="render-order-total">
             </div>
 
-            <button id="btn-checkout">Đặt hàng</button>
+            <button id="btn-checkout" ">Đặt hàng</button>
         </div>
 
         </div>
     </main>
 
     <div id="footer-placeholder"></div>
-
+    <script>
+        let button = document.getElementById("btn-checkout");
+        const name  = document.getElementById('tendathang');
+        const phone = document.getElementById('sdtdathang');
+        const email = document.getElementById('emaildathang');
+        const addr  = document.getElementById('diachidathang');
+        const paymentMethod = document.querySelector('input[name="payment"]:checked');
+        const note = document.getElementById('notedathang');
+        button.addEventListener("click", e=>{
+            if (!name.value.trim() ) {
+                name.setCustomValidity('Vui lòng điền họ tên');
+                name.reportValidity();
+                return;
+            }
+            if (!phone.value.trim()) {
+                phone.setCustomValidity('Vui lòng điền vào số điện thoại');
+                phone.reportValidity();
+                return;
+            }
+            if (!addr.value.trim()) {
+                addr.setCustomValidity('Vui lòng điền địa chỉ');
+                addr.reportValidity();
+                return;
+            }
+        if ( isNaN(phone.value) && phone.value.length!=10 ) {
+            phone.setCustomValidity("Số điện thoại không hợp lệ");
+            phone.reportValidity();
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() && !emailRegex.test(email.value.trim())) {
+            email.setCustomValidity('Email không hợp lệ. Ví dụ: ten@gmail.com');
+            email.reportValidity();
+            return;
+        }
+        datHang();
+    });
+    </script>
     <script src="../../assets/js/Product.js"></script>
     <script src="../../assets/js/ProductManager.js"></script>
     <script src="../../assets/js/Pagination.js"></script>
     <script src="../../assets/js/addProduct.js"></script>
-    <script type="module" src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/payment.js"></script>
+    <script src="../../assets/js/cart.js"></script>
+    <script  src="../../assets/js/main.js"></script>
+    <script src = "../../assets/js/order.js"></script>
+    <script src="../../assets/js/payment.js"></script>
 </body>
 </html>
