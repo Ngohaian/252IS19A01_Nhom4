@@ -134,7 +134,10 @@ const productsData = [
 
         3
     )
-]
+];
+productsData.forEach(product => {
+        manager.addProduct(product);
+    });
 manager.saveToLocalStorage();
 
 
@@ -165,7 +168,7 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 
 // ================= FIRST RENDER =================
 
-
+// Đọc ?search= từ URL và áp dụng filter
 const urlParams = new URLSearchParams(window.location.search);
 const searchKeyword = urlParams.get("search");
 
