@@ -1,10 +1,10 @@
 .Container {
     display: grid;
     grid-template-columns: 1.25fr minmax(260px, 0.65fr);
-    gap: 50px;
-    max-width: 1200px;
+    gap: 3.125rem;
+    max-width: 75rem;
     margin: 0px auto;
-    padding: 70px 24px;
+    padding: 4.375rem 1.5rem;
     align-items: start;
 }
 
@@ -17,7 +17,7 @@
     font-weight: 700;
     font-size: 2rem;
     color: var(--text-main);
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
 }
 
 .ThongTinGioHang {
@@ -36,7 +36,7 @@
 }
 
 .cart-item-row:hover {
-    box-shadow: 0 10px 10px rgba(68, 63, 63, 0.10);
+    box-shadow: 0 0.625rem 0.625rem rgba(68, 63, 63, 0.10);
 }
 
 .cart-item-container {
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 12px;
+    gap: 0.75rem;
 }
 .item-checkbox{
     width: 18px;
@@ -59,14 +59,14 @@
 }
 
 .item-cart-image {
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background: var(--cream-card);
     display: inline-block;
-    margin-right: 15px;
-    min-width: 60px;
+    margin-right: 0.9375rem;
+    min-width: 3.75rem;
     font-size: 0.6875rem;
     color: var(--text-muted);
 }
@@ -74,7 +74,7 @@
 .item-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .item-category {
@@ -92,7 +92,7 @@
 }
 
 .item-price {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--price-color);
     font-weight: 600;
 }
@@ -109,7 +109,7 @@
     align-items: center;
     gap: 4px;
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 2px 6px;
     background: #fff;
 }
@@ -140,10 +140,10 @@
 }
 
 .item-quantity-input {
-    width: 24px;
+    width: 1.5rem;
     text-align: center;
     border: none;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--text-main);
     background: transparent;
@@ -167,11 +167,12 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding: 60px 40px;
+    padding: 2.5rem 1.25rem;
     border: 1.5px solid var(--border);
     border-radius: 1rem;
     background: var(--cream-card);
     gap: 1rem;
+    box-sizing: border-box;
 }
 
 .empty-cart-text {
@@ -180,18 +181,20 @@
     letter-spacing: 2.5px;
     color: var(--text-muted);
     margin: 0;
+    text-align: center;
 }
 
 .find-plant-btn {
     background: var(--green-btn);
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
-    padding: 13px 36px;
-    font-size: 13px;
+    border-radius: 0.625rem;
+    padding: 0.8125rem 2.25rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 2px;
     transition: background 0.2s;
+    white-space: nowrap;
 }
 
 .find-plant-btn:hover {
@@ -203,7 +206,7 @@
     flex-shrink: 0;
     position: sticky;
     margin-top: 1.25rem;
-    top: 10px;
+    top: 0.625rem;
     width: 100%;
     align-self: start;
     background-color: var(--cream-card);
@@ -217,7 +220,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.9375rem;
-    padding: 10px 0.9375rem;
+    padding: 0.625rem 0.9375rem;
 }
 
 .order-summary-box h2 {
@@ -248,11 +251,11 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0.875rem;
-    margin-top: 8px;
+    margin-top: 0.5rem;
     background-color: var(--green-btn);
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     font-size: 0.9375rem;
     font-weight: 700;
     font-family: var(--font-body);
@@ -273,12 +276,12 @@
 .summary-label {
     font-family: var(--font-body);
     color: var(--text-main);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
 }
 
 .summary-value {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-main);
 }
@@ -290,13 +293,13 @@
 
 .total-line .summary-label {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.125rem;
     letter-spacing: 1px;
     color: var(--text-muted);
 }
 
 .total-price {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--price-color);
 }
@@ -305,7 +308,7 @@
 @media (max-width: 768px) {
     .Container {
         grid-template-columns: 1fr;
-        padding: 24px 16px;
+        padding: 1.5rem 1rem;
     }
 
     .TomTatDon {
