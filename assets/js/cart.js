@@ -173,7 +173,7 @@ class Cart {
                 cartItemsList.innerHTML = `
                 <div class="empty-cart-wrapper" ">
                     <p class="empty-cart-text" >VUI LÒNG ĐĂNG NHẬP ĐỂ XEM GIỎ HÀNG</p>
-                    <a href="pages/auth/login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
+                    <a href="pages/auth/Login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
                 </div>`;
             }
             if (summaryContainer) summaryContainer.style.display = 'none';
