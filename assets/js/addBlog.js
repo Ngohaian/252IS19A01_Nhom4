@@ -262,82 +262,77 @@ blogManager.addBlog(
     new Blog(
 
         4,
+"Cách chăm sóc cây Xương Rồng khỏe mạnh quanh năm",
+"Trong nhà",
+"assets/images/xuongrong.jpg",
+"Cây Xương Rồng là biểu tượng của sức sống mãnh liệt và khả năng thích nghi tuyệt vời trong môi trường khắc nghiệt. Bài viết hướng dẫn cách chăm sóc giúp cây luôn khỏe mạnh và phát triển tốt.",
 
-        "Cách chăm sóc cây Vạn Lộc luôn đỏ đẹp quanh năm",
+// 1. Giới thiệu chung
+"Cây Xương Rồng",
+"Cactaceae",
+"Xương Rồng là nhóm thực vật mọng nước nổi tiếng với khả năng lưu trữ nước trong thân để thích nghi với điều kiện khô hạn. Hình dáng đa dạng từ hình cầu nhỏ gọn đến dạng cột cao độc đáo giúp cây trở thành lựa chọn yêu thích của nhiều người yêu cây cảnh.",
+"Theo phong thủy, Xương Rồng tượng trưng cho sức mạnh, ý chí kiên cường và khả năng vượt qua khó khăn. Nhiều người trồng cây như một biểu tượng của sự bền bỉ và nghị lực trong cuộc sống.",
+"Rất dễ",
 
-        "Phong thủy",
+// 2. Ánh sáng
+"Xương Rồng là loài cây ưa sáng mạnh và cần nhiều ánh nắng để phát triển khỏe mạnh. Ánh sáng đầy đủ giúp cây giữ được hình dáng đẹp và màu sắc tự nhiên.",
+"Nên đặt cây ở ban công, cửa sổ nhiều nắng hoặc những nơi nhận được ánh sáng trực tiếp từ 4–6 giờ mỗi ngày.",
+"Thiếu ánh sáng có thể khiến thân cây vươn dài bất thường, mất dáng và giảm sức sống.",
 
-        "assets/images/vanloc.jpg",
+// 3. Tưới nước
+"Xương Rồng có nhu cầu nước rất thấp nhờ khả năng tích trữ nước trong thân. Thông thường chỉ cần tưới khoảng 1 lần mỗi tuần hoặc ít hơn tùy điều kiện thời tiết.",
+"Trước khi tưới cần đảm bảo đất đã khô hoàn toàn. Có thể kiểm tra bằng cách dùng tay hoặc que gỗ cắm xuống đất.",
+"Việc để đất khô giữa các lần tưới giúp bộ rễ khỏe mạnh và hạn chế bệnh hại.",
+"Tưới quá nhiều nước là nguyên nhân phổ biến gây thối rễ, mềm thân và chết cây.",
 
-        "Cây Vạn Lộc nổi bật với sắc lá đỏ hồng rực rỡ và ý nghĩa tài lộc. Bài viết hướng dẫn cách chăm sóc giúp cây luôn khỏe mạnh và giữ màu sắc đẹp mắt.",
+// 4. Đất & chậu
+"Xương Rồng cần loại đất có khả năng thoát nước cực tốt để tránh tình trạng úng rễ.",
+"Có thể sử dụng hỗn hợp đất chuyên dụng cho sen đá và xương rồng kết hợp với cát, đá pumice hoặc perlite.",
+"Chậu trồng bắt buộc phải có lỗ thoát nước và nên sử dụng chậu đất nung để tăng khả năng thoáng khí.",
 
-        // 1. Giới thiệu chung
-        "Cây Vạn Lộc",
-        "Aglaonema rotundum",
-        "Vạn Lộc là loài cây cảnh nội thất nổi tiếng với những chiếc lá pha trộn giữa sắc đỏ, hồng và xanh tạo nên vẻ đẹp nổi bật khó nhầm lẫn. Cây có kích thước vừa phải, phù hợp với nhiều không gian khác nhau từ bàn làm việc đến phòng khách hoặc khu vực lễ tân. Nhờ khả năng thích nghi tốt với điều kiện trong nhà nên Vạn Lộc ngày càng được nhiều người yêu thích.",
-        "Theo quan niệm phong thủy, màu đỏ trên lá tượng trưng cho tài lộc, may mắn và nguồn năng lượng tích cực. Nhiều người tin rằng việc đặt cây trong nhà hoặc nơi làm việc sẽ giúp thu hút vận may, thuận lợi trong công việc và cuộc sống. Vì vậy Vạn Lộc thường được chọn làm quà tặng khai trương, tân gia hoặc các dịp đặc biệt.",
-        "Dễ",
+// 5. Nhiệt độ & độ ẩm
+"Nhiệt độ lý tưởng cho Xương Rồng dao động từ 18–35°C. Cây có khả năng chịu nóng tốt và thích nghi với môi trường khô.",
+"Độ ẩm thấp đến trung bình là điều kiện phù hợp nhất cho sự phát triển của cây.",
+"Không cần phun sương thường xuyên vì môi trường quá ẩm có thể làm tăng nguy cơ nấm bệnh.",
 
-        // 2. Ánh sáng
-        "Vạn Lộc phát triển tốt nhất trong môi trường có ánh sáng gián tiếp hoặc ánh sáng tán xạ nhẹ. Ánh sáng phù hợp giúp cây duy trì màu lá đỏ hồng rực rỡ và kích thích quá trình sinh trưởng ổn định. Nếu được cung cấp đủ ánh sáng, lá cây sẽ lên màu đẹp và rõ nét hơn.",
-        "Nên đặt cây gần cửa sổ có rèm che, ban công có mái hoặc những vị trí nhận được ánh sáng tự nhiên trong nhiều giờ mỗi ngày. Với môi trường văn phòng, nên đưa cây ra nơi có ánh sáng tự nhiên vài lần mỗi tuần để cây phát triển tốt hơn.",
-        "Không nên để cây tiếp xúc trực tiếp với ánh nắng gay gắt trong thời gian dài vì có thể gây cháy lá, khô mép lá và làm giảm độ tươi tắn của màu sắc tự nhiên.",
+// 6. Phân bón
+"Xương Rồng không cần quá nhiều dinh dưỡng nhưng vẫn nên được bổ sung phân định kỳ để phát triển tốt hơn.",
+"Có thể sử dụng phân hữu cơ hoặc phân NPK loãng khoảng 2–3 tháng một lần trong mùa sinh trưởng.",
+"Bón quá nhiều phân có thể làm cây phát triển mất cân đối hoặc gây cháy rễ.",
 
-        // 3. Tưới nước
-        "Vạn Lộc có nhu cầu nước ở mức trung bình và thích môi trường đất hơi ẩm. Thông thường có thể tưới khoảng 2–3 lần mỗi tuần tùy theo nhiệt độ và độ ẩm môi trường xung quanh.",
-        "Trước mỗi lần tưới nên kiểm tra bề mặt đất bằng tay. Nếu lớp đất phía trên đã se khô thì có thể bổ sung nước cho cây. Việc kiểm tra thường xuyên sẽ giúp hạn chế tình trạng tưới quá nhiều hoặc quá ít.",
-        "Nên tưới đều quanh gốc và tránh để nước đọng quá lâu trong chậu. Việc duy trì độ ẩm cân bằng sẽ giúp bộ rễ khỏe mạnh và lá luôn giữ được vẻ bóng đẹp.",
-        "Tưới quá nhiều nước là nguyên nhân phổ biến gây vàng lá, thối rễ và làm cây suy yếu. Khi phát hiện đất quá ẩm hoặc có dấu hiệu úng nước, cần giảm lượng nước tưới ngay lập tức.",
+// 7. Cắt tỉa & vệ sinh
+"Loại bỏ các phần thân bị hư hỏng hoặc khô để hạn chế sâu bệnh và giữ hình dáng đẹp cho cây.",
+"Dùng cọ mềm hoặc khăn khô để làm sạch bụi bám trên thân cây định kỳ.",
+"Thay đất mới sau khoảng 2–3 năm giúp bổ sung dinh dưỡng và cải thiện môi trường phát triển cho bộ rễ.",
 
-        // 4. Đất & chậu
-        "Cây Vạn Lộc phát triển tốt trong loại đất giàu dinh dưỡng, tơi xốp và có khả năng thoát nước hiệu quả. Môi trường đất phù hợp giúp bộ rễ hấp thụ dinh dưỡng tốt hơn và hạn chế các bệnh liên quan đến nấm.",
-        "Có thể phối trộn đất sạch với xơ dừa, trấu hun, perlite hoặc phân hữu cơ hoai mục để tăng độ thông thoáng và bổ sung dưỡng chất cần thiết cho cây.",
-        "Chậu trồng nên có lỗ thoát nước ở đáy để tránh hiện tượng tích tụ nước. Ngoài ra, lựa chọn kích thước chậu phù hợp với bộ rễ cũng giúp cây sinh trưởng ổn định hơn trong thời gian dài.",
+// 8. Sâu bệnh
+"Xương Rồng có thể bị rệp sáp, nhện đỏ hoặc nấm nếu môi trường quá ẩm và thiếu thông thoáng.",
+"Các dấu hiệu thường gặp gồm thân mềm, xuất hiện đốm đen, đổi màu hoặc có lớp bột trắng bám trên thân.",
+"Khi phát hiện sâu bệnh cần cách ly cây, cắt bỏ phần hư hại và sử dụng thuốc sinh học phù hợp để xử lý.",
 
-        // 5. Nhiệt độ & độ ẩm
-        "Nhiệt độ lý tưởng cho cây Vạn Lộc dao động từ 20–30°C. Đây là khoảng nhiệt độ phù hợp với điều kiện khí hậu nhiệt đới tại Việt Nam nên cây có thể phát triển tốt quanh năm.",
-        "Vạn Lộc yêu thích môi trường có độ ẩm trung bình đến cao. Độ ẩm phù hợp giúp lá luôn mềm mại, bóng đẹp và giữ được màu sắc rực rỡ đặc trưng.",
-        "Trong những ngày thời tiết khô nóng hoặc sử dụng điều hòa thường xuyên, có thể phun sương nhẹ lên lá hoặc đặt khay nước gần cây để tăng độ ẩm không khí.",
+// 9. Lưu ý quan trọng
+"Không tưới nước theo lịch cố định mà cần dựa vào độ khô của đất.",
+"Tránh để cây ở nơi thiếu ánh sáng trong thời gian dài.",
+"Không để nước đọng trong chậu hoặc đĩa lót vì dễ gây thối rễ.",
 
-        // 6. Phân bón
-        "Để duy trì màu lá đẹp và thúc đẩy quá trình sinh trưởng, cây cần được bổ sung dinh dưỡng định kỳ. Các loại phân hữu cơ, phân trùn quế hoặc NPK cân đối đều phù hợp cho Vạn Lộc.",
-        "Nên bón phân khoảng một lần mỗi tháng trong giai đoạn cây phát triển mạnh. Việc cung cấp dinh dưỡng đầy đủ giúp lá lên màu đẹp hơn và hạn chế hiện tượng còi cọc.",
-        "Không nên bón quá nhiều phân trong một lần vì có thể làm cháy rễ hoặc khiến cây bị sốc dinh dưỡng. Luôn tuân thủ liều lượng khuyến nghị của nhà sản xuất.",
+// 10. Vấn đề thường gặp
+"Thân mềm, vàng úa hoặc phát triển dài bất thường là những vấn đề phổ biến khi chăm sóc Xương Rồng.",
+"Điều chỉnh lượng nước tưới, tăng cường ánh sáng và thay đất mới nếu cần sẽ giúp cây phục hồi hiệu quả.",
 
-        // 7. Cắt tỉa & vệ sinh
-        "Thường xuyên loại bỏ lá già, lá vàng hoặc những phần bị hư hỏng giúp cây tập trung dinh dưỡng cho lá mới khỏe mạnh hơn. Đây cũng là cách giữ cho cây luôn gọn gàng và đẹp mắt.",
-        "Lau sạch bụi trên bề mặt lá bằng khăn mềm giúp cây quang hợp hiệu quả hơn và duy trì độ bóng tự nhiên của lá.",
-        "Sau khoảng 1–2 năm nên thay đất hoặc thay chậu để bổ sung dinh dưỡng mới và tạo không gian cho bộ rễ tiếp tục phát triển.",
+// 11. Mẹo chăm sóc nâng cao
+"Xoay chậu định kỳ giúp cây phát triển cân đối và nhận ánh sáng đồng đều từ các phía.",
+"Sử dụng chậu đất nung giúp tăng khả năng thoát hơi nước và hạn chế úng rễ.",
+"Bón phân vào đầu mùa xuân để kích thích tăng trưởng và ra hoa ở một số giống xương rồng.",
+"Nhiều loại xương rồng có thể nhân giống dễ dàng bằng cách tách nhánh hoặc giâm thân.",
 
-        // 8. Sâu bệnh
-        "Mặc dù khá khỏe mạnh nhưng Vạn Lộc vẫn có thể gặp một số loại sâu bệnh như rệp sáp, nhện đỏ hoặc nấm lá nếu môi trường quá ẩm và thiếu thông thoáng.",
-        "Những dấu hiệu thường gặp bao gồm lá xuất hiện đốm vàng, đốm nâu, mép lá khô hoặc có lớp bột trắng bám trên bề mặt.",
-        "Khi phát hiện sâu bệnh, cần nhanh chóng cắt bỏ phần bị ảnh hưởng và vệ sinh khu vực trồng cây. Có thể sử dụng các chế phẩm sinh học phù hợp để xử lý và phòng ngừa tái phát.",
+// 12. Không gian sống & phong cách
+"Xương Rồng phù hợp với bàn làm việc, kệ sách, ban công, quán cà phê hoặc các không gian nhỏ cần điểm nhấn xanh.",
+"Hình dáng độc đáo và kích thước đa dạng giúp cây dễ dàng kết hợp với nhiều loại chậu trang trí khác nhau.",
+"Theo phong thủy, cây tượng trưng cho ý chí mạnh mẽ, khả năng vượt qua thử thách và bảo vệ nguồn năng lượng tích cực.",
+"Đây là lựa chọn lý tưởng cho phong cách tối giản, hiện đại, Scandinavian hoặc decor thiên nhiên.",
 
-        // 9. Lưu ý quan trọng
-        "Không nên đặt cây dưới ánh nắng trực tiếp trong nhiều giờ liên tục vì dễ làm cháy lá và mất màu.",
-        "Tránh để đất luôn trong tình trạng quá ẩm hoặc đọng nước kéo dài vì đây là nguyên nhân chính dẫn đến thối rễ.",
-        "Duy trì môi trường thông thoáng, sạch sẽ và có độ ẩm phù hợp sẽ giúp cây phát triển khỏe mạnh và hạn chế sâu bệnh.",
-
-        // 10. Vấn đề thường gặp
-        "Một số người trồng thường gặp tình trạng lá nhạt màu, mất sắc đỏ hoặc cây phát triển chậm hơn bình thường. Nguyên nhân chủ yếu là thiếu ánh sáng hoặc thiếu dinh dưỡng cần thiết.",
-        "Khi gặp tình trạng này, nên đưa cây đến nơi sáng hơn, đồng thời bổ sung phân bón định kỳ và kiểm tra lại chế độ tưới nước để cây nhanh chóng phục hồi.",
-
-        // 11. Mẹo chăm sóc nâng cao
-        "Xoay chậu định kỳ giúp các mặt của cây nhận được lượng ánh sáng đồng đều, từ đó tạo dáng cân đối và đẹp mắt hơn.",
-        "Sử dụng nước sạch hoặc nước đã để qua đêm sẽ giúp hạn chế lượng clo ảnh hưởng đến bộ rễ.",
-        "Bổ sung phân hữu cơ trong mùa sinh trưởng giúp lá lên màu đỏ đậm hơn và tăng sức sống cho cây.",
-        "Khi cây trưởng thành, có thể nhân giống bằng phương pháp tách bụi để tạo thêm nhiều chậu cây mới khỏe mạnh và giữ nguyên đặc tính của cây mẹ.",
-
-        // 12. Không gian sống & phong cách
-        "Vạn Lộc phù hợp với nhiều không gian như phòng khách, phòng ngủ, bàn làm việc, quầy lễ tân hoặc khu vực tiếp khách. Màu sắc nổi bật giúp cây dễ dàng trở thành điểm nhấn trong bất kỳ không gian nào.",
-        "Cây đặc biệt đẹp khi kết hợp với các loại chậu gốm trắng, chậu sứ cao cấp hoặc chậu xi măng hiện đại. Sự tương phản giữa màu lá và màu chậu tạo nên hiệu ứng trang trí rất ấn tượng.",
-        "Theo phong thủy, Vạn Lộc được xem là biểu tượng của tài lộc, sự thịnh vượng và nguồn năng lượng tích cực. Đây là lựa chọn được nhiều người yêu thích khi muốn tăng thêm sinh khí cho không gian sống.",
-        "Với vẻ đẹp nổi bật cùng khả năng thích nghi tốt, Vạn Lộc phù hợp với phong cách nội thất hiện đại, sang trọng và gần gũi thiên nhiên.",
-
-        "Admin",
-
-        "2026-05-22"
+"Admin",
+"2026-05-22"
     )
 );
 
