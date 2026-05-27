@@ -338,93 +338,80 @@ blogManager.addBlog(
 
 blogManager.addBlog(
     new Blog(
+        5,
+        "Cách chăm sóc cây Kim Ngân luôn xanh tốt",
+        "Phong thủy",
+        "assets/images/kimngan.jpg",
 
-    5,
+        "Cây Kim Ngân được yêu thích nhờ vẻ đẹp thanh lịch và ý nghĩa phong thủy về tài lộc, may mắn. Bài viết hướng dẫn cách chăm sóc cây đúng cách để luôn xanh tốt và phát triển khỏe mạnh.",
 
-    "Cách chăm sóc cây Kim Ngân luôn xanh tốt",
+        // 1. Giới thiệu chung
+        "Cây Kim Ngân",
+        "Pachira aquatica",
+        "Kim Ngân là loài cây cảnh nổi bật với thân bện độc đáo và tán lá xanh mướt. Cây có sức sống tốt, dễ thích nghi với nhiều môi trường khác nhau và thường được trồng trong nhà hoặc văn phòng.",
+        "Theo phong thủy, Kim Ngân tượng trưng cho sự giàu có, may mắn và thịnh vượng. Nhiều người lựa chọn loại cây này để thu hút tài lộc và tạo nguồn năng lượng tích cực cho không gian sống.",
+        "Dễ",
 
-    "Phong thủy",
+        // 2. Ánh sáng
+        "Kim Ngân phát triển tốt trong điều kiện ánh sáng gián tiếp hoặc ánh sáng tự nhiên nhẹ.",
+        "Nên đặt cây gần cửa sổ, ban công có mái che hoặc nơi thông thoáng để cây nhận đủ ánh sáng mỗi ngày.",
+        "Ánh nắng gắt chiếu trực tiếp trong thời gian dài có thể làm cháy lá và khiến cây mất sức sống.",
 
-    "assets/images/kimngan.jpg",
+        // 3. Tưới nước
+        "Kim Ngân có khả năng dự trữ nước trong thân nên không cần tưới quá thường xuyên.",
+        "Chỉ nên tưới khi lớp đất mặt đã khô khoảng 2–3 cm để tránh tình trạng úng rễ.",
+        "Tưới đều quanh gốc với lượng nước vừa phải, tránh để nước đọng trong đĩa lót chậu.",
+        "Tưới quá nhiều là nguyên nhân phổ biến gây vàng lá, rụng lá và thối rễ.",
 
-    "Cây Kim Ngân được yêu thích nhờ vẻ đẹp thanh lịch và ý nghĩa phong thủy về tài lộc, may mắn. Bài viết này sẽ hướng dẫn cách chăm sóc cây đúng cách để luôn xanh tốt và phát triển khỏe mạnh.",
+        // 4. Đất trồng & chậu
+        "Kim Ngân thích hợp với đất tơi xốp, giàu dinh dưỡng và có khả năng thoát nước tốt.",
+        "Có thể phối trộn đất sạch với xơ dừa, trấu hun và phân hữu cơ để tăng độ thông thoáng.",
+        "Nên sử dụng chậu có lỗ thoát nước để hạn chế ngập úng và giúp rễ phát triển khỏe mạnh.",
 
-    // 1. Giới thiệu chung
-    "Cây Kim Ngân",
-    "Pachira aquatica",
-    "Kim Ngân là loài cây cảnh có nguồn gốc từ vùng nhiệt đới Trung và Nam Mỹ. Cây nổi bật với thân bện độc đáo cùng những tán lá xanh mướt, mang vẻ đẹp hiện đại và sang trọng. Đây là một trong những loại cây phong thủy được trồng phổ biến trong nhà và văn phòng.",
-    "Trong phong thủy, Kim Ngân tượng trưng cho tài lộc, thịnh vượng và sự phát triển bền vững. Nhiều người tin rằng cây giúp thu hút năng lượng tích cực và mang đến may mắn trong công việc cũng như cuộc sống.",
-    "Dễ",
+        // 5. Nhiệt độ & độ ẩm
+        "Nhiệt độ lý tưởng cho cây Kim Ngân dao động từ 18–30°C.",
+        "Cây thích môi trường có độ ẩm trung bình và thích nghi tốt với điều kiện trong nhà.",
+        "Vào những ngày khô nóng có thể phun sương nhẹ lên lá để duy trì độ ẩm cần thiết.",
 
-    // 2. Ánh sáng
-    "Kim Ngân phát triển tốt trong môi trường có ánh sáng gián tiếp hoặc ánh sáng tự nhiên nhẹ. Cây có khả năng thích nghi với điều kiện trong nhà nhưng vẫn cần ánh sáng để duy trì màu lá xanh đẹp.",
-    "Nên đặt cây gần cửa sổ hoặc khu vực có ánh sáng tự nhiên để cây quang hợp hiệu quả. Nếu đặt trong văn phòng, nên cho cây tiếp xúc với ánh sáng tự nhiên vài lần mỗi tuần.",
-    "Ánh nắng gắt chiếu trực tiếp trong thời gian dài có thể làm lá bị cháy và mất độ bóng tự nhiên.",
+        // 6. Phân bón
+        "Bổ sung dinh dưỡng định kỳ giúp Kim Ngân phát triển ổn định và ra lá xanh đẹp.",
+        "Có thể sử dụng phân hữu cơ hoặc NPK cân đối khoảng 1–2 tháng một lần.",
+        "Bón phân đúng liều lượng sẽ giúp cây sinh trưởng khỏe mạnh và tăng sức đề kháng.",
 
-    // 3. Tưới nước
-    "Kim Ngân không cần tưới quá thường xuyên vì thân cây có khả năng tích trữ nước. Thông thường chỉ cần tưới khoảng 1–2 lần mỗi tuần tùy điều kiện thời tiết.",
-    "Trước khi tưới nên kiểm tra độ ẩm đất và chỉ bổ sung nước khi lớp đất mặt đã khô.",
-    "Nên tưới đều quanh gốc và tránh để nước đọng trong chậu quá lâu.",
-    "Tưới quá nhiều nước là nguyên nhân phổ biến khiến cây bị vàng lá, thối rễ và sinh trưởng kém.",
+        // 7. Cắt tỉa & vệ sinh
+        "Nên thường xuyên cắt bỏ lá vàng, lá già và cành khô để cây tập trung dinh dưỡng cho phần khỏe mạnh.",
+        "Lau sạch bụi trên lá định kỳ giúp cây quang hợp hiệu quả và giữ vẻ ngoài xanh mát.",
+        "Khi bộ rễ phát triển kín chậu nên thay sang chậu lớn hơn để tạo không gian sinh trưởng.",
 
-    // 4. Đất & chậu
-    "Kim Ngân thích hợp với loại đất tơi xốp, giàu dinh dưỡng và có khả năng thoát nước tốt. Môi trường đất thông thoáng giúp bộ rễ phát triển khỏe mạnh.",
-    "Có thể phối trộn đất sạch với xơ dừa, trấu hun, phân hữu cơ và perlite để tăng khả năng thoát nước.",
-    "Nên sử dụng chậu có lỗ thoát nước để hạn chế hiện tượng ngập úng và bảo vệ bộ rễ.",
+        // 8. Sâu bệnh thường gặp
+        "Kim Ngân có thể gặp rệp sáp, nhện đỏ hoặc nấm bệnh khi môi trường quá ẩm.",
+        "Dấu hiệu thường thấy là lá vàng, xuất hiện đốm nâu hoặc cây phát triển chậm bất thường.",
+        "Cần loại bỏ phần bị ảnh hưởng và sử dụng chế phẩm sinh học phù hợp để xử lý.",
 
-    // 5. Nhiệt độ & độ ẩm
-    "Nhiệt độ lý tưởng cho Kim Ngân dao động từ 18–30°C. Đây là khoảng nhiệt độ phù hợp để cây sinh trưởng ổn định quanh năm.",
-    "Cây thích môi trường có độ ẩm trung bình và thích nghi tốt với điều kiện trong nhà.",
-    "Vào những ngày thời tiết quá khô, có thể phun sương nhẹ lên lá để tăng độ ẩm và giữ cho cây luôn tươi xanh.",
+        // 9. Lưu ý quan trọng
+        "Không nên đặt cây ở nơi có nhiệt độ quá thấp hoặc thay đổi đột ngột.",
+        "Tránh tưới quá nhiều nước vì bộ rễ của Kim Ngân rất dễ bị úng.",
+        "Đảm bảo cây được nhận đủ ánh sáng tự nhiên để duy trì màu lá xanh đẹp.",
 
-    // 6. Phân bón
-    "Để cây phát triển khỏe mạnh, nên bổ sung dinh dưỡng định kỳ trong suốt quá trình sinh trưởng.",
-    "Có thể sử dụng phân hữu cơ, phân trùn quế hoặc NPK cân đối khoảng 1–2 tháng một lần.",
-    "Việc bón phân hợp lý giúp cây ra lá mới đều và duy trì màu sắc xanh đẹp.",
-    "Không nên bón quá nhiều phân vì có thể làm cháy rễ hoặc gây mất cân bằng dinh dưỡng.",
+        // 10. Vấn đề thường gặp
+        "Lá vàng, rụng lá hoặc phát triển chậm là những vấn đề thường gặp ở cây Kim Ngân.",
+        "Điều chỉnh lượng nước tưới, ánh sáng và chế độ dinh dưỡng sẽ giúp cây phục hồi nhanh chóng.",
 
-    // 7. Cắt tỉa & vệ sinh
-    "Thường xuyên loại bỏ lá già, lá vàng hoặc cành khô giúp cây tập trung dinh dưỡng cho những bộ phận khỏe mạnh hơn.",
-    "Lau bụi trên lá định kỳ giúp cây quang hợp hiệu quả và giữ được vẻ ngoài sạch đẹp.",
-    "Khi bộ rễ phát triển kín chậu, nên thay chậu lớn hơn để tạo điều kiện cho cây tiếp tục sinh trưởng.",
-    "Việc cắt tỉa hợp lý cũng giúp cây giữ được dáng đẹp và cân đối hơn.",
+        // 11. Mẹo chăm sóc nâng cao
+        "Xoay chậu định kỳ giúp các mặt của cây nhận ánh sáng đồng đều và phát triển cân đối.",
+        "Thay đất mới khoảng 1–2 năm một lần để bổ sung dinh dưỡng và cải thiện môi trường sống.",
+        "Bón phân hữu cơ vào mùa sinh trưởng giúp cây ra nhiều lá mới và phát triển mạnh.",
+        "Có thể cắt tỉa tạo tán để giữ dáng đẹp và phù hợp với không gian trang trí.",
 
-    // 8. Sâu bệnh
-    "Kim Ngân tương đối ít sâu bệnh nhưng vẫn có thể gặp rệp sáp, nhện đỏ hoặc bệnh nấm nếu môi trường quá ẩm.",
-    "Dấu hiệu thường gặp bao gồm lá vàng, lá xuất hiện đốm nâu hoặc cây phát triển chậm bất thường.",
-    "Khi phát hiện sâu bệnh, cần loại bỏ phần bị ảnh hưởng và điều chỉnh lại chế độ chăm sóc.",
-    "Có thể sử dụng các chế phẩm sinh học phù hợp để xử lý và phòng ngừa tái phát.",
+        // 12. Không gian sống & phong cách
+        "Kim Ngân phù hợp đặt tại phòng khách, văn phòng làm việc, quầy lễ tân hoặc khu vực tiếp khách.",
+        "Thân cây bện độc đáo cùng tán lá xanh tạo điểm nhấn sang trọng và gần gũi với thiên nhiên.",
+        "Theo phong thủy, cây tượng trưng cho tài lộc, may mắn và sự phát triển bền vững.",
+        "Kim Ngân dễ dàng kết hợp với nhiều phong cách nội thất từ hiện đại đến tối giản.",
 
-    // 9. Lưu ý quan trọng
-    "Không nên đặt cây ở nơi có nhiệt độ quá thấp hoặc thay đổi đột ngột.",
-    "Tránh tưới nước quá nhiều vì bộ rễ của Kim Ngân khá nhạy cảm với tình trạng ngập úng.",
-    "Đảm bảo cây nhận đủ ánh sáng tự nhiên để duy trì màu lá đẹp và phát triển ổn định.",
-    "Thường xuyên quan sát tình trạng lá để phát hiện sớm các vấn đề phát sinh.",
-
-    // 10. Vấn đề thường gặp
-    "Lá vàng là tình trạng phổ biến nhất ở cây Kim Ngân và thường liên quan đến việc tưới quá nhiều nước hoặc thiếu ánh sáng.",
-    "Ngoài ra, cây phát triển chậm có thể do thiếu dinh dưỡng hoặc bộ rễ bị bó chặt trong chậu.",
-    "Khi gặp các vấn đề này, nên điều chỉnh chế độ chăm sóc và kiểm tra môi trường sống của cây.",
-    "Thông thường cây sẽ phục hồi tốt nếu được chăm sóc đúng cách trong thời gian ngắn.",
-
-    // 11. Mẹo chăm sóc nâng cao
-    "Xoay chậu định kỳ giúp các mặt của cây nhận ánh sáng đồng đều và phát triển cân đối hơn.",
-    "Sử dụng nước sạch hoặc nước đã để qua đêm khi tưới sẽ giúp hạn chế ảnh hưởng của clo đến bộ rễ.",
-    "Bổ sung phân hữu cơ vào mùa sinh trưởng giúp cây phát triển nhanh và ra nhiều lá mới.",
-    "Khi cây lớn, có thể cắt tỉa tạo tán để giữ dáng đẹp và phù hợp với không gian trang trí.",
-    "Việc thay đất định kỳ cũng giúp bổ sung dinh dưỡng và cải thiện môi trường sống cho cây.",
-
-    // 12. Không gian sống & phong cách
-    "Kim Ngân phù hợp với phòng khách, văn phòng làm việc, quầy lễ tân hoặc khu vực tiếp khách.",
-    "Tán lá xanh mát cùng thân cây độc đáo giúp tạo điểm nhấn sang trọng và gần gũi thiên nhiên.",
-    "Theo phong thủy, cây tượng trưng cho tài lộc, sự thịnh vượng và thành công trong công việc.",
-    "Kim Ngân dễ dàng kết hợp với nhiều phong cách nội thất từ hiện đại đến tối giản.",
-    "Đây là lựa chọn lý tưởng cho những người yêu thích cây xanh và mong muốn mang đến nguồn năng lượng tích cực cho không gian sống.",
-
-    "Admin",
-
-    "2026-05-22"
-)
+        "Admin",
+        "2026-05-22"
+    )
 );
 blogManager.addBlog(
 new Blog(
