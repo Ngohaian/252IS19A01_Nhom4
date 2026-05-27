@@ -56,15 +56,18 @@ class order{
             const saved = localStorage.getItem("orders");
             if(!saved) return [];
             const data = JSON.parse(saved);
-            return data.map(i=>new order(
-                i.orderId,
-                i.customer,
-                i.date,
-                i.status,
-                i.payment,
-                i.note,
-                i.items
-            ));
+            return data.map(i => {
+                const o = new order(
+                    i.orderId,
+                    i.customer,
+                    i.date,
+                    i.status,
+                    i.payment,
+                    i.note,
+                    i.items
+                );
+                return o;
+            });
         }catch{
             return [];
         }
@@ -131,11 +134,11 @@ class orderDetailUI{
         `;
         return row;
     }
-    renderTongQuan(order){
+    renderTongQuan(Order){
         const TongQuanSP = document.querySelector(".TongQuanContent");
         if(!TongQuanSP) return;
         
-        const tongTien = order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const tongTien = Order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
         const tongThanhToan = tongTien;
         TongQuanSP.innerHTML=`
             <div class="tq-row">
@@ -153,17 +156,17 @@ class orderDetailUI{
             </div>
         `;
     }
-    renderTTGiaoHang(order) {
+    renderTTGiaoHang(Order) {
         const TTNguoiNhan = document.querySelector(".TTNguoiNhanContent");
         if (!TTNguoiNhan) return;
 
         TTNguoiNhan.innerHTML = `
             <div class="gh-section">
                 <span class="gh-label">NGƯỜI NHẬN</span>
-                <span class="gh-name">${order.customer.name}</span>
+                <span class="gh-name">${Order.customer.name}</span>
                 <span class="gh-phone">
                     <span class="material-symbols-outlined" style="font-size:16px;">call</span>
-                    ${order.customer.phone}
+                    ${Order.customer.phone}
                 </span>
             </div>
             <div class="gh-divider"></div>
@@ -171,22 +174,22 @@ class orderDetailUI{
                 <span class="gh-label">ĐỊA CHỈ</span>
                 <span class="gh-value">
                     <span class="material-symbols-outlined" style="font-size:16px;">location_on</span>
-                    ${order.customer.address}
+                    ${Order.customer.address}
                 </span>
             </div>
-            ${order.note ? `
+            ${Order.note ? `
             <div class="gh-divider"></div>
             <div class="gh-section">
                 <span class="gh-label">GHI CHÚ CHO SHIPPER</span>
-                <span class="gh-note">"${order.note}"</span>
+                <span class="gh-note">"${Order.note}"</span>
             </div>` : ''}
         `;
     }
-    renderThanhToan(order) {
+    renderThanhToan(Order) {
         const TTThanhToan = document.querySelector(".TTThanhToanContent");
         if (!TTThanhToan) return;
 
-        const isBanking = order.payment === "transfer";
+        const isBanking = Order.payment === "transfer";
         TTThanhToan.innerHTML = `
             <div class="tt-method">
                 <div class="tt-icon ${isBanking ? 'banking' : 'cod'}">
@@ -201,27 +204,27 @@ class orderDetailUI{
             </div>
         `;
     }
-    render(order){
+    render(Order){
         const TTDon = document.getElementById("TTDon");
-        const date = new Date(order.date);
-        order.status = getStatusByDate(order.date);
-        order.saveToStorage();
+        const date = new Date(Order.date);
+        Order.status = order.getStatusByDate(Order.date);
+        Order.saveToStorage();
         TTDon.innerHTML =`
             <div class="TTChung">
-                <div id="orderId">Đơn hàng ${order.orderId}</div>
+                <div id="orderId">Đơn hàng ${Order.orderId}</div>
                 <div id="ngayorder">Ngày đặt: ${date.getDate()} tháng ${date.getMonth()+1}, ${date.getFullYear()}</div>
             </div>
-            <a class="btnTTDonHang" style="text-decoration: none">${order.status}</a>
+            <a class="btnTTDonHang" style="text-decoration: none">${Order.status}</a>
         `;
-        this.renderTimeline(order.status);
+        this.renderTimeline(Order.status);
         const TTSanPham = document.querySelector(".TTSanPhamContent");
         TTSanPham.innerHTML ='';
-        order.items.forEach(item => {
+        Order.items.forEach(item => {
             TTSanPham.appendChild(this.createOrderDetailRow(item));
         });
-        this.renderTongQuan(order);
-        this.renderTTGiaoHang(order);
-        this.renderThanhToan(order);
+        this.renderTongQuan(Order);
+        this.renderTTGiaoHang(Order);
+        this.renderThanhToan(Order);
     }
 }
 window.Order = order;
