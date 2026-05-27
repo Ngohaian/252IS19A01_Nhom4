@@ -639,18 +639,19 @@ body {
     flex: 1;
     min-width: 0;
     display: flex;
-    flex-direction: column; /* Xếp dọc từ trên xuống dưới */
-    gap: 0.25rem; /* Khoảng cách nhỏ giữa Tiêu đề -> Ngày -> Nút bấm */
+    flex-direction: column; /* Xếp dọc các thành phần */
+    gap: 0.2rem; /* Khoảng cách vừa phải giữa tiêu đề và ngày/nút */
 }
 
 .blog-title {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Giảm từ 1rem xuống 0.9rem (~14.5px) cho thanh thoát */
     font-weight: 600;
     color: #2d3748;
-    line-height: 1.4;
+    line-height: 1.35; /* Thu hẹp khoảng cách dòng để chữ cuộn đẹp hơn */
+    
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng, quá sẽ ẩn */
+    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: color 0.2s;
@@ -662,7 +663,7 @@ body {
 
 /* date */
 .blog-content small {
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Giảm xuống 12px cho đúng chuẩn text phụ (subtext) */
     color: #9aa1ad;
     display: block;
 }
@@ -680,11 +681,11 @@ body {
 }
 .blog-content .blog-btn {
     display: inline-block !important;
-    align-self: flex-start; /* Giúp nút chỉ bao bọc vừa đủ nội dung chữ */
+    align-self: flex-start;
     background: transparent;
     color: #8aa11d;
     padding: 0;
-    font-size: 0.8125rem;
+    font-size: 0.75rem; /* Đồng bộ 12px nhỏ nhắn, xinh xắn */
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
@@ -696,33 +697,10 @@ body {
 .blog-meta {
     display: none !important;
 }
-.blog-content .blog-btn {
-    display: inline-block !important; /* Hiện lại nút */
-    background: transparent; /* Bỏ màu nền thô cứng */
-    color: var(--primary-color); /* Dùng màu xanh chủ đạo */
-    padding: 0.25rem 0 0 0; /* 4px */
 
-    font-size: 0.8125rem; /* 13px */
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-}
 
-.blog-content .blog-btn:hover {
-    background: transparent;
-    color: #5b8d4c;
-    text-decoration: underline; /* Gạch chân khi hover cho rõ ràng */
-}
-.blog-title {
-    margin: 0;
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 600;
-    line-height: 1.4;
-    color: #1a202c;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+
+
 
 /* ==========================================================================
    SCROLL TOP BUTTON (NÚT LÊN ĐẦU TRANG)
