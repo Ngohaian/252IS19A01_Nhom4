@@ -61,7 +61,15 @@ function renderOrderAndCalculateTotal() {
     `;
 }
 
-
+function loadThongTin(){
+    const name = document.getElementById('tendathang');
+    const phone = document.getElementById('sdtdathang');
+    const email = document.getElementById('emaildathang');
+    const user = JSON.parse(sessionStorage.getItem('currentUser'));
+    name.value = user.name;   
+    phone.value = user.phone;
+    email.value = user.email;
+}
 
 function datHang() {
     const name = document.getElementById('tendathang').value.trim();
