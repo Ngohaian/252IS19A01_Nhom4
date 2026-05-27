@@ -22,6 +22,12 @@ class order{
         const next = String(maxNum + 1).padStart(3, "0");
         return `INV${next}`;
     }
+    static getStatusByDate(orderDate) {
+        const steps = ["Đã đặt hàng", "Đã đóng gói", "Đang giao hàng", "Đã nhận hàng"];
+        const daysPassed = Math.floor((Date.now() - new Date(orderDate)) / (1000 * 60 * 60 * 24));
+        const index = Math.min(Math.floor(daysPassed / 2), steps.length - 1);
+        return steps[index];
+    }
     addItem( product, quantity, price){
         this.items.push(new orderDetail(product, quantity, price));
     }
@@ -198,6 +204,8 @@ class orderDetailUI{
     render(order){
         const TTDon = document.getElementById("TTDon");
         const date = new Date(order.date);
+        order.status = getStatusByDate(order.date);
+        order.saveToStorage();
         TTDon.innerHTML =`
             <div class="TTChung">
                 <div id="orderId">Đơn hàng ${order.orderId}</div>
