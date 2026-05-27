@@ -14,7 +14,7 @@ const productsData = [
 
         450000,
 
-        "../../assets/images/kimtien.jpg",
+        "assets/images/kimtien.jpg",
 
         "Phong thủy",
 
@@ -25,8 +25,8 @@ const productsData = [
         false,
 
         [
-           "../../assets/images/kimtien2.jpg",
-           "../../assets/images/kimtien.jpg"
+           "assets/images/kimtien2.jpg",
+           "assets/images/kimtien.jpg"
         ],
 
         "Cây mang ý nghĩa tài lộc và may mắn trong phong thủy, thường được đặt trong nhà hoặc văn phòng để thu hút năng lượng tích cực. Với màu xanh tươi và sức sống bền bỉ, cây còn tượng trưng cho sự phát triển, thành công và thịnh vượng lâu dài.",
