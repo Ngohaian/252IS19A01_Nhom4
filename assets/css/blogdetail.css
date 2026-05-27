@@ -649,18 +649,21 @@ body {
 /* --- Tiêu đề bài viết --- */
 .blog-title {
     margin: 0;
-    font-size: 0.825rem; /* Chữ nhỏ nhắn ~13px thanh thoát, lịch sự */
+    font-size: 0.825rem; /* Cỡ chữ nhỏ nhắn ~13px */
     font-weight: 600;
     color: #333d4e;
-    line-height: 1.3; /* Ép dòng sát nhau tạo độ gọn gàng */
+    line-height: 1.35; /* Độ cao dòng vừa phải để hiển thị đủ 2 dòng */
     
-    display: -webkit-box;
-    -webkit-line-clamp: 2; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* Bộ thuộc tính bắt buộc để kích hoạt tính năng cắt chữ 2 dòng */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Giới hạn đúng 2 dòng */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important; /* Ẩn toàn bộ chữ từ dòng thứ 3 trở đi */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm (...) ở cuối dòng thứ 2 */
+    
+    word-break: break-word; /* Tránh việc từ quá dài làm vỡ khung */
     transition: color 0.2s;
 }
-
 .blog-card:hover .blog-title {
     color: #6c9444;
 }
