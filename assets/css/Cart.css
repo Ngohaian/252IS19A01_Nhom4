@@ -46,11 +46,14 @@
     width: 100%;
     gap: 0.75rem;
 }
-.item-checkbox{
+
+.item-checkbox {
     width: 18px;
     height: 18px;
     accent-color: var(--green-btn);
+    flex-shrink: 0;
 }
+
 .item-visuals {
     display: flex;
     flex-direction: row;
@@ -255,7 +258,7 @@
     background-color: var(--green-btn);
     color: #fff;
     border: none;
-    border-radius: 0.625rem;
+    border-radius: 10px;
     font-size: 0.9375rem;
     font-weight: 700;
     font-family: var(--font-body);
@@ -276,12 +279,12 @@
 .summary-label {
     font-family: var(--font-body);
     color: var(--text-main);
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     font-weight: 600;
 }
 
 .summary-value {
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-main);
 }
