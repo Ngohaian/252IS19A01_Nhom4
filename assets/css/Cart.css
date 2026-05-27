@@ -338,7 +338,6 @@
     }
 
     .quantity-controls {
-        flex-shrink: 0;
         padding: 2px 4px;
     }
 
@@ -358,5 +357,14 @@
     .item-name {
         white-space: normal; 
         word-break: break-word;
+    }
+
+    .qty-btn{
+        width: 1rem;
+        height: 1rem;
+    }
+    .item-quantity-input{
+        width: 1rem;
+        font-size: 0.7rem;
     }
 }
