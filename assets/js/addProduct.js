@@ -407,7 +407,7 @@ new Product(
     "Hoa đỏ trang trí",
     6,
     false,
-    ["assets/images/hongmon2.jpg", "assets/images/hongmon.jpg"],
+    ["assets/images/hongmon2.png", "assets/images/hongmon.jpg"],
     "Hồng Môn là cây hoa nội thất nổi bật với màu đỏ rực rỡ và hình dáng hoa độc đáo.",
 
     "Cây Hồng Môn (Anthurium andraeanum) là loại cây cảnh hoa nội thất nổi bật với vẻ đẹp sang trọng và màu sắc rực rỡ, thường là đỏ, hồng hoặc trắng. Phần hoa thực chất là mo hoa hình trái tim bóng mịn, kết hợp với nhụy hoa vươn dài tạo nên vẻ ngoài rất đặc trưng và thu hút. Cây mang ý nghĩa phong thủy về tình yêu, sự may mắn và hạnh phúc viên mãn, vì vậy thường được dùng làm quà tặng trong các dịp đặc biệt hoặc trang trí không gian sống, văn phòng để tạo điểm nhấn nổi bật.",
@@ -460,29 +460,29 @@ new Product(
 
 new Product(
     15,
-    "Cây Cau Tiểu Trâm",
-    200000,
-    "assets/images/cautieutram.jpg",
+    "Cây Trúc Nhật",
+    240000,
+    "assets/images/trucnhat.jpg",
     "Phong thủy",
-    "Cây mini để bàn",
-    12,
+    "Cây thanh lọc không gian",
+    11,
     false,
-    ["assets/images/cautieutram2.jpg", "assets/images/cautieutram.jpg"],
-    "Cau Tiểu Trâm là cây mini nhỏ gọn, thích hợp trang trí bàn làm việc.",
+    ["assets/images/trucnhat2.jpg", "assets/images/trucnhat.jpg"],
+    "Cây Trúc Nhật là loại cây cảnh thanh thoát, tượng trưng cho sự bình an và cân bằng trong cuộc sống.",
 
-    "Cây Cau Tiểu Trâm (Chamaedorea elegans) là loại cây cảnh mini được ưa chuộng trong không gian nội thất nhờ dáng cây thanh mảnh, lá xanh mềm mại và khả năng thích nghi tốt trong môi trường thiếu sáng. Cây thường được trồng thành bụi nhỏ, tạo cảm giác nhẹ nhàng và cân bằng cho không gian làm việc hoặc học tập. Trong phong thủy, Cau Tiểu Trâm tượng trưng cho sự bình an, may mắn và năng lượng tích cực, giúp giảm căng thẳng và tăng sự tập trung khi làm việc.",
+    "Cây Trúc Nhật là một loại cây cảnh nội thất mang vẻ đẹp thanh thoát và nhẹ nhàng với thân thẳng đứng, lá nhỏ xanh mướt mọc đối xứng theo từng tầng. Nhờ dáng cây gọn gàng nhưng vẫn đầy sức sống, Trúc Nhật thường được sử dụng trong các không gian như phòng khách, văn phòng, hành lang hoặc khu vực thiền định để tạo cảm giác thư giãn và hài hòa. Cây không chỉ mang tính thẩm mỹ cao mà còn giúp cân bằng không gian sống, mang lại sự yên tĩnh và cảm giác gần gũi với thiên nhiên. Trong phong thủy, Trúc Nhật được xem là biểu tượng của sự bình an, may mắn và tinh thần kiên định, giúp gia chủ duy trì sự ổn định trong công việc và cuộc sống.",
 
     {
-        height: "15-40cm",
-        type: "Cây để bàn",
+        height: "30-100cm",
+        type: "Cây thân thẳng",
         difficulty: "Dễ"
     },
 
     {
-        light: "Ưa ánh sáng nhẹ hoặc ánh sáng gián tiếp; có thể sống tốt trong môi trường văn phòng ít sáng",
-        water: "Tưới 1-2 lần/tuần, giữ đất ẩm nhẹ nhưng không để úng nước",
-        soil: "Đất tơi xốp, giữ ẩm tốt nhưng vẫn thoát nước ổn định",
-        note: "Nên đặt nơi thoáng khí; tránh ánh nắng gắt trực tiếp để không cháy lá"
+        light: "Ưa ánh sáng gián tiếp hoặc ánh sáng nhẹ, có thể sống tốt trong môi trường thiếu sáng nhưng phát triển chậm hơn",
+        water: "Tưới 2 lần/tuần, giữ đất ẩm vừa phải, tránh để đất quá khô hoặc bị úng nước",
+        soil: "Đất tơi xốp, giàu mùn hữu cơ và có khả năng thoát nước tốt để tránh thối rễ",
+        note: "Nên đặt cây ở nơi thoáng khí và có ánh sáng ổn định; thường xuyên tỉa bỏ lá vàng để cây luôn khỏe và giữ dáng đẹp"
     },
 
     4
