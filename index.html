@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="252IS19A01_Nhom4">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/Index.css">
+    <link rel="stylesheet" href="assets/css/Index.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main id="main-content" style="background-color: #FFF8E7; padding-bottom: 50px; overflow-x: hidden;">
+    <main id="main-content" style="background-color: #FFF; padding-bottom: 50px; overflow-x: hidden;">
         <section class="hero-container flex-layout">
             <div class="hero-content fade-in-up">
                 <span class="badge-tag">MỘC MẠC & TỰ NHIÊN</span>
-                <h1 class="hero-title">BỘ SƯU TẬP<br>CÂY CẢNH ĐÔ THỊ</h1>
+                <h1 class="hero-title" style="font-size: 50px">BỘ SƯU TẬP<br>CÂY CẢNH ĐÔ THỊ</h1>
                 <p class="hero-desc">Mang thiên nhiên về gần hơn với ngôi nhà bạn. Sự kết hợp giữa vẻ đẹp thuần khiết và sự mộc mạc của ánh nắng sớm mai.</p>
                 <div class="hero-buttons flex-layout">
-                    <a href="/pages/products/ProductList.html" class="btn-primary pulse-effect">XEM BỘ SƯU TẬP</a>
-                    <a href="/pages/info/AboutUs.html" class="btn-secondary">TÌM HIỂU THÊM</a>
+                    <a href="pages/products/ProductList.html" class="btn-primary pulse-effect">XEM BỘ SƯU TẬP</a>
+                    <a href="pages/info/AboutUs.html" class="btn-secondary">TÌM HIỂU THÊM</a>
                 </div>
             </div>
             <div class="hero-image-box fade-in-right">
@@ -28,7 +35,7 @@
             <div class="section-header flex-layout fade-in-up">
                 <div class="section-title-box">
                     <h2>SẢN PHẨM TIÊU BIỂU</h2>
-                    <p>Lựa chọn hàng đầu cho không gian mộc mạc</p>
+                    <p style="font-size: 20px">Lựa chọn hàng đầu cho không gian mộc mạc</p>
                 </div>
                 <a href="pages/products/ProductList.html" class="view-all-link hover-slide">KHÁM PHÁ HẾT &rarr;</a>
             </div>
@@ -41,11 +48,11 @@
             </div>
             <div class="pasel-content-box">
                 <h2 class="pasel-title">PASEL ZEN<br>THIẾT KẾ CÂY CẢNH</h2>
-                <p class="pasel-desc">*Thêm nét độc đáo cho không gian cây xanh của bạn. Chúng tôi mang đến sự cân bằng hoàn hảo giữa phong cách sống mộc mạc và thiết kế đương đại.</p>
+                <p class="pasel-desc">Thêm nét độc đáo cho không gian cây xanh của bạn. Chúng tôi mang đến sự cân bằng hoàn hảo giữa phong cách sống mộc mạc và thiết kế đương đại.</p>
                 <div class="pasel-stats flex-layout">
                     <div class="stat-box">
                         <h3>500+</h3>
-                        <p>DỰ ÁN MỘC MẠC</p>
+                        <p>DỰ ÁN MỘC MIÊN</p>
                     </div>
                     <div class="stat-box">
                         <h3>100%</h3>
@@ -56,6 +63,8 @@
         </section>
     </main>
     <div id="footer-placeholder"></div>
-    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/order.js"></script>
+    <script  src="assets/js/main.js"></script>
 </body>    
 </html>

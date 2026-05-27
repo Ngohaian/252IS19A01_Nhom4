@@ -4,23 +4,33 @@
   --green-dark: #4a6741;
   --green-mid: #6b8f5e;
   --green-btn: #7a9a3c;
+  --green-oliu: #808000;
   --gold-text: #b8860b;
+  --background: #ffffff;
   --cream: #fffbf3;
   --cream-card: #f5f0e8;
   --border: #ddd5c4;
   --text-main: #2c2c2c;
   --text-muted: #888;
   --price-color: #c8860b;
+  --color-nau-dat:#967451;
+  --color-xam-da:#A9A9A9;
   --font-display: 'Playfair Display', serif;
-  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 }
 body{
-    background-color: #fffbf3;
-    padding-top: 25px;
+    background-color: var(--cream);
+    font-family: var(--font-body);
+    color: var(--text-main);
 }
 .cart-icon-wrapper {
     position: relative;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+}
+#header-placeholder {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }

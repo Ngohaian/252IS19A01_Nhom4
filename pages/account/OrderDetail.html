@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/orderDetail.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/orderDetail.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
@@ -15,9 +21,6 @@
                 <div id="TTDon">
                     
                 </div>
-                <a class="btnMuaLai" style="text-decoration: none;">
-                    <span class="material-symbols-outlined" style="font-size:24px; color: var(--cream);">shopping_bag</span>
-                    Mua lại đơn này</a>
             </div>
             <div class="TrangThaiDonHang">
                 <h2><span class="material-symbols-outlined" style="font-size:26px; color:var(--green-btn);">local_shipping</span>
@@ -58,7 +61,8 @@
         </div>
     </main>
     <div id="footer-placeholder"></div>
-    <script type="module" src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/order.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script  src="assets/js/order.js"></script>
 </body>    
 </html>

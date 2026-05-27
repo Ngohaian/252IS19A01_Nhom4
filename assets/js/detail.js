@@ -1,6 +1,7 @@
 //detail.js
-const manager = new ProductManager();
-manager.loadFromLocalStorage();
+const detailManager = new ProductManager();
+const cart = new Cart();
+detailManager.loadFromLocalStorage();
 
 const detail = document.querySelector(".detail");
 
@@ -10,7 +11,7 @@ if (!detail) {
 
 // ================= GET PRODUCT =================
 const id = Number(new URLSearchParams(window.location.search).get("id"));
-const product = manager.products.find(p => p.id === id);
+const product = detailManager.products.find(p => p.id === id);
 
 if (!product) {
     detail.innerHTML = `<h2>Không tìm thấy sản phẩm</h2>`;
@@ -18,14 +19,14 @@ if (!product) {
 } else {
 
     // ================= RELATED =================
-    const related = manager.products
+    const related = detailManager.products
         .filter(p =>
             p.category === product.category &&
             p.id !== product.id
         )
         .slice(0, 4);
 
-    UIRenderer.renderProductDetail(product, related);
+    UIRender.renderProductDetail(product, related);
 
 
     // ================= THUMB CLICK =================
@@ -38,7 +39,7 @@ if (!product) {
     // ================= FAVORITE =================
     document.getElementById("favoriteBtn").onclick = () => {
         product.isFavorite = !product.isFavorite;
-        manager.saveToLocalStorage();
+        detailManager.saveToLocalStorage();
         location.reload();
     };
 
@@ -63,7 +64,7 @@ if (!product) {
 
     // ================= CART =================
     document.getElementById("cartBtn").onclick = () => {
-        manager.addToCart(product.id, quantity);
+        cart.addItem(product, quantity);
         location.reload();
     };
 

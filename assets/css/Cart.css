@@ -1,24 +1,23 @@
 .Container {
+    display: grid;
+    grid-template-columns: 1.25fr minmax(260px, 0.65fr);
+    gap: 3.125rem;
     max-width: 75rem;
     margin: 0px auto;
     padding: 4.375rem 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 20rem;
-    gap: 2.5rem;
     align-items: start;
 }
 
 /* ===== GIỎ HÀNG ===== */
-.GioHang {
-    flex: 1;
+.GioHang{
+    min-width: 0;
 }
-
 .GioHang h1 {
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 2rem;
     color: var(--text-main);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5625rem;
 }
 
 .ThongTinGioHang {
@@ -29,16 +28,15 @@
 /* row sản phẩm */
 .cart-item-row {
     border: 1.5px solid var(--border);
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     background: #fff;
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 1.5rem;
     margin-bottom: 0.75rem;
-    margin-right: 3%;
     transition: box-shadow 0.2s;
 }
 
 .cart-item-row:hover {
-    box-shadow: 0 10px 10px rgba(68, 63, 63, 0.10);
+    box-shadow: 0 0.625rem 0.625rem rgba(68, 63, 63, 0.10);
 }
 
 .cart-item-container {
@@ -47,7 +45,6 @@
     justify-content: space-between;
     width: 100%;
     gap: 0.75rem;
-    flex-wrap: wrap;
 }
 
 .item-checkbox {
@@ -62,20 +59,18 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    flex: 1;
-    min-width: 0;
 }
 
 .item-cart-image {
     width: 6.25rem;
     height: 6.25rem;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background: var(--cream-card);
     display: inline-block;
-    margin-right: 0.9rem;
-    flex-shrink: 0;
-    font-size: 11px;
+    margin-right: 0.9375rem;
+    min-width: 3.75rem;
+    font-size: 0.6875rem;
     color: var(--text-muted);
 }
 
@@ -83,11 +78,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
-    min-width: 0;
 }
 
 .item-category {
-    font-size: 11px;
+    font-size: 0.6875rem;
     color: var(--green-mid);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -110,7 +104,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .quantity-controls {
@@ -118,7 +112,7 @@
     align-items: center;
     gap: 4px;
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 2px 6px;
     background: #fff;
 }
@@ -129,8 +123,8 @@
     font-size: 0.875rem;
     cursor: pointer;
     color: var(--green-dark);
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,14 +143,14 @@
 }
 
 .item-quantity-input {
-    width: 24px;
+    width: 1.5rem;
     text-align: center;
     border: none;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--text-main);
     background: transparent;
-    line-height: 20px;
+    line-height: 1.25rem;
     padding: 0;
 }
 
@@ -176,12 +170,12 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding: 3.75rem 2.5rem;
-    margin-right: 9%;
+    padding: 2.5rem 1.25rem;
     border: 1.5px solid var(--border);
     border-radius: 1rem;
     background: var(--cream-card);
     gap: 1rem;
+    box-sizing: border-box;
 }
 
 .empty-cart-text {
@@ -190,18 +184,20 @@
     letter-spacing: 2.5px;
     color: var(--text-muted);
     margin: 0;
+    text-align: center;
 }
 
 .find-plant-btn {
     background: var(--green-btn);
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     padding: 0.8125rem 2.25rem;
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 2px;
     transition: background 0.2s;
+    white-space: nowrap;
 }
 
 .find-plant-btn:hover {
@@ -210,12 +206,12 @@
 
 /* ===== TÓM TẮT ĐƠN ===== */
 .TomTatDon {
-    width: 20rem;
-    min-width: 17.5rem;
     flex-shrink: 0;
     position: sticky;
     margin-top: 1.25rem;
-    top: 10px;
+    top: 0.625rem;
+    width: 100%;
+    align-self: start;
     background-color: var(--cream-card);
     border-radius: 1rem;
     border: 1px solid var(--border);

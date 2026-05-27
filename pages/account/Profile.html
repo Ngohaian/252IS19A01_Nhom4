@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <title>Thông tin tài khoản - Mộc Miên</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Account.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main>
+    
+    <main class="profile-layout">
+        
+        <aside class="sidebar-menu">
+    <ul>
+        <li><a href="pages/account/Profile.html" class="active">Thông tin tài khoản</a></li>
+        <li><a href="pages/account/OrderHistory.html">Lịch sử đơn hàng</a></li>
+        <li><a href="pages/account/Wishlist.html">Sản phẩm yêu thích</a></li>
+        <li><a href="#" id="logoutBtn">Đăng xuất</a></li>
+    </ul>
+        </aside>
+
+        <section class="profile-content">
+            <h1>Thông tin tài khoản</h1>
+            <div class="user-info-card">
+                <p><strong>Họ và tên:</strong> <span id="display-name">---</span></p>
+                <p><strong>Email:</strong> <span id="display-email">---</span></p>
+                <p><strong>Số điện thoại:</strong> <span id="display-phone">---</span></p>
+            </div>
+        </section>
+        
     </main>
+
     <div id="footer-placeholder"></div>
+    <script src="../../assets/js/cart.js"></script>
+    <script src="../../assets/js/order.js"></script>
+    <script src="../../assets/js/account.js"></script>
     <script src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/main.js"></script>
-</body>    
+    
+</body>
 </html>

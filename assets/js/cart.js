@@ -1,23 +1,27 @@
-export class CartItem {
-    constructor(product, quantity) {
+class CartItem {
+    constructor(product, quantity, checked) {
         this.product = product;   
         this.quantity = quantity; 
+        this.checked = checked;
     }
     get subTotal() {
         return this.product.price * this.quantity;
     }
 }
 
-export class Cart {
+class Cart {
     constructor() {
+        const user = JSON.parse(sessionStorage.getItem('currentUser'));
+        this.storageKey = user ? `cart_${user.id}` : 'guest_cart';
         this.items = this.loadFromStorage();
     }
 
     saveToStorage() {
-        localStorage.setItem('cartItems', JSON.stringify(
+        localStorage.setItem(this.storageKey, JSON.stringify(
             this.items.map(item => ({
                 product: item.product,
-                quantity: item.quantity
+                quantity: item.quantity,
+                checked: item.checked
             }))
         ));
         localStorage.setItem('cartCount', this.items.length);
@@ -25,9 +29,9 @@ export class Cart {
 
     loadFromStorage() {
         try {
-            const saved = localStorage.getItem('cartItems');
+            const saved = localStorage.getItem(this.storageKey);
             if (!saved) return [];
-            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity));
+            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity, i.checked));
         } catch {
             return [];
         }
@@ -41,7 +45,7 @@ export class Cart {
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
-            this.items.push(new CartItem(product, quantity));
+            this.items.push(new CartItem(product, quantity, true));
         }
         this.saveToStorage();
         this.updateCartBadge(); 
@@ -161,10 +165,21 @@ export class Cart {
         this.saveToStorage();
     }
     render() {
-        this.validateStock();
         const cartItemsList = document.getElementById('cart-items-list'); 
-        const summaryContainer = document.getElementById('cart-summary'); 
-
+        const summaryContainer = document.getElementById('cart-summary');
+        if (!sessionStorage.getItem('currentUser')) {
+ 
+            if (cartItemsList) {
+                cartItemsList.innerHTML = `
+                <div class="empty-cart-wrapper" ">
+                    <p class="empty-cart-text" >VUI LÒNG ĐĂNG NHẬP ĐỂ XEM GIỎ HÀNG</p>
+                    <a href="pages/auth/Login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
+                </div>`;
+            }
+            if (summaryContainer) summaryContainer.style.display = 'none';
+            return;
+        }
+        this.validateStock();
         if (!cartItemsList || !summaryContainer) return; 
 
         cartItemsList.innerHTML = '';
@@ -179,7 +194,7 @@ export class Cart {
                     <circle cx="62" cy="68" r="6" fill="#c9bba0"/>
                 </svg>
                 <p class="empty-cart-text">GIỎ HÀNG ĐANG TRỐNG...</p>
-                <a href="/shop" class="find-plant-btn">TÌM CÂY MỚI</a>
+                <a href="pages/products/ProductList.html" class="find-plant-btn">TÌM CÂY MỚI</a>
             </div>`;
             summaryContainer.style.display = 'none';
             return;
@@ -205,12 +220,13 @@ export class Cart {
                     <span class="summary-label total-price">TỔNG CỘNG </span>
                     <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
-                <a class="checkout-submit-btn" href="/pages/checkout/Payment.html">THANH TOÁN MỘC</a>
+                <a class="checkout-submit-btn" href="pages/checkout/Payment.html">THANH TOÁN MỘC</a>
             </div>
         `;
-        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', ()=>{
+        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', (e)=>{
             let orderItems = this.getSelectedItems();
             if (orderItems.length === 0) {
+                
                 e.preventDefault();
                 alert('Vui lòng chọn ít nhất 1 sản phẩm!');
                 return;
@@ -238,4 +254,7 @@ export class Cart {
             badge.style.display = 'none';
         }
     }
+
+    
 }
+window.cart = new Cart(); 

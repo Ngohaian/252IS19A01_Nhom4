@@ -1,0 +1,230 @@
+/* 1. Tự import phông chữ mà file gốc bị thiếu */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+/* 2. Áp dụng cho các ô nhập liệu và nút bấm */
+input, button, textarea, select {
+    font-family: var(--font-body);
+}
+/* ===== BỐ CỤC CHUNG TRANG AUTH ===== */
+.auth-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background-color: transparent; /* Đổi từ var(--cream) → transparent */
+}
+
+/* ===== KHUNG CHỨA FORM BÊN TRONG ===== */
+.auth-container {
+    width: 100%;
+    max-width: 450px; 
+    margin: 0 auto;
+    padding: 30px; 
+    box-sizing: border-box; 
+    
+    background-color: #ffffff; /* Nền trắng tinh khôi */
+    border-radius: 16px; /* Bo tròn các góc */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ giúp khung nổi bật khỏi nền */
+}
+
+/* ===== HEADER FORM ===== */
+.auth-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.auth-title {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--primary, #808000);
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ===== CÁC THÀNH PHẦN FORM ===== */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.auth-form input {
+    width: 100%;
+    box-sizing: border-box; /* CỰC KỲ QUAN TRỌNG CHO MOBILE: Ép kích thước luôn nằm trong giới hạn màn hình */
+    padding: 12px 35px 12px 15px !important; /* Chừa không gian 35px bên phải cho dấu tích xanh */
+    border: 1.5px solid var(--border, #ddd5c4);
+    border-radius: 8px;
+    outline: none;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+    transition: all 0.3s ease;
+}
+.auth-form input:focus {
+    border-color: var(--green-oliu, #808000); /* Viền xanh khi bấm vào */
+}
+.form-group input {
+    width: 100%;
+    padding: 16px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    outline: none;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-main, #3E3B39);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--earthyBrown, #967451);
+    background-color: #ffffff;
+}
+
+/* ===== TÙY CHỌN & CHUYỂN TRANG ===== */
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text-main, #3E3B39);
+}
+
+.remember-me input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--primary, #808000);
+}
+
+.forgot-link, .register-link {
+    color: var(--primary, #808000);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.forgot-link:hover, .register-link:hover {
+    text-decoration: underline;
+    color: var(--earthyBrown, #967451);
+}
+
+/* ===== NÚT XÁC NHẬN ===== */
+.btn-auth {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 900;
+    color: #ffffff;
+    background-color: var(--primary, #808000);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(128, 128, 0, 0.3);
+    transition: all 0.2s;
+}
+
+.btn-auth:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.btn-auth:active {
+    transform: scale(0.98);
+}
+
+.auth-footer-text {
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.instruction-text {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: -10px;
+}
+html {
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.35),
+            rgba(255,255,255,0.35)
+        ),
+        url('../images/anhmhdangnhap.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+body {
+    background: transparent;  /* Cho body trong suốt để thấy ảnh của html */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+/* ===== GIAO DIỆN XÁC THỰC THỜI GIAN THỰC ===== */
+.form-group {
+    position: relative; 
+    margin-bottom: 24px; 
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding-right: 35px !important; /* Chừa chỗ cho dấu tích xanh */
+}
+
+/* Dấu tích xanh */
+.valid-icon {
+    position: absolute;
+    right: 12px;
+    color: var(--green-oliu, #808000);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Chữ báo lỗi màu đỏ */
+.error-text {
+    display: block;
+    color: #ee4d2d;
+    font-size: 12px;
+    text-align: left;
+    position: absolute; /* Đặt tuyệt đối để không đẩy các ô bên dưới bị nhảy lung tung */
+    bottom: -18px; /* Nằm ngay dưới viền ô nhập */
+    left: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Trạng thái hiển thị bằng JS */
+.show-valid { opacity: 1; }
+.show-error { opacity: 1; }
+.input-error { border-color: #ee4d2d !important; }

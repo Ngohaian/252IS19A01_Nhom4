@@ -1,4 +1,3 @@
-import {order, orderDetailUI} from "./order.js";
 window.addEventListener('DOMContentLoaded', () => {
     const paymentOptions = document.querySelectorAll('input[name="payment"]');
     const transferDetails = document.getElementById('transfer-details');
@@ -19,7 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     renderOrderAndCalculateTotal();
-    document.getElementById('btn-checkout').addEventListener('click', handleCheckout);
 });
 
 function renderOrderAndCalculateTotal() {
@@ -63,26 +61,26 @@ function renderOrderAndCalculateTotal() {
     `;
 }
 
+function loadThongTin(){
+    const name = document.getElementById('tendathang');
+    const phone = document.getElementById('sdtdathang');
+    const email = document.getElementById('emaildathang');
+    const user = JSON.parse(sessionStorage.getItem('currentUser'));
+    name.value = user.name;   
+    phone.value = user.phone;
+    email.value = user.email;
+}
 
-
-function handleCheckout() {
-    const name  = document.getElementById('tendathang').value.trim();
+function datHang() {
+    const name = document.getElementById('tendathang').value.trim();
     const phone = document.getElementById('sdtdathang').value.trim();
-    const email = document.getElementById('tendathang').value.trim();
-    const addr  = document.getElementById('diachidathang').value.trim();
+    const email = document.getElementById('emaildathang').value.trim();
+    const addr = document.getElementById('diachidathang').value.trim();
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
     const note = document.getElementById('notedathang').value.trim();
-    if (!name || !phone || !addr) {
-        alert('Vui lòng điền đầy đủ họ tên, số điện thoại và địa chỉ nhận mầm nhé.');
-        return;
-    }
-    if (isNaN(phone) && phone.length!=10 ) {
-        alert("Số điện thoại không hợp lệ");
-        return;
-    }
     const orderItems = JSON.parse(localStorage.getItem('orderItems')) || [];
     const order1= new order(
-        2,
+        order.generateOrderId(),  
         {
             name: name,
             phone: phone,
@@ -104,5 +102,10 @@ function handleCheckout() {
         alert('Đặt mầm thành công! Cảm ơn bạn đã tin tưởng Mộc Miên 🌱. Đơn hàng sẽ được thanh toán khi giao (COD).');
     }
 
+    orderItems.forEach(item => {
+        window.cart.removeItem(item.product.id);
+    });
+
     localStorage.removeItem('orderItems');
+    window.location.href = 'index.html';
 }
