@@ -432,85 +432,86 @@ blogManager.addBlog(
 )
 );
 blogManager.addBlog(
-    new Blog(
+new Blog(
 
-        6,
+    6,
 
-        "Hướng dẫn chăm sóc cây Ngọc Ngân xanh tốt quanh năm",
+    "Hướng dẫn chăm sóc cây Trầu Bà Xanh luôn xanh tốt quanh năm",
 
-        "Trong nhà",
+    "Trong nhà",
 
-        "assets/images/ngocngan.jpg",
+    "assets/images/trauba.jpg",
 
-        "Cây Ngọc Ngân sở hữu bộ lá xanh trắng nổi bật và mang nhiều ý nghĩa may mắn. Bài viết hướng dẫn cách chăm sóc để cây luôn khỏe mạnh và phát triển ổn định.",
-        // 1. Giới thiệu chung
-        "Cây Ngọc Ngân",
-        "Aglaonema commutatum",
-        "Ngọc Ngân là loài cây thuộc họ Ráy với đặc điểm nổi bật là những chiếc lá có màu xanh đậm kết hợp với các mảng trắng bạc rất bắt mắt. Hình dáng thanh thoát và màu sắc hài hòa giúp cây phù hợp với nhiều phong cách trang trí nội thất khác nhau.",
-        "Trong phong thủy, cây Ngọc Ngân tượng trưng cho sự may mắn, thịnh vượng và hạnh phúc trong các mối quan hệ. Nhiều người lựa chọn loại cây này để trang trí bàn làm việc hoặc làm quà tặng với mong muốn mang lại điều tốt đẹp cho người nhận.",
-        "Dễ",
+    "Cây Trầu Bà Xanh là loại cây nội thất được yêu thích nhờ khả năng thanh lọc không khí, dễ chăm sóc và thích nghi tốt với nhiều môi trường sống. Bài viết hướng dẫn chi tiết cách chăm sóc cây phát triển khỏe mạnh.",
 
-        // 2. Ánh sáng
-        "Ngọc Ngân thích hợp với môi trường có ánh sáng gián tiếp hoặc ánh sáng tán xạ nhẹ. Điều kiện ánh sáng phù hợp giúp lá giữ được màu sắc tươi sáng và phát triển cân đối.",
-        "Nên đặt cây gần cửa sổ có rèm che hoặc ở những vị trí nhận được ánh sáng tự nhiên trong vài giờ mỗi ngày. Điều này giúp cây duy trì khả năng quang hợp và sinh trưởng ổn định.",
-        "Không nên đặt cây dưới ánh nắng trực tiếp quá lâu vì nhiệt độ cao có thể làm cháy lá, khô mép lá và ảnh hưởng đến vẻ đẹp tự nhiên của cây.",
+    // 1. Giới thiệu chung
+    "Cây Trầu Bà Xanh",
+    "Epipremnum aureum",
+    "Trầu Bà Xanh là loài cây dây leo có lá hình tim màu xanh bóng đặc trưng. Cây sinh trưởng nhanh, dễ chăm sóc và có thể trồng trong chậu treo, chậu để bàn hoặc cho leo cột trang trí trong nhà.",
+    "Trong phong thủy, Trầu Bà Xanh tượng trưng cho sự phát triển, thịnh vượng và nguồn năng lượng tích cực. Loài cây này thường được lựa chọn để trang trí văn phòng, nhà ở hoặc làm quà tặng ý nghĩa.",
+    "Dễ",
 
-        // 3. Tưới nước
-        "Ngọc Ngân có nhu cầu nước ở mức trung bình và thích môi trường đất hơi ẩm. Thông thường nên tưới từ 2–3 lần mỗi tuần tùy theo thời tiết và vị trí đặt cây.",
-        "Trước khi tưới nên kiểm tra độ ẩm của đất bằng cách chạm nhẹ vào bề mặt. Nếu đất đã khô khoảng 2–3cm thì có thể bổ sung nước cho cây.",
-        "Việc duy trì độ ẩm ổn định giúp bộ rễ phát triển khỏe mạnh và lá luôn xanh đẹp.",
-        "Tưới quá nhiều nước có thể gây úng rễ, vàng lá hoặc tạo điều kiện cho nấm bệnh phát triển.",
+    // 2. Ánh sáng
+    "Trầu Bà Xanh phát triển tốt trong điều kiện ánh sáng gián tiếp hoặc ánh sáng tán xạ nhẹ. Đây là môi trường lý tưởng giúp cây giữ được màu lá xanh đẹp và phát triển ổn định.",
+    "Nên đặt cây gần cửa sổ, ban công có mái che hoặc những vị trí trong nhà nhận được ánh sáng tự nhiên mỗi ngày.",
+    "Không nên để cây tiếp xúc trực tiếp với ánh nắng gay gắt vì có thể làm lá cháy xém, vàng lá và mất độ bóng tự nhiên.",
 
-        // 4. Đất & chậu
-        "Cây phát triển tốt trong loại đất tơi xốp, giàu dinh dưỡng và có khả năng thoát nước hiệu quả. Môi trường đất phù hợp giúp rễ hấp thụ dưỡng chất tốt hơn.",
-        "Có thể phối trộn đất sạch với xơ dừa, trấu hun, phân hữu cơ và perlite để tăng độ thông thoáng cũng như khả năng giữ ẩm vừa phải.",
-        "Chậu trồng cần có lỗ thoát nước ở đáy để tránh hiện tượng tích tụ nước gây hại cho bộ rễ.",
+    // 3. Tưới nước
+    "Trầu Bà Xanh có nhu cầu nước ở mức trung bình. Thông thường nên tưới khoảng 2–3 lần mỗi tuần tùy điều kiện thời tiết và độ ẩm môi trường.",
+    "Nên kiểm tra độ ẩm của đất trước khi tưới. Khi lớp đất mặt đã khô khoảng 2–3cm thì có thể bổ sung nước cho cây.",
+    "Duy trì độ ẩm ổn định giúp cây phát triển lá mới liên tục và bộ rễ khỏe mạnh.",
+    "Tưới quá nhiều nước có thể gây úng rễ, vàng lá hoặc tạo điều kiện cho nấm bệnh phát triển.",
 
-        // 5. Nhiệt độ & độ ẩm
-        "Nhiệt độ lý tưởng cho cây Ngọc Ngân dao động từ 20–30°C. Đây là khoảng nhiệt độ phù hợp để cây sinh trưởng ổn định và phát triển lá mới.",
-        "Cây thích môi trường có độ ẩm trung bình đến cao, tương tự điều kiện khí hậu nhiệt đới.",
-        "Vào những ngày thời tiết khô nóng hoặc khi sử dụng điều hòa thường xuyên, có thể phun sương nhẹ để tăng độ ẩm cho cây.",
+    // 4. Đất & chậu
+    "Cây thích hợp với đất tơi xốp, giàu hữu cơ và có khả năng thoát nước tốt. Điều này giúp bộ rễ hấp thụ dinh dưỡng hiệu quả và hạn chế tình trạng úng nước.",
+    "Có thể phối trộn đất sạch với xơ dừa, tro trấu, phân hữu cơ và đá perlite để tăng độ thông thoáng.",
+    "Chậu trồng cần có lỗ thoát nước ở đáy để tránh tình trạng nước đọng làm ảnh hưởng đến rễ cây.",
 
-        // 6. Phân bón
-        "Ngọc Ngân cần được bổ sung dinh dưỡng định kỳ để duy trì màu lá đẹp và tăng khả năng sinh trưởng.",
-        "Có thể sử dụng phân hữu cơ, phân trùn quế hoặc NPK cân đối với tần suất khoảng 1 tháng một lần.",
-        "Bón phân đúng liều lượng giúp cây phát triển ổn định, trong khi bón quá nhiều có thể làm cháy rễ và ảnh hưởng đến sức khỏe của cây.",
+    // 5. Nhiệt độ & độ ẩm
+    "Nhiệt độ lý tưởng cho Trầu Bà Xanh dao động từ 18–30°C. Trong điều kiện nhiệt độ phù hợp, cây sẽ phát triển nhanh và cho nhiều lá đẹp.",
+    "Cây thích môi trường có độ ẩm trung bình đến cao, đặc biệt phù hợp với khí hậu nhiệt đới.",
+    "Có thể phun sương nhẹ vào những ngày thời tiết khô nóng để tăng độ ẩm và giúp lá luôn xanh mướt.",
 
-        // 7. Cắt tỉa & vệ sinh
-        "Thường xuyên cắt bỏ các lá già, lá vàng hoặc phần cây bị hư hỏng để tập trung dinh dưỡng cho các lá khỏe mạnh hơn.",
-        "Lau sạch bụi trên bề mặt lá bằng khăn mềm giúp cây quang hợp tốt hơn và giữ được vẻ ngoài tươi mới.",
-        "Định kỳ thay đất hoặc thay chậu sau khoảng 1–2 năm để bổ sung dưỡng chất và tạo không gian phát triển cho bộ rễ.",
+    // 6. Phân bón
+    "Trầu Bà Xanh cần được bổ sung dinh dưỡng định kỳ để duy trì tốc độ sinh trưởng và màu sắc lá đẹp.",
+    "Có thể sử dụng phân hữu cơ, phân trùn quế hoặc NPK cân đối khoảng 1 tháng một lần.",
+    "Không nên bón quá nhiều phân vì có thể gây cháy rễ hoặc làm cây phát triển mất cân đối.",
 
-        // 8. Sâu bệnh
-        "Ngọc Ngân có thể gặp các vấn đề như rệp sáp, nhện đỏ hoặc nấm lá nếu môi trường quá ẩm hoặc thiếu thông thoáng.",
-        "Các dấu hiệu phổ biến bao gồm lá vàng, lá xuất hiện đốm nâu hoặc cây phát triển chậm bất thường.",
-        "Khi phát hiện sâu bệnh, cần loại bỏ phần bị ảnh hưởng và sử dụng các chế phẩm sinh học phù hợp để xử lý.",
+    // 7. Cắt tỉa & vệ sinh
+    "Thường xuyên cắt bỏ các lá già, lá vàng hoặc cành yếu để cây tập trung dinh dưỡng cho các chồi mới.",
+    "Lau sạch bụi bám trên lá bằng khăn mềm giúp cây quang hợp hiệu quả và giữ được vẻ ngoài tươi sáng.",
+    "Khi cây phát triển quá dài có thể cắt tỉa và tận dụng các đoạn thân khỏe mạnh để nhân giống.",
 
-        // 9. Lưu ý quan trọng
-        "Không nên để cây tiếp xúc với ánh nắng gay gắt trong thời gian dài vì có thể làm giảm màu sắc đặc trưng của lá.",
-        "Tránh tưới nước quá nhiều hoặc để nước đọng trong chậu khiến bộ rễ dễ bị tổn thương.",
-        "Duy trì môi trường sạch sẽ và thông thoáng giúp cây khỏe mạnh và hạn chế sâu bệnh hiệu quả.",
+    // 8. Sâu bệnh
+    "Trầu Bà Xanh có thể gặp các loại sâu bệnh như rệp sáp, nhện đỏ hoặc bệnh nấm khi môi trường quá ẩm và thiếu thông thoáng.",
+    "Biểu hiện thường gặp là lá vàng, xuất hiện đốm nâu hoặc cây phát triển chậm bất thường.",
+    "Cần loại bỏ bộ phận bị ảnh hưởng và sử dụng các chế phẩm sinh học phù hợp để xử lý kịp thời.",
 
-        // 10. Vấn đề thường gặp
-        "Một số người trồng thường gặp tình trạng lá vàng, lá mềm hoặc cây chậm phát triển. Nguyên nhân thường liên quan đến chế độ tưới nước hoặc điều kiện ánh sáng chưa phù hợp.",
-        "Việc điều chỉnh lượng nước tưới, tăng ánh sáng gián tiếp và bổ sung dinh dưỡng hợp lý sẽ giúp cây phục hồi nhanh chóng.",
+    // 9. Lưu ý quan trọng
+    "Không nên đặt cây dưới ánh nắng trực tiếp trong thời gian dài vì sẽ làm giảm chất lượng lá.",
+    "Tránh để đất luôn trong tình trạng quá ẩm hoặc nước đọng trong chậu.",
+    "Đảm bảo môi trường thông thoáng giúp cây khỏe mạnh và hạn chế các loại sâu bệnh.",
 
-        // 11. Mẹo chăm sóc nâng cao
-        "Xoay chậu định kỳ giúp các mặt của cây nhận được ánh sáng đồng đều và phát triển cân đối hơn.",
-        "Sử dụng nước sạch hoặc nước đã để qua đêm giúp hạn chế ảnh hưởng của clo đối với bộ rễ.",
-        "Bổ sung phân hữu cơ trong mùa sinh trưởng sẽ giúp lá dày hơn, màu sắc đẹp hơn và tăng sức đề kháng cho cây.",
-        "Ngọc Ngân có thể được nhân giống bằng phương pháp tách bụi khi cây trưởng thành, giúp tạo thêm nhiều chậu cây mới khỏe mạnh.",
+    // 10. Vấn đề thường gặp
+    "Lá vàng, lá héo hoặc cây phát triển chậm là những hiện tượng thường gặp khi chăm sóc Trầu Bà Xanh chưa đúng cách.",
+    "Điều chỉnh lượng nước tưới, bổ sung ánh sáng phù hợp và bón phân định kỳ sẽ giúp cây phục hồi nhanh chóng.",
 
-        // 12. Không gian sống & phong cách
-        "Ngọc Ngân phù hợp với nhiều không gian như phòng khách, phòng ngủ, bàn làm việc hoặc quầy lễ tân. Kích thước vừa phải giúp cây dễ dàng bố trí trong nhiều vị trí khác nhau.",
-        "Sự kết hợp giữa màu xanh và trắng trên lá mang lại cảm giác nhẹ nhàng, thanh lịch và hiện đại.",
-        "Theo phong thủy, cây tượng trưng cho sự hòa hợp, may mắn và tài lộc nên rất được ưa chuộng trong trang trí nhà ở cũng như văn phòng.",
-        "Đây là lựa chọn lý tưởng cho những ai yêu thích không gian sống xanh, tinh tế và gần gũi với thiên nhiên.",
+    // 11. Mẹo chăm sóc nâng cao
+    "Xoay chậu định kỳ giúp các mặt của cây nhận được lượng ánh sáng đồng đều hơn.",
+    "Sử dụng nước sạch hoặc nước đã để qua đêm giúp hạn chế tác động của clo đến bộ rễ.",
+    "Bón thêm phân hữu cơ vào mùa sinh trưởng giúp lá xanh đậm và phát triển mạnh hơn.",
+    "Có thể nhân giống dễ dàng bằng phương pháp giâm cành trong nước hoặc trong giá thể ẩm.",
 
-        "Admin",
+    // 12. Không gian sống & phong cách
+    "Trầu Bà Xanh phù hợp với nhiều không gian như phòng khách, phòng ngủ, bàn làm việc, văn phòng hoặc quán cà phê.",
+    "Dáng cây mềm mại kết hợp cùng những chiếc lá xanh bóng tạo cảm giác thư giãn và gần gũi với thiên nhiên.",
+    "Theo phong thủy, cây tượng trưng cho sự phát triển bền vững, may mắn và tài lộc.",
+    "Đây là lựa chọn hoàn hảo cho phong cách nội thất xanh hiện đại, tối giản hoặc tropical.",
 
-        "2026-05-23"
-    )
+    "Admin",
+
+    "2026-05-23"
+)
 );
     blogManager.saveToLocalStorage();
 }
