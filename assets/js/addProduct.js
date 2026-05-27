@@ -57,7 +57,7 @@ const productsData = [
 
         700000,
 
-       "../../assets/images/monstera.jpg",
+       "assets/images/monstera.jpg",
 
         "Trong nhà",
 
@@ -68,13 +68,14 @@ const productsData = [
         false,
 
         [
-            "./assets/images/tenanh.jpg",
-            "./assets/images/tenanh.jpg"
+            "assets/images/monstera2.jpg",
+            "assets/images/monstera.jpg"
         ],
 
-        "Cây tropical hiện đại",
+       "Cây Monstera (Trầu Bà Lá Xẻ) là một trong những loại cây nội thất được ưa chuộng nhất trong thiết kế hiện đại nhờ hình dáng lá xẻ độc đáo, mang phong cách tropical sang trọng và nghệ thuật.",
 
-        "Monstera nổi tiếng với phần lá xẻ độc đáo.",
+    "Monstera, hay còn gọi là Trầu Bà Lá Xẻ, là một trong những loại cây nội thất mang tính biểu tượng trong thiết kế không gian hiện đại. Điểm đặc trưng của cây là những chiếc lá lớn có hình dạng xẻ tự nhiên độc đáo, tạo nên vẻ đẹp nhiệt đới (tropical) đầy nghệ thuật và thu hút ánh nhìn. Nhờ vẻ ngoài ấn tượng, Monstera thường xuất hiện trong các quán cà phê, khách sạn, văn phòng sáng tạo và các không gian mang phong cách tối giản hoặc Scandinavian. Ngoài giá trị thẩm mỹ, Monstera còn giúp cải thiện chất lượng không khí bằng cách hấp thụ một số chất độc hại nhẹ trong môi trường sống. Cây có khả năng sinh trưởng tốt trong điều kiện trong nhà, phù hợp với người yêu cây nhưng không có nhiều thời gian chăm sóc. Khi trưởng thành, cây có thể phát triển rất mạnh, tạo điểm nhấn xanh nổi bật cho không gian.",
+
 
         {
             height: "50-100cm",
@@ -83,10 +84,10 @@ const productsData = [
         },
 
         {
-            light: "Ánh sáng gián tiếp",
-            water: "2 lần/tuần",
-            soil: "Đất tơi xốp",
-            note: "Tránh nắng gắt"
+             light: "Ưa ánh sáng gián tiếp, sáng vừa. Tránh ánh nắng trực tiếp vì dễ làm cháy lá hoặc mất màu xanh tự nhiên. Có thể đặt gần cửa sổ có rèm hoặc nơi có ánh sáng khuếch tán.",
+        water: "Tưới khoảng 2 lần/tuần tùy vào độ ẩm môi trường. Giữ đất hơi ẩm nhưng không bị sũng nước. Nên để đất khô nhẹ giữa các lần tưới để tránh thối rễ.",
+        soil: "Cần đất giàu dinh dưỡng, thoát nước tốt và có độ tơi xốp cao. Có thể bổ sung than bùn, xơ dừa hoặc vỏ thông để tăng khả năng thoáng khí cho rễ.",
+        note: "Nên thường xuyên lau bụi trên lá để tăng khả năng quang hợp. Tránh đặt cây gần điều hòa thổi trực tiếp hoặc nơi có gió lạnh mạnh."
         },
 
         5
@@ -100,7 +101,7 @@ const productsData = [
 
         320000,
 
-        "../../assets/images/luoiho.jpg",
+        "assets/images/luoiho.jpg",
 
         "Phong thủy",
 
@@ -111,13 +112,13 @@ const productsData = [
         false,
 
         [
-            "./assets/images/tenanh.jpg",
-            "./assets/images/tenanh.jpg"
+            "assets/images/luoiho2.jpg",
+            "assets/images/luoiho.jpg"
         ],
 
-        "Cây phong thủy dễ chăm",
+        "Cây Lưỡi Hổ là loại cây cảnh phổ biến với khả năng sống bền bỉ trong nhiều điều kiện khác nhau, đồng thời mang ý nghĩa phong thủy xua đuổi tà khí và bảo vệ không gian sống.",
 
-        "Lưỡi Hổ phù hợp cho văn phòng và phòng ngủ.",
+    "Cây Lưỡi Hổ là một trong những loại cây cảnh được ưa chuộng nhất nhờ khả năng sinh tồn mạnh mẽ và ý nghĩa phong thủy tích cực. Với hình dáng lá dài, cứng cáp và vươn thẳng, cây tượng trưng cho sự mạnh mẽ, kiên định và khả năng bảo vệ gia chủ khỏi những nguồn năng lượng xấu. Ngoài ý nghĩa phong thủy, Lưỡi Hổ còn nổi tiếng với khả năng thanh lọc không khí, đặc biệt là hấp thụ các chất độc hại và nhả oxy vào ban đêm, rất phù hợp để đặt trong phòng ngủ. Đây là loại cây cực kỳ dễ chăm sóc, gần như không yêu cầu kỹ thuật cao, phù hợp với người mới bắt đầu chơi cây hoặc những người bận rộn.",
 
         {
             height: "30-60cm",
@@ -126,10 +127,10 @@ const productsData = [
         },
 
         {
-            light: "Ánh sáng nhẹ",
-            water: "1 lần/tuần",
-            soil: "Thoát nước tốt",
-            note: "Không tưới nhiều"
+            light: "Cây chịu được nhiều điều kiện ánh sáng, từ ánh sáng mạnh đến ánh sáng yếu. Tuy nhiên, phát triển tốt nhất trong ánh sáng gián tiếp hoặc bóng râm nhẹ.",
+        water: "Chỉ cần tưới 1 lần/tuần hoặc ít hơn. Cây chịu hạn tốt, không nên tưới quá nhiều vì rất dễ gây thối rễ.",
+        soil: "Ưu tiên đất khô thoáng, thoát nước cực tốt. Có thể trộn đất với cát hoặc perlite để giảm độ ẩm dư thừa.",
+        note: "Không nên tưới theo lịch cố định mà cần kiểm tra đất trước khi tưới. Đây là loại cây càng ít chăm càng dễ sống."
         },
 
         3
