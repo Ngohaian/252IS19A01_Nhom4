@@ -269,7 +269,7 @@ blogManager.addBlog(
 
         "assets/images/vanloc.jpg",
 
-        "Cây Vạn Lộc sở hữu sắc lá đỏ hồng nổi bật cùng ý nghĩa phong thủy tốt đẹp nên được nhiều người yêu thích lựa chọn để trang trí nhà ở và văn phòng. Việc chăm sóc đúng cách không chỉ giúp cây sinh trưởng khỏe mạnh mà còn duy trì màu sắc rực rỡ, tạo điểm nhấn ấn tượng cho không gian sống.",
+        "Cây Vạn Lộc nổi bật với sắc lá đỏ hồng rực rỡ và ý nghĩa tài lộc. Bài viết hướng dẫn cách chăm sóc giúp cây luôn khỏe mạnh và giữ màu sắc đẹp mắt.",
 
         // 1. Giới thiệu chung
         "Cây Vạn Lộc",
@@ -352,7 +352,7 @@ blogManager.addBlog(
 
     "assets/images/hongmon.jpg",
 
-    "Cây Hồng Môn là một trong những loài cây cảnh nội thất được yêu thích nhờ những bông hoa đỏ nổi bật và khả năng thích nghi tốt với môi trường trong nhà. Với chế độ chăm sóc phù hợp, cây có thể ra hoa quanh năm, giúp không gian sống thêm sinh động và sang trọng.",
+    "Cây Hồng Môn nổi tiếng với những bông hoa rực rỡ và vẻ đẹp sang trọng. Bài viết này sẽ giúp bạn chăm sóc cây đúng cách để hoa nở đẹp và bền lâu.",
 
     // 1. Giới thiệu chung
     "Cây Hồng Môn",
@@ -442,8 +442,7 @@ blogManager.addBlog(
 
         "assets/images/ngocngan.jpg",
 
-        "Cây Ngọc Ngân là một trong những loại cây cảnh nội thất được yêu thích nhờ vẻ đẹp thanh lịch của những chiếc lá xanh pha trắng độc đáo. Không chỉ mang giá trị thẩm mỹ cao, cây còn được xem là biểu tượng của may mắn, tài lộc và sự hòa hợp trong cuộc sống. Bài viết dưới đây sẽ giúp bạn chăm sóc cây Ngọc Ngân đúng cách để cây luôn khỏe mạnh và phát triển bền vững.",
-
+        "Cây Ngọc Ngân sở hữu bộ lá xanh trắng nổi bật và mang nhiều ý nghĩa may mắn. Bài viết hướng dẫn cách chăm sóc để cây luôn khỏe mạnh và phát triển ổn định.",
         // 1. Giới thiệu chung
         "Cây Ngọc Ngân",
         "Aglaonema commutatum",
@@ -513,7 +512,6 @@ blogManager.addBlog(
         "2026-05-23"
     )
 );
-
     blogManager.saveToLocalStorage();
 }
 
