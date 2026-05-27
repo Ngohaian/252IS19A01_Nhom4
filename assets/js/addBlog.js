@@ -346,85 +346,85 @@ blogManager.addBlog(
 
     5,
 
-    "Bí quyết chăm sóc cây Hồng Môn ra hoa đẹp",
+    "Cách chăm sóc cây Kim Ngân luôn xanh tốt",
 
-    "Trong nhà",
+    "Phong thủy",
 
-    "assets/images/hongmon.jpg",
+    "assets/images/kimngan.jpg",
 
-    "Cây Hồng Môn nổi tiếng với những bông hoa rực rỡ và vẻ đẹp sang trọng. Bài viết này sẽ giúp bạn chăm sóc cây đúng cách để hoa nở đẹp và bền lâu.",
+    "Cây Kim Ngân được yêu thích nhờ vẻ đẹp thanh lịch và ý nghĩa phong thủy về tài lộc, may mắn. Bài viết này sẽ hướng dẫn cách chăm sóc cây đúng cách để luôn xanh tốt và phát triển khỏe mạnh.",
 
     // 1. Giới thiệu chung
-    "Cây Hồng Môn",
-    "Anthurium andraeanum",
-    "Hồng Môn là loài cây cảnh nhiệt đới có nguồn gốc từ khu vực Trung và Nam Mỹ. Điểm nổi bật của cây là những chiếc lá xanh đậm bóng mượt kết hợp cùng hoa có màu sắc rực rỡ như đỏ, hồng hoặc trắng. Hình dáng hoa giống trái tim giúp cây trở thành biểu tượng của tình yêu và sự gắn kết.",
-    "Không chỉ mang giá trị thẩm mỹ, Hồng Môn còn được đánh giá là loại cây có khả năng cải thiện chất lượng không khí trong không gian sống. Trong phong thủy, cây tượng trưng cho may mắn, hạnh phúc, sự sung túc và các mối quan hệ bền vững.",
-    "Trung bình",
+    "Cây Kim Ngân",
+    "Pachira aquatica",
+    "Kim Ngân là loài cây cảnh có nguồn gốc từ vùng nhiệt đới Trung và Nam Mỹ. Cây nổi bật với thân bện độc đáo cùng những tán lá xanh mướt, mang vẻ đẹp hiện đại và sang trọng. Đây là một trong những loại cây phong thủy được trồng phổ biến trong nhà và văn phòng.",
+    "Trong phong thủy, Kim Ngân tượng trưng cho tài lộc, thịnh vượng và sự phát triển bền vững. Nhiều người tin rằng cây giúp thu hút năng lượng tích cực và mang đến may mắn trong công việc cũng như cuộc sống.",
+    "Dễ",
 
     // 2. Ánh sáng
-    "Hồng Môn sinh trưởng tốt nhất trong điều kiện ánh sáng gián tiếp hoặc ánh sáng tán xạ tự nhiên. Cây cần đủ ánh sáng để duy trì quá trình quang hợp và kích thích ra hoa đều đặn quanh năm.",
-    "Vị trí lý tưởng là gần cửa sổ hướng Đông hoặc những nơi có ánh sáng nhẹ vào buổi sáng. Nếu trồng trong văn phòng, nên đặt cây ở khu vực sáng và thỉnh thoảng cho cây tiếp xúc với ánh sáng tự nhiên.",
-    "Ánh nắng gay gắt chiếu trực tiếp có thể làm lá bị cháy xém, xuất hiện các đốm nâu và khiến hoa nhanh phai màu hoặc héo úa.",
+    "Kim Ngân phát triển tốt trong môi trường có ánh sáng gián tiếp hoặc ánh sáng tự nhiên nhẹ. Cây có khả năng thích nghi với điều kiện trong nhà nhưng vẫn cần ánh sáng để duy trì màu lá xanh đẹp.",
+    "Nên đặt cây gần cửa sổ hoặc khu vực có ánh sáng tự nhiên để cây quang hợp hiệu quả. Nếu đặt trong văn phòng, nên cho cây tiếp xúc với ánh sáng tự nhiên vài lần mỗi tuần.",
+    "Ánh nắng gắt chiếu trực tiếp trong thời gian dài có thể làm lá bị cháy và mất độ bóng tự nhiên.",
 
     // 3. Tưới nước
-    "Hồng Môn cần lượng nước vừa phải để duy trì độ ẩm ổn định cho bộ rễ. Thông thường nên tưới khoảng 2–3 lần mỗi tuần tùy điều kiện thời tiết và môi trường đặt cây.",
-    "Trước mỗi lần tưới, nên kiểm tra bề mặt đất. Nếu lớp đất phía trên đã khô khoảng 2–3cm thì có thể bổ sung nước cho cây.",
-    "Đất cần được giữ ẩm nhẹ nhưng không quá sũng nước. Việc cân bằng lượng nước là yếu tố quan trọng giúp cây phát triển ổn định và ra hoa thường xuyên.",
-    "Tưới quá nhiều hoặc để nước đọng lâu ngày trong chậu có thể làm rễ bị thối, lá vàng và giảm khả năng ra hoa của cây.",
+    "Kim Ngân không cần tưới quá thường xuyên vì thân cây có khả năng tích trữ nước. Thông thường chỉ cần tưới khoảng 1–2 lần mỗi tuần tùy điều kiện thời tiết.",
+    "Trước khi tưới nên kiểm tra độ ẩm đất và chỉ bổ sung nước khi lớp đất mặt đã khô.",
+    "Nên tưới đều quanh gốc và tránh để nước đọng trong chậu quá lâu.",
+    "Tưới quá nhiều nước là nguyên nhân phổ biến khiến cây bị vàng lá, thối rễ và sinh trưởng kém.",
 
     // 4. Đất & chậu
-    "Cây Hồng Môn thích hợp với loại đất giàu hữu cơ, tơi xốp và có khả năng giữ ẩm vừa phải nhưng vẫn đảm bảo thoát nước tốt.",
-    "Một hỗn hợp lý tưởng có thể bao gồm đất sạch, xơ dừa, vỏ thông, trấu hun và perlite. Thành phần này giúp bộ rễ luôn thông thoáng và hấp thụ dinh dưỡng hiệu quả.",
-    "Nên sử dụng chậu có lỗ thoát nước ở đáy để hạn chế hiện tượng ngập úng. Khi cây phát triển lớn hơn, nên thay chậu định kỳ để tạo không gian cho bộ rễ mở rộng.",
+    "Kim Ngân thích hợp với loại đất tơi xốp, giàu dinh dưỡng và có khả năng thoát nước tốt. Môi trường đất thông thoáng giúp bộ rễ phát triển khỏe mạnh.",
+    "Có thể phối trộn đất sạch với xơ dừa, trấu hun, phân hữu cơ và perlite để tăng khả năng thoát nước.",
+    "Nên sử dụng chậu có lỗ thoát nước để hạn chế hiện tượng ngập úng và bảo vệ bộ rễ.",
 
     // 5. Nhiệt độ & độ ẩm
-    "Nhiệt độ thích hợp cho Hồng Môn dao động từ 20–30°C. Đây là khoảng nhiệt độ giúp cây sinh trưởng ổn định, phát triển lá khỏe và duy trì khả năng ra hoa liên tục.",
-    "Là loài cây nhiệt đới, Hồng Môn đặc biệt yêu thích môi trường có độ ẩm cao. Không khí quá khô có thể khiến mép lá bị khô hoặc hoa nhanh tàn.",
-    "Có thể phun sương nhẹ vào buổi sáng hoặc sử dụng máy tạo độ ẩm trong phòng điều hòa để duy trì môi trường sống lý tưởng cho cây.",
+    "Nhiệt độ lý tưởng cho Kim Ngân dao động từ 18–30°C. Đây là khoảng nhiệt độ phù hợp để cây sinh trưởng ổn định quanh năm.",
+    "Cây thích môi trường có độ ẩm trung bình và thích nghi tốt với điều kiện trong nhà.",
+    "Vào những ngày thời tiết quá khô, có thể phun sương nhẹ lên lá để tăng độ ẩm và giữ cho cây luôn tươi xanh.",
 
     // 6. Phân bón
-    "Để cây ra hoa đẹp và duy trì màu sắc rực rỡ, cần bổ sung dinh dưỡng định kỳ trong suốt quá trình sinh trưởng.",
-    "Nên sử dụng phân hữu cơ, phân trùn quế hoặc các loại phân chuyên dùng cho cây ra hoa với hàm lượng kali và lân phù hợp.",
-    "Chu kỳ bón phân khoảng 3–4 tuần một lần sẽ giúp cây phát triển ổn định, cho nhiều nụ và kéo dài thời gian nở hoa.",
-    "Bón quá nhiều phân hoặc sử dụng phân đậm đặc có thể gây cháy rễ, vàng lá và làm cây suy yếu.",
+    "Để cây phát triển khỏe mạnh, nên bổ sung dinh dưỡng định kỳ trong suốt quá trình sinh trưởng.",
+    "Có thể sử dụng phân hữu cơ, phân trùn quế hoặc NPK cân đối khoảng 1–2 tháng một lần.",
+    "Việc bón phân hợp lý giúp cây ra lá mới đều và duy trì màu sắc xanh đẹp.",
+    "Không nên bón quá nhiều phân vì có thể làm cháy rễ hoặc gây mất cân bằng dinh dưỡng.",
 
     // 7. Cắt tỉa & vệ sinh
-    "Việc cắt bỏ lá già, lá úa và hoa đã tàn giúp cây tập trung nguồn dinh dưỡng cho các chồi non và đợt hoa tiếp theo.",
-    "Thường xuyên lau bụi trên bề mặt lá bằng khăn mềm giúp tăng khả năng quang hợp, đồng thời giữ cho cây luôn sạch đẹp.",
-    "Nếu phát hiện lá bị sâu bệnh hoặc tổn thương, nên loại bỏ sớm để hạn chế lây lan sang các bộ phận khỏe mạnh khác.",
-    "Định kỳ thay đất và vệ sinh chậu trồng cũng giúp hạn chế nấm bệnh phát triển trong môi trường rễ.",
+    "Thường xuyên loại bỏ lá già, lá vàng hoặc cành khô giúp cây tập trung dinh dưỡng cho những bộ phận khỏe mạnh hơn.",
+    "Lau bụi trên lá định kỳ giúp cây quang hợp hiệu quả và giữ được vẻ ngoài sạch đẹp.",
+    "Khi bộ rễ phát triển kín chậu, nên thay chậu lớn hơn để tạo điều kiện cho cây tiếp tục sinh trưởng.",
+    "Việc cắt tỉa hợp lý cũng giúp cây giữ được dáng đẹp và cân đối hơn.",
 
     // 8. Sâu bệnh
-    "Hồng Môn tương đối khỏe nhưng vẫn có thể bị ảnh hưởng bởi rệp sáp, nhện đỏ hoặc các bệnh do nấm khi môi trường quá ẩm hoặc thiếu thông thoáng.",
-    "Những biểu hiện thường gặp bao gồm lá xuất hiện đốm nâu, mép lá khô, hoa nhỏ bất thường hoặc cây phát triển chậm.",
-    "Khi phát hiện dấu hiệu sâu bệnh, cần nhanh chóng cắt bỏ phần bị ảnh hưởng và điều chỉnh lại chế độ chăm sóc.",
-    "Có thể sử dụng các chế phẩm sinh học hoặc thuốc bảo vệ thực vật phù hợp để xử lý nếu tình trạng nghiêm trọng.",
+    "Kim Ngân tương đối ít sâu bệnh nhưng vẫn có thể gặp rệp sáp, nhện đỏ hoặc bệnh nấm nếu môi trường quá ẩm.",
+    "Dấu hiệu thường gặp bao gồm lá vàng, lá xuất hiện đốm nâu hoặc cây phát triển chậm bất thường.",
+    "Khi phát hiện sâu bệnh, cần loại bỏ phần bị ảnh hưởng và điều chỉnh lại chế độ chăm sóc.",
+    "Có thể sử dụng các chế phẩm sinh học phù hợp để xử lý và phòng ngừa tái phát.",
 
     // 9. Lưu ý quan trọng
-    "Không nên đặt cây ở nơi có luồng gió lạnh từ máy điều hòa hoặc vị trí nhiệt độ thay đổi đột ngột.",
-    "Tránh để cây tiếp xúc trực tiếp với ánh nắng buổi trưa vì có thể làm cháy lá và giảm tuổi thọ của hoa.",
-    "Duy trì độ ẩm ổn định, tưới nước hợp lý và đảm bảo đất thoát nước tốt là ba yếu tố quan trọng nhất trong việc chăm sóc Hồng Môn.",
-    "Nên quan sát cây thường xuyên để kịp thời phát hiện các dấu hiệu bất thường và có biện pháp xử lý phù hợp.",
+    "Không nên đặt cây ở nơi có nhiệt độ quá thấp hoặc thay đổi đột ngột.",
+    "Tránh tưới nước quá nhiều vì bộ rễ của Kim Ngân khá nhạy cảm với tình trạng ngập úng.",
+    "Đảm bảo cây nhận đủ ánh sáng tự nhiên để duy trì màu lá đẹp và phát triển ổn định.",
+    "Thường xuyên quan sát tình trạng lá để phát hiện sớm các vấn đề phát sinh.",
 
     // 10. Vấn đề thường gặp
-    "Một trong những vấn đề phổ biến nhất là cây không ra hoa hoặc số lượng hoa ít hơn mong đợi. Nguyên nhân thường đến từ việc thiếu ánh sáng hoặc thiếu dinh dưỡng.",
-    "Ngoài ra, lá vàng có thể xuất hiện do tưới quá nhiều nước hoặc bộ rễ bị tổn thương bởi nấm bệnh.",
-    "Nếu cây phát triển chậm, cần kiểm tra lại chất lượng đất, chế độ bón phân và điều kiện ánh sáng hiện tại.",
-    "Việc điều chỉnh đúng nguyên nhân thường giúp cây phục hồi và phát triển trở lại sau một thời gian ngắn.",
+    "Lá vàng là tình trạng phổ biến nhất ở cây Kim Ngân và thường liên quan đến việc tưới quá nhiều nước hoặc thiếu ánh sáng.",
+    "Ngoài ra, cây phát triển chậm có thể do thiếu dinh dưỡng hoặc bộ rễ bị bó chặt trong chậu.",
+    "Khi gặp các vấn đề này, nên điều chỉnh chế độ chăm sóc và kiểm tra môi trường sống của cây.",
+    "Thông thường cây sẽ phục hồi tốt nếu được chăm sóc đúng cách trong thời gian ngắn.",
 
     // 11. Mẹo chăm sóc nâng cao
-    "Đặt cây ở vị trí có độ ẩm tương đối cao sẽ giúp lá luôn xanh bóng và hoa giữ được màu sắc lâu hơn.",
-    "Trong mùa sinh trưởng mạnh, có thể bổ sung thêm phân hữu cơ hoặc phân kích thích ra hoa với liều lượng phù hợp.",
-    "Loại bỏ hoa đã tàn ngay khi cần thiết giúp cây tiết kiệm năng lượng và tiếp tục hình thành nụ mới.",
-    "Khi cây trưởng thành và phát triển thành nhiều bụi, có thể tách bụi để nhân giống và tạo thêm những chậu cây mới khỏe mạnh.",
-    "Việc xoay chậu định kỳ cũng giúp các mặt của cây nhận ánh sáng đồng đều và phát triển cân đối hơn.",
+    "Xoay chậu định kỳ giúp các mặt của cây nhận ánh sáng đồng đều và phát triển cân đối hơn.",
+    "Sử dụng nước sạch hoặc nước đã để qua đêm khi tưới sẽ giúp hạn chế ảnh hưởng của clo đến bộ rễ.",
+    "Bổ sung phân hữu cơ vào mùa sinh trưởng giúp cây phát triển nhanh và ra nhiều lá mới.",
+    "Khi cây lớn, có thể cắt tỉa tạo tán để giữ dáng đẹp và phù hợp với không gian trang trí.",
+    "Việc thay đất định kỳ cũng giúp bổ sung dinh dưỡng và cải thiện môi trường sống cho cây.",
 
     // 12. Không gian sống & phong cách
-    "Hồng Môn phù hợp với nhiều không gian như phòng khách, bàn làm việc, phòng họp, quầy lễ tân hoặc khu vực tiếp khách.",
-    "Những bông hoa rực rỡ tạo điểm nhấn nổi bật, giúp không gian trở nên sinh động và tràn đầy sức sống.",
-    "Theo quan niệm phong thủy, cây mang đến may mắn, hạnh phúc và nguồn năng lượng tích cực cho gia chủ.",
-    "Khi kết hợp với các loại chậu gốm sứ, chậu xi măng hoặc nội thất gỗ hiện đại, Hồng Môn tạo nên vẻ đẹp sang trọng và tinh tế.",
-    "Đây là lựa chọn lý tưởng cho những ai yêu thích phong cách sống xanh nhưng vẫn muốn giữ nét thanh lịch trong không gian sống.",
+    "Kim Ngân phù hợp với phòng khách, văn phòng làm việc, quầy lễ tân hoặc khu vực tiếp khách.",
+    "Tán lá xanh mát cùng thân cây độc đáo giúp tạo điểm nhấn sang trọng và gần gũi thiên nhiên.",
+    "Theo phong thủy, cây tượng trưng cho tài lộc, sự thịnh vượng và thành công trong công việc.",
+    "Kim Ngân dễ dàng kết hợp với nhiều phong cách nội thất từ hiện đại đến tối giản.",
+    "Đây là lựa chọn lý tưởng cho những người yêu thích cây xanh và mong muốn mang đến nguồn năng lượng tích cực cho không gian sống.",
 
     "Admin",
 
