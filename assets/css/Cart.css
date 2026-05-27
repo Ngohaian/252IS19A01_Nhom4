@@ -1,10 +1,10 @@
 .Container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0px auto;
-    padding: 70px 24px;
+    padding: 4.375rem 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
+    grid-template-columns: 1fr 20rem;
+    gap: 2.5rem;
     align-items: start;
 }
 
@@ -16,9 +16,9 @@
 .GioHang h1 {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--text-main);
-    margin-bottom: 25px;
+    margin-bottom: 1.5rem;
 }
 
 .ThongTinGioHang {
@@ -31,8 +31,8 @@
     border: 1.5px solid var(--border);
     border-radius: 15px;
     background: #fff;
-    padding: 25px 40px;
-    margin-bottom: 12px;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 0.75rem;
     margin-right: 3%;
     transition: box-shadow 0.2s;
 }
@@ -46,29 +46,35 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 12px;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
-.item-checkbox{
+
+.item-checkbox {
     width: 18px;
     height: 18px;
     accent-color: var(--green-btn);
+    flex-shrink: 0;
 }
+
 .item-visuals {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .item-cart-image {
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     object-fit: cover;
     border-radius: 8px;
     background: var(--cream-card);
     display: inline-block;
-    margin-right: 15px;
-    min-width: 60px;
+    margin-right: 0.9rem;
+    flex-shrink: 0;
     font-size: 11px;
     color: var(--text-muted);
 }
@@ -76,7 +82,8 @@
 .item-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
+    min-width: 0;
 }
 
 .item-category {
@@ -88,13 +95,13 @@
 }
 
 .item-name {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-main);
 }
 
 .item-price {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--price-color);
     font-weight: 600;
 }
@@ -102,8 +109,8 @@
 .item-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-left: auto;
+    gap: 0.75rem;
+    flex-shrink: 0;
 }
 
 .quantity-controls {
@@ -119,7 +126,7 @@
 .qty-btn {
     background: none;
     border: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     cursor: pointer;
     color: var(--green-dark);
     width: 20px;
@@ -169,16 +176,16 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding: 60px 40px;
+    padding: 3.75rem 2.5rem;
     margin-right: 9%;
     border: 1.5px solid var(--border);
-    border-radius: 16px;
+    border-radius: 1rem;
     background: var(--cream-card);
-    gap: 16px;
+    gap: 1rem;
 }
 
 .empty-cart-text {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 2.5px;
     color: var(--text-muted);
@@ -190,8 +197,8 @@
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
-    padding: 13px 36px;
-    font-size: 13px;
+    padding: 0.8125rem 2.25rem;
+    font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 2px;
     transition: background 0.2s;
@@ -203,29 +210,29 @@
 
 /* ===== TÓM TẮT ĐƠN ===== */
 .TomTatDon {
-    width: 320px;
-    min-width: 280px;
+    width: 20rem;
+    min-width: 17.5rem;
     flex-shrink: 0;
     position: sticky;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     top: 10px;
     background-color: var(--cream-card);
-    border-radius: 16px;
+    border-radius: 1rem;
     border: 1px solid var(--border);
-    padding: 20px;
+    padding: 1.25rem;
     box-sizing: border-box;
 }
 
 .order-summary-box {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px 15px;
+    gap: 0.9375rem;
+    padding: 0.625rem 0.9375rem;
 }
 
 .order-summary-box h2 {
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--text-muted);
     font-weight: 700;
     letter-spacing: 1px;
@@ -250,13 +257,13 @@
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    padding: 14px;
-    margin-top: 8px;
+    padding: 0.875rem;
+    margin-top: 0.5rem;
     background-color: var(--green-btn);
     color: #fff;
     border: none;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 700;
     font-family: var(--font-body);
     letter-spacing: 2px;
@@ -276,12 +283,12 @@
 .summary-label {
     font-family: var(--font-body);
     color: var(--text-main);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
 }
 
 .summary-value {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-main);
 }
@@ -293,13 +300,13 @@
 
 .total-line .summary-label {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.125rem;
     letter-spacing: 1px;
     color: var(--text-muted);
 }
 
 .total-price {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--price-color);
 }
@@ -308,11 +315,36 @@
 @media (max-width: 768px) {
     .Container {
         grid-template-columns: 1fr;
-        padding: 24px 16px;
+        padding: 1.5rem 1rem;
     }
 
     .TomTatDon {
         width: 100%;
         position: static;
+    }
+
+    .cart-item-row {
+        padding: 1rem 1rem;
+        margin-right: 0;
+    }
+
+    .cart-item-container {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .item-visuals {
+        flex: 1 1 100%;
+    }
+
+    .item-actions {
+        flex: 1 1 100%;
+        justify-content: flex-end;
+    }
+
+    .item-cart-image {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 0.5rem;
     }
 }
