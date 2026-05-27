@@ -114,22 +114,62 @@
 }
 
 /* =========================================
-   RESPONSIVE: DÀNH CHO TABLET VÀ MOBILE
+   RESPONSIVE: DÀNH CHO TABLET VÀ MOBILE (Đã thiết kế lại gọn gàng)
    ========================================= */
 @media (max-width: 768px) {
     .footer-section {
-        padding: 2rem 1.25rem; /* Thu nhỏ lề khi xem trên thiết bị nhỏ */
-    }
-    .footer-row {
-        flex-direction: column; /* Đẩy các cột xếp dọc lên nhau thay vì nằm ngang */
-        gap: 2rem;
-    }
-    .footer-col.brand {
-        flex-direction: column; /* Kéo chữ nằm dưới logo để tiết kiệm không gian ngang */
-        align-items: flex-start;
-    }
-    .footer-bottom {
+        padding: 2rem 1rem; /* Thu nhỏ lề 2 bên để tiết kiệm không gian */
         margin-top: 2rem;
+    }
+    
+    .footer-row {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; /* Chia làm 2 cột song song cho Mobile */
+        gap: 1.5rem 1rem; /* Thu hẹp khoảng cách (dọc 1.5rem, ngang 1rem) */
+    }
+
+    /* 1. Phần Logo và Giới thiệu chiếm trọn 1 hàng trên cùng */
+    .footer-col.brand {
+        grid-column: 1 / -1; 
+        flex-direction: row; /* Cho logo và tên thương hiệu nằm ngang nhau */
+        align-items: center;
+    }
+
+    .footer-logo {
+        height: 3rem; /* Thu nhỏ logo lại một chút cho cân đối */
+    }
+
+    .footer-brand-title {
+        font-size: 1.25rem; 
+        margin-bottom: 0.25rem;
+    }
+
+    /* Ép bỏ thuộc tính min-width cũ đang gán cứng trong thẻ HTML */
+    .footer-col {
+        min-width: 0 !important; 
+    }
+
+    /* 2. Phần "Về Mộc Miên" và "Chính sách" sẽ tự động nằm song song ở giữa do dùng lưới 2 cột */
+
+    /* 3. Phần Kết nối (Mạng xã hội) cho xuống dòng cuối, chiếm trọn chiều ngang và căn giữa */
+    .footer-col:last-child {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(255, 248, 231, 0.2); /* Thêm đường viền đứt phân cách nhẹ */
+    }
+
+    .footer-col:last-child p {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .footer-col:last-child div {
+        justify-content: center; /* Đẩy các nút Tim/Facebook ra giữa */
+    }
+
+    .footer-bottom {
+        margin-top: 1.5rem;
         padding-top: 1rem;
     }
 }
