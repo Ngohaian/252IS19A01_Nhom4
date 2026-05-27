@@ -100,7 +100,7 @@ blogManager.addBlog(
 
         "Trong nhà",
 
-        "./assets/images/blog-monstera.jpg",
+        "assets/images/monstera.jpg",
 
         "Hướng dẫn chăm sóc Monstera để lá luôn xanh và xẻ đẹp tự nhiên.",
 
@@ -184,7 +184,7 @@ blogManager.addBlog(
 
         "Phong thủy",
 
-        "./assets/images/blog-luoiho.jpg",
+        "assets/images/luoiho.jpg",
 
         "Cây Lưỡi Hổ cực dễ chăm sóc và phù hợp nhiều không gian sống.",
 
