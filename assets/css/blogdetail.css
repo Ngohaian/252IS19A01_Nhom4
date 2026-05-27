@@ -577,7 +577,7 @@ body {
 }
 
 .related-section h3 {
-    font-size: 1.4rem; /* Giảm nhẹ để cân đối hơn với sidebar */
+    font-size: 1.4rem;
     font-weight: 700;
     color: #2d3748;
     margin-bottom: 1.5rem;
@@ -599,19 +599,21 @@ body {
 .related-blogs {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Thu hẹp khoảng cách tổng thể */
+    gap: 0.25rem; /* Khoảng cách giữa các card hợp lý hơn */
 }
 
+/* --- Card bài viết --- */
 .blog-card {
     display: flex;
     gap: 1rem;
     align-items: center;
-    padding: 1rem 0.75rem; /* Đồng bộ padding đều hơn */
+    padding: 0.85rem 0.75rem; /* Padding vừa vặn, cân đối */
     border-radius: 1rem;
     transition: all .25s ease;
-    border-bottom: 1px solid #f0f0f0; /* Chuyển border ra ngoài để tránh giật lag khi hover */
+    border-bottom: 1px solid #f0f0f0; /* Đường gạch chân mờ giữa các bài viết */
 }
 
+/* Xóa bỏ border của item cuối cùng */
 .blog-card:last-child {
     border-bottom: none;
 }
@@ -620,7 +622,8 @@ body {
     background: #f7f9f3;
     transform: translateX(4px);
 }
-/* image */
+
+/* --- Ảnh bài viết --- */
 .blog-image {
     width: 5rem;
     height: 5rem;
@@ -635,23 +638,25 @@ body {
     object-fit: cover;
 }
 
+/* --- Khối chữ bên phải --- */
 .blog-content {
     flex: 1;
     min-width: 0;
     display: flex;
-    flex-direction: column; /* Xếp dọc các thành phần */
-    gap: 0.2rem; /* Khoảng cách vừa phải giữa tiêu đề và ngày/nút */
+    flex-direction: column; 
+    gap: 0.2rem; 
 }
 
+/* --- Tiêu đề bài viết --- */
 .blog-title {
     margin: 0;
-    font-size: 0.9rem; /* Giảm từ 1rem xuống 0.9rem (~14.5px) cho thanh thoát */
+    font-size: 0.9rem; 
     font-weight: 600;
     color: #2d3748;
-    line-height: 1.35; /* Thu hẹp khoảng cách dòng để chữ cuộn đẹp hơn */
+    line-height: 1.4; 
     
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: color 0.2s;
@@ -661,43 +666,25 @@ body {
     color: #6c9444;
 }
 
-/* date */
+/* --- Ngày tháng --- */
 .blog-content small {
-    font-size: 0.75rem; /* Giảm xuống 12px cho đúng chuẩn text phụ (subtext) */
+    font-size: 0.75rem; 
     color: #9aa1ad;
     display: block;
 }
 
-/* divider */
-.blog-card:not(:last-child){
-    border-bottom:1px solid #eee;
-    padding-bottom:1rem;
-}
-
-
-.blog-content .blog-btn:hover {
-    color: #5b8d4c;
-    text-decoration: underline;
-}
+/* --- Dọn dẹp nút bấm ẩn/hiển thị lỗi --- */
+/* Nếu bạn không muốn hiển thị nút "Xem thêm / Đọc tiếp" ở sidebar, hãy ẩn hẳn nó đi để sạch giao diện */
 .blog-content .blog-btn {
-    display: inline-block !important;
-    align-self: flex-start;
-    background: transparent;
-    color: #8aa11d;
-    padding: 0;
-    font-size: 0.75rem; /* Đồng bộ 12px nhỏ nhắn, xinh xắn */
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-    margin-top: 0.1rem;
+    display: none !important; /* Ẩn hoàn toàn để không sinh ra các ký tự gạch chân lạ */
 }
-/* Ẩn các thuộc tính thừa */
+
+/* --- Ẩn các thuộc tính thừa khác --- */
 .blog-category,
 .blog-desc,
 .blog-meta {
     display: none !important;
 }
-
 
 
 
