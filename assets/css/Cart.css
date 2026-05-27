@@ -342,6 +342,10 @@
         padding: 2px 4px;
     }
 
+    .item-cart-image {
+        flex-shrink: 0;
+    }
+
     .item-visuals {
         flex: 1 1 0;
         min-width: 0;
