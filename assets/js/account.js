@@ -127,8 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wishlistContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
             wishlistContainer.style.gap = '24px';
             wishlistContainer.classList.remove('empty-state');
-            
-            // ĐOẠN CODE VẼ GIAO DIỆN BỊ THIẾU ĐÃ ĐƯỢC PHỤC HỒI
+
             wishlistContainer.innerHTML = myWishlist.map(product => {
                 let rawImg = product.image || 'assets/images/product-default.jpg';
                 let productImg = rawImg.startsWith('assets/') ? rawImg : 'assets/' + rawImg;
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p style="color: var(--price-color, #c8860b); font-weight: bold; font-size: 16px; margin-bottom: 16px;">${product.price.toLocaleString('vi-VN')}đ</p>
                     
                     <button onclick="addToCartFromWishlist(event, '${product.id}')" style="padding: 10px; width: 100%; border-radius: 8px; border: none; background-color: var(--green-btn, #7a9a3c); color: #ffffff; cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; z-index: 10; position: relative;">
-                    🛒 THÊM VÀO GIỎ
+                    THÊM VÀO GIỎ
                     </button>
                 </div>
                 `;
@@ -181,13 +180,11 @@ window.removeFromWishlist = function(productId) {
 // (Sử dụng trực tiếp API của cart.js)
 // ==========================================
 window.addToCartFromWishlist = function(event, productId) {
-    // 1. Chặn click xuyên thấu
     if (event) {
         event.stopPropagation();
         event.preventDefault();
     }
 
-    // 2. Kéo dữ liệu cây gốc ra
     let allProducts = JSON.parse(localStorage.getItem('products')) || [];
     const product = allProducts.find(p => String(p.id) === String(productId));
     
@@ -196,11 +193,8 @@ window.addToCartFromWishlist = function(event, productId) {
         return;
     }
 
-    // 3. ĐIỂM CHÍ MẠNG: Gọi thẳng hệ thống giỏ hàng của Hải An
     if (window.cart) {
-        // Hàm này sẽ tự động lo việc cộng dồn số lượng thành 2, 3... nếu cây đã có trong giỏ
         window.cart.addItem(product, 1); 
-        alert("Đã thêm mầm xanh vào giỏ hàng! 🌱");
     } else {
         alert("Lỗi: Hệ thống giỏ hàng chưa được tải!");
     }
