@@ -1,36 +1,318 @@
-.Container{
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    padding:  50px 100px;
+.Container {
+    display: grid;
+    grid-template-columns: 1.25fr minmax(260px, 0.65fr);
+    gap: 3.125rem;
+    max-width: 75rem;
+    margin: 0px auto;
+    padding: 4.375rem 1.5rem;
+    align-items: start;
 }
+
+/* ===== GIỎ HÀNG ===== */
 .GioHang{
-    flex: 2.2;
+    min-width: 0;
 }
-.ThongTinGioHang{
+.GioHang h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 1.5625rem;
+}
+
+.ThongTinGioHang {
+    display: flex;
+    flex-direction: column;
+}
+
+/* row sản phẩm */
+.cart-item-row {
+    border: 1.5px solid var(--border);
+    border-radius: 0.9375rem;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    transition: box-shadow 0.2s;
+}
+
+.cart-item-row:hover {
+    box-shadow: 0 0.625rem 0.625rem rgba(68, 63, 63, 0.10);
+}
+
+.cart-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.75rem;
+}
+.item-checkbox{
+    width: 18px;
+    height: 18px;
+    accent-color: var(--green-btn);
+}
+.item-visuals {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 1rem;
 }
 
-.TomTatDon{
-    flex: 0.8;
-    background-color: #fff8e7;
-    border-radius: 5%;
-    border: 1px solid #d2b48c;
-    padding: 20px;
-    margin-left: 20px;
+.item-cart-image {
+    width: 6.25rem;
+    height: 6.25rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    background: var(--cream-card);
+    display: inline-block;
+    margin-right: 0.9375rem;
+    min-width: 3.75rem;
+    font-size: 0.6875rem;
+    color: var(--text-muted);
 }
-.hrTomTatDon{
-    height:1px;
-    background-color: #d2b48c;
-    border: none;
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
 }
-.btnThanhToanCart{
-    background-color: #967451;
-    color: white;
+
+.item-category {
+    font-size: 0.6875rem;
+    color: var(--green-mid);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.item-price {
+    font-size: 0.9375rem;
+    color: var(--price-color);
+    font-weight: 600;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1.5px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 2px 6px;
+    background: #fff;
+}
+
+.qty-btn {
+    background: none;
     border: none;
-    padding: 10px 20px;
+    font-size: 0.875rem;
     cursor: pointer;
+    color: var(--green-dark);
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    transition: color 0.15s;
+}
 
+.qty-btn:hover {
+    color: var(--green-btn);
+}
+
+.item-quantity-input::-webkit-outer-spin-button,
+.item-quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.item-quantity-input {
+    width: 1.5rem;
+    text-align: center;
+    border: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: transparent;
+    line-height: 1.25rem;
+    padding: 0;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-item-icon:hover {
+    content: url("/assets/images/icon/delete_red.png");
+}
+
+/* Empty cart */
+.empty-cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 2.5rem 1.25rem;
+    border: 1.5px solid var(--border);
+    border-radius: 1rem;
+    background: var(--cream-card);
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.empty-cart-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+}
+
+.find-plant-btn {
+    background: var(--green-btn);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    padding: 0.8125rem 2.25rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.find-plant-btn:hover {
+    background: var(--green-dark);
+}
+
+/* ===== TÓM TẮT ĐƠN ===== */
+.TomTatDon {
+    flex-shrink: 0;
+    position: sticky;
+    margin-top: 1.25rem;
+    top: 0.625rem;
+    width: 100%;
+    align-self: start;
+    background-color: var(--cream-card);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+.order-summary-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem;
+    padding: 0.625rem 0.9375rem;
+}
+
+.order-summary-box h2 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.summary-hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 4px 0;
+}
+
+.checkout-submit-btn {
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.875rem;
+    margin-top: 0.5rem;
+    background-color: var(--green-btn);
+    color: #fff;
+    border: none;
+    border-radius: 0.625rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    font-family: var(--font-body);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+}
+
+.checkout-submit-btn:hover {
+    background-color: var(--green-dark);
+}
+
+.checkout-submit-btn:active {
+    transform: scale(0.98);
+}
+
+.summary-label {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.summary-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.shipping-free {
+    color: var(--green-btn);
+    font-weight: 700;
+}
+
+.total-line .summary-label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.total-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--price-color);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .Container {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+    }
+
+    .TomTatDon {
+        width: 100%;
+        position: static;
+    }
 }

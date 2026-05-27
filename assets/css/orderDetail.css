@@ -1,0 +1,463 @@
+.Container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 3.125rem 7.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: start;
+}
+
+.HeaderDonHang {
+    display: grid;
+    grid-template-columns: 2fr 0.45fr;
+    align-items: start;
+}
+
+#TTDon {
+    display: flex;
+    flex-direction: row;
+    gap: 3.125rem;
+}
+
+.TTChung {
+    display: flex;
+    flex-direction: column;
+}
+
+#orderId {
+    color: var(--text-main);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+}
+
+#ngayorder {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.btnTTDonHang {
+    border: 2px solid var(--green-btn);
+    background-color: #f9fff9;
+    max-height: fit-content;
+    color: var(--green-btn);
+    border-radius: 1.25rem;
+    padding: 0.25rem 0.875rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.3px;
+}
+
+
+.TrangThaiDonHang {
+    display: block;
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.9375rem 1.25rem;
+    padding-bottom: 1.875rem;
+    transition: border-color 0.2s;
+}
+
+.TrangThaiDonHang h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    color: var(--text-main);
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.5rem 0.5rem;
+}
+
+.timeline-line {
+    flex: 1;
+    height: 3px;
+    background-color: var(--border);
+    margin: 0 0.25rem;
+    margin-bottom: 1.75rem;
+    transition: background-color 0.3s;
+}
+
+.timeline-line.filled {
+    background-color: var(--green-btn);
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 5rem;
+}
+
+.timeline-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.3s;
+}
+
+.timeline-step.done .timeline-icon {
+    background-color: var(--green-btn);
+    border-color: var(--green-btn);
+    color: #fff;
+}
+
+.timeline-step.active .timeline-icon {
+    background-color: var(--green-btn);
+    border-color: var(--green-btn);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(76, 153, 0, 0.15);
+}
+
+.timeline-label {
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.timeline-step.done .timeline-label,
+.timeline-step.active .timeline-label {
+    color: var(--green-btn);
+    font-weight: 600;
+}
+
+.NoiDungDonHang {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 2.1875rem;
+}
+
+.TTSanPham, .TongQuanDonHang, .TTNguoiNhan, .TTThanhToan {
+    border: 1px solid var(--border);
+    background-color: #fff;
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.9375rem 1.25rem;
+    transition: border-color 0.2s;
+}
+
+.NoiDungDonHang h2 {
+    font-family: var(--font-display);
+    color: var(--text-main);
+    font-size: 1.25rem;
+}
+
+.TTSanPham h2,
+.TongQuanDonHang h2,
+.TTNguoiNhan h2,
+.TTThanhToan h2 {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.TTSanPham {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderDetailRow {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.orderDetailRow:last-child {
+    border-bottom: none;
+}
+
+.orderDetailContainer {
+    display: flex;
+    align-items: center;
+}
+
+.item-visuals {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    width: 100%;
+}
+
+.orderDetailImg {
+    width: 4.375rem;
+    height: 4.375rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.item-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--text-main);
+}
+
+.item-category {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.item-quantity {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.item-quantity::before {
+    content: "Số lượng: ";
+}
+
+.item-price {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--green-dark);
+    white-space: nowrap;
+}
+
+.TongQuanContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.tq-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.tq-divider {
+    border-top: 1px solid var(--border);
+    margin: 0.25rem 0;
+}
+
+.tq-total {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.tq-total span:last-child {
+    color: var(--green-dark);
+    font-size: 1.25rem;
+}
+
+.TTGiaoHang {
+    display: flex;
+    flex-direction: column;
+}
+
+.TTNguoiNhanContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.gh-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.gh-label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.gh-name {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.gh-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    background-color: var(--bg-light, #f7f7f5);
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+
+.gh-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 0.5rem 0.625rem;
+}
+
+.gh-note {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-main);
+    font-style: italic;
+    line-height: 1.6;
+    padding: 0.5rem 0.75rem;
+}
+
+.gh-divider {
+    border-top: 1px solid var(--border);
+}
+
+.TTThanhToanContent {
+    padding-top: 0.5rem;
+}
+
+.tt-method {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    background-color: var(--bg-light, #f7f7f5);
+    padding: 0.75rem 0.875rem;
+    border-radius: 0.625rem;
+}
+
+.tt-icon {
+    width: 2.875rem;
+    height: 2.875rem;
+    border-radius: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tt-icon.banking {
+    background-color: #fff3e0;
+    color: var(--green-btn);
+}
+
+.tt-icon.cod {
+    background-color: #fff3e0;
+    color: var(--green-btn);
+}
+
+.tt-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.tt-name {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.tt-status {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--green-dark);
+    font-weight: 500;
+}
+@media (max-width: 768px) {
+    .Container {
+        padding: 1.5rem 1rem;
+    }
+
+    .HeaderDonHang {
+        grid-template-columns: 1fr auto; 
+        gap: 1rem;
+        align-items: center;
+    }
+
+    #TTDon {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    #orderId {
+        font-size: 1.25rem;
+    }
+
+    #ngayorder {
+        font-size: 0.875rem;
+    }
+
+    .btnMuaLai {
+        justify-self: start;
+    }
+
+    .timeline-step {
+        min-width: 3.5rem;
+    }
+
+    .timeline-label {
+        font-size: 0.625rem;
+    }
+
+    .timeline-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .NoiDungDonHang {
+        grid-template-columns: 1fr;
+    }
+
+    .NoiDungDonHang h2 {
+        font-size: 1rem;
+    }
+
+    .item-price {
+        font-size: 1rem;
+    }
+
+    .tq-total {
+        font-size: 1rem;
+    }
+
+    .tq-total span:last-child {
+        font-size: 1.125rem;
+    }
+
+    .gh-name {
+        font-size: 0.9375rem;
+    }
+}

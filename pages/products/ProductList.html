@@ -1,19 +1,78 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/product.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <main>
+    <main class="layout">
+        <nav class="breadcrumb">
+        <a href="index.html">Trang chủ</a>
+        <span>/</span>
+        <span>Sản phẩm</span>
+    </nav>
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Danh mục</h3>
+                <select id="categoryFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="Trong nhà">Trong nhà</option>
+                    <option value="Phong thủy">Phong thủy</option>
+                    <option value="Văn phòng">Văn phòng</option>
+                    <option value="Trang trí">Trang trí</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h3>Khoảng giá</h3>
+                <select id="priceFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="low">Dưới 100k</option>
+                    <option value="medium">100k - 300k</option>
+                    <option value="high">Trên 300k</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <h3>Mục yêu thích ❤️</h3>
+                <button class="favorite-btn" onclick="window.location.href='pages/account/Wishlist.html'">
+                    Xem sản phẩm yêu thích
+                </button>
+            </div>
+
+        </aside>
+        <section class="content">
+            <div class="toolbar">
+                <select id="sortPrice">
+                    <option value="none">Sắp xếp</option>
+                    <option value="asc">Giá tăng dần</option>
+                    <option value="desc">Giá giảm dần</option>
+                </select>
+            </div>
+            <div class="product-list">
+
+            </div>
+            <div class="pagination">
+
+            </div>
+        </section>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script>
-        loadComponent('header-placeholder', '../../includes/header.html');
-        loadComponent('footer-placeholder', '../../includes/footer.html');
-    </script>
+    <script src="assets/js/cart.js"></script>
+<script type="module" src="assets/js/main.js"></script>
+<script src="assets/js/pagination.js"></script>
+<script src="assets/js/Product.js"></script>
+<script src="assets/js/ProductManager.js"></script>
+<script src="assets/js/UIRender.js"></script>
+<script src="assets/js/addProduct.js"></script>
+<script src="assets/js/detail.js"></script>
+
 </body>    
 </html>

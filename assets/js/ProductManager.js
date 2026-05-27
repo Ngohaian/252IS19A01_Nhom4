@@ -1,4 +1,3 @@
-//productmanager.js
 class ProductManager {
 
     constructor() {
@@ -7,8 +6,10 @@ class ProductManager {
         this.currentCategory = "all";
         this.currentPrice = "all";
         this.currentSort = "none";
+        this.currentSearch = "";
     }
 
+    // ================= LOAD / SAVE =================
     addProduct(product) {
         this.products.push(product);
     }
@@ -18,7 +19,6 @@ class ProductManager {
     }
 
     loadFromLocalStorage() {
-
         const data = JSON.parse(localStorage.getItem("products"));
         if (!data) return;
 
@@ -31,75 +31,134 @@ class ProductManager {
             p.description,
             p.stock,
             p.isFavorite,
-
             p.images || [],
             p.shortDescription || "",
             p.fullDescription || "",
-
             p.attributes || {},
             p.careGuide || {},
-
             p.rating || 0,
             p.reviews || []
         ));
     }
 
+    // ================= FIND =================
     findProduct(id) {
         return this.products.find(p => p.id === id);
     }
 
-    saveCart(cart) {
-        localStorage.setItem("cart", JSON.stringify(cart));
+    // ================= FILTER STATE =================
+    setCategory(value) {
+        this.currentCategory = value;
     }
 
-    getCart() {
-        return JSON.parse(localStorage.getItem("cart")) || [];
+    setPrice(value) {
+        this.currentPrice = value;
     }
 
-    addToCart(id, quantity = 1) {
-
-    const product = this.findProduct(id);
-    if (!product) return;
-
-    if (product.stock <= 0) {
-        alert("Sản phẩm đã hết hàng!");
-        return;
+    setSort(value) {
+        this.currentSort = value;
     }
 
-    if (quantity > product.stock) {
-        alert("Không đủ số lượng!");
-        return;
+    setSearch(value) {
+        this.currentSearch = value.trim().toLowerCase();
     }
 
-    let cart = this.getCart();
-
-    const exist = cart.find(p => p.id === id);
-
-    if (exist) {
-        exist.quantity += quantity;
-    } else {
-        cart.push({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            quantity
-        });
+    resetFilters() {
+        this.currentCategory = "all";
+        this.currentPrice = "all";
+        this.currentSort = "none";
+        this.currentSearch = "";
     }
 
-    this.saveCart(cart);
-    this.saveToLocalStorage();
+    // ================= FILTER LOGIC =================
+    getFilteredProducts() {
+        let result = [...this.products];
 
-    alert("Đã thêm vào giỏ!");
-}
+        // search keyword
+        if (this.currentSearch !== "") {
+            result = result.filter(p =>
+                p.name.toLowerCase().includes(this.currentSearch) ||
+                (p.description && p.description.toLowerCase().includes(this.currentSearch)) ||
+                (p.category && p.category.toLowerCase().includes(this.currentSearch))
+            );
+        }
 
+        // category
+        if (this.currentCategory !== "all") {
+            result = result.filter(p => p.category === this.currentCategory);
+        }
+
+        // price
+        if (this.currentPrice === "low") {
+            result = result.filter(p => p.price < 100000);
+
+        } else if (this.currentPrice === "medium") {
+            result = result.filter(p =>
+                p.price >= 100000 && p.price <= 300000
+            );
+
+        } else if (this.currentPrice === "high") {
+            result = result.filter(p => p.price > 300000);
+        }
+
+        // sort
+        if (this.currentSort === "asc") {
+            result.sort((a, b) => a.price - b.price);
+
+        } else if (this.currentSort === "desc") {
+            result.sort((a, b) => b.price - a.price);
+        }
+
+        return result;
+    }
+
+    // ================= PUBLIC API =================
+    getVisibleProducts() {
+        return this.getFilteredProducts();
+    }
+
+    getProductById(id) {
+        return this.findProduct(id);
+    }
+
+    // ================= FAVORITE =================
     toggleFavorite(id) {
-
         const product = this.findProduct(id);
         if (!product) return;
 
         product.isFavorite = !product.isFavorite;
-
         this.saveToLocalStorage();
+    }
+
+    // ================= CART =================
+    addToCart(id, quantity = 1) {
+        const product = this.findProduct(id);
+        if (!product) {
+            return { success: false, message: "Không tìm thấy sản phẩm!" };
+        }
+
+        if (product.stock < quantity) {
+            return { success: false, message: "Không đủ hàng!" };
+        }
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const exist = cart.find(p => p.id === id);
+
+        if (exist) {
+            exist.quantity += quantity;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        return { success: true, message: "Đã thêm vào giỏ!" };
     }
 }

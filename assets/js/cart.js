@@ -1,0 +1,260 @@
+class CartItem {
+    constructor(product, quantity, checked) {
+        this.product = product;   
+        this.quantity = quantity; 
+        this.checked = checked;
+    }
+    get subTotal() {
+        return this.product.price * this.quantity;
+    }
+}
+
+class Cart {
+    constructor() {
+        const user = JSON.parse(sessionStorage.getItem('currentUser'));
+        this.storageKey = user ? `cart_${user.id}` : 'guest_cart';
+        this.items = this.loadFromStorage();
+    }
+
+    saveToStorage() {
+        localStorage.setItem(this.storageKey, JSON.stringify(
+            this.items.map(item => ({
+                product: item.product,
+                quantity: item.quantity,
+                checked: item.checked
+            }))
+        ));
+        localStorage.setItem('cartCount', this.items.length);
+    }
+
+    loadFromStorage() {
+        try {
+            const saved = localStorage.getItem(this.storageKey);
+            if (!saved) return [];
+            return JSON.parse(saved).map(i => new CartItem(i.product, i.quantity, i.checked));
+        } catch {
+            return [];
+        }
+    }
+    get totalAmount() {
+        return this.items.reduce((total, item) => total + item.subTotal, 0);
+    }
+
+    addItem(product, quantity) {
+        const existingItem = this.items.find(item => item.product.id === product.id);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            this.items.push(new CartItem(product, quantity, true));
+        }
+        this.saveToStorage();
+        this.updateCartBadge(); 
+    }
+
+    updateQuantity(productId, quantity) {
+        const item = this.items.find(item => item.product.id === productId);
+        if (item) {
+            if (quantity <= 0) {
+                this.removeItem(productId);
+            } else {
+                item.quantity = quantity;
+            }
+        }
+        this.saveToStorage();
+        this.updateCartBadge();
+    }
+
+    removeItem(productId) {
+        this.items = this.items.filter(item => item.product.id !== productId);
+        this.saveToStorage();
+        this.updateCartBadge();
+    }
+    getSelectedItems() {
+        return this.items.filter(item => item.selected !== false);
+    }
+
+    get selectedTotal() {
+        return this.getSelectedItems().reduce((total, item) => total + item.subTotal, 0);
+    }
+    updateSummary() {
+        const summaryContainer = document.getElementById('cart-summary');
+        if (!summaryContainer) return;
+
+        const subtotal = this.selectedTotal;
+
+        const valueEls = summaryContainer.querySelectorAll('.summary-value');
+        if (valueEls.length > 0) {
+            valueEls[0].textContent = subtotal.toLocaleString('vi-VN') + 'đ'; // tạm tính
+        }
+
+        const totalEls = summaryContainer.querySelectorAll('.total-price.summary-value');
+        if (totalEls.length > 0) {
+            totalEls[0].textContent = subtotal.toLocaleString('vi-VN') + 'đ'; // tổng cộng
+        }
+    }
+    createItemRow(item) {
+        const row = document.createElement('div');
+        row.className = 'cart-item-row';
+        row.dataset.id = item.product.id;
+
+        row.innerHTML = `
+        <div class="cart-item-container">
+            <input type="checkbox" class="item-checkbox" checked>
+            <div class="item-visuals">
+                <img src="${item.product.image}" alt="${item.product.name}" class="item-cart-image">
+                <div class="item-info">
+                    <span class="item-category">${item.product.category}</span>
+                    <span class="item-name">${item.product.name}</span>
+                    <span class="item-price">${item.product.price.toLocaleString('vi-VN')}đ</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <div class="quantity-controls">
+                    <button class="qty-btn qty-decrease">-</button>
+                    <input type="number"  class="item-quantity-input" value="${item.quantity}" >
+                    <button class="qty-btn qty-increase">+</button>
+                </div>
+                <button class="remove-item-btn">
+                    <img src="/assets/images/icon/delete_gray.png" alt ="delete_icon" class="remove-item-icon">
+                </button>
+            </div>
+        </div>
+        `;
+
+        row.querySelector('.qty-decrease').addEventListener('click', () => {
+            this.updateQuantity(item.product.id, item.quantity - 1);
+            this.render();
+        });
+        row.querySelector('.qty-increase').addEventListener('click', () => {
+            if(item.quantity >= item.product.stock){return;}
+            this.updateQuantity(item.product.id, item.quantity + 1);
+            this.render();
+        });
+        row.querySelector('.remove-item-btn').addEventListener('click', () => {
+            this.removeItem(item.product.id);
+            this.render();
+        });
+        row.querySelector('.item-quantity-input').addEventListener('change', (e) => {
+            const newQty = parseInt(e.target.value);
+            if (isNaN(newQty) || newQty < 1) {
+                e.target.value = item.quantity; 
+                return;
+            }
+            if(newQty > item.product.stock){
+                e.target.value = item.quantity; 
+                return;
+            }
+            this.updateQuantity(item.product.id, newQty);
+            this.render();
+        });
+        row.querySelector('.item-checkbox').addEventListener('change', (e) => {
+            item.selected = e.target.checked;
+            this.updateSummary();
+        });
+        return row;
+    }
+    validateStock() {
+        this.items.forEach(item => {
+            if(item.product.stock == 0){
+                this.removeItem(item.productId);
+            }
+            if (item.quantity > item.product.stock) {
+                item.quantity = item.product.stock; 
+            }
+        });
+        this.saveToStorage();
+    }
+    render() {
+        const cartItemsList = document.getElementById('cart-items-list'); 
+        const summaryContainer = document.getElementById('cart-summary');
+        if (!sessionStorage.getItem('currentUser')) {
+ 
+            if (cartItemsList) {
+                cartItemsList.innerHTML = `
+                <div class="empty-cart-wrapper" ">
+                    <p class="empty-cart-text" >VUI LÒNG ĐĂNG NHẬP ĐỂ XEM GIỎ HÀNG</p>
+                    <a href="pages/auth/Login.html" class="find-plant-btn" >ĐĂNG NHẬP NGAY</a>
+                </div>`;
+            }
+            if (summaryContainer) summaryContainer.style.display = 'none';
+            return;
+        }
+        this.validateStock();
+        if (!cartItemsList || !summaryContainer) return; 
+
+        cartItemsList.innerHTML = '';
+        summaryContainer.innerHTML = '';
+
+        if (this.items.length === 0) {
+            cartItemsList.innerHTML = `
+            <div class="empty-cart-wrapper">
+                <svg width="90" height="80" viewBox="0 0 90 80" fill="none" >
+                    <path d="M5 5H18L28 54H68L78 18H22" stroke="#c9bba0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="36" cy="68" r="6" fill="#c9bba0"/>
+                    <circle cx="62" cy="68" r="6" fill="#c9bba0"/>
+                </svg>
+                <p class="empty-cart-text">GIỎ HÀNG ĐANG TRỐNG...</p>
+                <a href="pages/products/ProductList.html" class="find-plant-btn">TÌM CÂY MỚI</a>
+            </div>`;
+            summaryContainer.style.display = 'none';
+            return;
+        }
+        this.items.forEach(item => {
+            cartItemsList.appendChild(this.createItemRow(item));
+        });
+        const subtotal = this.selectedTotal;
+        summaryContainer.style.display = 'block';
+        summaryContainer.innerHTML = `
+            <div class="order-summary-box">
+                <h2>TÓM TẮT ĐƠN</h2>
+                <div class="summary-line">
+                    <span class="summary-label">Tạm tính </span>
+                    <span class="summary-value">${subtotal.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div class="summary-line">
+                    <span class="summary-label">Vận chuyển </span>
+                    <span class="summary-value shipping-free">MIỄN PHÍ</span>
+                </div>
+                <hr class="summary-hr">
+                <div class="summary-line total-line">
+                    <span class="summary-label total-price">TỔNG CỘNG </span>
+                    <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <a class="checkout-submit-btn" href="pages/checkout/Payment.html">THANH TOÁN MỘC</a>
+            </div>
+        `;
+        summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', (e)=>{
+            let orderItems = this.getSelectedItems();
+            if (orderItems.length === 0) {
+                
+                e.preventDefault();
+                alert('Vui lòng chọn ít nhất 1 sản phẩm!');
+                return;
+            }
+            localStorage.setItem("orderItems", JSON.stringify(
+                orderItems.map(item => ({
+                product: item.product,
+                quantity: item.quantity
+            }))
+        ));
+        });
+    }
+    updateCartBadge() {
+        const total = this.items.length; 
+        localStorage.setItem('cartCount', total);
+
+        const badge = document.getElementById('cart-badge-bg');
+        const text = document.getElementById('cart-badge-text');
+        if (!badge || !text) return;
+
+        if (total > 0) {
+            badge.style.display = 'flex';
+            text.textContent = total > 99 ? '99+' : total;
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+
+    
+}
+window.cart = new Cart(); 

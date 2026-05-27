@@ -4,16 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body{
+            margin: 0;
+            background-color: #f7e3b7;
+        }
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f7e3b7; 
+            margin-top: 50px; 
+        }
+        .error-code {
+            font-size: 150px;
+            font-weight: bold;
+            color: #808000; 
+            margin: 0;
+            line-height: 1;
+        }
+        .error-message {
+            font-size: 26px;
+            color: #967451; 
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .error-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+        .home-btn {
+            background-color: #808000;
+            color: #FFF8E7;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .home-btn:hover {
+            background-color: #967451;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <div id="header-placeholder"></div>
     <main>
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <div class="error-message">Ôi không! Bạn đã đi lạc vào rừng sâu...</div>
+            <div class="error-description">
+                Trang bạn đang tìm kiếm không tồn tại, đã bị xóa hoặc dời đi chỗ khác. Hãy theo lối mòn để quay về không gian xanh của chúng ta nhé!
+            </div>
+            <a href="index.html" class="home-btn">Về lại Trang chủ</a>
+        </div>
     </main>
-    <div id="footer-placeholder"></div>
-    <script src="assets/js/main.js"></script>
-    <script>
-        loadComponent('header-placeholder', 'includes/header.html');
-        loadComponent('footer-placeholder', 'includes/footer.html');
-    </script>
+    <script  src="assets/js/main.js"></script>
 </body>    
 </html>

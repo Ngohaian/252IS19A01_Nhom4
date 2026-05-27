@@ -1,0 +1,470 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<style>
+    body {
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+        background-color: #FFF;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        width: 100%;
+        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+    .navbar .logo img {
+        height: 55px;
+        width: auto;
+        mix-blend-mode: multiply;
+    }
+    .navbar .logo-text {
+        color: var(--green-oliu, #5a7a3a);
+        font-size: 22px;
+        font-weight: bold;
+        font-family: serif;
+        letter-spacing: 1px;
+        line-height: 1;
+    }
+
+    /* ===== DESKTOP NAV ===== */
+    .navbar nav {
+        display: flex;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 15px;
+    }
+    .nav-links a {
+        color: var(--color-nau-dat, #7a5c3a);
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        padding-bottom: 4px;
+        border-bottom: 2.5px solid transparent;
+        transition: all 0.2s ease;
+    }
+    .nav-links a:hover {
+        -webkit-text-stroke: 0.8px var(--color-nau-dat, #7a5c3a);
+        border-bottom-color: var(--color-nau-dat, #7a5c3a);
+    }
+
+    /* ===== DESKTOP SEARCH ===== */
+    .navbar .search-box {
+        display: flex;
+        align-items: center;
+        border: 1.5px solid var(--green-oliu, #5a7a3a);
+        border-radius: 20px;
+        padding: 4px 12px;
+        background: #fff;
+        transition: all 0.3s ease;
+    }
+    .navbar .search-box:focus-within {
+        border-color: var(--color-nau-dat, #7a5c3a) !important;
+        box-shadow: 0 0 0 2px rgba(150,116,81,0.2);
+    }
+    .navbar .search-box input {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 14px;
+        width: 130px;
+        color: #333;
+    }
+    .navbar .search-box button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* ===== HEADER ACTIONS ===== */
+    .header-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .header-actions a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+    .hamburger-btn span {
+        display: block;
+        width: 24px;
+        height: 2.5px;
+        background-color: #7a5c3a;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+
+    /* ===== MOBILE SEARCH BAR (bên dưới header, chỉ hiện mobile) ===== */
+    .mobile-search-bar {
+        display: none;
+        background: #fff;
+        padding: 8px 16px 10px;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 76px; /* bằng chiều cao header mobile */
+        z-index: 999;
+    }
+    .mobile-search-bar .search-box-mobile {
+        display: flex;
+        align-items: center;
+        border: 1.5px solid var(--green-oliu, #c9963a);
+        border-radius: 22px;
+        padding: 6px 14px;
+        background: #fff;
+        transition: all 0.3s;
+    }
+    .mobile-search-bar .search-box-mobile:focus-within {
+        border-color: var(--color-nau-dat, #c9963a);
+        box-shadow: 0 0 0 2px rgba(201,150,58,0.15);
+    }
+    .mobile-search-bar .search-box-mobile input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 14px;
+        color: #333;
+    }
+    .mobile-search-bar .search-box-mobile button {
+        background: var(--green-oliu, #c9963a);
+        border: none;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 6px;
+        flex-shrink: 0;
+    }
+    .mobile-search-bar .search-box-mobile button .material-symbols-outlined {
+        font-size: 18px;
+        color: #fff;
+    }
+
+    /* ===== MOBILE MENU OVERLAY + PANEL ===== */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        pointer-events: none;
+    }
+    .mobile-menu-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    /* Panel từ BÊN PHẢI */
+    .mobile-menu-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100%;
+        background: #fff;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .mobile-menu.open {
+        display: block;
+        pointer-events: all;
+    }
+    .mobile-menu.open .mobile-menu-overlay { opacity: 1; }
+    .mobile-menu.open .mobile-menu-panel   { transform: translateX(0); }
+
+    /* Header panel — màu nâu vàng */
+    .mobile-menu-header {
+        background: #c9963a;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+    }
+    .mobile-menu-header-title {
+        color: #fff;
+        font-family: serif;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 22px;
+        line-height: 1;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    .mobile-menu-close .material-symbols-outlined {
+        font-size: 24px;
+    }
+
+    /* Links trong panel */
+    .mobile-nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+    }
+    .mobile-nav-links li {
+        border-bottom: 1px solid #f2ece4;
+    }
+    .mobile-nav-links li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 22px;
+        color: #3a2e22;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: sans-serif;
+        font-size: 15px;
+        transition: background 0.15s;
+    }
+    .mobile-nav-links li a:hover,
+    .mobile-nav-links li a.active {
+        background: #fdf6ec;
+        color: #c9963a;
+    }
+    .mobile-nav-links li a .material-symbols-outlined {
+        font-size: 18px;
+        color: #c9963a;
+        opacity: 0.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+        .navbar nav,
+        .navbar .search-box {
+            display: none;
+        }
+        .hamburger-btn {
+            display: flex;
+        }
+        .mobile-search-bar {
+            display: block;
+        }
+        .navbar {
+            padding: 10px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar .logo img { height: 44px; }
+        .navbar .logo-text a { font-size: 18px; }
+        .header-actions { gap: 6px; }
+    }
+</style>
+
+<!-- ===== HEADER ===== -->
+<header class="navbar">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+        <img src="/252IS19A01_Nhom4/assets/images/logo.png" alt="Mộc Miên Garden Logo">
+        <div class="logo-text">
+            <a href="index.html">MỘC MIÊN</a>
+        </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="pages/products/ProductList.html">Sản phẩm</a></li>
+            <li><a href="pages/blog/Blog.html">Blog</a></li>
+            <li><a href="pages/info/AboutUs.html">Giới thiệu</a></li>
+            <li><a href="pages/info/Contact.html">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Desktop search -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm..." onkeypress="handleSearchKeyPress(event)">
+        <button onclick="executeSearch()">
+            <span class="material-symbols-outlined" style="font-size:20px; color:var(--green-oliu,#5a7a3a);">search</span>
+        </button>
+    </div>
+
+    <!-- Icons + hamburger -->
+    <div style="display:flex; align-items:center; gap:8px;">
+        <div class="header-actions">
+            <a href="pages/account/Wishlist.html" title="Yêu thích">
+                <span class="material-symbols-outlined" style="font-size:24px; color:#7a5c3a;">favorite</span>
+            </a>
+            <a href="pages/checkout/Cart.html" title="Giỏ hàng">
+                <span class="material-symbols-outlined" style="font-size:28px; color:#7a5c3a; font-variation-settings:'FILL' 0,'wght' 300;">shopping_cart</span>
+                <span id="cart-badge-bg" style="display:none; position:absolute; top:-6px; right:-8px; background:var(--green-oliu,#5a7a3a); color:white; border-radius:50%; width:16px; height:16px; font-size:10px; font-weight:700; align-items:center; justify-content:center; line-height:16px; text-align:center;">
+                    <span id="cart-badge-text">0</span>
+                </span>
+            </a>
+            <a href="pages/account/Profile.html" title="Tài khoản">
+                <span class="material-symbols-outlined" style="font-size:30px; color:#7a5c3a;">person</span>
+            </a>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<!-- ===== MOBILE SEARCH BAR (dưới header) ===== -->
+<div class="mobile-search-bar">
+    <div class="search-box-mobile">
+        <input type="text" id="searchInputMobile" placeholder="Tìm kiếm sản phẩm" onkeypress="handleSearchKeyPressMobile(event)">
+        <button onclick="executeSearchMobile()">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+    </div>
+</div>
+
+<!-- ===== MOBILE MENU PANEL ===== -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu-panel">
+        <!-- Header panel -->
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-header-title">MỘC MIÊN</span>
+            <button class="mobile-menu-close" onclick="closeMobileMenu()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Links -->
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Trang chủ <span class="material-symbols-outlined">chevron_right</span></a></li>
+            <li><a href="pages/products/ProductList.html">Sản phẩm <span class="material-symbols-outlined">chevron_right</span></a></li>
+            <li><a href="pages/blog/Blog.html">Blog <span class="material-symbols-outlined">chevron_right</span></a></li>
+            <li><a href="pages/info/AboutUs.html">Giới thiệu <span class="material-symbols-outlined">chevron_right</span></a></li>
+            <li><a href="pages/info/Contact.html">Liên hệ <span class="material-symbols-outlined">chevron_right</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Active link highlight -->
+<svg style="display:none" onload="
+    setTimeout(() => {
+        const url = window.location.href;
+        const path = window.location.pathname;
+        [...document.querySelectorAll('.nav-links a'), ...document.querySelectorAll('.mobile-nav-links a')].forEach(link => {
+            const href = link.getAttribute('href');
+            if (url.includes(href) || (href === 'index.html' && (path.endsWith('/') || path.endsWith('252IS19A01_Nhom4/')))) {
+                if (link.closest('.nav-links')) {
+                    link.style.borderBottom = '2.5px solid var(--color-nau-dat,#7a5c3a)';
+                    link.style.webkitTextStroke = '0.8px var(--color-nau-dat,#7a5c3a)';
+                } else {
+                    link.classList.add('active');
+                }
+            }
+        });
+    }, 200);
+"></svg>
+
+<script>
+    // ===== MOBILE MENU =====
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+    }
+    function openMobileMenu() {
+        document.getElementById('mobileMenu').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.mobile-nav-links a').forEach(l => l.addEventListener('click', closeMobileMenu));
+
+    // ===== SEARCH (desktop) =====
+    function executeSearch() {
+        const keyword = document.getElementById('searchInput').value.trim();
+        if (!keyword) { alert("Vui lòng nhập từ khóa!"); document.getElementById('searchInput').focus(); return; }
+        const base = (document.querySelector('base') || {}).getAttribute?.('href') || '/';
+        window.location.href = `${base}pages/products/ProductList.html?search=${encodeURIComponent(keyword)}`;
+    }
+    function handleSearchKeyPress(e) { if (e.key === 'Enter') { e.preventDefault(); executeSearch(); } }
+
+    // ===== SEARCH (mobile) =====
+    function executeSearchMobile() {
+        const keyword = document.getElementById('searchInputMobile').value.trim();
+        if (!keyword) { alert("Vui lòng nhập từ khóa!"); document.getElementById('searchInputMobile').focus(); return; }
+        const base = (document.querySelector('base') || {}).getAttribute?.('href') || '/';
+        window.location.href = `${base}pages/products/ProductList.html?search=${encodeURIComponent(keyword)}`;
+    }
+    function handleSearchKeyPressMobile(e) { if (e.key === 'Enter') { e.preventDefault(); executeSearchMobile(); } }
+
+    // Sync cả 2 ô search với ?search= trên URL
+    (function() {
+        const kw = new URLSearchParams(window.location.search).get('search');
+        if (!kw) return;
+        const d = document.getElementById('searchInput');
+        const m = document.getElementById('searchInputMobile');
+        if (d) d.value = kw;
+        if (m) m.value = kw;
+    })();
+</script>
+
+<script>
+    document.addEventListener('cartReady', (e) => {
+        const badge = document.getElementById('cart-badge-bg');
+        const text  = document.getElementById('cart-badge-text');
+        if (!badge || !text) return;
+        const total = e.detail;
+        badge.style.display = total > 0 ? 'block' : 'none';
+        text.style.display  = total > 0 ? 'block' : 'none';
+        text.textContent = total > 99 ? '99+' : total;
+    });
+</script>
