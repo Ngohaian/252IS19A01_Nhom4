@@ -185,32 +185,6 @@ input, button, textarea, select {
     background-color: #fcfbf9;
 }
 
-/* Trạng thái đơn hàng (Badges) */
-.status-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-align: center;
-}
-
-.status-pending {
-    background-color: #fef3c7;
-    color: #d97706;
-}
-
-.status-shipping {
-    background-color: #e0f2fe;
-    color: #0284c7;
-}
-
-.status-completed {
-    background-color: #dcfce7;
-    color: var(--primary, #808000);
-}
 
 /* Khung hiển thị khi rỗng (Bảng trống / Wishlist trống) */
 .empty-state {
@@ -276,132 +250,6 @@ input, button, textarea, select {
 }
 
 
-/* ===== GIAO DIỆN THẺ ĐƠN HÀNG (TÔNG MỘC MIÊN) ===== */
-.order-card {
-    background: #fff;
-    border-radius: 16px; /* Bo góc mềm mại hơn */
-    padding: 24px;
-    margin-bottom: 20px;
-    border: 1.5px solid var(--border, #ddd5c4);
-    box-shadow: 0 4px 15px rgba(62, 59, 57, 0.03); /* Bóng đổ siêu nhẹ */
-}
-
-.order-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 14px;
-    border-bottom: 1px dashed var(--border, #ddd5c4); /* Đổi sang nét đứt nhìn mộc mạc hơn */
-    margin-bottom: 16px;
-}
-
-.shop-name {
-    font-weight: 700;
-    color: var(--text-main, #2c2c2c);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.shop-name::before {
-    content: '🌱'; /* Thay icon cửa hàng thành icon Mầm xanh */
-}
-
-
-.order-body {
-    display: flex;
-    gap: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px dashed var(--border, #ddd5c4);
-    margin-bottom: 16px;
-    align-items: flex-start;
-}
-
-.product-img {
-    width: 85px;
-    height: 85px;
-    object-fit: cover;
-    border-radius: 10px; /* Bo góc ảnh sản phẩm */
-    border: 1px solid var(--border, #ddd5c4);
-}
-
-.product-info {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.product-name {
-    margin: 0;
-    font-size: 16px;
-    color: var(--text-main, #2c2c2c);
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.product-details {
-    margin: 0;
-    color: var(--text-muted, #888);
-    font-size: 13px;
-}
-
-.product-price {
-    font-size: 15px;
-    color: var(--text-muted, #888);
-    font-weight: 600;
-}
-
-.order-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 18px;
-}
-
-.total-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.total-label {
-    font-size: 15px;
-    color: var(--text-main, #2c2c2c);
-    font-weight: 500;
-}
-
-.total-price {
-    font-size: 24px;
-    color: var(--price-color, #c8860b); /* Màu vàng nâu nhạt quen thuộc của Mộc Miên */
-    font-weight: 800;
-}
-
-.order-actions {
-    display: flex;
-    gap: 12px;
-}
-
-/* Nút Mua lại */
-.btn-again {
-    background: var(--green-btn, #7a9a3c);
-    color: #fff;
-    border: 1px solid var(--green-btn, #7a9a3c);
-    padding: 10px 24px;
-    border-radius: 8px; /* Bo tròn hợp tông với các nút khác trong web */
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s ease;
-    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
-}
-
-.btn-again:hover {
-    background: var(--green-dark, #4a6741);
-    border-color: var(--green-dark, #4a6741);
-    transform: translateY(-2px);
-}
-
 /* Nút Liên hệ */
 .btn-contact {
     background: #fff;
@@ -420,9 +268,7 @@ input, button, textarea, select {
     background: var(--cream, #fffbf3);
     border-color: var(--earthyBrown, #967451);
 }
-/* =========================================
-   FIX LỖI TRÀN VIỀN TRANG TÀI KHOẢN (MOBILE)
-   ========================================= */
+
 @media (max-width: 768px) {
     /* 1. Ép layout chính không được tràn lề */
     .profile-layout {
