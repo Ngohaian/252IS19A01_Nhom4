@@ -407,7 +407,7 @@ new Product(
     "Hoa đỏ trang trí",
     6,
     false,
-    ["assets/images/hongmon2.jpg", "assets/images/hongmon.jpg"],
+    ["assets/images/hongmon2.png", "assets/images/hongmon.jpg"],
     "Hồng Môn là cây hoa nội thất nổi bật với màu đỏ rực rỡ và hình dáng hoa độc đáo.",
 
     "Cây Hồng Môn (Anthurium andraeanum) là loại cây cảnh hoa nội thất nổi bật với vẻ đẹp sang trọng và màu sắc rực rỡ, thường là đỏ, hồng hoặc trắng. Phần hoa thực chất là mo hoa hình trái tim bóng mịn, kết hợp với nhụy hoa vươn dài tạo nên vẻ ngoài rất đặc trưng và thu hút. Cây mang ý nghĩa phong thủy về tình yêu, sự may mắn và hạnh phúc viên mãn, vì vậy thường được dùng làm quà tặng trong các dịp đặc biệt hoặc trang trí không gian sống, văn phòng để tạo điểm nhấn nổi bật.",
