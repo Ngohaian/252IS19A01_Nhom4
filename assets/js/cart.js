@@ -220,7 +220,7 @@ class Cart {
                     <span class="summary-label total-price">TỔNG CỘNG </span>
                     <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
                 </div>
-                <a class="checkout-submit-btn" href="/pages/checkout/Payment.html">THANH TOÁN MỘC</a>
+                <a class="checkout-submit-btn" href="pages/checkout/Payment.html">THANH TOÁN MỘC</a>
             </div>
         `;
         summaryContainer.querySelector(".checkout-submit-btn").addEventListener('click', (e)=>{

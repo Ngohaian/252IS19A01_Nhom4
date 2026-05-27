@@ -86,6 +86,9 @@
 
     <div id="footer-placeholder"></div>
     <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            loadThongTin();
+        });
         let button = document.getElementById("btn-checkout");
         const name  = document.getElementById('tendathang');
         const phone = document.getElementById('sdtdathang');

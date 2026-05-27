@@ -66,9 +66,9 @@ function loadThongTin(){
     const phone = document.getElementById('sdtdathang');
     const email = document.getElementById('emaildathang');
     const user = JSON.parse(sessionStorage.getItem('currentUser'));
-    name.innerHTML = user.name;
-    phone.innerHTML = user.phone;
-    email.innerHTML = user.email;
+    name.value = user.name;   
+    phone.value = user.phone;
+    email.value = user.email;
 }
 
 function datHang() {
