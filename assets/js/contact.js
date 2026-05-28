@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('contactEmail');
 
     // Khai báo Regex dùng chung
-    const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/; 
+    const phoneRegex = /^(0|\+84)[0-9]{9}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // =====================================
