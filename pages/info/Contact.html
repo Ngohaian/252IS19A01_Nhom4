@@ -41,27 +41,26 @@
 
             <form id="contactForm" class="contact-form">
                 <input type="text" id="contactName" placeholder="Họ và tên của bạn" required>
-                <input type="tel" id="contactPhone" placeholder="Số điện thoại" required>
-                <input type="email" id="contactEmail" placeholder="Email liên hệ" required>
-                <textarea id="contactMessage" placeholder="Bạn muốn Mộc Miên tư vấn điều gì?" required></textarea>
-                
-                <button type="submit" style="padding: 14px; font-family: var(--font-main);background: var(--primary, #808000); color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">GỬI LỜI NHẮN</button>
+                <div class="input-group" style="width: 100%; display: flex; flex-direction: column;">
+                    <input type="tel" id="contactPhone" placeholder="Số điện thoại" required>
+                    <span class="error-msg" id="phone-error"></span>
+                </div>
+                <div class="input-group" style="width: 100%; display: flex; flex-direction: column;">
+                    <input type="email" id="contactEmail" placeholder="Email liên hệ" required>
+                    <span class="error-msg" id="email-error"></span>
+                </div>
+
+            <textarea id="contactMessage" placeholder="Bạn muốn Mộc Miên tư vấn điều gì?" required></textarea>
+            <button type="submit" style="padding: 14px; font-family: var(--font-main);background: var(--primary, #808000); color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">GỬI LỜI NHẮN</button>
             </form>
         </div>
     </div>
 </section>
-
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Cảm ơn bạn! Lời nhắn của bạn đã được gửi đến Mộc Miên. Chúng tôi sẽ phản hồi sớm nhất!');
-        this.reset(); // Xóa trắng form sau khi gửi
-    });
-</script>
     </main>
     <div id="footer-placeholder"></div>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/order.js"></script>
+    <script src="assets/js/contact.js"></script>
     <script  src="assets/js/main.js"></script>
 </body>    
 </html>

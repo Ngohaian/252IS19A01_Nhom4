@@ -328,3 +328,18 @@
         max-width: 100% !important;
     }
 }
+/* Trạng thái input bị lỗi (Viền đỏ cam) */
+.input-invalid {
+    border: 1px solid #ff4d4f !important;
+    outline: none !important;
+}
+
+/* Dòng chữ báo lỗi nhỏ màu đỏ cam ở dưới */
+.error-msg {
+    color: #ff4d4f;
+    font-size: 14px;
+    display: none; /* Mặc định ẩn */
+    margin-top: 4px;
+    margin-bottom: 8px;
+    text-align: left;
+}
