@@ -139,7 +139,9 @@ class orderDetailUI{
         if(!TongQuanSP) return;
         
         const tongTien = Order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        const tongThanhToan = tongTien;
+        let shipping = 20000;
+        if(tongTien >300000) shipping = 0;
+        const tongThanhToan = tongTien+ shipping;
         TongQuanSP.innerHTML=`
             <div class="tq-row">
                 <span>Tổng tiền hàng</span>
@@ -147,7 +149,9 @@ class orderDetailUI{
             </div>
             <div class="tq-row">
                 <span>Phí vận chuyển</span>
-                <span style="color: var(--green-btn); font-weight: 600;">MIỄN PHÍ</span>
+                <span style="color: var(--green-btn); font-weight: 600;">
+                    ${shipping===0 ? 'MIỄN PHÍ' : shipping.toLocaleString('vi-VN') + 'đ'}
+                </span>
             </div>
             <div class="tq-divider"></div>
             <div class="tq-row tq-total">
