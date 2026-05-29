@@ -519,15 +519,14 @@ function renderBlogs() {
 
     // SEARCH
     if (searchInput) {
-        const keyword = searchInput.value.toLowerCase();
-        if (keyword) {
-            blogs = blogs.filter(blog =>
-                blog.title.toLowerCase().includes(keyword) ||
-                blog.shortDesc.toLowerCase().includes(keyword) ||
-                blog.category.toLowerCase().includes(keyword)
-            );
-        }
+
+    const keyword = searchInput.value.trim();
+
+    if (keyword) {
+
+        blogs = blogManager.searchBlogs(keyword, blogs);
     }
+}
 
     // SORT
     if (sortFilter) {

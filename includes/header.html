@@ -32,12 +32,13 @@
         mix-blend-mode: multiply;
     }
     .navbar .logo-text {
-        color: var(--green-oliu, #5a7a3a);
-        font-size: 22px;
+        color: #808000; /* Đã đổi sang màu xanh đồng bộ logo */
+        font-size: 26px; /* Tăng size lên một chút cho cân đối với logo */
         font-weight: bold;
         font-family: serif;
         letter-spacing: 1px;
         line-height: 1;
+        text-decoration: none; /* Đảm bảo tuyệt đối không có gạch chân */
     }
     .navbar .logo-text a{
         text-decoration: none;
@@ -306,22 +307,17 @@
 
     @media (max-width: 480px) {
         .navbar .logo img { height: 44px; }
-        .navbar .logo-text a { font-size: 18px; }
+        .navbar .logo-text { font-size: 18px; }
         .header-actions { gap: 6px; }
     }
 </style>
 
-<!-- ===== HEADER ===== -->
 <header class="navbar">
-    <!-- Logo -->
     <a href="index.html" class="logo">
-        <img src="assets/images/logo.png" alt="Mộc Miên Garden Logo">
-        <div class="logo-text">
-            <a href="index.html">MỘC MIÊN</a>
-        </div>
+        <img src="/252IS19A01_Nhom4/assets/images/logo.png" alt="Mộc Miên Garden Logo">
+        <div class="logo-text">MỘC MIÊN</div>
     </a>
 
-    <!-- Desktop nav -->
     <nav>
         <ul class="nav-links">
             <li><a href="index.html">Trang chủ</a></li>
@@ -332,7 +328,6 @@
         </ul>
     </nav>
 
-    <!-- Desktop search -->
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Tìm kiếm..." onkeypress="handleSearchKeyPress(event)">
         <button onclick="executeSearch()">
@@ -340,7 +335,6 @@
         </button>
     </div>
 
-    <!-- Icons + hamburger -->
     <div style="display:flex; align-items:center; gap:8px;">
         <div class="header-actions">
             <a href="pages/account/Wishlist.html" title="Yêu thích">
@@ -364,7 +358,6 @@
     </div>
 </header>
 
-<!-- ===== MOBILE SEARCH BAR (dưới header) ===== -->
 <div class="mobile-search-bar">
     <div class="search-box-mobile">
         <input type="text" id="searchInputMobile" placeholder="Tìm kiếm sản phẩm" onkeypress="handleSearchKeyPressMobile(event)">
@@ -374,18 +367,15 @@
     </div>
 </div>
 
-<!-- ===== MOBILE MENU PANEL ===== -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
     <div class="mobile-menu-panel">
-        <!-- Header panel -->
         <div class="mobile-menu-header">
             <span class="mobile-menu-header-title">MỘC MIÊN</span>
             <button class="mobile-menu-close" onclick="closeMobileMenu()">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
-        <!-- Links -->
         <ul class="mobile-nav-links">
             <li><a href="index.html">Trang chủ <span class="material-symbols-outlined">chevron_right</span></a></li>
             <li><a href="pages/products/ProductList.html">Sản phẩm <span class="material-symbols-outlined">chevron_right</span></a></li>
@@ -396,7 +386,6 @@
     </div>
 </div>
 
-<!-- Active link highlight -->
 <svg style="display:none" onload="
     setTimeout(() => {
         const url = window.location.href;
@@ -434,7 +423,7 @@
     // ===== SEARCH (desktop) =====
     function executeSearch() {
         const keyword = document.getElementById('searchInput').value.trim();
-        if (!keyword) { alert("Vui lòng nhập từ khóa!"); document.getElementById('searchInput').focus(); return; }
+        if (!keyword) { alert('Vui lòng nhập từ khóa!'); document.getElementById('searchInput').focus(); return; }
         const base = (document.querySelector('base') || {}).getAttribute?.('href') || '/';
         window.location.href = `${base}pages/products/ProductList.html?search=${encodeURIComponent(keyword)}`;
     }
@@ -443,7 +432,7 @@
     // ===== SEARCH (mobile) =====
     function executeSearchMobile() {
         const keyword = document.getElementById('searchInputMobile').value.trim();
-        if (!keyword) { alert("Vui lòng nhập từ khóa!"); document.getElementById('searchInputMobile').focus(); return; }
+        if (!keyword) { alert('Vui lòng nhập từ khóa!'); document.getElementById('searchInputMobile').focus(); return; }
         const base = (document.querySelector('base') || {}).getAttribute?.('href') || '/';
         window.location.href = `${base}pages/products/ProductList.html?search=${encodeURIComponent(keyword)}`;
     }
@@ -466,7 +455,7 @@
         const text  = document.getElementById('cart-badge-text');
         if (!badge || !text) return;
         const total = e.detail;
-        badge.style.display = total > 0 ? 'block' : 'none';
+        badge.style.display = total > 0 ? 'flex' : 'none'; // Sửa thành flex để số đếm căn giữa hoàn hảo hơn
         text.style.display  = total > 0 ? 'block' : 'none';
         text.textContent = total > 99 ? '99+' : total;
     });
