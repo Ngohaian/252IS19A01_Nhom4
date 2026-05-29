@@ -8,16 +8,15 @@
         transform: translateY(0);
     }
 }
+
 /* ===== BỐ CỤC CHUNG TRANG TĨNH ===== */
-/* Đảm bảo toàn bộ section bao ngoài là màu trắng */
 .info-section {
     padding: 60px 24px;
-    background-color: var(--cream, #FFF8E7);
+    background-color: #FFFFFF; /* Nền trắng tối giản */
     min-height: 70vh;
     animation: smoothFadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Container nổi bần bật với bóng đổ mềm */
 .info-container {
     max-width: 900px;
     margin: 0 auto;
@@ -25,7 +24,7 @@
     border: 1px solid #f3f4f6;
     border-radius: 24px;
     padding: 48px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04); /* Đổ bóng sâu hơn một chút để tách biệt khỏi nền trắng */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
 }
 
 .info-title {
@@ -39,7 +38,7 @@
     border-bottom: 2px solid var(--sand, #D2B48C);
 }
 
-/* ===== ĐỊNH DẠNG VĂN BẢN (Cho Giới thiệu & Chính sách) ===== */
+/* ===== ĐỊNH DẠNG VĂN BẢN ===== */
 .text-content {
     line-height: 1.8;
     color: var(--text-main, #3E3B39);
@@ -65,20 +64,11 @@
     margin-bottom: 8px;
 }
 
-/* ===== TRANG LIÊN HỆ (GRID LAYOUT) ===== */
+/* ===== TRANG LIÊN HỆ ===== */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    .info-container {
-        padding: 30px 20px;
-    }
 }
 
 .contact-info h3 {
@@ -122,8 +112,7 @@
     resize: none;
 }
 
-
-/* ===== TRÍCH DẪN NGHỆ THUẬT (BLOCKQUOTE) ===== */
+/* ===== TRÍCH DẪN NGHỆ THUẬT ===== */
 .nature-quote {
     font-family: var(--font-display, 'Playfair Display', serif);
     font-size: 22px;
@@ -132,13 +121,12 @@
     text-align: center;
     padding: 30px 20px;
     margin: 40px 0;
-    border-top: 1px solid #eaeaea; /* Viền xám mảnh */
+    border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     background-color: #FFFFFF;
     position: relative;
 }
 
-/* Thêm dấu nháy kép mờ làm background cho trích dẫn */
 .nature-quote::before {
     content: '"';
     position: absolute;
@@ -163,61 +151,14 @@
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.6s ease; /* Thời gian chuyển động mềm mại */
+    transition: transform 0.6s ease;
 }
 
-/* Hiệu ứng zoom nhẹ ảnh khi rê chuột vào */
 .about-image-wrapper:hover .about-image {
     transform: scale(1.04);
 }
-/* ===== TRÍCH DẪN NGHỆ THUẬT (BLOCKQUOTE) ===== */
-.nature-quote {
-    font-family: var(--font-display, 'Playfair Display', serif);
-    font-size: 22px;
-    font-style: italic;
-    color: var(--primary, #808000);
-    text-align: center;
-    padding: 30px 20px;
-    margin: 40px 0;
-    border-top: 1px solid #eaeaea; /* Viền xám mảnh */
-    border-bottom: 1px solid #eaeaea;
-    background-color: #FFFFFF;
-    position: relative;
-}
 
-/* Thêm dấu nháy kép mờ làm background cho trích dẫn */
-.nature-quote::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 80px;
-    color: #f3f4f6;
-    font-family: sans-serif;
-    z-index: 0;
-}
-
-/* ===== HÌNH ẢNH CÓ HIỆU ỨNG ===== */
-.about-image-wrapper {
-    margin: 40px 0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-}
-
-.about-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.6s ease; /* Thời gian chuyển động mềm mại */
-}
-
-/* Hiệu ứng zoom nhẹ ảnh khi rê chuột vào */
-.about-image-wrapper:hover .about-image {
-    transform: scale(1.04);
-}
-/* ===== GIAO DIỆN TRANG GIỚI THIỆU (ABOUT US LỘT XÁC) ===== */
+/* ===== GIAO DIỆN TRANG GIỚI THIỆU ===== */
 .about-hero {
     position: relative;
     border-radius: 24px;
@@ -236,14 +177,11 @@
 .about-hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    /* Lớp phủ mờ màu đen để chữ trắng nổi bật hơn */
     background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.1)); 
     display: flex;
     flex-direction: column;
-    
-    /* ===== PHẦN CHỈNH VỊ TRÍ CHỮ ===== */
-    justify-content: flex-start; /* Đưa toàn bộ nội dung lên sát phía trên */
-    padding: 80px 40px 40px 60px; /* Thứ tự: Trên - Phải - Dưới - Trái */
+    justify-content: flex-start;
+    padding: 80px 40px 40px 60px;
 }
 
 .about-hero-overlay h2 {
@@ -260,7 +198,6 @@
     line-height: 1.6;
 }
 
-/* Bố cục Zigzag: Hình 1 bên, chữ 1 bên */
 .about-zigzag {
     display: flex;
     align-items: center;
@@ -294,7 +231,6 @@
     flex: 1;
 }
 
-/* Bố cục Giá trị cốt lõi (Dạng Card 3 cột) */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -322,7 +258,6 @@
     margin-bottom: 15px;
 }
 
-/* HIỆU ỨNG LƯỚT ĐẾN ĐÂU HIỆN ĐẾN ĐÓ (SCROLL REVEAL) */
 .reveal {
     opacity: 0;
     transform: translateY(60px);
@@ -334,15 +269,77 @@
     transform: translateY(0);
 }
 
+/* =========================================
+   GOM CHUNG TẤT CẢ RESPONSIVE VÀO ĐÂY (MOBILE)
+   ========================================= */
 @media (max-width: 768px) {
+    /* Responsive cho Liên hệ & Giá trị cốt lõi */
+    .contact-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-container {
+        padding: 30px 20px;
+    }
+
     .about-zigzag, .about-zigzag.reverse {
         flex-direction: column;
         gap: 30px;
     }
-    .values-grid {
-        grid-template-columns: 1fr;
+    
+    /* Fix lỗi cắt ảnh và chữ bằng Stacked Layout */
+    .about-hero {
+        overflow: visible !important;
+        position: relative;
+        background-color: transparent !important;
+        box-shadow: none !important;
     }
+
     .about-hero img {
-        height: 250px;
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        border-radius: 24px 24px 0 0 !important;
+        width: 100%;
+        display: block;
     }
+
+    .about-hero-overlay {
+        position: relative !important;
+        height: auto !important; 
+        width: 100% !important;
+        top: auto !important; 
+        left: auto !important;
+        background-color: var(--primary, #808000) !important;        padding: 30px 20px !important;
+        border-radius: 0 0 24px 24px !important;
+        justify-content: flex-start !important; 
+        box-sizing: border-box; /* Ép không cho tràn viền */
+    }
+
+    .about-hero-overlay h2 {
+        font-size: 28px !important;
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+
+    .about-hero-overlay p {
+        font-size: 15px !important;
+        max-width: 100% !important;
+    }
+}
+/* Trạng thái input bị lỗi (Viền đỏ cam) */
+.input-invalid {
+    border: 1px solid #ff4d4f !important;
+    outline: none !important;
+}
+
+/* Dòng chữ báo lỗi nhỏ màu đỏ cam ở dưới */
+.error-msg {
+    color: #ff4d4f;
+    font-size: 14px;
+    display: none; /* Mặc định ẩn */
+    margin-top: 4px;
+    margin-bottom: 8px;
+    text-align: left;
 }

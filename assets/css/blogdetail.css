@@ -569,169 +569,124 @@ body {
 
 /* --- Block Bài Viết Liên Quan --- */
 
-.related-section{
+.related-section {
     background: #fff;
-
-    border-radius: 2rem;
-
-    padding: 2rem 1.6rem;
-
-    box-shadow: 0 8px 30px rgba(0,0,0,.05);
-
-    border: 1px solid #f3f3f3;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
 }
 
-/* title */
-.related-section h3{
-    display: flex;
-    align-items: center;
-    gap: .7rem;
-
-    font-size: 1.9rem;
-    font-weight: 800;
-
+.related-section h3 {
+    font-size: 1.3rem; /* Thu nhỏ tiêu đề khối chính */
+    font-weight: 700;
     color: #2d3748;
-
-    margin-bottom: 1.6rem;
-    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    padding-bottom: .5rem;
+    position: relative;
 }
 
-/* icon */
-.related-section h3::before{
-
-    color: #6c9444;
-
-    font-size: 1rem;
-    letter-spacing: -3px;
+.related-section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3rem;
+    height: .2rem;
+    background: #8aa11d;
+    border-radius: 999px;
 }
 
-/* list */
-.related-blogs{
+.related-blogs {
     display: flex;
     flex-direction: column;
+    gap: 0.1rem; /* Thu hẹp tối đa khoảng cách giữa các card */
 }
 
-.blog-card{
+/* --- Card bài viết --- */
+.blog-card {
     display: flex;
+    gap: 0.85rem; /* Giảm nhẹ khoảng cách giữa ảnh và chữ */
     align-items: center;
-    gap: .95rem;
-
-    padding: .95rem 0;
-
-    cursor: pointer;
-
-    transition: .25s ease;
+    padding: 0.7rem 0.6rem; /* Padding nhỏ lại để tổng thể gọn gàng */
+    border-radius: 0.8rem;
+    transition: all .25s ease;
+    border-bottom: 1px solid #f2f2f2;
 }
 
+/* Xóa bỏ border của item cuối cùng */
+.blog-card:last-child {
+    border-bottom: none;
+}
 
-.blog-card:hover{
+.blog-card:hover {
+    background: #f7f9f3;
     transform: translateX(4px);
 }
-/* image */
-.blog-image{
-    width: 5.5rem;
-    height: 5.5rem;
 
+/* --- Ảnh bài viết --- */
+.blog-image {
+    width: 4.5rem;  /* Thu nhỏ ảnh từ 5rem xuống 4.5rem để cân bằng với chữ nhỏ */
+    height: 4.5rem;
     flex-shrink: 0;
-
+    border-radius: 0.6rem;
     overflow: hidden;
-    border-radius: .9rem;
 }
 
-
-.blog-image img{
+.blog-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    border-radius: .9rem;
-
-    transition: .3s ease;
 }
 
-
-.blog-card:hover .blog-image img{
-    transform: scale(1.05);
-}
-.blog-content{
+/* --- Khối chữ bên phải --- */
+.blog-content {
     flex: 1;
-
     min-width: 0;
-
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; 
+    gap: 0.15rem; 
 }
-
-.blog-title{
-    font-size: 1rem;
-    font-weight: 700;
-
-    line-height: 1.5;
-
-    color: #2d3748;
-
-    margin-bottom: .35rem;
-
-    transition: .2s ease;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-}
-.blog-card:hover .blog-title{
-    color: #5b8d4c;
-}
-
-/* date */
-.blog-content small{
-    font-size: .88rem;
-    color: #9aa1ad;
-}
-
-/* divider */
-.blog-card:not(:last-child){
-    border-bottom: 1px solid #f1f1f1;
-}
-
-
-/* Ẩn bớt các thuộc tính thừa của thẻ liên quan khi xếp ở sidebar cho tối giản */
-.blog-category,
-.blog-desc,
-.blog-meta,
-.blog-btn{
-    display: none !important;
-}
-.blog-content .blog-btn {
-    display: inline-block !important; /* Hiện lại nút */
-    background: transparent; /* Bỏ màu nền thô cứng */
-    color: var(--primary-color); /* Dùng màu xanh chủ đạo */
-    padding: 0.25rem 0 0 0; /* 4px */
-
-    font-size: 0.8125rem; /* 13px */
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.blog-content .blog-btn:hover {
-    background: transparent;
-    color: #5b8d4c;
-    text-decoration: underline; /* Gạch chân khi hover cho rõ ràng */
-}
+/* --- Tiêu đề bài viết --- */
 .blog-title {
     margin: 0;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.825rem; /* Cỡ chữ nhỏ nhắn ~13px */
     font-weight: 600;
-    line-height: 1.4;
-    color: #1a202c;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    color: #333d4e;
+    line-height: 1.35; /* Độ cao dòng vừa phải để hiển thị đủ 2 dòng */
+    
+    /* Bộ thuộc tính bắt buộc để kích hoạt tính năng cắt chữ 2 dòng */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Giới hạn đúng 2 dòng */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important; /* Ẩn toàn bộ chữ từ dòng thứ 3 trở đi */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm (...) ở cuối dòng thứ 2 */
+    
+    word-break: break-word; /* Tránh việc từ quá dài làm vỡ khung */
+    transition: color 0.2s;
 }
+.blog-card:hover .blog-title {
+    color: #6c9444;
+}
+
+/* --- Ngày tháng --- */
+.blog-content small {
+    font-size: 0.7rem; /* Cực kỳ nhỏ gọn ~11px */
+    color: #a0aec0;
+    display: block;
+}
+
+/* --- Dọn dẹp nút bấm ẩn/hiển thị lỗi --- */
+/* Nếu bạn không muốn hiển thị nút "Xem thêm / Đọc tiếp" ở sidebar, hãy ẩn hẳn nó đi để sạch giao diện */
+/* --- Triệt tiêu hoàn toàn nút bấm và thành phần thừa lỗi --- */
+.blog-content .blog-btn,
+.blog-category,
+.blog-desc,
+.blog-meta {
+    display: none !important;
+}
+
+
+
 
 /* ==========================================================================
    SCROLL TOP BUTTON (NÚT LÊN ĐẦU TRANG)

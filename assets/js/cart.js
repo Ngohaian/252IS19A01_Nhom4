@@ -115,7 +115,7 @@ class Cart {
                     <button class="qty-btn qty-increase">+</button>
                 </div>
                 <button class="remove-item-btn">
-                    <img src="/assets/images/icon/delete_gray.png" alt ="delete_icon" class="remove-item-icon">
+                    <img src="assets/images/icon/delete_gray.png" alt ="delete_icon" class="remove-item-icon">
                 </button>
             </div>
         </div>

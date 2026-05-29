@@ -1,3 +1,10 @@
+/* 1. Tự import phông chữ mà file gốc bị thiếu */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+/* 2. Áp dụng cho các ô nhập liệu và nút bấm */
+input, button, textarea, select {
+    font-family: var(--font-body);
+}
 
 /* ===== BỐ CỤC CHUNG PROFILE (GRID LAYOUT) ===== */
 .profile-layout {
@@ -178,32 +185,6 @@
     background-color: #fcfbf9;
 }
 
-/* Trạng thái đơn hàng (Badges) */
-.status-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-align: center;
-}
-
-.status-pending {
-    background-color: #fef3c7;
-    color: #d97706;
-}
-
-.status-shipping {
-    background-color: #e0f2fe;
-    color: #0284c7;
-}
-
-.status-completed {
-    background-color: #dcfce7;
-    color: var(--primary, #808000);
-}
 
 /* Khung hiển thị khi rỗng (Bảng trống / Wishlist trống) */
 .empty-state {
@@ -269,132 +250,6 @@
 }
 
 
-/* ===== GIAO DIỆN THẺ ĐƠN HÀNG (TÔNG MỘC MIÊN) ===== */
-.order-card {
-    background: #fff;
-    border-radius: 16px; /* Bo góc mềm mại hơn */
-    padding: 24px;
-    margin-bottom: 20px;
-    border: 1.5px solid var(--border, #ddd5c4);
-    box-shadow: 0 4px 15px rgba(62, 59, 57, 0.03); /* Bóng đổ siêu nhẹ */
-}
-
-.order-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 14px;
-    border-bottom: 1px dashed var(--border, #ddd5c4); /* Đổi sang nét đứt nhìn mộc mạc hơn */
-    margin-bottom: 16px;
-}
-
-.shop-name {
-    font-weight: 700;
-    color: var(--text-main, #2c2c2c);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.shop-name::before {
-    content: '🌱'; /* Thay icon cửa hàng thành icon Mầm xanh */
-}
-
-
-.order-body {
-    display: flex;
-    gap: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px dashed var(--border, #ddd5c4);
-    margin-bottom: 16px;
-    align-items: flex-start;
-}
-
-.product-img {
-    width: 85px;
-    height: 85px;
-    object-fit: cover;
-    border-radius: 10px; /* Bo góc ảnh sản phẩm */
-    border: 1px solid var(--border, #ddd5c4);
-}
-
-.product-info {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.product-name {
-    margin: 0;
-    font-size: 16px;
-    color: var(--text-main, #2c2c2c);
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.product-details {
-    margin: 0;
-    color: var(--text-muted, #888);
-    font-size: 13px;
-}
-
-.product-price {
-    font-size: 15px;
-    color: var(--text-muted, #888);
-    font-weight: 600;
-}
-
-.order-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 18px;
-}
-
-.total-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.total-label {
-    font-size: 15px;
-    color: var(--text-main, #2c2c2c);
-    font-weight: 500;
-}
-
-.total-price {
-    font-size: 24px;
-    color: var(--price-color, #c8860b); /* Màu vàng nâu nhạt quen thuộc của Mộc Miên */
-    font-weight: 800;
-}
-
-.order-actions {
-    display: flex;
-    gap: 12px;
-}
-
-/* Nút Mua lại */
-.btn-again {
-    background: var(--green-btn, #7a9a3c);
-    color: #fff;
-    border: 1px solid var(--green-btn, #7a9a3c);
-    padding: 10px 24px;
-    border-radius: 8px; /* Bo tròn hợp tông với các nút khác trong web */
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s ease;
-    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
-}
-
-.btn-again:hover {
-    background: var(--green-dark, #4a6741);
-    border-color: var(--green-dark, #4a6741);
-    transform: translateY(-2px);
-}
-
 /* Nút Liên hệ */
 .btn-contact {
     background: #fff;
@@ -412,4 +267,62 @@
 .btn-contact:hover {
     background: var(--cream, #fffbf3);
     border-color: var(--earthyBrown, #967451);
+}
+
+@media (max-width: 768px) {
+    /* 1. Ép layout chính không được tràn lề */
+    .profile-layout {
+        padding: 0 15px !important;
+        margin: 20px auto !important;
+    }
+
+    /* 2. Thu nhỏ padding các hộp nội dung và ép khung 100% */
+    .sidebar-menu,
+    .profile-content {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        padding: 24px 16px !important;
+        overflow: hidden !important; /* Cắt bỏ phần thò ra ngoài */
+    }
+
+    /* 3. TRỊ "SÁT THỦ" EMAIL VÀ CHUYỂN DỌC HÀNG THÔNG TIN */
+    .user-info-card p {
+        flex-direction: column !important; /* Đẩy chữ (Email, SĐT) rớt xuống dưới tiêu đề */
+        align-items: flex-start !important;
+        gap: 6px;
+    }
+
+    .user-info-card p strong {
+        width: 100% !important; /* Bỏ giới hạn chiều rộng cũ của tiêu đề */
+    }
+
+    .user-info-card p span {
+        word-wrap: break-word !important; 
+        word-break: break-all !important; /* Tới mép màn hình là bẻ đôi email luôn */
+        white-space: normal !important;
+        width: 100%;
+    }
+
+    /* 4. Fix tràn viền ở Tabs Lịch sử đơn hàng */
+    .order-tabs {
+        flex-wrap: wrap; /* Cho phép các tab rớt dòng nếu nhiều quá */
+    }
+
+    .tab-item {
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+
+    /* 5. Ép chữ tiêu đề Profile nhỏ lại cho cân đối */
+    .profile-content h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    /* 6. Cho phép các nút trong đơn hàng xuống dòng tránh kẹt */
+    .order-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
 }
