@@ -340,7 +340,6 @@
         .prod-card-price { font-size: 16px; font-weight: 500; color: var(--brown); margin-top: auto; margin-bottom: 12px; }
         
         .prod-card-actions { display: flex; gap: 8px; }
-        /* CSS CHỈ CÒN LẠI NÚT XEM CHI TIẾT (FULL WIDTH) */
         .prod-btn-view {
             flex: 1; background: var(--green); color: #fff; border: none; border-radius: 8px;
             padding: 10px 0; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center;
@@ -592,102 +591,125 @@
     <script src="assets/js/Blog.js"></script>
 
     <script>
+    // ══════════════════════════════════════════
+    // UTILITIES BẢO VỆ CHỐNG LỖI CỰC MẠNH
+    // ══════════════════════════════════════════
     function getBase() {
         return (document.querySelector('base') || {}).getAttribute?.('href') || '/';
     }
 
     function getProducts() {
-        try { return JSON.parse(localStorage.getItem('products')) || []; } catch(e) { return []; }
+        try { 
+            let data = JSON.parse(localStorage.getItem('products'));
+            // Lọc bỏ rác và null nếu có
+            return Array.isArray(data) ? data.filter(item => item !== null && typeof item === 'object') : [];
+        } catch(e) { return []; }
     }
 
     function getBlogs() {
-        try { return JSON.parse(localStorage.getItem('blogs')) || []; } catch(e) { return []; }
+        try { 
+            let data = JSON.parse(localStorage.getItem('blogs'));
+            return Array.isArray(data) ? data.filter(item => item !== null && typeof item === 'object') : [];
+        } catch(e) { return []; }
     }
 
     // ══════════════════════════════════════════
     // 2. DANH MỤC
     // ══════════════════════════════════════════
     function renderCategories(products) {
-        const grid = document.getElementById('category-grid');
-        if (!grid) return;
+        try {
+            const grid = document.getElementById('category-grid');
+            if (!grid) return;
 
-        const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴', 'Trang trí':'🌸' };
-        const map = {};
-        products.forEach(p => {
-            const cat = p.category || 'Khác';
-            if (!map[cat]) map[cat] = { image: p.image, count: 0 };
-            map[cat].count++;
-        });
+            const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴', 'Trang trí':'🌸' };
+            const map = {};
+            
+            // Bảo vệ vòng lặp, lỡ phần tử bị lỗi
+            products.forEach(p => {
+                if(!p) return; 
+                const cat = p.category || 'Khác';
+                if (!map[cat]) map[cat] = { image: p.image, count: 0 };
+                map[cat].count++;
+            });
 
-        const base = getBase();
-        if (Object.keys(map).length === 0) {
-            grid.innerHTML = '<p style="color:var(--text-light);font-family:sans-serif;">Chưa có danh mục nào.</p>';
-            return;
+            const base = getBase();
+            
+            // Xóa luôn skeleton nếu không có danh mục
+            if (Object.keys(map).length === 0) {
+                grid.innerHTML = '<p style="color:var(--text-light);font-family:sans-serif;grid-column:1/-1;text-align:center;">Chưa có dữ liệu danh mục.</p>';
+                return;
+            }
+
+            grid.innerHTML = Object.entries(map).map(([name, data]) => {
+                const url = `${base}pages/products/ProductList.html?category=${encodeURIComponent(name)}`;
+                const icon = icons[name] || '🌱';
+                const img = data.image
+                    ? `<img src="${data.image}" alt="${name}" loading="lazy">`
+                    : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,#e8ddd0,#d4c8b8)">${icon}</div>`;
+                return `
+                    <a class="cat-card fade-up" href="${url}">
+                        ${img}
+                        <div class="cat-card-overlay"></div>
+                        <div class="cat-card-body">
+                            <span class="cat-card-tag">${icon} ${name}</span>
+                            <div class="cat-card-name">${name}</div>
+                            <div class="cat-card-count">${data.count} sản phẩm</div>
+                        </div>
+                    </a>`;
+            }).join('');
+            observeFadeUp();
+        } catch(err) {
+            console.error("Lỗi vẽ danh mục: ", err);
+            const grid = document.getElementById('category-grid');
+            if(grid) grid.innerHTML = '<p style="text-align:center;width:100%;grid-column:1/-1;">Lỗi tải danh mục.</p>';
         }
-
-        // CHÚ Ý LỖI CỦA BẠN NẰM Ở ĐÂY:
-        // Trang chủ hiện tại ĐÃ gửi tên danh mục qua URL dưới dạng `?category=TênDanhMục`
-        grid.innerHTML = Object.entries(map).map(([name, data]) => {
-            const url = `${base}pages/products/ProductList.html?category=${encodeURIComponent(name)}`;
-            const icon = icons[name] || '🌱';
-            const img = data.image
-                ? `<img src="${data.image}" alt="${name}" loading="lazy">`
-                : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,#e8ddd0,#d4c8b8)">${icon}</div>`;
-            return `
-                <a class="cat-card fade-up" href="${url}">
-                    ${img}
-                    <div class="cat-card-overlay"></div>
-                    <div class="cat-card-body">
-                        <span class="cat-card-tag">${icon} ${name}</span>
-                        <div class="cat-card-name">${name}</div>
-                        <div class="cat-card-count">${data.count} sản phẩm</div>
-                    </div>
-                </a>`;
-        }).join('');
-        observeFadeUp();
     }
 
     // ══════════════════════════════════════════
     // 3. SẢN PHẨM TABS
     // ══════════════════════════════════════════
     function renderProductCard(p, base) {
-        // ĐÃ XÓA NÚT GIỎ HÀNG VÀ CHỈN LẠI NÚT XEM CHI TIẾT DÀN ĐỀU (FULL WIDTH)
         return `
             <div class="prod-card fade-up">
                 <div class="prod-card-img">
-                    <img src="${p.image}" alt="${p.name}" loading="lazy">
+                    <img src="${p.image || ''}" alt="${p.name || 'Sản phẩm'}" loading="lazy">
                     <span class="prod-card-badge">${p.category || 'Cây cảnh'}</span>
                 </div>
                 <div class="prod-card-body">
                     <div class="prod-card-cat">${p.category || ''}</div>
-                    <div class="prod-card-name">${p.name}</div>
-                    <div class="prod-card-price">${Number(p.price).toLocaleString('vi-VN')}đ</div>
+                    <div class="prod-card-name">${p.name || 'Sản phẩm mới'}</div>
+                    <div class="prod-card-price">${Number(p.price || 0).toLocaleString('vi-VN')}đ</div>
                     <div class="prod-card-actions">
-                        <a class="prod-btn-view" href="${base}pages/products/ProductDetail.html?id=${p.id}">Xem chi tiết sản phẩm →</a>
+                        <a class="prod-btn-view" href="${base}pages/products/ProductDetail.html?id=${p.id || 0}">Xem chi tiết sản phẩm →</a>
                     </div>
                 </div>
             </div>`;
     }
 
     function renderProducts(products) {
-        const base = getBase();
-        const take = 8;
+        try {
+            const base = getBase();
+            const take = 8;
 
-        const featured = [...products].sort((a,b) => (b.rating||0)-(a.rating||0)).slice(0, take);
-        const newest  = [...products].sort((a,b) => b.id - a.id).slice(0, take);
-        const top     = [...products].sort((a,b) => a.stock - b.stock).slice(0, take);
+            const featured = [...products].sort((a,b) => (b.rating||0)-(a.rating||0)).slice(0, take);
+            const newest  = [...products].sort((a,b) => (b.id||0) - (a.id||0)).slice(0, take);
+            const top     = [...products].sort((a,b) => (a.stock||0) - (b.stock||0)).slice(0, take);
 
-        const render = (list, gridId) => {
-            const el = document.getElementById(gridId);
-            if (!el) return;
-            el.innerHTML = list.length
-                ? list.map(p => renderProductCard(p, base)).join('')
-                : '<p style="color:var(--text-light);grid-column:1/-1;text-align:center;padding:40px 0;">Chưa có sản phẩm.</p>';
-        };
-        render(featured, 'prod-grid-featured');
-        render(newest,   'prod-grid-new');
-        render(top,      'prod-grid-top');
-        observeFadeUp();
+            const render = (list, gridId) => {
+                const el = document.getElementById(gridId);
+                if (!el) return;
+                el.innerHTML = list.length
+                    ? list.map(p => renderProductCard(p, base)).join('')
+                    : '<p style="color:var(--text-light);grid-column:1/-1;text-align:center;padding:40px 0;">Chưa có sản phẩm.</p>';
+            };
+            
+            render(featured, 'prod-grid-featured');
+            render(newest,   'prod-grid-new');
+            render(top,      'prod-grid-top');
+            observeFadeUp();
+        } catch(err) {
+            console.error("Lỗi vẽ sản phẩm: ", err);
+        }
     }
 
     function switchTab(btn, tab) {
@@ -703,52 +725,56 @@
     // 5. BLOG
     // ══════════════════════════════════════════
     function renderBlogs(blogs) {
-        const grid = document.getElementById('blog-grid');
-        if (!grid) return;
-        const base = getBase();
-        const items = blogs.slice(0, 3);
+        try {
+            const grid = document.getElementById('blog-grid');
+            if (!grid) return;
+            const base = getBase();
+            const items = blogs.slice(0, 3);
 
-        if (items.length === 0) {
-            const placeholders = [
-                { title: '5 loại cây phong thủy cho năm mới', cat: 'Phong thủy', desc: 'Những loại cây mang ý nghĩa may mắn, tài lộc bạn nên trồng trong nhà để đón năm mới thịnh vượng.', date: '20/05/2026', author: 'Mộc Miên' },
-                { title: 'Cách tưới cây đúng cách',          cat: 'Chăm sóc',   desc: 'Tưới quá nhiều hay quá ít đều hại cây. Tìm hiểu bí quyết tưới nước chuẩn cho từng loại cây.', date: '15/05/2026', author: 'Mộc Miên' },
-                { title: 'Top cây văn phòng không cần nắng',  cat: 'Văn phòng',  desc: 'Danh sách những loại cây siêu dễ sống, phù hợp với điều kiện ánh sáng hạn chế trong văn phòng.', date: '10/05/2026', author: 'Mộc Miên' },
-            ];
-            grid.innerHTML = placeholders.map((b, i) => `
-                <a class="blog-card fade-up" href="${base}pages/blog/Blog.html">
-                    <div class="blog-card-img" style="background:linear-gradient(135deg,${['#c8d8b8','#d8c8a8','#b8c8d8'][i]},${['#a8c098','#c8a888','#98a8c0'][i]});display:flex;align-items:center;justify-content:center;font-size:${i===0?'80px':'56px'}">
-                        ${['🌿','💧','🪴'][i]}
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="blog-card-cat">${b.cat}</div>
-                        <div class="blog-card-title">${b.title}</div>
-                        <div class="blog-card-desc">${b.desc}</div>
-                        <div class="blog-card-meta">
-                            <span class="blog-card-author">✍ ${b.author}</span>
-                            <span>${b.date}</span>
+            if (items.length === 0) {
+                const placeholders = [
+                    { title: '5 loại cây phong thủy cho năm mới', cat: 'Phong thủy', desc: 'Những loại cây mang ý nghĩa may mắn, tài lộc bạn nên trồng trong nhà để đón năm mới thịnh vượng.', date: '20/05/2026', author: 'Mộc Miên' },
+                    { title: 'Cách tưới cây đúng cách',          cat: 'Chăm sóc',   desc: 'Tưới quá nhiều hay quá ít đều hại cây. Tìm hiểu bí quyết tưới nước chuẩn cho từng loại cây.', date: '15/05/2026', author: 'Mộc Miên' },
+                    { title: 'Top cây văn phòng không cần nắng',  cat: 'Văn phòng',  desc: 'Danh sách những loại cây siêu dễ sống, phù hợp với điều kiện ánh sáng hạn chế trong văn phòng.', date: '10/05/2026', author: 'Mộc Miên' },
+                ];
+                grid.innerHTML = placeholders.map((b, i) => `
+                    <a class="blog-card fade-up" href="${base}pages/blog/Blog.html">
+                        <div class="blog-card-img" style="background:linear-gradient(135deg,${['#c8d8b8','#d8c8a8','#b8c8d8'][i]},${['#a8c098','#c8a888','#98a8c0'][i]});display:flex;align-items:center;justify-content:center;font-size:${i===0?'80px':'56px'}">
+                            ${['🌿','💧','🪴'][i]}
                         </div>
-                    </div>
-                </a>`).join('');
-        } else {
-            grid.innerHTML = items.map((b, i) => `
-                <a class="blog-card fade-up" href="${base}pages/blog/Blog.html?id=${b.id}">
-                    <div class="blog-card-img">
-                        ${b.image
-                            ? `<img src="${b.image}" alt="${b.title}" loading="lazy">`
-                            : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;background:#e8ddd0">🌿</div>`}
-                    </div>
-                    <div class="blog-card-body">
-                        <div class="blog-card-cat">${b.category || 'Blog'}</div>
-                        <div class="blog-card-title">${b.title}</div>
-                        <div class="blog-card-desc">${b.shortDesc || ''}</div>
-                        <div class="blog-card-meta">
-                            <span class="blog-card-author">✍ ${b.author || 'Mộc Miên'}</span>
-                            <span>${b.createdAt || ''}</span>
+                        <div class="blog-card-body">
+                            <div class="blog-card-cat">${b.cat}</div>
+                            <div class="blog-card-title">${b.title}</div>
+                            <div class="blog-card-desc">${b.desc}</div>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-author">✍ ${b.author}</span>
+                                <span>${b.date}</span>
+                            </div>
                         </div>
-                    </div>
-                </a>`).join('');
+                    </a>`).join('');
+            } else {
+                grid.innerHTML = items.map((b, i) => `
+                    <a class="blog-card fade-up" href="${base}pages/blog/Blog.html?id=${b.id || ''}">
+                        <div class="blog-card-img">
+                            ${b.image
+                                ? `<img src="${b.image}" alt="${b.title || 'Blog'}" loading="lazy">`
+                                : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;background:#e8ddd0">🌿</div>`}
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-cat">${b.category || 'Blog'}</div>
+                            <div class="blog-card-title">${b.title || ''}</div>
+                            <div class="blog-card-desc">${b.shortDesc || ''}</div>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-author">✍ ${b.author || 'Mộc Miên'}</span>
+                                <span>${b.createdAt || ''}</span>
+                            </div>
+                        </div>
+                    </a>`).join('');
+            }
+            observeFadeUp();
+        } catch(err) {
+            console.error("Lỗi vẽ blog: ", err);
         }
-        observeFadeUp();
     }
 
     // ══════════════════════════════════════════
@@ -791,25 +817,35 @@
     // INIT
     // ══════════════════════════════════════════
     function init() {
-        const products = getProducts();
-        const blogs    = getBlogs();
-        renderCategories(products);
-        renderProducts(products);
-        renderBlogs(blogs);
-        startCountdown();
-        observeFadeUp();
+        try {
+            const products = getProducts();
+            const blogs    = getBlogs();
+            
+            // Xóa ngay các skeleton mặc định
+            renderCategories(products);
+            renderProducts(products);
+            renderBlogs(blogs);
+            
+            startCountdown();
+            observeFadeUp();
 
-        if (products.length === 0) {
-            let tries = 0;
-            const poll = setInterval(() => {
-                tries++;
-                const p = getProducts();
-                if (p.length > 0) {
-                    clearInterval(poll);
-                    renderCategories(p);
-                    renderProducts(p);
-                } else if (tries > 30) clearInterval(poll);
-            }, 200);
+            // Nhắc nhở tải dữ liệu nếu chưa có
+            if (products.length === 0) {
+                let tries = 0;
+                const poll = setInterval(() => {
+                    tries++;
+                    const p = getProducts();
+                    if (p.length > 0) {
+                        clearInterval(poll);
+                        renderCategories(p);
+                        renderProducts(p);
+                    } else if (tries > 20) {
+                        clearInterval(poll);
+                    }
+                }, 300);
+            }
+        } catch(err) {
+            console.error("Lỗi trầm trọng ở hàm init: ", err);
         }
     }
 
