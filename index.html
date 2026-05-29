@@ -10,7 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Đổi font chữ sang font hiển thị tiếng Việt tốt hơn, bám sát phong cách mộc mạc -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/Index.css">
     <style>
@@ -33,14 +34,16 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Nunito', sans-serif; /* Đổi font chữ chung */
             background: var(--cream);
             color: var(--text-dark);
             overflow-x: hidden;
         }
 
         /* ── SECTION WRAPPER ── */
-        .home-section { padding: 72px 60px; }
+        .home-section {
+            padding: 72px 60px;
+        }
         @media (max-width: 768px) { .home-section { padding: 48px 20px; } }
 
         .section-label {
@@ -48,7 +51,7 @@
             align-items: center;
             gap: 8px;
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--brown-light);
@@ -62,7 +65,7 @@
             background: var(--brown-light);
         }
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif; /* Đổi font chữ tiêu đề */
             font-size: clamp(28px, 4vw, 46px);
             font-weight: 700;
             color: var(--text-dark);
@@ -84,7 +87,7 @@
         }
         .view-all-btn {
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--brown);
             text-decoration: none;
             border-bottom: 1.5px solid var(--brown);
@@ -105,8 +108,12 @@
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
             background: var(--cream);
+            margin: 0 auto; /* Căn giữa banner */
+            max-width: 1400px; /* Thụt banner vào để không bị tràn viền */
+            padding: 0 40px; /* Thêm padding 2 bên cho banner */
         }
 
+        /* Decorative vertical lines */
         .hero-banner::before {
             content: '';
             position: absolute;
@@ -141,10 +148,10 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--brown-light);
-            font-weight: 500;
+            font-weight: 600;
         }
         .hero-title {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif; /* Đổi font chữ */
             font-size: clamp(38px, 5vw, 78px);
             font-weight: 700;
             line-height: 1.05;
@@ -174,7 +181,7 @@
             padding: 14px 32px;
             border-radius: 40px;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
             text-decoration: none;
             text-transform: uppercase;
@@ -187,7 +194,7 @@
             padding: 14px 32px;
             border-radius: 40px;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
             text-decoration: none;
             text-transform: uppercase;
@@ -207,7 +214,7 @@
             width: 100%;
         }
         .hero-stat-num {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif; /* Đổi font chữ */
             font-size: clamp(24px, 4vw, 32px); 
             font-weight: 700;
             color: var(--text-dark);
@@ -251,10 +258,14 @@
         }
 
         @media (max-width: 1024px) {
-            .hero-banner { grid-template-columns: 1fr; min-height: auto; }
+            .hero-banner { 
+                grid-template-columns: 1fr; 
+                min-height: auto; 
+                padding: 0 20px; /* Chỉnh padding trên mobile cho cân đối */
+            }
             .hero-banner::before { display: none; }
-            .hero-left { padding: 60px 24px 20px; }
-            .hero-right { height: auto; min-height: 260px; padding: 20px 24px 60px; }
+            .hero-left { padding: 40px 0 20px; } /* Xóa padding 2 bên của nội dung trái */
+            .hero-right { height: auto; min-height: 260px; padding: 20px 0 40px; } /* Xóa padding 2 bên của nội dung phải */
             .hero-right-inner { max-width: 380px; margin: 0 auto; aspect-ratio: 1; border-radius: 200px; }
         }
 
@@ -294,7 +305,7 @@
             border-radius: 20px; margin-bottom: 6px;
         }
         .cat-card-name {
-            color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; line-height: 1.2;
+            color: #fff; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.2; /* Đổi font chữ */
         }
         .cat-card-count { color: rgba(255,255,255,0.65); font-size: 12px; margin-top: 3px; }
         .cat-skeleton {
@@ -313,7 +324,7 @@
             padding: 4px; width: fit-content; margin-bottom: 36px;
         }
         .product-tab {
-            padding: 8px 22px; border-radius: 26px; font-size: 13px; font-weight: 500;
+            padding: 8px 22px; border-radius: 26px; font-size: 13px; font-weight: 600;
             color: var(--text-mid); cursor: pointer; border: none; background: transparent; transition: all 0.2s;
         }
         .product-tab.active { background: var(--brown); color: #fff; box-shadow: 0 3px 10px rgba(122,92,58,0.3); }
@@ -331,18 +342,18 @@
         .prod-card:hover .prod-card-img img { transform: scale(1.06); }
         .prod-card-badge {
             position: absolute; top: 12px; left: 12px; background: var(--green); color: #fff;
-            font-size: 10px; font-weight: 600; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
+            font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
         }
         .prod-card-badge.sale { background: #c0392b; }
         .prod-card-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
         .prod-card-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; }
-        .prod-card-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; line-height: 1.25; }
-        .prod-card-price { font-size: 16px; font-weight: 500; color: var(--brown); margin-top: auto; margin-bottom: 12px; }
+        .prod-card-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; line-height: 1.25; } /* Đổi font chữ */
+        .prod-card-price { font-size: 16px; font-weight: 600; color: var(--brown); margin-top: auto; margin-bottom: 12px; }
         
         .prod-card-actions { display: flex; gap: 8px; }
         .prod-btn-view {
             flex: 1; background: var(--green); color: #fff; border: none; border-radius: 8px;
-            padding: 10px 0; font-size: 13px; font-weight: 500; cursor: pointer; text-align: center;
+            padding: 10px 0; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center;
             text-decoration: none; display: block; transition: background 0.2s;
         }
         .prod-btn-view:hover { background: var(--brown); color: #fff; }
@@ -368,13 +379,13 @@
         .promo-card-3 { background: linear-gradient(135deg, #3a2e22 0%, #5a4535 100%); border: 1px solid rgba(255,255,255,0.08); }
         .promo-card-deco { position: absolute; top: -30px; right: -30px; font-size: 120px; opacity: 0.08; line-height: 1; }
         .promo-card-tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; width: fit-content; }
-        .promo-card-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+        .promo-card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; } /* Đổi font chữ */
         .promo-card-desc { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 20px; line-height: 1.6; }
-        .promo-card-cta { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; width: fit-content; transition: border-color 0.2s, gap 0.2s; }
+        .promo-card-cta { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; width: fit-content; transition: border-color 0.2s, gap 0.2s; }
         .promo-card-cta:hover { border-color: #fff; gap: 12px; }
         .promo-countdown { display: flex; gap: 12px; margin-bottom: 20px; }
         .countdown-box { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 52px; }
-        .countdown-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1; display: block; }
+        .countdown-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1; display: block; } /* Đổi font chữ */
         .countdown-label { font-size: 9px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
         @media (max-width: 700px) { .promo-grid { grid-template-columns: 1fr; } .promo-card-1 { grid-row: span 1; min-height: 280px; } }
 
@@ -390,12 +401,12 @@
         .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s; }
         .blog-card:hover .blog-card-img img { transform: scale(1.06); }
         .blog-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-        .blog-card-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 8px; }
-        .blog-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 10px; }
+        .blog-card-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 8px; }
+        .blog-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 10px; } /* Đổi font chữ */
         .blog-card:first-child .blog-card-title { font-size: 26px; }
         .blog-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; flex: 1; }
         .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--text-light); border-top: 1px solid var(--cream-dark); padding-top: 12px; margin-top: auto; }
-        .blog-card-author { font-weight: 500; color: var(--text-mid); }
+        .blog-card-author { font-weight: 600; color: var(--text-mid); }
         @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 
@@ -407,10 +418,10 @@
         .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .about-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--cream)); }
         .about-content { padding: 80px 60px 80px 40px; display: flex; flex-direction: column; justify-content: center; }
-        .about-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 38px); font-style: italic; color: var(--text-dark); line-height: 1.5; margin-bottom: 24px; }
+        .about-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 38px); font-style: italic; color: var(--text-dark); line-height: 1.5; margin-bottom: 24px; } /* Đổi font chữ */
         .about-text { font-size: 14px; color: var(--text-mid); line-height: 1.9; margin-bottom: 32px; font-weight: 300; }
         .about-stats { display: flex; gap: 36px; padding-top: 28px; border-top: 1px solid rgba(122,92,58,0.15); }
-        .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--green); }
+        .about-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--green); } /* Đổi font chữ */
         .about-stat-label { font-size: 11px; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
         @media (max-width: 860px) {
             .about-section { grid-template-columns: 1fr; }
@@ -433,6 +444,7 @@
     <div id="header-placeholder"></div>
 
     <main>
+        <!-- ══ 1. HERO ══ -->
         <section class="hero-banner">
             <div class="hero-left">
                 <div class="hero-eyebrow">
@@ -467,6 +479,7 @@
             </div>
         </section>
 
+        <!-- ══ 2. DANH MỤC ══ -->
         <section class="home-section category-section">
             <div class="section-head">
                 <div>
@@ -483,6 +496,7 @@
             </div>
         </section>
 
+        <!-- ══ 3. SẢN PHẨM (tabs: Tiêu biểu / Mới / Bán chạy) ══ -->
         <section class="home-section products-section">
             <div class="section-head">
                 <div>
@@ -501,6 +515,7 @@
             <div id="prod-grid-top"      class="prod-grid" style="display:none"></div>
         </section>
 
+        <!-- ══ 4. KHUYẾN MÃI ══ -->
         <section class="home-section promo-section">
             <div class="section-head" style="margin-bottom:32px;">
                 <div>
@@ -538,6 +553,7 @@
             </div>
         </section>
 
+        <!-- ══ 5. BLOG ══ -->
         <section class="home-section blog-section">
             <div class="section-head">
                 <div>
@@ -547,12 +563,14 @@
                 <a href="pages/blog/Blog.html" class="view-all-btn">Xem tất cả →</a>
             </div>
             <div id="blog-grid" class="blog-grid">
+                <!-- render bởi JS -->
                 <div style="background:#f0e8df;border-radius:16px;aspect-ratio:4/3;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
                 <div style="background:#f0e8df;border-radius:16px;aspect-ratio:16/9;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
                 <div style="background:#f0e8df;border-radius:16px;aspect-ratio:16/9;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
             </div>
         </section>
 
+        <!-- ══ 6. ABOUT / PASEL ZEN ══ -->
         <section class="about-section">
             <div class="about-img">
                 <img src="assets/images/bonsai.png" alt="Vườn cây Mộc Miên">
