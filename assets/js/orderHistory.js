@@ -6,11 +6,21 @@ const statusClass = {
     "Đã nhận hàng": "status-done",
     "Đã hủy":       "status-cancel"
 };
+function getStatusByDate(orderDate) {
+        const steps = ["Đã đặt hàng", "Đã đóng gói", "Đang giao hàng", "Đã nhận hàng"];
+        const daysPassed = Math.floor((Date.now() - new Date(orderDate)) / (1000 * 60 * 60 * 24));
+        const index = Math.min(Math.floor(daysPassed / 2), steps.length - 1);
+        return steps[index];
+    }
 function createOrderCard(o) {
+    
     const total = o.items.reduce((s, i) => s + i.price * i.quantity, 0);
+    let shipping = 20000;
+    if(total>300000) shipping = 0;
+    const finalTotal = shipping+total;
     const d = new Date(o.date);
     const dateStr = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-
+    o.status = getStatusByDate(o.date);
     const itemsHTML = o.items.slice(0, 2).map(item => `
         <div class="order-item-row">
             <img src="${item.product.image}" alt="${item.product.name}" class="order-item-img"
@@ -28,7 +38,7 @@ function createOrderCard(o) {
     const moreHTML = o.items.length > 2
         ? `<div class="order-more">+${o.items.length - 2} sản phẩm khác</div>`
         : '';
-
+    
     const card = document.createElement('div');
     card.className = 'order-card';
     card.innerHTML = `
@@ -46,7 +56,7 @@ function createOrderCard(o) {
         <hr class="inline-order">
         <div class="order-card-footer">
             <div class="order-total">
-                Tổng: <span>${total.toLocaleString('vi-VN')}đ</span>
+                Tổng: <span>${finalTotal.toLocaleString('vi-VN')}đ</span>
             </div>
             <a href="pages/account/OrderDetail.html?id=${o.orderId}"
                class="btn-detail">Xem chi tiết</a>

@@ -203,6 +203,8 @@ class Cart {
             cartItemsList.appendChild(this.createItemRow(item));
         });
         const subtotal = this.selectedTotal;
+        let shipping = 20000;
+        if (subtotal >= 300000) shipping = 0;
         summaryContainer.style.display = 'block';
         summaryContainer.innerHTML = `
             <div class="order-summary-box">
@@ -213,12 +215,14 @@ class Cart {
                 </div>
                 <div class="summary-line">
                     <span class="summary-label">Vận chuyển </span>
-                    <span class="summary-value shipping-free">MIỄN PHÍ</span>
+                    <span class="summary-value ${shipping === 0 ? 'shipping-free' : ''}">
+                        ${shipping === 0 ? 'MIỄN PHÍ' : shipping.toLocaleString('vi-VN') + 'đ'}
+                    </span>
                 </div>
                 <hr class="summary-hr">
                 <div class="summary-line total-line">
                     <span class="summary-label total-price">TỔNG CỘNG </span>
-                    <span class="summary-value total-price">${subtotal.toLocaleString('vi-VN')}đ</span>
+                    <span class="summary-value total-price">${(subtotal+shipping).toLocaleString('vi-VN')}đ</span>
                 </div>
                 <a class="checkout-submit-btn" href="pages/checkout/Payment.html">THANH TOÁN MỘC</a>
             </div>

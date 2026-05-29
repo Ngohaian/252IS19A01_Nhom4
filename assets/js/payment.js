@@ -30,7 +30,10 @@ function renderOrderAndCalculateTotal() {
 
     if (orderItems.length === 0) {
         orderItemsContainer.innerHTML = '<p>Giỏ hàng trống rỗng 🌱</p>';
-        orderTotalContainer.innerHTML = '<div class="total-row"><span>Tổng cộng:</span><span>0đ</span></div>';
+        orderTotalContainer.innerHTML = `
+            <div class="shipping-row"><span>Phí vận chuyển:</span><span>Miễn phí</span></div>
+            <div class="total-row"><span>Tổng cộng:</span><span>0đ</span></div>
+        `;
         return;
     }
 
@@ -51,9 +54,15 @@ function renderOrderAndCalculateTotal() {
         `;
         orderItemsContainer.appendChild(itemRow);
     });
-
+    let shipping = 20000;
+        if(totalAmount>=300000) shipping = 0;
+        totalAmount +=  shipping;
     orderTotalContainer.innerHTML = `
         <hr class="order-divider">
+        <div class="shipping-row">
+            <span class="shipping-label">Phí vận chuyển</span>
+            <span class="shipping-value">${shipping === 0 ? 'MIỄN PHÍ': shipping.toLocaleString('vi-VN')}đ</span>
+        </div>
         <div class="total-row">
             <span class="total-label">Tổng cộng</span>
             <span class="total-value">${totalAmount.toLocaleString('vi-VN')}đ</span>

@@ -241,7 +241,7 @@ textarea:focus {
   margin: 0.625rem 0;
 }
 
-.total-row {
+.total-row, .shipping-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -252,13 +252,18 @@ textarea:focus {
   font-size: 1.25rem;
   font-weight: 500;
 }
-
+.shipping-label{
+  font-size: 1.1rem;
+  font-weight: 500;
+}
 .total-value {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--green-btn);
 }
-
+.shipping-value{
+  font-size: 1.2rem;
+}
 #btn-checkout {
   width: 100%;
   padding: 1rem;
