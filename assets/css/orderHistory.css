@@ -204,10 +204,18 @@
     margin-bottom: 0.625rem;
 }
 @media (max-width: 480px) {
-
+    .order-card-header{
+        padding: 0;
+    }
+    .order-card-footer{
+        padding: 0;
+    }
     .order-status{
         font-size: 0.8rem;
         text-align: center;
+    }
+    .order-items{
+        padding: 0;
     }
     .btn-detail{
         font-size: 0.8rem;

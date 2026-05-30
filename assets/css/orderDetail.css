@@ -439,6 +439,7 @@
 
     .NoiDungDonHang {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .NoiDungDonHang h2 {
@@ -460,8 +461,4 @@
     .gh-name {
         font-size: 0.9375rem;
     }
-}
-@media (max-width: 480px) {
-
-    
 }

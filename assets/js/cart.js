@@ -115,7 +115,7 @@ class Cart {
                     <button class="qty-btn qty-increase">+</button>
                 </div>
                 <button class="remove-item-btn">
-                    <span class="material-symbols-outlined" style="font-size:24px; ">Delete</span>
+                    <span class="material-symbols-outlined" >Delete</span>
                 </button>
             </div>
         </div>
