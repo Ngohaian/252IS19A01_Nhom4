@@ -170,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 sessionStorage.setItem('currentUser', JSON.stringify({
                     id: validUser.id, name: validUser.name, email: validUser.email, phone: validUser.phone
                 }));
-                alert(`Chào mừng ${validUser.name} đã đến với Cây cảnh Mộc Miên!`);
                 window.location.href = 'index.html'; 
             } else {
                 alert('Email hoặc Mật khẩu không chính xác. Vui lòng thử lại!');
