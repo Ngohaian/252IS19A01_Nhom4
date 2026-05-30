@@ -1,4 +1,3 @@
-/* ===== HIỆU ỨNG LƯỚT ĐẾN ĐÂU HIỆN ĐẾN ĐÓ (SCROLL REVEAL) ===== */
 function revealOnScroll() {
     var reveals = document.querySelectorAll('.reveal');
     for (var i = 0; i < reveals.length; i++) {
@@ -12,7 +11,5 @@ function revealOnScroll() {
     }
 }
 
-// Gắn sự kiện lắng nghe thao tác cuộn chuột
 window.addEventListener('scroll', revealOnScroll);
-// Gọi hàm 1 lần ngay khi load trang
 revealOnScroll();

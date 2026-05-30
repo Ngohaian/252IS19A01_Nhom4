@@ -1,16 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ==========================================
-    // 1. KIỂM TRA ĐĂNG NHẬP & LẤY THÔNG TIN
-    // ==========================================
+    //kiem tra dang nhap
     const user = JSON.parse(sessionStorage.getItem('currentUser'));
-
-    // Nếu chưa có phiên đăng nhập, bắt buộc quay về trang Login
     if (!user) {
         window.location.href = 'pages/auth/Login.html';
         return;
     }
-
-    // Xử lý nút Đăng xuất (Có ở cả 3 trang cá nhân)
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
@@ -20,9 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 2. RENDER TRANG THÔNG TIN TÀI KHOẢN (Profile.html)
-    // ==========================================
+    //profile
     const nameEl = document.getElementById('display-name');
     if (nameEl) {
         nameEl.textContent = user.name;
@@ -30,15 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('display-phone').textContent = user.phone;
     }
 
-    // ==========================================
-    // 3. RENDER TRANG LỊCH SỬ ĐƠN HÀNG (OrderHistory.html)
-    // ==========================================
+    //lsu don hang
     const orderList = document.getElementById('order-history-body');
     if (orderList) {
         const allOrders = JSON.parse(localStorage.getItem('orders')) || [];
         const myOrders = allOrders.filter(o => o.customer.email === user.email);
 
-        // HÀM VẼ GIAO DIỆN CHUNG
         const renderOrders = (ordersToRender) => {
             if (ordersToRender.length === 0) {
                 orderList.innerHTML = `<div class="empty-state"><p>Không có đơn hàng nào.</p></div>`;
@@ -82,10 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }).join('');
         };
 
-        // Khởi chạy lần đầu
         renderOrders(myOrders);
 
-        // BẮT SỰ KIỆN THANH TABS
         const tabs = document.querySelectorAll('.tab-item');
         tabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
@@ -103,16 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 4. RENDER TRANG SẢN PHẨM YÊU THÍCH (Wishlist.html)
-    // ==========================================
+    //wishlist
     const wishlistContainer = document.getElementById('wishlist-container');
     if (wishlistContainer) {
         
-        // Đọc từ kho 'products' 
         const allProducts = JSON.parse(localStorage.getItem('products')) || [];
         
-        // Lọc cây được thả tim
         const myWishlist = allProducts.filter(product => product.isFavorite === true);
 
         if (myWishlist.length === 0) {
@@ -155,12 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 }); 
-// <-- HẾT DOMContentLoaded -->
-
-
-// ==========================================
-// HÀM TOÀN CỤC: XÓA SẢN PHẨM KHỎI YÊU THÍCH
-// ==========================================
+//xoa san pham khoi wishlist
 window.removeFromWishlist = function(productId) {
     let allProducts = JSON.parse(localStorage.getItem('products')) || [];
     const productIndex = allProducts.findIndex(p => p.id === productId);
@@ -171,14 +149,7 @@ window.removeFromWishlist = function(productId) {
         window.location.reload(); 
     }
 };
-
-// ==========================================
-// HÀM TOÀN CỤC: THÊM TỪ WISHLIST VÀO GIỎ HÀNG (CHUẨN 100% THEO CART.JS)
-// ==========================================
-// ==========================================
-// HÀM TOÀN CỤC: THÊM TỪ WISHLIST VÀO GIỎ HÀNG 
-// (Sử dụng trực tiếp API của cart.js)
-// ==========================================
+//them tu wishlist vao gio hang
 window.addToCartFromWishlist = function(event, productId) {
     if (event) {
         event.stopPropagation();
@@ -199,11 +170,8 @@ window.addToCartFromWishlist = function(event, productId) {
         alert("Lỗi: Hệ thống giỏ hàng chưa được tải!");
     }
 };
-// ==========================================
-// HÀM TOÀN CỤC: XÓA SẢN PHẨM KHỎI YÊU THÍCH
-// ==========================================
+//xoa san pham khoi wishlist 
 window.removeFromWishlist = function(productId, event) {
-    // 1. Chặn tình trạng click xuyên thấu xuống trang chi tiết
     if (event) {
         event.stopPropagation();
         event.preventDefault();
@@ -211,17 +179,13 @@ window.removeFromWishlist = function(productId, event) {
 
     let allProducts = JSON.parse(localStorage.getItem('products')) || [];
     
-    // 2. ÉP KIỂU DỮ LIỆU (Tuyệt chiêu): Biến tất cả thành chuỗi chữ (String) để đối chiếu
     const productIndex = allProducts.findIndex(p => String(p.id) === String(productId));
     
     if (productIndex !== -1) {
-        // Tắt trái tim đi (isFavorite = false)
         allProducts[productIndex].isFavorite = false;
         
-        // Lưu trả lại vào kho
         localStorage.setItem('products', JSON.stringify(allProducts));
         
-        // F5 lại trang để cập nhật giao diện
         window.location.reload(); 
     } else {
         alert("Lỗi: Không tìm thấy sản phẩm này trong kho dữ liệu!");

@@ -1,21 +1,17 @@
-/* 1. Tự import phông chữ mà file gốc bị thiếu */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
 
-/* 2. Áp dụng cho các ô nhập liệu và nút bấm */
 input, button, textarea, select {
     font-family: var(--font-body);
 }
-/* ===== BỐ CỤC CHUNG TRANG AUTH ===== */
 .auth-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 24px;
-    background-color: transparent; /* Đổi từ var(--cream) → transparent */
+    background-color: transparent; 
 }
 
-/* ===== KHUNG CHỨA FORM BÊN TRONG ===== */
 .auth-container {
     width: 100%;
     max-width: 450px; 
@@ -23,12 +19,11 @@ input, button, textarea, select {
     padding: 30px; 
     box-sizing: border-box; 
     
-    background-color: #ffffff; /* Nền trắng tinh khôi */
-    border-radius: 16px; /* Bo tròn các góc */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ giúp khung nổi bật khỏi nền */
+    background-color: #ffffff; 
+    border-radius: 16px; 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== HEADER FORM ===== */
 .auth-header {
     text-align: center;
     margin-bottom: 40px;
@@ -51,7 +46,6 @@ input, button, textarea, select {
     letter-spacing: 0.1em;
 }
 
-/* ===== CÁC THÀNH PHẦN FORM ===== */
 
 .auth-form {
     display: flex;
@@ -60,8 +54,8 @@ input, button, textarea, select {
 }
 .auth-form input {
     width: 100%;
-    box-sizing: border-box; /* CỰC KỲ QUAN TRỌNG CHO MOBILE: Ép kích thước luôn nằm trong giới hạn màn hình */
-    padding: 12px 35px 12px 15px !important; /* Chừa không gian 35px bên phải cho dấu tích xanh */
+    box-sizing: border-box; 
+    padding: 12px 35px 12px 15px !important;
     border: 1.5px solid var(--border, #ddd5c4);
     border-radius: 8px;
     outline: none;
@@ -69,7 +63,7 @@ input, button, textarea, select {
     transition: all 0.3s ease;
 }
 .auth-form input:focus {
-    border-color: var(--green-oliu, #808000); /* Viền xanh khi bấm vào */
+    border-color: var(--green-oliu, #808000); 
 }
 .form-group input {
     width: 100%;
@@ -88,7 +82,6 @@ input, button, textarea, select {
     background-color: #ffffff;
 }
 
-/* ===== TÙY CHỌN & CHUYỂN TRANG ===== */
 .form-options {
     display: flex;
     align-items: center;
@@ -125,7 +118,6 @@ input, button, textarea, select {
     color: var(--earthyBrown, #967451);
 }
 
-/* ===== NÚT XÁC NHẬN ===== */
 .btn-auth {
     width: 100%;
     padding: 16px;
@@ -177,12 +169,12 @@ html {
 }
 
 body {
-    background: transparent;  /* Cho body trong suốt để thấy ảnh của html */
+    background: transparent;  
     min-height: 100vh;
     margin: 0;
     padding: 0;
 }
-/* ===== GIAO DIỆN XÁC THỰC THỜI GIAN THỰC ===== */
+
 .form-group {
     position: relative; 
     margin-bottom: 24px; 
@@ -198,10 +190,9 @@ body {
 
 .input-wrapper input {
     width: 100%;
-    padding-right: 35px !important; /* Chừa chỗ cho dấu tích xanh */
+    padding-right: 35px !important; 
 }
 
-/* Dấu tích xanh */
 .valid-icon {
     position: absolute;
     right: 12px;
@@ -211,20 +202,17 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* Chữ báo lỗi màu đỏ */
 .error-text {
     display: block;
     color: #ee4d2d;
     font-size: 12px;
     text-align: left;
-    position: absolute; /* Đặt tuyệt đối để không đẩy các ô bên dưới bị nhảy lung tung */
-    bottom: -18px; /* Nằm ngay dưới viền ô nhập */
-    left: 5px;
+    position: absolute; 
+    bottom: -18px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-/* Trạng thái hiển thị bằng JS */
 .show-valid { opacity: 1; }
 .show-error { opacity: 1; }
 .input-error { border-color: #ee4d2d !important; }

@@ -1,4 +1,3 @@
-/* ===== ORDER TABS ===== */
 .order-tabs {
     display: flex;
     gap: 0;
@@ -28,7 +27,6 @@
     font-weight: 500;
 }
 
-/* ===== ORDER CARD ===== */
 .order-card {
     padding: 1.5rem;
     border: none;
@@ -66,7 +64,6 @@
     margin-top: 2px;
 }
 
-/* ===== STATUS BADGE ===== */
 .order-status {
     font-size: 0.875rem;
     padding: 0.375rem 0.875rem;
@@ -94,7 +91,6 @@
     color: #a32d2d;
 }
 
-/* ===== ORDER ITEMS ===== */
 .order-items {
     padding: 1rem 1.5rem;
     display: flex;
@@ -146,7 +142,6 @@
     padding-top: 4px;
 }
 
-/* ===== ORDER FOOTER ===== */
 .order-card-footer {
     display: flex;
     justify-content: space-between;
@@ -190,7 +185,6 @@
     color: var(--border);
 }
 
-/* ===== EMPTY STATE ===== */
 .order-empty {
     text-align: center;
     padding: 3rem 0;

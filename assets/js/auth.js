@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // ==========================================
-    // 0. XÁC THỰC THỜI GIAN THỰC (REAL-TIME VALIDATION)
-    // ==========================================
     const nameInput = document.getElementById('registerName');
     const nameIcon = document.getElementById('nameIcon');
     const nameError = document.getElementById('nameError');
@@ -23,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmIcon = document.getElementById('confirmIcon');
     const confirmError = document.getElementById('confirmError');
 
-    // --- CÁC HÀM HỖ TRỢ XỬ LÝ GIAO DIỆN ---
     function resetValidation(icon, error, input) {
         icon.classList.remove('show-valid');
         error.classList.remove('show-error');
@@ -55,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 1. Kiểm tra Số điện thoại
+    //ktra sdt
     if (phoneInput) {
         phoneInput.addEventListener('input', function() {
             const value = this.value.trim();
@@ -69,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Kiểm tra Email
+    //ktra email
     if (emailInput) {
         emailInput.addEventListener('input', function() {
             const value = this.value.trim();
@@ -83,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Kiểm tra Mật khẩu (Tối thiểu 6 ký tự)
+    //ktra mat khau
     if (passwordInput) {
         passwordInput.addEventListener('input', function() {
-            const value = this.value; // Mật khẩu không dùng trim() vì có thể chứa dấu cách
+            const value = this.value; 
             if (!value) {
                 resetValidation(passwordIcon, passwordError, this);
             } else if (value.length >= 6) {
@@ -95,14 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 setError(passwordIcon, passwordError, this, "Mật khẩu phải có ít nhất 6 ký tự");
             }
 
-            // Mẹo: Tự động kiểm tra lại ô Xác nhận nếu nó đã có chữ
             if (confirmInput && confirmInput.value) {
                 confirmInput.dispatchEvent(new Event('input'));
             }
         });
     }
 
-    // 4. Kiểm tra Xác nhận mật khẩu (Phải khớp với ô trên)
+    //ktra mat khau xac nhan
     if (confirmInput) {
         confirmInput.addEventListener('input', function() {
             const value = this.value;
@@ -115,10 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // ==========================================
-    // 1. XỬ LÝ NÚT TẠO TÀI KHOẢN (SUBMIT)
-    // ==========================================
+//tao tai khoan
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
@@ -165,9 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 2. XỬ LÝ ĐĂNG NHẬP (LOGIN)
-    // ==========================================
+    //dang nhap
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -189,9 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 3. XỬ LÝ QUÊN MẬT KHẨU
-    // ==========================================
+    //quen mat khau
     const forgotPasswordForm = document.getElementById('forgotPasswordForm');
     if (forgotPasswordForm) {
         forgotPasswordForm.addEventListener('submit', function(e) {
