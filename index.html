@@ -33,7 +33,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
-            font-family: 'Nunito', sans-serif; /* Đổi font chữ chung */
+            font-family: 'Nunito', sans-serif;
             background: var(--cream);
             color: var(--text-dark);
             overflow-x: hidden;
@@ -112,7 +112,6 @@
             padding: 0 40px;
         }
 
-        /* Decorative vertical lines */
         .hero-banner::before {
             content: '';
             position: absolute;
@@ -150,7 +149,7 @@
             font-weight: 600;
         }
         .hero-title {
-            font-family: 'Playfair Display', serif; /* Đổi font chữ */
+            font-family: 'Playfair Display', serif;
             font-size: clamp(38px, 5vw, 78px);
             font-weight: 700;
             line-height: 1.05;
@@ -213,7 +212,7 @@
             width: 100%;
         }
         .hero-stat-num {
-            font-family: 'Playfair Display', serif; /* Đổi font chữ */
+            font-family: 'Playfair Display', serif;
             font-size: clamp(24px, 4vw, 32px); 
             font-weight: 700;
             color: var(--text-dark);
@@ -257,14 +256,10 @@
         }
 
         @media (max-width: 1024px) {
-            .hero-banner { 
-                grid-template-columns: 1fr; 
-                min-height: auto; 
-                padding: 0 20px; /* Chỉnh padding trên mobile cho cân đối */
-            }
+            .hero-banner { grid-template-columns: 1fr; min-height: auto; padding: 0 20px; }
             .hero-banner::before { display: none; }
-            .hero-left { padding: 40px 0 20px; } /* Xóa padding 2 bên của nội dung trái */
-            .hero-right { height: auto; min-height: 260px; padding: 20px 0 40px; } /* Xóa padding 2 bên của nội dung phải */
+            .hero-left { padding: 40px 0 20px; }
+            .hero-right { height: auto; min-height: 260px; padding: 20px 0 40px; }
             .hero-right-inner { max-width: 380px; margin: 0 auto; aspect-ratio: 1; border-radius: 200px; }
         }
 
@@ -304,15 +299,9 @@
             border-radius: 20px; margin-bottom: 6px;
         }
         .cat-card-name {
-            color: #fff; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.2; /* Đổi font chữ */
+            color: #fff; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.2;
         }
         .cat-card-count { color: rgba(255,255,255,0.65); font-size: 12px; margin-top: 3px; }
-        .cat-skeleton {
-            border-radius: 18px; aspect-ratio: 3/4;
-            background: linear-gradient(90deg, #e8ddd0 25%, #ddd0c2 50%, #e8ddd0 75%);
-            background-size: 200% 100%; animation: shimmer 1.4s infinite;
-        }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
         /* ══════════════════════════════════════
            3. SẢN PHẨM (chung grid)
@@ -343,10 +332,9 @@
             position: absolute; top: 12px; left: 12px; background: var(--green); color: #fff;
             font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
         }
-        .prod-card-badge.sale { background: #c0392b; }
         .prod-card-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
         .prod-card-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; }
-        .prod-card-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; line-height: 1.25; } /* Đổi font chữ */
+        .prod-card-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; line-height: 1.25; }
         .prod-card-price { font-size: 16px; font-weight: 600; color: var(--brown); margin-top: auto; margin-bottom: 12px; }
         
         .prod-card-actions { display: flex; gap: 8px; }
@@ -360,32 +348,34 @@
         @media (max-width: 600px) { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 
         /* ══════════════════════════════════════
-           4. KHUYẾN MÃI
+           4. KHUYẾN MÃI (Đã thay bằng ảnh sinh động)
         ══════════════════════════════════════ */
         .promo-section { background: var(--text-dark); overflow: hidden; position: relative; }
-        .promo-section::before {
-            content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(74,103,65,0.35) 0%, transparent 70%); top: -200px; right: -100px; pointer-events: none;
-        }
-        .promo-section::after {
-            content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(201,150,58,0.2) 0%, transparent 70%); bottom: -150px; left: -80px; pointer-events: none;
-        }
         .promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; position: relative; z-index: 1; }
         .promo-card { border-radius: 20px; padding: 36px 32px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 280px; }
-        .promo-card-1 { background: linear-gradient(135deg, var(--green) 0%, #2d5228 100%); grid-row: span 2; min-height: 400px; }
-        .promo-card-2 { background: linear-gradient(135deg, #8B6914 0%, var(--brown-light) 100%); }
-        .promo-card-3 { background: linear-gradient(135deg, #3a2e22 0%, #5a4535 100%); border: 1px solid rgba(255,255,255,0.08); }
-        .promo-card-deco { position: absolute; top: -30px; right: -30px; font-size: 120px; opacity: 0.08; line-height: 1; }
-        .promo-card-tag { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; width: fit-content; }
-        .promo-card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; } /* Đổi font chữ */
-        .promo-card-desc { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 20px; line-height: 1.6; }
+        
+        .promo-card-1 { 
+            background: linear-gradient(135deg, rgba(74,103,65,0.8) 0%, rgba(45,82,40,0.9) 100%), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80') center/cover; 
+            grid-row: span 2; min-height: 400px; 
+        }
+        .promo-card-2 { 
+            background: linear-gradient(135deg, rgba(139,105,20,0.85) 0%, rgba(201,150,58,0.9) 100%), url('https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&q=80') center/cover; 
+        }
+        .promo-card-3 { 
+            background: linear-gradient(135deg, rgba(58,46,34,0.8) 0%, rgba(90,69,53,0.9) 100%), url('https://images.unsplash.com/photo-1416879573089-116fad431872?auto=format&fit=crop&q=80') center/cover; 
+            border: 1px solid rgba(255,255,255,0.08); 
+        }
+        
+        .promo-card-deco { position: absolute; top: -30px; right: -30px; font-size: 120px; opacity: 0.15; line-height: 1; }
+        .promo-card-tag { display: inline-block; background: rgba(255,255,255,0.25); color: #fff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; width: fit-content; }
+        .promo-card-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+        .promo-card-desc { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 20px; line-height: 1.6; }
         .promo-card-cta { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; width: fit-content; transition: border-color 0.2s, gap 0.2s; }
         .promo-card-cta:hover { border-color: #fff; gap: 12px; }
         .promo-countdown { display: flex; gap: 12px; margin-bottom: 20px; }
-        .countdown-box { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 52px; }
-        .countdown-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1; display: block; } /* Đổi font chữ */
-        .countdown-label { font-size: 9px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+        .countdown-box { background: rgba(255,255,255,0.18); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 52px; }
+        .countdown-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1; display: block; }
+        .countdown-label { font-size: 9px; color: rgba(255,255,255,0.7); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
         @media (max-width: 700px) { .promo-grid { grid-template-columns: 1fr; } .promo-card-1 { grid-row: span 1; min-height: 280px; } }
 
         /* ══════════════════════════════════════
@@ -401,7 +391,7 @@
         .blog-card:hover .blog-card-img img { transform: scale(1.06); }
         .blog-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
         .blog-card-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 8px; }
-        .blog-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 10px; } /* Đổi font chữ */
+        .blog-card-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 10px; }
         .blog-card:first-child .blog-card-title { font-size: 26px; }
         .blog-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; flex: 1; }
         .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--text-light); border-top: 1px solid var(--cream-dark); padding-top: 12px; margin-top: auto; }
@@ -410,17 +400,17 @@
         @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 
         /* ══════════════════════════════════════
-           6. ABOUT / PASEL ZEN
+           6. ABOUT 
         ══════════════════════════════════════ */
         .about-section { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 500px; padding: 0; }
         .about-img { position: relative; overflow: hidden; }
         .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .about-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--cream)); }
         .about-content { padding: 80px 60px 80px 40px; display: flex; flex-direction: column; justify-content: center; }
-        .about-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 38px); font-style: italic; color: var(--text-dark); line-height: 1.5; margin-bottom: 24px; } /* Đổi font chữ */
+        .about-quote { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 38px); font-style: italic; color: var(--text-dark); line-height: 1.5; margin-bottom: 24px; }
         .about-text { font-size: 14px; color: var(--text-mid); line-height: 1.9; margin-bottom: 32px; font-weight: 300; }
         .about-stats { display: flex; gap: 36px; padding-top: 28px; border-top: 1px solid rgba(122,92,58,0.15); }
-        .about-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--green); } /* Đổi font chữ */
+        .about-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--green); }
         .about-stat-label { font-size: 11px; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
         @media (max-width: 860px) {
             .about-section { grid-template-columns: 1fr; }
@@ -429,9 +419,6 @@
             .about-content { padding: 40px 24px; }
         }
 
-        /* ══════════════════════════════════════
-           FADE IN ANIMATION
-        ══════════════════════════════════════ */
         .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
         .fade-up.visible { opacity: 1; transform: none; }
         .fade-up:nth-child(2) { transition-delay: 0.1s; }
@@ -443,7 +430,7 @@
     <div id="header-placeholder"></div>
 
     <main>
-        <!-- ══ 1. HERO ══ -->
+        <!-- 1. HERO -->
         <section class="hero-banner">
             <div class="hero-left">
                 <div class="hero-eyebrow">
@@ -457,18 +444,9 @@
                     <a href="pages/info/AboutUs.html" class="btn-outline">Tìm hiểu thêm</a>
                 </div>
                 <div class="hero-stats">
-                    <div>
-                        <div class="hero-stat-num">500+</div>
-                        <div class="hero-stat-label">Sản phẩm</div>
-                    </div>
-                    <div>
-                        <div class="hero-stat-num">2K+</div>
-                        <div class="hero-stat-label">Khách hàng</div>
-                    </div>
-                    <div>
-                        <div class="hero-stat-num">100%</div>
-                        <div class="hero-stat-label">Tự nhiên</div>
-                    </div>
+                    <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Sản phẩm</div></div>
+                    <div><div class="hero-stat-num">2K+</div><div class="hero-stat-label">Khách hàng</div></div>
+                    <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Tự nhiên</div></div>
                 </div>
             </div>
             <div class="hero-right">
@@ -478,7 +456,7 @@
             </div>
         </section>
 
-        <!-- ══ 2. DANH MỤC ══ -->
+        <!-- 2. DANH MỤC (Đã cập nhật lấp đầy 4 cột với Trang trí, Văn phòng) -->
         <section class="home-section category-section">
             <div class="section-head">
                 <div>
@@ -487,15 +465,10 @@
                 </div>
                 <a href="pages/products/ProductList.html" class="view-all-btn">Xem tất cả →</a>
             </div>
-            <div id="category-grid" class="category-scroll">
-                <div class="cat-skeleton"></div>
-                <div class="cat-skeleton"></div>
-                <div class="cat-skeleton"></div>
-                <div class="cat-skeleton"></div>
-            </div>
+            <div id="category-grid" class="category-scroll"></div>
         </section>
 
-        <!-- ══ 3. SẢN PHẨM (tabs: Tiêu biểu / Mới / Bán chạy) ══ -->
+        <!-- 3. SẢN PHẨM -->
         <section class="home-section products-section">
             <div class="section-head">
                 <div>
@@ -514,11 +487,11 @@
             <div id="prod-grid-top"      class="prod-grid" style="display:none"></div>
         </section>
 
-        <!-- ══ 4. KHUYẾN MÃI ══ -->
+        <!-- 4. KHUYẾN MÃI (Đã cập nhật ảnh nền) -->
         <section class="home-section promo-section">
             <div class="section-head" style="margin-bottom:32px;">
                 <div>
-                    <div class="section-label" style="color:rgba(255,255,255,0.5);">Ưu đãi</div>
+                    <div class="section-label" style="color:rgba(255,255,255,0.6);">Ưu đãi</div>
                     <h2 class="section-title" style="color:#fff;">Chương trình<br>khuyến mãi</h2>
                 </div>
             </div>
@@ -543,7 +516,7 @@
                     <a href="pages/products/ProductList.html?category=V%C4%83n%20ph%C3%B2ng" class="promo-card-cta">Khám phá →</a>
                 </div>
                 <div class="promo-card promo-card-3">
-                    <div class="promo-card-deco">🎁</div>
+                    <div class="promo-card-deco">🌸</div>
                     <div class="promo-card-tag">Quà tặng</div>
                     <div class="promo-card-title">Tặng chậu đất nung<br>khi mua từ 500k</div>
                     <div class="promo-card-desc">Miễn phí gói quà và thiệp chúc mừng theo yêu cầu.</div>
@@ -552,7 +525,7 @@
             </div>
         </section>
 
-        <!-- ══ 5. BLOG ══ -->
+        <!-- 5. BLOG -->
         <section class="home-section blog-section">
             <div class="section-head">
                 <div>
@@ -561,15 +534,10 @@
                 </div>
                 <a href="pages/blog/Blog.html" class="view-all-btn">Xem tất cả →</a>
             </div>
-            <div id="blog-grid" class="blog-grid">
-                <!-- render bởi JS -->
-                <div style="background:#f0e8df;border-radius:16px;aspect-ratio:4/3;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
-                <div style="background:#f0e8df;border-radius:16px;aspect-ratio:16/9;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
-                <div style="background:#f0e8df;border-radius:16px;aspect-ratio:16/9;animation:shimmer 1.4s infinite;background-size:200% 100%;background-image:linear-gradient(90deg,#f0e8df 25%,#e4d8cc 50%,#f0e8df 75%);"></div>
-            </div>
+            <div id="blog-grid" class="blog-grid"></div>
         </section>
 
-        <!-- ══ 6. ABOUT / PASEL ZEN ══ -->
+        <!-- 6. ABOUT -->
         <section class="about-section">
             <div class="about-img">
                 <img src="assets/images/bonsai.png" alt="Vườn cây Mộc Miên">
@@ -580,18 +548,9 @@
                 <p class="about-text">Mộc Miên ra đời từ tình yêu với cây xanh và mong muốn mang thiên nhiên vào từng không gian sống. Chúng tôi tin rằng một chậu cây nhỏ có thể thay đổi cả bầu không khí của ngôi nhà bạn — mang lại sự tĩnh lặng, cân bằng và nguồn năng lượng tích cực mỗi ngày.</p>
                 <a href="pages/info/AboutUs.html" class="btn-outline" style="width:fit-content;">Về chúng tôi →</a>
                 <div class="about-stats">
-                    <div>
-                        <div class="about-stat-num">500+</div>
-                        <div class="about-stat-label">Dự án</div>
-                    </div>
-                    <div>
-                        <div class="about-stat-num">100%</div>
-                        <div class="about-stat-label">Tự nhiên</div>
-                    </div>
-                    <div>
-                        <div class="about-stat-num">5★</div>
-                        <div class="about-stat-label">Đánh giá</div>
-                    </div>
+                    <div><div class="about-stat-num">500+</div><div class="about-stat-label">Dự án</div></div>
+                    <div><div class="about-stat-num">100%</div><div class="about-stat-label">Tự nhiên</div></div>
+                    <div><div class="about-stat-num">5★</div><div class="about-stat-label">Đánh giá</div></div>
                 </div>
             </div>
         </section>
@@ -608,7 +567,6 @@
     <script src="assets/js/Blog.js"></script>
 
     <script>
-
     function getBase() {
         return (document.querySelector('base') || {}).getAttribute?.('href') || '/';
     }
@@ -616,8 +574,24 @@
     function getProducts() {
         try { 
             let data = JSON.parse(localStorage.getItem('products'));
-            // Lọc bỏ rác và null nếu có
-            return Array.isArray(data) ? data.filter(item => item !== null && typeof item === 'object') : [];
+            let validData = Array.isArray(data) ? data.filter(item => item !== null && typeof item === 'object') : [];
+            
+            // Cung cấp 10 dữ liệu mẫu cố định nếu chưa có sản phẩm để lấp đầy hàng ngang laptop
+            if (validData.length === 0) {
+                validData = [
+                    { id: 1, name: 'Cây Bàng Singapore', category: 'Trong nhà', price: 350000, image: 'https://images.unsplash.com/photo-1604762512697-76bc4ebce764?auto=format&fit=crop&q=80', rating: 5, stock: 15 },
+                    { id: 2, name: 'Cây Kim Tiền', category: 'Phong thủy', price: 250000, image: 'https://images.unsplash.com/photo-1597055181300-e36236bb2ab7?auto=format&fit=crop&q=80', rating: 4, stock: 20 },
+                    { id: 3, name: 'Cây Lưỡi Hổ', category: 'Văn phòng', price: 150000, image: 'https://images.unsplash.com/photo-1599598425947-33002629b4fb?auto=format&fit=crop&q=80', rating: 5, stock: 50 },
+                    { id: 4, name: 'Cây Trầu Bà', category: 'Trang trí', price: 120000, image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80', rating: 4, stock: 30 },
+                    { id: 5, name: 'Cây Hạnh Phúc', category: 'Trong nhà', price: 450000, image: 'https://images.unsplash.com/photo-1545241047-6083a36a1c1c?auto=format&fit=crop&q=80', rating: 5, stock: 10 },
+                    { id: 6, name: 'Cây Đuôi Công', category: 'Văn phòng', price: 180000, image: 'https://images.unsplash.com/photo-1614594805320-e684078696eb?auto=format&fit=crop&q=80', rating: 3, stock: 25 },
+                    { id: 7, name: 'Cây Kim Ngân', category: 'Phong thủy', price: 220000, image: 'https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?auto=format&fit=crop&q=80', rating: 5, stock: 40 },
+                    { id: 8, name: 'Cây Lan Ý', category: 'Trang trí', price: 160000, image: 'https://images.unsplash.com/photo-1541816599728-4ce675c20202?auto=format&fit=crop&q=80', rating: 4, stock: 22 },
+                    { id: 9, name: 'Cây Phát Tài', category: 'Phong thủy', price: 280000, image: 'https://images.unsplash.com/photo-1597055181300-e36236bb2ab7?auto=format&fit=crop&q=80', rating: 5, stock: 12 },
+                    { id: 10, name: 'Cây Trầu Bà Đế Vương', category: 'Văn phòng', price: 190000, image: 'https://images.unsplash.com/photo-1599598425947-33002629b4fb?auto=format&fit=crop&q=80', rating: 4, stock: 18 }
+                ];
+            }
+            return validData;
         } catch(e) { return []; }
     }
 
@@ -634,31 +608,34 @@
             if (!grid) return;
 
             const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴', 'Trang trí':'🌸' };
-            const map = {};
+            
+            // Ép cứng 4 danh mục theo yêu cầu để lấp đầy hàng ngang máy tính
+            const map = {
+                'Trong nhà':  { count: 0, image: 'assets/images/lanchi.jpg' },
+                'Phong thủy': { count: 0, image: 'assets/images/xuongrong.jpg' },
+                'Văn phòng':  { count: 0, image: 'assets/images/luoiho.jpg' },
+                'Trang trí':  { count: 0, image: 'assets/images/lan_y.jpg' }
+            };
             
             products.forEach(p => {
                 if(!p) return; 
                 const cat = p.category || 'Khác';
-                if (!map[cat]) map[cat] = { image: p.image, count: 0 };
-                map[cat].count++;
+                if (map[cat]) {
+                    map[cat].count++;
+                    if(p.image && p.image.startsWith('http')) map[cat].image = p.image;
+                }
             });
 
             const base = getBase();
-            
-            if (Object.keys(map).length === 0) {
-                grid.innerHTML = '<p style="color:var(--text-light);font-family:sans-serif;grid-column:1/-1;text-align:center;">Chưa có dữ liệu danh mục.</p>';
-                return;
-            }
 
             grid.innerHTML = Object.entries(map).map(([name, data]) => {
+                // Link lọc danh mục trên URL
                 const url = `${base}pages/products/ProductList.html?category=${encodeURIComponent(name)}`;
                 const icon = icons[name] || '🌱';
-                const img = data.image
-                    ? `<img src="${data.image}" alt="${name}" loading="lazy">`
-                    : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,#e8ddd0,#d4c8b8)">${icon}</div>`;
+                
                 return `
                     <a class="cat-card fade-up" href="${url}">
-                        ${img}
+                        <img src="${data.image}" alt="${name}" loading="lazy">
                         <div class="cat-card-overlay"></div>
                         <div class="cat-card-body">
                             <span class="cat-card-tag">${icon} ${name}</span>
@@ -670,8 +647,6 @@
             observeFadeUp();
         } catch(err) {
             console.error("Lỗi vẽ danh mục: ", err);
-            const grid = document.getElementById('category-grid');
-            if(grid) grid.innerHTML = '<p style="text-align:center;width:100%;grid-column:1/-1;">Lỗi tải danh mục.</p>';
         }
     }
 
@@ -696,7 +671,7 @@
     function renderProducts(products) {
         try {
             const base = getBase();
-            const take = 8;
+            const take = 10; // Thay đổi từ 8 thành 10
 
             const featured = [...products].sort((a,b) => (b.rating||0)-(a.rating||0)).slice(0, take);
             const newest  = [...products].sort((a,b) => (b.id||0) - (a.id||0)).slice(0, take);
@@ -737,15 +712,13 @@
 
             if (items.length === 0) {
                 const placeholders = [
-                    { title: '5 loại cây phong thủy cho năm mới', cat: 'Phong thủy', desc: 'Những loại cây mang ý nghĩa may mắn, tài lộc bạn nên trồng trong nhà để đón năm mới thịnh vượng.', date: '20/05/2026', author: 'Mộc Miên' },
-                    { title: 'Cách tưới cây đúng cách',          cat: 'Chăm sóc',   desc: 'Tưới quá nhiều hay quá ít đều hại cây. Tìm hiểu bí quyết tưới nước chuẩn cho từng loại cây.', date: '15/05/2026', author: 'Mộc Miên' },
-                    { title: 'Top cây văn phòng không cần nắng',  cat: 'Văn phòng',  desc: 'Danh sách những loại cây siêu dễ sống, phù hợp với điều kiện ánh sáng hạn chế trong văn phòng.', date: '10/05/2026', author: 'Mộc Miên' },
+                    { id: 1, title: '5 loại cây phong thủy cho năm mới', cat: 'Phong thủy', desc: 'Những loại cây mang ý nghĩa may mắn, tài lộc bạn nên trồng trong nhà để đón năm mới thịnh vượng.', date: '20/05/2026', author: 'Mộc Miên', img: 'https://images.unsplash.com/photo-1459156212016-c812468e2115?auto=format&fit=crop&q=80' },
+                    { id: 2, title: 'Cách tưới cây đúng cách',          cat: 'Chăm sóc',   desc: 'Tưới quá nhiều hay quá ít đều hại cây. Tìm hiểu bí quyết tưới nước chuẩn cho từng loại cây.', date: '15/05/2026', author: 'Mộc Miên', img: 'https://images.unsplash.com/photo-1416879598553-3f11d13f9cbe?auto=format&fit=crop&q=80' },
+                    { id: 3, title: 'Top cây văn phòng không cần nắng',  cat: 'Văn phòng',  desc: 'Danh sách những loại cây siêu dễ sống, phù hợp với điều kiện ánh sáng hạn chế trong văn phòng.', date: '10/05/2026', author: 'Mộc Miên', img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80' },
                 ];
-                grid.innerHTML = placeholders.map((b, i) => `
-                    <a class="blog-card fade-up" href="${base}pages/blog/Blog.html">
-                        <div class="blog-card-img" style="background:linear-gradient(135deg,${['#c8d8b8','#d8c8a8','#b8c8d8'][i]},${['#a8c098','#c8a888','#98a8c0'][i]});display:flex;align-items:center;justify-content:center;font-size:${i===0?'80px':'56px'}">
-                            ${['🌿','💧','🪴'][i]}
-                        </div>
+                grid.innerHTML = placeholders.map(b => `
+                    <a class="blog-card fade-up" href="${base}pages/blog/BlogDetail.html?id=${b.id}">
+                        <div class="blog-card-img"><img src="${b.img}" alt="${b.title}" loading="lazy"></div>
                         <div class="blog-card-body">
                             <div class="blog-card-cat">${b.cat}</div>
                             <div class="blog-card-title">${b.title}</div>
@@ -758,7 +731,7 @@
                     </a>`).join('');
             } else {
                 grid.innerHTML = items.map((b, i) => `
-                    <a class="blog-card fade-up" href="${base}pages/blog/Blog.html?id=${b.id || ''}">
+                    <a class="blog-card fade-up" href="${base}pages/blog/BlogDetail.html?id=${b.id || (i+1)}">
                         <div class="blog-card-img">
                             ${b.image
                                 ? `<img src="${b.image}" alt="${b.title || 'Blog'}" loading="lazy">`
@@ -816,7 +789,6 @@
             const products = getProducts();
             const blogs    = getBlogs();
             
-            // Xóa ngay các skeleton mặc định
             renderCategories(products);
             renderProducts(products);
             renderBlogs(blogs);
@@ -824,20 +796,6 @@
             startCountdown();
             observeFadeUp();
 
-            if (products.length === 0) {
-                let tries = 0;
-                const poll = setInterval(() => {
-                    tries++;
-                    const p = getProducts();
-                    if (p.length > 0) {
-                        clearInterval(poll);
-                        renderCategories(p);
-                        renderProducts(p);
-                    } else if (tries > 20) {
-                        clearInterval(poll);
-                    }
-                }, 300);
-            }
         } catch(err) {
             console.error("Lỗi trầm trọng ở hàm init: ", err);
         }

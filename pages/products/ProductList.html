@@ -74,5 +74,58 @@
 <script src="assets/js/addProduct.js"></script>
 <script src="assets/js/detail.js"></script>
 
-</body>    
+</body> 
+
+
+<script>
+    //load 
+document.addEventListener("DOMContentLoaded", () => {
+    const manager = new ProductManager();
+    manager.loadFromLocalStorage();
+
+    const categoryFilterUI = document.getElementById('categoryFilter');
+    const priceFilterUI = document.getElementById('priceFilter');
+    const sortFilterUI = document.getElementById('sortPrice');
+    const productContainer = '.product-list';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryFromUrl = urlParams.get('category');
+
+    if (categoryFromUrl) {
+        manager.setCategory(categoryFromUrl);
+        if (categoryFilterUI) {
+            categoryFilterUI.value = categoryFromUrl;
+        }
+    }
+
+    function render() {
+        const productsToDisplay = manager.getVisibleProducts();
+        UIRender.renderProductList(productsToDisplay, productContainer);
+    }
+
+    render();
+
+    if (categoryFilterUI) {
+        categoryFilterUI.addEventListener('change', (e) => {
+            manager.setCategory(e.target.value);
+            render();
+        });
+    }
+
+    if (priceFilterUI) {
+        priceFilterUI.addEventListener('change', (e) => {
+            manager.setPrice(e.target.value);
+            render();
+        });
+    }
+
+    if (sortFilterUI) {
+        sortFilterUI.addEventListener('change', (e) => {
+            manager.setSort(e.target.value);
+            render();
+        });
+    }
+});
+</script>
+
 </html>
