@@ -10,7 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Đổi font chữ sang font hiển thị tiếng Việt tốt hơn, bám sát phong cách mộc mạc -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/Index.css">
@@ -65,7 +64,7 @@
             background: var(--brown-light);
         }
         .section-title {
-            font-family: 'Playfair Display', serif; /* Đổi font chữ tiêu đề */
+            font-family: 'Playfair Display', serif; 
             font-size: clamp(28px, 4vw, 46px);
             font-weight: 700;
             color: var(--text-dark);
@@ -108,9 +107,9 @@
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
             background: var(--cream);
-            margin: 0 auto; /* Căn giữa banner */
-            max-width: 1400px; /* Thụt banner vào để không bị tràn viền */
-            padding: 0 40px; /* Thêm padding 2 bên cho banner */
+            margin: 0 auto;
+            max-width: 1400px;
+            padding: 0 40px;
         }
 
         /* Decorative vertical lines */
@@ -609,9 +608,7 @@
     <script src="assets/js/Blog.js"></script>
 
     <script>
-    // ══════════════════════════════════════════
-    // UTILITIES BẢO VỆ CHỐNG LỖI CỰC MẠNH
-    // ══════════════════════════════════════════
+
     function getBase() {
         return (document.querySelector('base') || {}).getAttribute?.('href') || '/';
     }
@@ -631,9 +628,6 @@
         } catch(e) { return []; }
     }
 
-    // ══════════════════════════════════════════
-    // 2. DANH MỤC
-    // ══════════════════════════════════════════
     function renderCategories(products) {
         try {
             const grid = document.getElementById('category-grid');
@@ -642,7 +636,6 @@
             const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴', 'Trang trí':'🌸' };
             const map = {};
             
-            // Bảo vệ vòng lặp, lỡ phần tử bị lỗi
             products.forEach(p => {
                 if(!p) return; 
                 const cat = p.category || 'Khác';
@@ -652,7 +645,6 @@
 
             const base = getBase();
             
-            // Xóa luôn skeleton nếu không có danh mục
             if (Object.keys(map).length === 0) {
                 grid.innerHTML = '<p style="color:var(--text-light);font-family:sans-serif;grid-column:1/-1;text-align:center;">Chưa có dữ liệu danh mục.</p>';
                 return;
@@ -683,9 +675,6 @@
         }
     }
 
-    // ══════════════════════════════════════════
-    // 3. SẢN PHẨM TABS
-    // ══════════════════════════════════════════
     function renderProductCard(p, base) {
         return `
             <div class="prod-card fade-up">
@@ -739,9 +728,6 @@
         });
     }
 
-    // ══════════════════════════════════════════
-    // 5. BLOG
-    // ══════════════════════════════════════════
     function renderBlogs(blogs) {
         try {
             const grid = document.getElementById('blog-grid');
@@ -795,9 +781,6 @@
         }
     }
 
-    // ══════════════════════════════════════════
-    // COUNTDOWN FLASH SALE
-    // ══════════════════════════════════════════
     function startCountdown() {
         function tick() {
             const now  = new Date();
@@ -817,9 +800,6 @@
         setInterval(tick, 1000);
     }
 
-    // ══════════════════════════════════════════
-    // FADE UP OBSERVER
-    // ══════════════════════════════════════════
     function observeFadeUp() {
         const els = document.querySelectorAll('.fade-up:not(.visible)');
         if (!('IntersectionObserver' in window)) {
@@ -831,9 +811,6 @@
         els.forEach(el => obs.observe(el));
     }
 
-    // ══════════════════════════════════════════
-    // INIT
-    // ══════════════════════════════════════════
     function init() {
         try {
             const products = getProducts();
@@ -847,7 +824,6 @@
             startCountdown();
             observeFadeUp();
 
-            // Nhắc nhở tải dữ liệu nếu chưa có
             if (products.length === 0) {
                 let tries = 0;
                 const poll = setInterval(() => {
