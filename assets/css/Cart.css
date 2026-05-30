@@ -1,6 +1,6 @@
 .Container {
     display: grid;
-    grid-template-columns: 1.25fr minmax(260px, 0.65fr);
+    grid-template-columns: 1.25fr minmax(260px, 0.55fr);
     gap: 3.125rem;
     max-width: 75rem;
     margin: 0px auto;
@@ -158,11 +158,13 @@
     background: none;
     border: none;
     cursor: pointer;
+    color:var(--text-muted);
 }
 
-.remove-item-icon:hover {
-    content: url("assets/images/icon/delete_red.png");
+.remove-item-btn:hover .material-symbols-outlined {
+    color: #e53935;
 }
+
 
 /* Empty cart */
 .empty-cart-wrapper {
@@ -209,7 +211,7 @@
     flex-shrink: 0;
     position: sticky;
     margin-top: 1.25rem;
-    top: 0.625rem;
+    top: 6rem;
     width: 100%;
     align-self: start;
     background-color: var(--cream-card);
@@ -366,5 +368,8 @@
     .item-quantity-input{
         width: 1rem;
         font-size: 0.7rem;
+    }
+    .cart-item-row{
+        padding: 0.2rem 0.25rem;
     }
 }

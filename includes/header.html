@@ -1,9 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 <style>
-    body {
-        margin: 0 !important;
-        padding: 0;
-    }
+
 
     /* ===== NAVBAR ===== */
     .navbar {
@@ -32,13 +29,13 @@
         mix-blend-mode: multiply;
     }
     .navbar .logo-text {
-        color: #808000; /* Đã đổi sang màu xanh đồng bộ logo */
-        font-size: 26px; /* Tăng size lên một chút cho cân đối với logo */
+        color: #808000; 
+        font-size: 26px;
         font-weight: bold;
         font-family: serif;
         letter-spacing: 1px;
         line-height: 1;
-        text-decoration: none; /* Đảm bảo tuyệt đối không có gạch chân */
+        text-decoration: none; 
     }
     .navbar .logo-text a{
         text-decoration: none;
@@ -102,7 +99,6 @@
         align-items: center;
     }
 
-    /* ===== HEADER ACTIONS ===== */
     .header-actions {
         display: flex;
         gap: 10px;
@@ -114,8 +110,12 @@
         align-items: center;
         position: relative;
     }
-
-    /* ===== HAMBURGER ===== */
+    .wishlist-btn .material-symbols-outlined{
+        color:#7a5c3a;
+    }
+    .wishlist-btn:hover .material-symbols-outlined{
+        color: #e53935;
+    }
     .hamburger-btn {
         display: none;
         background: none;
@@ -137,14 +137,13 @@
         transform-origin: center;
     }
 
-    /* ===== MOBILE SEARCH BAR (bên dưới header, chỉ hiện mobile) ===== */
     .mobile-search-bar {
         display: none;
         background: #fff;
         padding: 8px 16px 10px;
         border-bottom: 1px solid #eee;
         position: sticky;
-        top: 76px; /* bằng chiều cao header mobile */
+        top: 76px; 
         z-index: 999;
     }
     .mobile-search-bar .search-box-mobile {
@@ -186,7 +185,6 @@
         color: #fff;
     }
 
-    /* ===== MOBILE MENU OVERLAY + PANEL ===== */
     .mobile-menu {
         display: none;
         position: fixed;
@@ -201,7 +199,6 @@
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    /* Panel từ BÊN PHẢI */
     .mobile-menu-panel {
         position: absolute;
         top: 0;
@@ -224,7 +221,6 @@
     .mobile-menu.open .mobile-menu-overlay { opacity: 1; }
     .mobile-menu.open .mobile-menu-panel   { transform: translateX(0); }
 
-    /* Header panel — màu nâu vàng */
     .mobile-menu-header {
         background: #c9963a;
         padding: 18px 20px;
@@ -255,7 +251,6 @@
         font-size: 24px;
     }
 
-    /* Links trong panel */
     .mobile-nav-links {
         list-style: none;
         margin: 0;
@@ -337,8 +332,8 @@
 
     <div style="display:flex; align-items:center; gap:8px;">
         <div class="header-actions">
-            <a href="pages/account/Wishlist.html" title="Yêu thích">
-                <span class="material-symbols-outlined" style="font-size:24px; color:#7a5c3a;">favorite</span>
+            <a href="pages/account/Wishlist.html" title="Yêu thích" class="wishlist-btn">
+                <span class="material-symbols-outlined" style="font-size:24px;">favorite</span>
             </a>
             <a href="pages/checkout/Cart.html" title="Giỏ hàng">
                 <span class="material-symbols-outlined" style="font-size:28px; color:#7a5c3a; font-variation-settings:'FILL' 0,'wght' 300;">shopping_cart</span>
@@ -438,7 +433,6 @@
     }
     function handleSearchKeyPressMobile(e) { if (e.key === 'Enter') { e.preventDefault(); executeSearchMobile(); } }
 
-    // Sync cả 2 ô search với ?search= trên URL
     (function() {
         const kw = new URLSearchParams(window.location.search).get('search');
         if (!kw) return;
