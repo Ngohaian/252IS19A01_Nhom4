@@ -731,7 +731,7 @@ blogManager.addBlog(
         blogManager.addBlog(
     new Blog(
 
-        11,
+        10,
         "Cách chăm sóc cây Ngọc Ngân luôn xanh đẹp và khỏe mạnh",
         "Trong nhà",
         "assets/images/ngocngan.jpg",
@@ -1040,7 +1040,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        12,
+        14,
 "Cách chăm sóc cây Lan Ý xanh tốt và ra hoa đẹp",
 "Trong nhà",
 "assets/images/lany.jpg",
@@ -1117,7 +1117,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        13,
+        15,
 "Cách chăm sóc cây Đa Búp Đỏ xanh tốt và bền đẹp",
 "Trong nhà",
 "assets/images/dabupdo.jpg",
@@ -1194,7 +1194,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        14,
+        16,
 "Cách chăm sóc cây Cẩm Nhung luôn xanh đẹp và nổi bật",
 "Trong nhà",
 "assets/images/camnhung.jpg",
@@ -1271,7 +1271,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        15,
+    17,
 "Cách chăm sóc cây Chuối Cảnh xanh tốt và nổi bật không gian sống",
 "Trong nhà",
 "assets/images/chuoicanh.jpg",
@@ -1348,7 +1348,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        16,
+        18,
         "Cách chăm sóc cây Vạn Niên Thanh luôn xanh tốt và mang lại tài lộc",
         "Trong nhà",
         "assets/images/vannienthanh.jpg",
@@ -1425,7 +1425,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        17,
+        19,
 "Cách chăm sóc cây Dương Xỉ xanh mướt và phát triển khỏe mạnh",
 "Trong nhà",
 "assets/images/duongxi.jpg",
@@ -1502,7 +1502,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        18,
+        20,
 "Cách chăm sóc cây Cọ Nhật xanh đẹp và sang trọng",
 "Trong nhà",
 "assets/images/conhat.jpg",
@@ -1579,7 +1579,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        19,
+        21,
         "Cách chăm sóc cây Kim Ngân mang lại may mắn và tài lộc",
         "Trong nhà",
         "assets/images/kimngan.jpg",
@@ -1656,7 +1656,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        20,
+        22,
 "Cách chăm sóc cây Cỏ Đồng Tiền xanh tốt và tràn đầy sức sống",
 "Trong nhà",
 "assets/images/codongtien.jpg",
@@ -1733,7 +1733,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        21,
+        23,
         "Cách chăm sóc cây Trầu Bà Sữa lá đốm tuyệt đẹp cho không gian nội thất",
         "Trong nhà",
         "assets/images/traubasua.jpg",
@@ -1810,7 +1810,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        22,
+        24,
 "Cách chăm sóc cây Phú Quý luôn xanh đẹp và rực rỡ",
 "Trong nhà",
 "assets/images/phuquy.jpg",
@@ -1887,7 +1887,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        23,
+        25,
 "Cách chăm sóc cây Hồng Môn xanh tốt và ra hoa rực rỡ",
 "Trong nhà",
 "assets/images/hongmon.jpg",
@@ -1964,7 +1964,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        24,
+        26,
         "Cách chăm sóc cây Tùng Thơm tỏa hương dịu nhẹ, xua đuổi côn trùng",
         "Trong nhà",
         "assets/images/tungthom.jpg",
@@ -2041,7 +2041,7 @@ blogManager.addBlog(
 blogManager.addBlog(
     new Blog(
 
-        25,
+        27,
 "Cách chăm sóc cây Ngũ Gia Bì xanh tốt và mang lại may mắn",
 "Trong nhà",
 "assets/images/ngugiabi.jpg",
