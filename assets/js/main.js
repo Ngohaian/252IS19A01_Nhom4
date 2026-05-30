@@ -1,5 +1,4 @@
-localStorage.clear();
-sessionStorage.clear();
+
 function loadComponent(id, file) {
     return fetch(file)
         .then(res => res.text())
