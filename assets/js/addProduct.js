@@ -313,7 +313,7 @@ new Product(
 new Product(
     10,
     "Cây Xương Rồng",
-    150000,
+    98000,
     "assets/images/xuongrong.jpg",
     "Phong thủy",
     "Cây chịu hạn tốt",
@@ -611,7 +611,7 @@ new Product(
 new Product(
     20,
     "Cây Sen Đá",
-    120000,
+    95000,
     "assets/images/senda.jpg",
     "Mini",
     "Cây mini dễ chăm",
