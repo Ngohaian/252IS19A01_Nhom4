@@ -78,7 +78,6 @@
 
 
 <script>
-    //load 
 document.addEventListener("DOMContentLoaded", () => {
     const manager = new ProductManager();
     manager.loadFromLocalStorage();
@@ -90,17 +89,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const categoryFromUrl = urlParams.get('category');
+    const searchFromUrl = urlParams.get('search');
 
+    // Áp dụng category từ URL (nếu có)
     if (categoryFromUrl) {
         manager.setCategory(categoryFromUrl);
-        if (categoryFilterUI) {
-            categoryFilterUI.value = categoryFromUrl;
+        if (categoryFilterUI) categoryFilterUI.value = categoryFromUrl;
+    }
+
+    // Áp dụng từ khóa tìm kiếm từ URL (nếu có)
+    // setSearch phải được gọi TRƯỚC render() để lọc đúng
+    if (searchFromUrl) {
+        const keyword = searchFromUrl.trim();
+        if (typeof manager.setSearch === 'function') {
+            manager.setSearch(keyword);
+        } else {
+            // Fallback: nếu ProductManager chưa có setSearch, tự lọc sau khi render
+            manager._pendingSearch = keyword.toLowerCase();
         }
     }
 
     function render() {
         const productsToDisplay = manager.getVisibleProducts();
         UIRender.renderProductList(productsToDisplay, productContainer);
+
+        // Fallback search: lọc bằng display:none SAU KHI render xong
+        if (manager._pendingSearch) {
+            document.querySelectorAll('.product-item').forEach(product => {
+                const nameEl = product.querySelector('h3');
+                if (!nameEl) return;
+                const match = nameEl.textContent.toLowerCase().includes(manager._pendingSearch);
+                product.style.display = match ? '' : 'none';
+            });
+        }
     }
 
     render();
@@ -108,6 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (categoryFilterUI) {
         categoryFilterUI.addEventListener('change', (e) => {
             manager.setCategory(e.target.value);
+            // Khi đổi filter thì bỏ search để tránh nhầm lẫn
+            manager._pendingSearch = null;
             render();
         });
     }
