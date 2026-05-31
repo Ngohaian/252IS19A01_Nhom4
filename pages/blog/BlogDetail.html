@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/blogdetail.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main>
+        <div class="container">
+            <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+
+            <a href="../../index.html">
+                Trang chủ
+            </a>
+
+            <span>›</span>
+
+            <a href="pages/blog/Blog.html">
+                Blog cây cảnh
+            </a>
+
+            <span>›</span>
+
+            <span id="currentBlogTitle">
+                Chi tiết bài viết
+            </span>
+
+        </nav>
+
+            <div class="blog-layout">
+                <article class="detail">
+        
+                </article>
+
+              
+                <aside class="blog-sidebar">
+        
+        <section class="comments-section">
+            <h3>Bình luận</h3>
+            <div id="commentList" class="comment-list"></div>
+            <div class="comment-form">
+                <textarea id="commentInput" placeholder="Chia sẻ ý kiến hoặc đặt câu hỏi..."></textarea>
+                <button id="sendCommentBtn" type="button">Gửi bình luận</button>
+            </div>
+        </section>
+
+        <section class="related-section">
+            <h3>Bài viết liên quan</h3>
+            <div class="related-blogs">
+                </div>
+        </section>
+
+    </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Nút cuộn lên đầu trang -->
+    <button id="scrollTopBtn" title="Cuộn lên đầu trang">↑</button>
+    <div id="footer-placeholder"></div>
+    <script src="../../assets/js/Blog.js"></script>
+    <script src="../../assets/js/BlogManager.js"></script>
+    <script src="../../assets/js/BlogRender.js"></script>
+    <script src="../../assets/js/addBlog.js"></script>
+    <script src="../../assets/js/Blogdetail.js"></script>
+
+    <script type="module" src="../../assets/js/main.js"></script>
+</body>    
+</html>

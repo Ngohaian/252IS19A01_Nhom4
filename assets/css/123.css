@@ -1,0 +1,469 @@
+/* ==========================================================================
+   RESET & CÀI ĐẶT CHUNG
+   ========================================================================== */
+html{
+    font-size: 16px;
+}
+   :root {
+    --primary-color: #2e7d32;
+    --primary-light: #e8f5e9;
+    --primary-hover: #1b5e20;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --bg-body: #f7fafc;
+    --bg-card: #ffffff;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+}
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   BREADCRUMB (ĐƯỜNG DẪN LIÊN KẾT)
+   ========================================================================== */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   BỐ CỤC CHÍNH (TWO-COLUMN GRID LAYOUT)
+   ========================================================================== */
+.blog-layout {
+    display: grid;
+    grid-template-columns: 7fr 3fr; /* Tỷ lệ 70% nội dung bài viết - 30% sidebar */
+    gap: 40px;
+    align-items: start;
+}
+
+/* ==========================================================================
+   CHI TIẾT BÀI VIẾT (CỘT TRÁI - MAIN CONTENT)
+   ========================================================================== */
+.blog-detail {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+    /* Kích hoạt Grid Layout */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các ô */
+    padding-bottom: 35px; /* Tạo khoảng trống ở đáy */
+}
+.detail-image,
+.detail-header {
+    grid-column: 1 / -1; 
+}
+
+/* Ảnh bìa bài viết */
+.detail-image {
+    display: block;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Header bài viết */
+.detail-header {
+    padding: 35px 35px 15px 35px; /* Giảm padding bottom một chút */
+}
+
+.detail-category {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.detail-header h1 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.detail-meta {
+    display: flex;
+    gap: 20px;
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.detail-shortdesc {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Các hộp nội dung từng phần (Sections) */
+.detail-section {
+    /* Khoảng cách ngoài đã có grid-gap lo */
+    margin: 0 35px; 
+    padding: 30px 25px; /* Tăng nhẹ padding top/bottom cho thông thoáng */
+    
+    /* Bo góc tròn mạnh ở phía trên và phía dưới giống như ảnh mẫu */
+    border-radius: 24px; 
+    
+    /* Màu nền xanh cực nhẹ, dịu mắt */
+    background: #f7fbf9; 
+    
+    /* XÓA VIỀN XUNG QUANH - CHỈ GIỮ LẠI ĐƯỜNG VIỀN DỌC BÊN TRÁI */
+    border: none;
+    border-left: 5px solid #2e7d32; 
+    
+    transition: all 0.3s ease;
+    
+    /* Giúp các ô tự bằng chiều cao nhau theo hàng */
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-section:nth-of-type(odd) {
+    margin-right: 0; /* Ô bên trái sát vào giữa */
+}
+
+.detail-section:nth-of-type(even) {
+    margin-left: 0; /* Ô bên phải sát vào giữa */
+}
+
+.detail-section:hover {
+    transform: translateY(-3px);
+    background: #eff7f3; /* Khi hover thì xanh rõ hơn một chút xíu */
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.04); /* Đổ bóng rêu siêu mờ */
+}
+.detail-section h2 {
+    color: #2e7d32;
+    margin-bottom: 18px;
+    font-size: 22px;
+    position: relative; 
+    padding-bottom: 8px; 
+}
+.detail-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+}
+.detail-section p {
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.detail-section strong {
+    color: #222;
+}
+
+.detail-section p:last-child {
+    margin-bottom: 0;
+}
+
+
+.detail-section .text-muted {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SIDEBAR (CỘT PHẢI - CHỨA BÌNH LUẬN & BÀI VIẾT LIÊN QUAN)
+   ========================================================================== */
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách thông thoáng giữa khối Bình luận và Bài viết liên quan */
+}
+
+.comments-section, 
+.related-section {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Tiêu đề các khối trong sidebar */
+.comments-section h3, 
+.related-section h3 {
+    color: #1a202c;
+    margin: 0 0 25px 0;
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+.comments-section h3::after, 
+.related-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+/* --- Block Bình Luận --- */
+.comment-list {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.comment-item {
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    background: #f8fafc;
+    margin-bottom: 15px;
+    border: 1px solid #ebd0f000;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0;
+}
+
+.comment-item b {
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+.comment-item p {
+    margin: 6px 0 0 0;
+    line-height: 1.6;
+    color: #4a5568;
+    font-size: 14.5px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-sm);
+    resize: vertical;
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.comment-form textarea:focus {
+    background: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.comment-form button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.comment-form button:hover {
+    background: var(--primary-hover);
+}
+
+/* --- Block Bài Viết Liên Quan --- */
+.related-blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-card {
+    display: flex;
+    gap: 15px;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid #edf2f7;
+    transition: all 0.3s ease;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: #cbd5e1;
+}
+
+.blog-image {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Ẩn bớt các thuộc tính thừa của thẻ liên quan khi xếp ở sidebar cho tối giản */
+.blog-category,
+.blog-desc, 
+.blog-meta {
+    display: none !important; 
+}
+.blog-content .blog-btn {
+    display: inline-block !important; /* Hiện lại nút */
+    background: transparent; /* Bỏ màu nền thô cứng */
+    color: var(--primary-color); /* Dùng màu xanh chủ đạo */
+    padding: 4px 0 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.blog-content .blog-btn:hover {
+    background: transparent;
+    color: var(--primary-hover);
+    text-decoration: underline; /* Gạch chân khi hover cho rõ ràng */
+}
+.blog-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1a202c;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   SCROLL TOP BUTTON (NÚT LÊN ĐẦU TRANG)
+   ========================================================================== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+#scrollTopBtn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+/* ==========================================================================
+   RESPONSIVE (TỐI ƯU CHO DI ĐỘNG & TABLET)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Màn hình iPad/Tablet dọc: Chuyển bố cục grid 2 cột thành 1 cột */
+    .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Trở về 1 cột trên giao diện mobile */
+    .blog-detail {
+        grid-template-columns: 1fr; 
+        gap: 0; /* Xóa gap của grid */
+    }
+
+    .detail-image {
+        height: 250px;
+    }
+
+    .detail-header h1 {
+        font-size: 28px;
+    }
+
+    .detail-header {
+        padding: 25px 20px 10px 20px;
+    }
+
+    /* Đưa margin các section về bình thường trên mobile */
+    .detail-section,
+    .detail-section:nth-of-type(odd),
+    .detail-section:nth-of-type(even) {
+        margin: 10px 20px;
+    }
+
+    .related-blogs {
+        grid-template-columns: 1fr;
+    }
+}

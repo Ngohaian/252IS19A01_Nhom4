@@ -14,12 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadComponent('header-placeholder', '/includes/header.html');
     loadComponent('footer-placeholder', '/includes/footer.html');
     const myCart = new Cart();
-    const products = window.manager.products;
-    
-    myCart.addItem(products[0], 2);
-    myCart.addItem(products[1], 1);
-    myCart.addItem(products[2], 3);
-    myCart.addItem(products[0], 1);
-
+    if (window.manager && window.manager.products) {
+        const products = window.manager.products;
+        
+        myCart.addItem(products[0], 2);
+        myCart.addItem(products[1], 1);
+        myCart.addItem(products[2], 3);
+        myCart.addItem(products[0], 1);
+    } else {
+        console.log("Không tìm thấy dữ liệu sản phẩm ở trang này (Có thể đang ở trang Blog).");
+    }
     myCart.render();
 });
