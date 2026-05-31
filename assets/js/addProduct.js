@@ -613,7 +613,7 @@ new Product(
     "Cây Sen Đá",
     95000,
     "assets/images/senda.jpg",
-    "Mini",
+    "Văn phòng",
     "Cây mini dễ chăm",
     25,
     false,
