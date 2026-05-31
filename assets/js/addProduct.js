@@ -646,12 +646,19 @@ productsData.forEach(product => {
     manager.saveToLocalStorage();
 }
 
+const pagination = new Pagination({
+    perPage: 9,
+    container: ".product-list",
+    paginationBox: ".pagination",
+
+    getData: () => manager.getVisibleProducts(),
+
+    renderData: (products) => {
+        UIRender.renderProductList(products, ".product-list");
+    }
+});
 
 
-
-
-const pagination = new Pagination(manager, 9);
-window.manager = manager;
 
 // ================= FILTER EVENTS =================
 document.getElementById("categoryFilter")?.addEventListener("change", e => {
@@ -677,7 +684,17 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 // Đọc ?search= từ URL và áp dụng filter
 const urlParams = new URLSearchParams(window.location.search);
 const searchKeyword = urlParams.get("search");
+const categoryFromUrl = urlParams.get("category");
+if (categoryFromUrl) {
+    manager.setCategory(categoryFromUrl);
 
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    if (categoryFilter) {
+        categoryFilter.value = categoryFromUrl;
+    }
+}
 if (searchKeyword) {
     manager.setSearch(searchKeyword);
 
@@ -696,5 +713,9 @@ if (searchKeyword) {
     const searchInput = document.getElementById("searchInput");
     if (searchInput) searchInput.value = searchKeyword;
 }
+
+
+
+
 
 pagination.update();
