@@ -572,7 +572,7 @@ html{
     .blog-list {
         grid-template-columns: 1fr;
     }
-
+ 
     .blog-image {
         height: 11.5rem;
     }
