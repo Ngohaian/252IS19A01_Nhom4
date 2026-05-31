@@ -1583,60 +1583,111 @@ blogManager.addBlog(
 const categoryFilter = document.querySelector("#categoryFilter");
 const sortFilter = document.querySelector("#sortFilter");
 const searchInput = document.querySelector("#searchInput");
-
-// ================= RENDER =================
-function renderBlogs() {
-    if (!document.querySelector(".blog-list")) return;
+function getFilteredBlogs() {
 
     let blogs = [...blogManager.blogs];
 
-    // CATEGORY
     if (categoryFilter) {
         const category = categoryFilter.value;
+
         if (category !== "all") {
-            blogs = blogs.filter(blog => blog.category === category);
+            blogs = blogs.filter(
+                blog => blog.category === category
+            );
         }
     }
 
-    // SEARCH
     if (searchInput) {
+        const keyword = searchInput.value.trim();
 
-    const keyword = searchInput.value.trim();
-
-    if (keyword) {
-
-        blogs = blogManager.searchBlogs(keyword, blogs);
+        if (keyword) {
+            blogs = blogManager.searchBlogs(
+                keyword,
+                blogs
+            );
+        }
     }
-}
 
-    // SORT
     if (sortFilter) {
+
         const sortValue = sortFilter.value;
+
         if (sortValue === "newest") {
-            blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            blogs.sort(
+                (a,b) =>
+                new Date(b.createdAt) -
+                new Date(a.createdAt)
+            );
         }
+
         if (sortValue === "oldest") {
-            blogs.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+            blogs.sort(
+                (a,b) =>
+                new Date(a.createdAt) -
+                new Date(b.createdAt)
+            );
         }
+
         if (sortValue === "a-z") {
-            blogs.sort((a, b) => a.title.localeCompare(b.title));
+            blogs.sort(
+                (a,b) =>
+                a.title.localeCompare(b.title)
+            );
         }
+
         if (sortValue === "z-a") {
-            blogs.sort((a, b) => b.title.localeCompare(a.title));
+            blogs.sort(
+                (a,b) =>
+                b.title.localeCompare(a.title)
+            );
         }
     }
 
-    // RENDER
-    BlogRender.renderBlogList(blogs, ".blog-list");
+    return blogs;
 }
 
-// ================= EVENT =================
 
-if (categoryFilter) categoryFilter.addEventListener("change", renderBlogs);
-if (sortFilter) sortFilter.addEventListener("change", renderBlogs);
-if (searchInput) searchInput.addEventListener("input", renderBlogs);
 
-// ================= FIRST RENDER =================
-if (document.querySelector(".blog-list")) {
-    renderBlogs();
+
+
+
+const blogPagination = new Pagination({
+
+    perPage: 6,
+
+    container: ".blog-list",
+
+    paginationBox: ".pagination",
+
+    getData: () => getFilteredBlogs(),
+
+    renderData: (blogs) => {
+        BlogRender.renderBlogList(
+            blogs,
+            ".blog-list"
+        );
+    }
+});
+function refreshBlog() {
+
+    blogPagination.currentPage = 1;
+
+    blogPagination.update();
 }
+
+categoryFilter?.addEventListener(
+    "change",
+    refreshBlog
+);
+
+sortFilter?.addEventListener(
+    "change",
+    refreshBlog
+);
+
+searchInput?.addEventListener(
+    "input",
+    refreshBlog
+);
+
+blogPagination.update();
