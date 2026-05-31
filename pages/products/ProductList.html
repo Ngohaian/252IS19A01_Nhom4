@@ -72,83 +72,11 @@
 <script src="assets/js/ProductManager.js"></script>
 <script src="assets/js/UIRender.js"></script>
 <script src="assets/js/addProduct.js"></script>
-<script src="assets/js/detail.js"></script>
+
 
 </body> 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const manager = new ProductManager();
-    manager.loadFromLocalStorage();
 
-    const categoryFilterUI = document.getElementById('categoryFilter');
-    const priceFilterUI = document.getElementById('priceFilter');
-    const sortFilterUI = document.getElementById('sortPrice');
-    const productContainer = '.product-list';
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoryFromUrl = urlParams.get('category');
-    const searchFromUrl = urlParams.get('search');
-
-    // Áp dụng category từ URL (nếu có)
-    if (categoryFromUrl) {
-        manager.setCategory(categoryFromUrl);
-        if (categoryFilterUI) categoryFilterUI.value = categoryFromUrl;
-    }
-
-    // Áp dụng từ khóa tìm kiếm từ URL (nếu có)
-    // setSearch phải được gọi TRƯỚC render() để lọc đúng
-    if (searchFromUrl) {
-        const keyword = searchFromUrl.trim();
-        if (typeof manager.setSearch === 'function') {
-            manager.setSearch(keyword);
-        } else {
-            // Fallback: nếu ProductManager chưa có setSearch, tự lọc sau khi render
-            manager._pendingSearch = keyword.toLowerCase();
-        }
-    }
-
-    function render() {
-        const productsToDisplay = manager.getVisibleProducts();
-        UIRender.renderProductList(productsToDisplay, productContainer);
-
-        // Fallback search: lọc bằng display:none SAU KHI render xong
-        if (manager._pendingSearch) {
-            document.querySelectorAll('.product-item').forEach(product => {
-                const nameEl = product.querySelector('h3');
-                if (!nameEl) return;
-                const match = nameEl.textContent.toLowerCase().includes(manager._pendingSearch);
-                product.style.display = match ? '' : 'none';
-            });
-        }
-    }
-
-    render();
-
-    if (categoryFilterUI) {
-        categoryFilterUI.addEventListener('change', (e) => {
-            manager.setCategory(e.target.value);
-            // Khi đổi filter thì bỏ search để tránh nhầm lẫn
-            manager._pendingSearch = null;
-            render();
-        });
-    }
-
-    if (priceFilterUI) {
-        priceFilterUI.addEventListener('change', (e) => {
-            manager.setPrice(e.target.value);
-            render();
-        });
-    }
-
-    if (sortFilterUI) {
-        sortFilterUI.addEventListener('change', (e) => {
-            manager.setSort(e.target.value);
-            render();
-        });
-    }
-});
-</script>
 
 </html>
