@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Info.css">
+
 </head>
 <body>
     <div id="header-placeholder"></div>
     <main>
+        <section class="info-section">
+            <div class="info-container" style="max-width: 1000px; padding: 40px;">
+                
+                <div class="about-hero reveal">
+                    <img src="assets/images/gioithieu1.png
+                    " alt="Không gian xanh">
+                    <div class="about-hero-overlay">
+                        <h2>Về Cây Cảnh Mộc Miên</h2>
+                        <p>Hành trình mang hơi thở của đất mẹ vào từng góc nhỏ trong không gian sống của bạn.</p>
+                    </div>
+                </div>
+
+                <div class="about-zigzag reveal">
+                    <div class="text-box text-content">
+                        <h2 style="margin-top: 0;">Khởi nguồn từ tình yêu thiên nhiên</h2>
+                        <p>Chúng tôi không chỉ là những người bán cây, chúng tôi là những người "ươm mầm bình yên". Mộc Miên được ra đời với khao khát duy nhất: Kết nối con người hiện đại với thiên nhiên mộc mạc.</p>
+                        <p>Giữa bộn bề của cuộc sống thành thị, một chậu cây nhỏ xíu trên bàn làm việc cũng đủ sức mạnh xoa dịu tinh thần và tái tạo năng lượng cho bạn mỗi ngày.</p>
+                    </div>
+                    <div class="image-box">
+                        <img src="assets/images/gioithieu2.png" alt="Bàn làm việc xanh">
+                    </div>
+                </div>
+
+                <blockquote class="nature-quote reveal">
+                    "Trồng một mầm xanh, gieo một niềm hy vọng. Chúng tôi trao gửi sự bình yên qua từng chiếc lá."
+                </blockquote>
+
+                <div class="about-zigzag reverse reveal">
+                    <div class="text-box text-content">
+                        <h2 style="margin-top: 0;">Sứ mệnh của Mộc Miên</h2>
+                        <p>Mộc Miên hướng tới việc trở thành thương hiệu cung cấp cây cảnh mini, cây để bàn phong thủy hàng đầu dành cho học sinh, sinh viên và dân văn phòng.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>Tuyển chọn những chậu cây khỏe mạnh, kiểu dáng tối giản.</li>
+                            <li>Đồng hành chăm sóc trọn đời cùng khách hàng.</li>
+                            <li>Lan tỏa lối sống xanh (Green Lifestyle) đến cộng đồng.</li>
+                        </ul>
+                    </div>
+                    <div class="image-box">
+                        <img src="assets/images/gioithieu3.png" alt="Chăm sóc cây xanh">
+                    </div>
+                </div>
+
+                <div class="reveal" style="margin-top: 60px;">
+                    <h2 class="info-title" style="border: none; padding-bottom: 0;">Giá trị cốt lõi</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🌱</div>
+                            <h3 style="color: var(--earthyBrown, #967451); margin-bottom: 10px;">Tận tâm</h3>
+                            <p style="color: #6b7280; font-size: 14px; line-height: 1.6;">Chăm chút từng chiếc lá non, tư vấn bằng cả tấm lòng người yêu cây.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🪴</div>
+                            <h3 style="color: var(--earthyBrown, #967451); margin-bottom: 10px;">Chất lượng</h3>
+                            <p style="color: #6b7280; font-size: 14px; line-height: 1.6;">Cây khỏe mạnh, sạch bệnh, chậu gốm nung thủ công an toàn, bền bỉ.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h3 style="color: var(--earthyBrown, #967451); margin-bottom: 10px;">Gắn kết</h3>
+                            <p style="color: #6b7280; font-size: 14px; line-height: 1.6;">Xây dựng cộng đồng chia sẻ đam mê mầm xanh lớn mạnh.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/order.js"></script>
+    <script  src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/aboutUs.js"></script>
+
 </body>    
 </html>

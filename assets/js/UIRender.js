@@ -10,11 +10,9 @@ class UIRender{
             <div class="product-card">
 
                 <div class="product-image">
-                <a class="view-link"
-                        href="pages/products/ProductDetail.html?id=${p.id}">
-                        <img src="${p.image}" alt="${p.name}">
-                    </a>
-                    
+                <a href="pages/products/ProductDetail.html?id=${p.id}">
+                    <img src="${p.image}" alt="${p.name}">
+                </a>
                 </div>
 
                 <div class="product-info">
@@ -24,17 +22,20 @@ class UIRender{
                         ${p.price.toLocaleString("vi-VN")} đ
                     </p>
 
-                    <button class="product-btn"
-                        onclick="manager.addToCart(${p.id})">
-                        Add to cart
-                    </button>
-
+                    <button class="product-btn" data-id="${p.id}">Add to cart</button>
                     
                 </div>
 
             </div>
 
         `).join("");
+        container.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.id;
+                const product = products.find(p => String(p.id) === String(id));
+                cart.addItem(product, 1); 
+            });
+        });
     }
     static renderProductDetail(product, related = []) {
 
@@ -289,8 +290,7 @@ class UIRender{
                     </p>
 
                     <a
-                        href="../../pages/products/ProductDetail.html?id=${p.id}"
-                    >
+                        href="pages/products/ProductDetail.html?id=${p.id}">
                         Xem
                     </a>
 

@@ -2,33 +2,30 @@
    RESET & CÀI ĐẶT CHUNG
    ========================================================================== */
 html{
-    font-size: 16px;
+    font-size: 1rem;
 }
-   :root {
-    --primary-color: #2e7d32;
-    --primary-light: #e8f5e9;
-    --primary-hover: #1b5e20;
+:root {
+    --primary-color: var(--green-oliu);
+    --primary-light: #edf2d0;
+    --primary-hover: var(--green-dark);
     --text-main: #2d3748;
-    --text-muted: #718096;
-    --bg-body: #f7fafc;
+    --text-muted: var(--color-xam-da);
+    --bg-body: var(--cream);
     --bg-card: #ffffff;
     --shadow-soft: 0 0.625rem 1.875rem rgba(0,0,0,.04);
     --shadow-hover: 0 1.25rem 2.5rem rgba(0,0,0,.08);
-
     --radius-lg: 1.5rem;
     --radius-md: 1rem;
     --radius-sm: .75rem;
 }
 body {
-    background-color: var(--bg-body);
-    color: var(--text-main);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family:  sans-serif, 'Segoe UI';
 }
 
 .container {
-     max-width: 77.5rem;
+    max-width: 77.5rem;
     margin: 0 auto;
     padding: 2.5rem 1.25rem;
 }
@@ -63,131 +60,229 @@ body {
 /* ==========================================================================
    BỐ CỤC CHÍNH (TWO-COLUMN GRID LAYOUT)
    ========================================================================== */
-.blog-layout {
+.blog-layout{
     display: grid;
-    grid-template-columns: 7fr 3fr; /* Tỷ lệ 70% nội dung bài viết - 30% sidebar */
-    gap: 2.5rem;
+    grid-template-columns: 2.1fr 0.9fr;
+    gap: 2rem;
     align-items: start;
-    min-height: 100vh;
 }
 
 /* ==========================================================================
    CHI TIẾT BÀI VIẾT (CỘT TRÁI - MAIN CONTENT)
    ========================================================================== */
-.blog-detail {
-    background: #fff;
-    border-radius: 1.25rem;
-    overflow: visible;
-    box-shadow: 0 .5rem 1.875rem rgba(0,0,0,.08);
+.blog-detail{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5rem;
 
-    /* Kích hoạt Grid Layout */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột bằng nhau */
-    gap: 1.25rem;
+    background:transparent;
+    box-shadow:none;
+    position: relative;
+}
+.blog-detail{
+    position:relative;
+}
+.blog-detail::before{
+    content:"";
 
-    padding-bottom: 2.1875rem;
+    position:absolute;
+
+    top:22rem;
+    left:0;
+    right:0;
+
+    height:12rem;
+
+    border-radius:0 0 2rem 2rem;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.35),
+        transparent
+    );
+
+    pointer-events:none;
 }
 .detail-image,
-.detail-header {
+.detail-header,
+.detail-shortdesc {
     grid-column: 1 / -1; 
 }
 
 /* Ảnh bìa bài viết */
-.detail-image {
-    display: block;
-    width: 100%;
-    height: 28.125rem;
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 .25rem .9375rem rgba(0,0,0,.05);
+.detail-image{
+    grid-column:1/-1;
+
+    width:100%;
+    height:34rem;
+
+    object-fit:cover;
+    object-position:center;
+
+    border-radius:2rem;
+
+    display:block;
 }
 
 /* Header bài viết */
-.detail-header {
-    padding: 2.1875rem 2.1875rem .9375rem;
+.detail-header{
+    grid-column:1/-1;
+
+    position:relative;
+
+    margin-top:-12rem;
+
+    z-index:5;
+
+    padding:0 2rem 0rem 2rem;
+    margin-bottom: 0;
 }
 
-.detail-category {
-    display: inline-block;
-    padding: .5rem 1rem;
-    background: #e8f5e9;
-    color: #2e7d32;
-    border-radius: 3.125rem;
+.detail-category{
+    display:inline-flex;
+    align-items:center;
 
-    font-size: .8125rem;
-    font-weight: 600;
+    border-radius:999rem;
 
-    margin-bottom: .9375rem;
+    background:#6ca55b;
+
+    color:#fff;
+
+    padding:.45rem .9rem;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    margin-bottom:1rem;
+}
+.detail-header h1{
+    font-size: 2.75rem;
+    line-height: 1.15;
+    font-weight: 700;
+    color:#fff;
+    margin:0 0 .75rem;
 }
 
-.detail-header h1 {
-    font-size: 2.375rem;
-    line-height: 1.3;
-    margin-bottom: .9375rem;
-    color: #222;
+.detail-meta{
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+
+    color:rgba(255,255,255,.95);
+
+    font-size:.95rem;
+
+    margin-bottom:0;
 }
 
-.detail-meta {
-    display: flex;
-    gap: 1.25rem;
-    color: #777;
-    margin-bottom: 1.25rem;
 
-    font-size: .875rem;
-}
 
 .detail-shortdesc {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #555;
+    grid-column: 1 / -1;
+    position: relative;
+    z-index: 6;
+    
+    /* Đã tăng margin-top để bù lại khoảng âm -12rem của header */
+    margin-top: 5rem;  
+    margin-bottom: 2rem; 
+    
+    padding: 0.15rem 0 0.15rem 1.5rem; 
+    background: transparent; 
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-left: .25rem solid #6b9d5c; 
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-style: italic; 
+    color: #5b6574;     
 }
 
-/* Các hộp nội dung từng phần (Sections) */
-.detail-section {
-    /* Khoảng cách ngoài đã có grid-gap lo */
-    margin: 0 2.1875rem;
-
-    padding: 1.875rem 1.5625rem;
+.detail-section{
+    background: #fff;
 
     border-radius: 1.5rem;
 
-    /* Màu nền xanh cực nhẹ, dịu mắt */
-    background: #f7fbf9; 
-    
-    /* XÓA VIỀN XUNG QUANH - CHỈ GIỮ LẠI ĐƯỜNG VIỀN DỌC BÊN TRÁI */
-    border: none;
-    border-left: .3125rem solid #2e7d32;
+    padding: 1.8rem 1.7rem;
+
+    box-shadow: 0 6px 24px rgba(0,0,0,.06);
+
+    border-left: .3rem solid #7bbf72;
+
+    transition: .25s ease;
+}
+.detail-section:nth-of-type(1){
+    border-left: 5px solid #4caf50; /* xanh lá đậm hơn */
 
     
-    transition: all 0.3s ease;
-    
-    /* Giúp các ô tự bằng chiều cao nhau theo hàng */
+}
+
+
+.detail-section:nth-of-type(2){
+    border-left-color: #ffb74d;
+}
+
+.detail-section:nth-of-type(3){
+    border-left-color: #4db6ac;
+}
+
+.detail-section:nth-of-type(4){
+    border-left-color: #61a8ff;
+}
+
+.detail-section:nth-of-type(5){
+    border-left-color: #ff9800;
+}
+
+.detail-section:nth-of-type(6){
+    border-left-color: #ff6b81;
+}
+
+.detail-section:nth-of-type(7){
+    border-left-color: #b36dff;
+}
+
+.detail-section:nth-of-type(8){
+    border-left-color: #57c785;
+}
+
+.detail-section:nth-of-type(9){
+    border-left-color: #ef5350;
+}
+
+.detail-section:nth-of-type(10){
+    border-left-color: #26c6da;
+}
+
+.detail-section:nth-of-type(11){
+    border-left-color: #7e57c2;
+}
+
+.detail-section:nth-of-type(12){
+    border-left-color: #66bb6a;
+}
+.detail-section:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.detail-section h2{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+
+    font-size: 2rem;
+    font-weight: 800;
+
+    color: #222;
+    margin-bottom: 1.4rem;
+    position: relative;
 }
 
-.detail-section:nth-of-type(odd) {
-    margin-right: 0; /* Ô bên trái sát vào giữa */
-}
-
-.detail-section:nth-of-type(even) {
-    margin-left: 0; /* Ô bên phải sát vào giữa */
-}
-
-.detail-section:hover {
-    transform: translateY(-.1875rem);
-    background: #eff7f3;
-    box-shadow: 0 .625rem 1.5625rem rgba(46,125,50,.04);
-}
-.detail-section h2 {
-    color: #2e7d32;
-    margin-bottom: 1.125rem;
-
-    font-size: 1.375rem;
-
-    position: relative; 
-    padding-bottom: .5rem;
-}
 .detail-section h2::after {
     content: '';
     position: absolute;
@@ -200,462 +295,681 @@ body {
 
     border-radius: 3.125rem;
 }
-.detail-section p {
+    */
+.detail-section p{
+    position: relative;
+
+    padding-left: 1.8rem;
+
+    font-size: 1.05rem;
     line-height: 1.9;
+
     color: #444;
-    margin-bottom: .75rem;
+
+    margin-bottom: .9rem;
+}
+.detail-section p::before{
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+    top: .05rem;
+
+    width: 1.1rem;
+    height: 1.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: .7rem;
+    font-weight: bold;
+
+    background: #e8f5e9;
+    color: #43a047;
+}
+.detail-section p:last-child{
+    margin-bottom: 0;
+    
 }
 
 .detail-section strong {
     color: #222;
 }
 
-.detail-section p:last-child {
-    margin-bottom: 0;
-}
-
 
 .detail-section .text-muted {
     color: var(--text-muted);
 }
+.detail-section p.warning{
+    color: #ff4d4f;
+}
+
+/* icon warning đỏ */
+.detail-section p.warning::before{
+    background: #ffeaea;
+    color: #ff4d4f;
+    content: "!";
+}
+
 
 /* ==========================================================================
    SIDEBAR (CỘT PHẢI - CHỨA BÌNH LUẬN & BÀI VIẾT LIÊN QUAN)
    ========================================================================== */
-.blog-sidebar {
+.blog-sidebar{
+    position: sticky;
+    top: 8rem;
+
     display: flex;
     flex-direction: column;
-    gap: 1.875rem;
+    gap: 2rem;
 }
 
-.comments-section, 
-.related-section {
-    background: var(--bg-card);
-    padding: 1.875rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
+.comments-section,
+.related-section{
+    background: #fff;
+
+    border-radius: 1.8rem;
+
+    padding: 2rem;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.05);
 }
 
 /* Tiêu đề các khối trong sidebar */
-.comments-section h3, 
-.related-section h3 {
-    color: #1a202c;
-    margin: 0 0 1.5625rem;
-    font-size: 1.375rem;
-    font-weight: 700;
+.comments-section,
+.related-section{
+    background: #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 10px 35px rgba(0,0,0,.05);
+    border: 1px solid #f1f1f1;
+}
+.comments-section h3,
+.related-section h3{
     position: relative;
-    padding-bottom: .625rem;
-    border-bottom: .125rem solid #edf2f7;
+
+    font-size: 2.4rem;
+    font-weight: 800;
+
+    color: #2f3d2f;
+
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
-.comments-section h3::after, 
-.related-section h3::after {
+.comments-section h3::after,
+.related-section h3::after{
     content: '';
-    position: absolute;
-    bottom: -.125rem;
-    left: 0;
 
-    width: 3.125rem;
-    height: .125rem;
-    background: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 4.5rem;
+    height: .25rem;
+
+    border-radius: 999px;
+    background: #7b8f18;
 }
+
 
 /* --- Block Bình Luận --- */
-.comment-list {
-    max-height: 21.875rem;
+.comment-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
+    max-height: 22rem;
     overflow-y: auto;
 
-    margin-bottom: 1.25rem;
-
-    padding-right: .3125rem;
+    margin-bottom: 1.5rem;
+    padding-right: .4rem;
 }
 
-.comment-item {
-    padding: 1rem;
-    border-radius: var(--radius-sm);
-    background: #f8fafc;
-    margin-bottom: .9375rem;
+.comment-item{
+    background: #f7f8f9;
 
-    border: .0625rem solid transparent;
+    padding: 1.2rem 1.3rem;
+
+    border-radius: 1.2rem;
+
+    transition: .25s ease;
+
+    border: 1px solid transparent;
+}
+
+.comment-item:hover{
+    background: #fff;
+    border-color: #dce8d8;
+    transform: translateY(-2px);
 }
 
 .comment-item:last-child {
     margin-bottom: 0;
 }
 
-.comment-item b {
-    color: var(--primary-color);
-    font-size: .9375rem;
+.comment-item b{
+    display: block;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    color: #879300;
+
+    margin-bottom: .45rem;
 }
 
-.comment-item p {
-    margin: .375rem 0 0;
-    line-height: 1.6;
-    color: #4a5568;
-    font-size: .90625rem;
+/* nội dung */
+.comment-item p{
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: #505b66;
 }
 
-.comment-form textarea {
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* textarea */
+.comment-form textarea{
     width: 100%;
-    min-height: 6.25rem;
+    min-height: 11rem;
 
-    padding: .875rem;
+    padding: 1.3rem;
 
-    border: .0625rem solid #e2e8f0;
-    border-radius: var(--radius-sm);
-    resize: vertical;
+    border-radius: 1.5rem;
+    border: 1.5px solid #e7e7e7;
+
+    background: #fafafa;
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+
+    resize: none;
     outline: none;
-   margin-bottom: .9375rem;
 
-    font-size: .875rem;
-    background: #f8fafc;
-    transition: all 0.3s;
+    transition: .25s ease;
     box-sizing: border-box;
 }
-
-.comment-form textarea:focus {
+.comment-form textarea::placeholder{
+    color: #999;
+}
+.comment-form textarea:focus{
     background: #fff;
-    border-color: var(--primary-color);
-   box-shadow: 0 0 0 .1875rem rgba(46,125,50,.1);
+    border-color: #6a994e;
+
+    box-shadow: 0 0 0 .25rem rgba(106,153,78,.12);
 }
 
-.comment-form button {
+.comment-form input{
     width: 100%;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: .75rem;
 
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-size: .9375rem;
-    font-weight: 600;
-    transition: background 0.3s;
+    padding: 1rem 1.2rem;
+
+    border-radius: 1rem;
+    border: 1.5px solid #e7e7e7;
+
+    background: #fafafa;
+
+    font-size: 1rem;
+
+    outline: none;
+    transition: .25s ease;
+
+    box-sizing: border-box;
+}
+.comment-form input:focus{
+    background: #fff;
+    border-color: #6a994e;
+    box-shadow: 0 0 0 .2rem rgba(106,153,78,.1);
 }
 
-.comment-form button:hover {
-    background: var(--primary-hover);
+.comment-form button{
+    width: 100%;
+
+    border: none;
+    border-radius: 1.2rem;
+
+    padding: 1.15rem;
+
+    background: #5f9448;
+    color: #fff;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    box-shadow: 0 8px 20px rgba(95,148,72,.2);
+}
+
+
+.comment-form button:hover{
+    background: #4f7f3b;
+    transform: translateY(-2px);
+}
+.comment-list::-webkit-scrollbar{
+    width: .4rem;
+}
+
+.comment-list::-webkit-scrollbar-thumb{
+    background: #cfd8c3;
+    border-radius: 999px;
 }
 
 /* --- Block Bài Viết Liên Quan --- */
+
+.related-section {
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
+}
+
+.related-section h3 {
+    font-size: 1.3rem; /* Thu nhỏ tiêu đề khối chính */
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1.2rem;
+    padding-bottom: .5rem;
+    position: relative;
+}
+
+.related-section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 3rem;
+    height: .2rem;
+    background: #8aa11d;
+    border-radius: 999px;
+}
+
 .related-blogs {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.1rem; /* Thu hẹp tối đa khoảng cách giữa các card */
 }
 
+/* --- Card bài viết --- */
 .blog-card {
     display: flex;
-    gap: .9375rem;
-    background: var(--bg-card);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    border: .0625rem solid #edf2f7;
-    transition: all .3s ease;
-    padding: .625rem;
-    cursor: pointer;
+    gap: 0.85rem; /* Giảm nhẹ khoảng cách giữa ảnh và chữ */
+    align-items: center;
+    padding: 0.7rem 0.6rem; /* Padding nhỏ lại để tổng thể gọn gàng */
+    border-radius: 0.8rem;
+    transition: all .25s ease;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+/* Xóa bỏ border của item cuối cùng */
+.blog-card:last-child {
+    border-bottom: none;
 }
 
 .blog-card:hover {
-     transform: translateY(-0.125rem);
-    box-shadow: var(--shadow-hover);
-    border-color: #cbd5e1;
+    background: #f7f9f3;
+    transform: translateX(4px);
 }
 
+/* --- Ảnh bài viết --- */
 .blog-image {
+    width: 4.5rem;  /* Thu nhỏ ảnh từ 5rem xuống 4.5rem để cân bằng với chữ nhỏ */
+    height: 4.5rem;
     flex-shrink: 0;
-    width: 5.625rem;
-    height: 5.625rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
 }
 
 .blog-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: .5rem;
 }
 
+/* --- Khối chữ bên phải --- */
 .blog-content {
+    flex: 1;
+    min-width: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
+    flex-direction: column; 
+    gap: 0.15rem; 
 }
-
-/* Ẩn bớt các thuộc tính thừa của thẻ liên quan khi xếp ở sidebar cho tối giản */
-.blog-category,
-.blog-desc, 
-.blog-meta {
-    display: none !important; 
-}
-.blog-content .blog-btn {
-    display: inline-block !important; /* Hiện lại nút */
-    background: transparent; /* Bỏ màu nền thô cứng */
-    color: var(--primary-color); /* Dùng màu xanh chủ đạo */
-    padding: 0.25rem 0 0 0; /* 4px */
-
-    font-size: 0.8125rem; /* 13px */
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.blog-content .blog-btn:hover {
-    background: transparent;
-    color: var(--primary-hover);
-    text-decoration: underline; /* Gạch chân khi hover cho rõ ràng */
-}
+/* --- Tiêu đề bài viết --- */
 .blog-title {
     margin: 0;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.825rem; /* Cỡ chữ nhỏ nhắn ~13px */
     font-weight: 600;
-    line-height: 1.4;
-    color: #1a202c;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    color: #333d4e;
+    line-height: 1.35; /* Độ cao dòng vừa phải để hiển thị đủ 2 dòng */
+    
+    /* Bộ thuộc tính bắt buộc để kích hoạt tính năng cắt chữ 2 dòng */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important; /* Giới hạn đúng 2 dòng */
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important; /* Ẩn toàn bộ chữ từ dòng thứ 3 trở đi */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm (...) ở cuối dòng thứ 2 */
+    
+    word-break: break-word; /* Tránh việc từ quá dài làm vỡ khung */
+    transition: color 0.2s;
 }
+.blog-card:hover .blog-title {
+    color: #6c9444;
+}
+
+/* --- Ngày tháng --- */
+.blog-content small {
+    font-size: 0.7rem; /* Cực kỳ nhỏ gọn ~11px */
+    color: #a0aec0;
+    display: block;
+}
+
+/* --- Dọn dẹp nút bấm ẩn/hiển thị lỗi --- */
+/* Nếu bạn không muốn hiển thị nút "Xem thêm / Đọc tiếp" ở sidebar, hãy ẩn hẳn nó đi để sạch giao diện */
+/* --- Triệt tiêu hoàn toàn nút bấm và thành phần thừa lỗi --- */
+.blog-content .blog-btn,
+.blog-category,
+.blog-desc,
+.blog-meta {
+    display: none !important;
+}
+
+
+
 
 /* ==========================================================================
    SCROLL TOP BUTTON (NÚT LÊN ĐẦU TRANG)
    ========================================================================== */
-#scrollTopBtn {
+#scrollTopBtn{
     position: fixed;
-    bottom: 2.5rem;
-    right: 2.5rem;
+    right: 2rem;
+    bottom: 2rem;
 
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
+
     border: none;
     border-radius: 50%;
-    background: var(--primary-color);
-    color: white;
-    font-size: 1.25rem;
+
+    background: #5b8d4c;
+    color: #fff;
+
+    font-size: 1.3rem;
+
     cursor: pointer;
-    box-shadow: 0 .25rem .875rem rgba(46,125,50,.3);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+
+    transition: .25s;
 }
 
-#scrollTopBtn:hover {
-    background: var(--primary-hover);
-    transform: translateY(-0.1875rem); /* -3px */
-    box-shadow: 0 0.375rem 1.25rem rgba(46, 125, 50, 0.4); /* 6px 20px */
+#scrollTopBtn:hover{
+    transform: translateY(-4px);
 }
 
 /* ==========================================================================
    RESPONSIVE (TỐI ƯU CHO DI ĐỘNG & TABLET)
    ========================================================================== */
-/* ========================================================================== 
-   RESPONSIVE - TABLET LARGE (<= 1024px)
+/* ==========================================================================
+   TABLET (<=768px)
    ========================================================================== */
-@media (max-width: 64rem) {
+@media (max-width:48rem){
 
-    .container {
-        padding: 2rem 1.25rem;
+    .container{
+        padding:1.25rem .875rem;
     }
 
-    .blog-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .blog-layout{
+        grid-template-columns:1fr;
+        gap:1.5rem;
     }
 
-    .blog-sidebar {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .blog-detail{
+        grid-template-columns:1fr;
+        gap:1rem;
+    }
+
+    .detail-image{
+        height:16rem;
+        border-radius:1.25rem;
+    }
+
+    .blog-detail::before{
+        top:10rem;
+        height:8rem;
+    }
+
+    .detail-header{
+        margin-top:-8rem;
+        padding:0 1.25rem;
+    }
+
+    .detail-header h1{
+        font-size:1.8rem;
+    }
+
+    .detail-meta{
+        font-size:.9rem;
+        gap:.75rem;
+    }
+
+    .detail-shortdesc{
+        margin-top:2rem;
+        padding-left:1rem;
+        font-size:1rem;
+        line-height:1.8;
+    }
+
+    .detail-section{
+        padding:1.25rem;
+        border-radius:1rem;
+    }
+
+    .detail-section h2{
+        font-size:1.4rem;
+    }
+
+    .detail-section p{
+        font-size:1rem;
+        line-height:1.8;
+        padding-left:1.5rem;
+    }
+
+    .blog-sidebar{
+        position:static;
     }
 
     .comments-section,
-    .related-section {
-        flex: 1;
-        min-width: 18.75rem;
-    }
-
-    .detail-header h1 {
-        font-size: 2rem;
-    }
-
-    .detail-image {
-        height: 20rem;
-    }
-}
-
-
-/* ========================================================================== 
-   RESPONSIVE - TABLET (<= 768px)
-   ========================================================================== */
-@media (max-width: 48rem) {
-
-    .container {
-        padding: 1.5rem 1rem;
-    }
-
-    .blog-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .blog-detail {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .detail-image {
-        height: 15.625rem;
-    }
-
-    .detail-header {
-        padding: 1.5rem 1.25rem 0.75rem;
-    }
-
-    .detail-header h1 {
-        font-size: 1.75rem;
-        line-height: 1.3;
-    }
-
-    .detail-shortdesc {
-        font-size: 1rem;
-    }
-
-    .detail-section {
-        margin: 0.75rem 1rem;
-        padding: 1.25rem 1rem;
-    }
-
-    .detail-meta {
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
-
-    .blog-sidebar {
-        flex-direction: column;
-    }
-
-    .comments-section,
-    .related-section {
-        width: 100%;
-        padding: 1.5rem;
-    }
-
-    .blog-card {
-        gap: 0.75rem;
-    }
-
-    .blog-image {
-        width: 4.5rem;
-        height: 4.5rem;
-    }
-
-    .blog-title {
-        font-size: 0.875rem;
-    }
-}
-
-
-/* ========================================================================== 
-   RESPONSIVE - MOBILE (<= 480px)
-   ========================================================================== */
-@media (max-width: 30rem) {
-
-    .container {
-        padding: 1rem;
-    }
-
-    .breadcrumb {
-        flex-wrap: wrap;
-        font-size: 0.8125rem;
-    }
-
-    .detail-image {
-        height: 12.5rem;
-    }
-
-    .detail-header h1 {
-        font-size: 1.5rem;
-    }
-
-    .detail-category {
-        font-size: 0.75rem;
-        padding: 0.375rem 0.75rem;
-    }
-
-    .detail-section {
-        margin: 0.5rem 0.75rem;
-        padding: 1rem;
-    }
-
-    .detail-section h2 {
-        font-size: 1.125rem;
-    }
-
-    .detail-section p {
-        font-size: 0.9375rem;
-        line-height: 1.7;
-    }
-
-    .comment-item {
-        padding: 0.75rem;
-    }
-
-    .comment-form textarea {
-        min-height: 5rem;
-    }
-
-    .comment-form button {
-        font-size: 0.875rem;
-    }
-
-    .blog-card {
-        flex-direction: column;
-        padding: 0.75rem;
-    }
-
-    .blog-image {
-        width: 100%;
-        height: 9rem;
-    }
-
-    .blog-title {
-        font-size: 0.9375rem;
-    }
-
-    #scrollTopBtn {
-        width: 2.5rem;
-        height: 2.5rem;
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
-}
-
-
-/* ========================================================================== 
-   VERY SMALL DEVICES (<= 360px)
-   ========================================================================== */
-@media (max-width: 22.5rem) {
-
-    .detail-header h1 {
-        font-size: 1.25rem;
-    }
-
-    .detail-image {
-        height: 10rem;
+    .related-section{
+        padding:1.5rem;
     }
 
     .comments-section h3,
-    .related-section h3 {
-        font-size: 1.125rem;
+    .related-section h3{
+        font-size:1.5rem;
+    }
+}
+
+
+/* ==========================================================================
+   MOBILE (<=480px)
+   ========================================================================== */
+@media (max-width:30rem){
+
+    html{
+        font-size:15px;
     }
 
-    .blog-title {
-        font-size: 0.875rem;
+    .container{
+        padding:1rem .75rem;
     }
 
-    .blog-image {
-        height: 8rem;
+    .breadcrumb{
+        font-size:.8rem;
+        flex-wrap:wrap;
+    }
+
+    .detail-image{
+        height:13rem;
+        border-radius:1rem;
+    }
+
+    .blog-detail::before{
+        top:8rem;
+        height:6rem;
+    }
+
+    .detail-header{
+        margin-top:-6rem;
+        padding:0 1rem;
+    }
+
+    .detail-category{
+        font-size:.7rem;
+        padding:.35rem .7rem;
+    }
+
+    .detail-header h1{
+        font-size:1.5rem;
+        line-height:1.3;
+    }
+
+    .detail-meta{
+        font-size:.8rem;
+    }
+
+    .detail-shortdesc{
+        margin-top:1.5rem;
+        font-size:.95rem;
+        padding-left:.8rem;
+    }
+
+    .detail-section{
+        padding:1rem;
+        border-radius:.9rem;
+    }
+
+    .detail-section h2{
+        font-size:1.25rem;
+        margin-bottom:1rem;
+    }
+
+    .detail-section p{
+        font-size:.95rem;
+        line-height:1.75;
+        padding-left:1.4rem;
+    }
+
+    .comments-section,
+    .related-section{
+        padding:1rem;
+        border-radius:1.25rem;
+    }
+
+    .comments-section h3,
+    .related-section h3{
+        font-size:1.25rem;
+        margin-bottom:1.25rem;
+    }
+
+    .comment-item{
+        padding:.85rem;
+    }
+
+    .comment-item b{
+        font-size:.95rem;
+    }
+
+    .comment-item p{
+        font-size:.9rem;
+    }
+
+    .comment-form textarea{
+        min-height:6rem;
+        padding:1rem;
+        font-size:.95rem;
+    }
+
+    .comment-form input{
+        padding:.9rem 1rem;
+        font-size:.95rem;
+    }
+
+    .comment-form button{
+        padding:.95rem;
+        font-size:1rem;
+    }
+
+    .blog-card{
+        gap:.75rem;
+    }
+
+    .blog-image{
+        width:4.5rem;
+        height:4.5rem;
+    }
+
+    .blog-title{
+        font-size:.9rem;
+    }
+
+    #scrollTopBtn{
+        width:3rem;
+        height:3rem;
+        right:1rem;
+        bottom:1rem;
+        font-size:1rem;
+    }
+}
+
+
+/* ==========================================================================
+   VERY SMALL (<=360px)
+   ========================================================================== */
+@media (max-width:22.5rem){
+
+    html{
+        font-size:14px;
+    }
+
+    .detail-image{
+        height:11rem;
+    }
+
+    .detail-header h1{
+        font-size:1.3rem;
+    }
+
+    .detail-section h2{
+        font-size:1.1rem;
+    }
+
+    .detail-section p{
+        font-size:.9rem;
+    }
+
+    .comments-section h3,
+    .related-section h3{
+        font-size:1.1rem;
+    }
+
+    .blog-image{
+        width:4rem;
+        height:4rem;
+    }
+
+    .blog-title{
+        font-size:.85rem;
     }
 }

@@ -1,16 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xác nhận đặt hàng</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/Payment.css">
 </head>
-<body>
+<body class="PaymentPage">
+
     <div id="header-placeholder"></div>
+
     <main>
+        <div class="container">
+
+        <div class="TTDatHang">
+            <h1>Xác nhận đặt mầm</h1>
+            <div class="TTGiaoHang">
+            <p>1. Thông tin giao mầm</p>
+            <div class="form-row">
+                <input type="text" id="tendathang" placeholder="Họ và tên">
+                <input type="tel" id="sdtdathang" placeholder="Số điện thoại">
+            </div>
+            <div class="form-row full">
+                <input type="email" id="emaildathang" placeholder="Email nhận thông báo">
+            </div>
+            <div class="form-row full">
+                <input type="text" id="diachidathang" placeholder="Địa chỉ chi tiết (Số nhà, đường...)">
+            </div>
+            </div>
+
+            <div class="HinhThucTT">
+                <p>2. Hình thức thanh toán</p>
+                <div class="payment-options">
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod" checked>
+                        <div class="payment-option-label">
+                            <span>Trả tiền khi nhận mầm (COD)</span>
+                            <small>Được kiểm tra cây trước khi trả tiền</small>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="transfer">
+                        <div class="payment-option-label">
+                            <span>Chuyển khoản / Ví điện tử</span>
+                            <small>An toàn và nhanh chóng</small>
+                        </div>
+                    </label>
+                    <div id="transfer-details" class="transfer-info">
+                        <p><strong>Ngân hàng:</strong> Vietcombank (VCB)</p>
+                        <p><strong>Số tài khoản:</strong> 1023456789</p>
+                        <p><strong>Chủ tài khoản:</strong> NGUYEN VAN A</p>
+                        <p><strong>Nội dung CK:</strong> <span id="transfer-content" style="color: red; font-weight: bold;">MOCMIEN [Số điện thoại của bạn]</span></p>
+                    </div>
+                </div>
+                <div class="note">
+                    <p>3. Ghi chú</p>
+                    <textarea id="notedathang" placeholder="Ghi chú thêm cho đơn hàng" rows="8"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="TTSanPham">
+            <p class="order-title">Đơn mầm</p>
+
+            <div id="render-order-items">
+            </div>
+            <div id="render-order-total">
+            </div>
+
+            <button id="btn-checkout" ">Đặt hàng</button>
+        </div>
+
+        </div>
     </main>
+
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/main.js"></script>
-</body>    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            loadThongTin();
+        });
+        let button = document.getElementById("btn-checkout");
+        const name  = document.getElementById('tendathang');
+        const phone = document.getElementById('sdtdathang');
+        const email = document.getElementById('emaildathang');
+        const addr  = document.getElementById('diachidathang');
+        const paymentMethod = document.querySelector('input[name="payment"]:checked');
+        const note = document.getElementById('notedathang');
+        button.addEventListener("click", e=>{
+            if (!name.value.trim() ) {
+                name.setCustomValidity('Vui lòng điền họ tên');
+                name.reportValidity();
+                return;
+            }
+            if (!phone.value.trim()) {
+                phone.setCustomValidity('Vui lòng điền vào số điện thoại');
+                phone.reportValidity();
+                return;
+            }
+            if (!addr.value.trim()) {
+                addr.setCustomValidity('Vui lòng điền địa chỉ');
+                addr.reportValidity();
+                return;
+            }
+        if ( isNaN(phone.value) && phone.value.length!=10 ) {
+            phone.setCustomValidity("Số điện thoại không hợp lệ");
+            phone.reportValidity();
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() && !emailRegex.test(email.value.trim())) {
+            email.setCustomValidity('Email không hợp lệ. Ví dụ: ten@gmail.com');
+            email.reportValidity();
+            return;
+        }
+        datHang();
+    });
+    </script>
+    <script src="assets/js/Product.js"></script>
+    <script src="assets/js/ProductManager.js"></script>
+    <script src="assets/js/Pagination.js"></script>
+    <script src="assets/js/addProduct.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script  src="assets/js/main.js"></script>
+    <script src="assets/js/order.js"></script>
+    <script src="assets/js/payment.js"></script>
+</body>
 </html>

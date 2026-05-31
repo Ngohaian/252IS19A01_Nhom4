@@ -6,6 +6,7 @@ class ProductManager {
         this.currentCategory = "all";
         this.currentPrice = "all";
         this.currentSort = "none";
+        this.currentSearch = "";
     }
 
     // ================= LOAD / SAVE =================
@@ -58,15 +59,29 @@ class ProductManager {
         this.currentSort = value;
     }
 
+    setSearch(value) {
+        this.currentSearch = value.trim().toLowerCase();
+    }
+
     resetFilters() {
         this.currentCategory = "all";
         this.currentPrice = "all";
         this.currentSort = "none";
+        this.currentSearch = "";
     }
 
     // ================= FILTER LOGIC =================
     getFilteredProducts() {
         let result = [...this.products];
+
+        // search keyword
+        if (this.currentSearch !== "") {
+            result = result.filter(p =>
+                p.name.toLowerCase().includes(this.currentSearch) ||
+                (p.description && p.description.toLowerCase().includes(this.currentSearch)) ||
+                (p.category && p.category.toLowerCase().includes(this.currentSearch))
+            );
+        }
 
         // category
         if (this.currentCategory !== "all") {

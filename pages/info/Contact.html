@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <script>
+        const basePath = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+            ? '/'
+            : '/252IS19A01_Nhom4/';
+        document.write('<base href="' + basePath + '">');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/Info.css">
+
 </head>
 <body>
     <div id="header-placeholder"></div>
     <main>
+        <section class="info-section">
+    <div class="info-container">
+        <h1 class="info-title">Liên Hệ Với Mộc Miên</h1>
+        
+        <div class="contact-grid">
+            <aside class="contact-info text-content">
+                <h3>Thông tin liên hệ</h3>
+                <p>Bạn có thắc mắc về cách chăm sóc cây hay cần tư vấn chọn cây phong thủy? Đừng ngần ngại liên hệ với Mộc Miên qua các kênh dưới đây nhé:</p>
+                
+                <div class="contact-item">
+                    <strong>📍 Địa chỉ:</strong> Học viện Ngân hàng, 12 Chùa Bộc, Đống Đa, Hà Nội
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Hotline:</strong> 0961.xxx.xxx
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ Email:</strong> hotro@caycanhmocmien.vn
+                </div>
+                <div class="contact-item">
+                    <strong>⏰ Giờ mở cửa:</strong> 08:00 - 21:00 (Thứ 2 - Chủ Nhật)
+                </div>
+            </aside>
+
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="contactName" placeholder="Họ và tên của bạn" required>
+                <div class="input-group" style="width: 100%; display: flex; flex-direction: column;">
+                    <input type="tel" id="contactPhone" placeholder="Số điện thoại" required>
+                    <span class="error-msg" id="phone-error"></span>
+                </div>
+                <div class="input-group" style="width: 100%; display: flex; flex-direction: column;">
+                    <input type="email" id="contactEmail" placeholder="Email liên hệ" required>
+                    <span class="error-msg" id="email-error"></span>
+                </div>
+
+            <textarea id="contactMessage" placeholder="Bạn muốn Mộc Miên tư vấn điều gì?" required></textarea>
+            <button type="submit" style="padding: 14px; font-family: var(--font-main);background: var(--primary, #808000); color: #fff; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">GỬI LỜI NHẮN</button>
+            </form>
+        </div>
+    </div>
+</section>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="../../assets/js/main.js"></script>
-    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/order.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script  src="assets/js/main.js"></script>
 </body>    
 </html>

@@ -52,20 +52,19 @@ class BlogManager {
 
     // ================= SEARCH BLOG =================
 
-    searchBlogs(keyword) {
+    searchBlogs(keyword, blogs = this.blogs) {
 
-        this.currentKeyword = keyword.toLowerCase();
+    this.currentKeyword = keyword.toLowerCase();
 
-        return this.blogs.filter(blog =>
+    return blogs.filter(blog =>
 
-            blog.title.toLowerCase().includes(this.currentKeyword) ||
+        blog.title.toLowerCase().includes(this.currentKeyword) ||
 
-            blog.category.toLowerCase().includes(this.currentKeyword) ||
+        blog.category.toLowerCase().includes(this.currentKeyword) ||
 
-            blog.shortDesc.toLowerCase().includes(this.currentKeyword)
-        );
-    }
-
+        blog.shortDesc.toLowerCase().includes(this.currentKeyword)
+    );
+}
     // ================= FILTER CATEGORY =================
 
     filterByCategory(category) {

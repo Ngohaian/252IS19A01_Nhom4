@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+
+input, button, textarea, select {
+    font-family: var(--font-body);
+}
+
+.profile-layout {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 20px auto;
+    }
+}
+
+.sidebar-menu {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border, #e5e7eb);
+    border-radius: 24px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(62, 59, 57, 0.03);
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    color: var(--text-main, #3E3B39);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu ul li a.active {
+    background-color: var(--cream, #FFF8E7);
+    color: var(--primary, #808000);
+    border-left: 4px solid var(--primary, #808000);
+    padding-left: 16px; 
+}
+
+.sidebar-menu ul li a:hover:not(.active) {
+    background-color: #f9fafb;
+    color: var(--earthyBrown, #967451);
+    transform: translateX(4px);
+}
+
+#logoutBtn {
+    color: #dc2626 !important;
+    margin-top: 16px;
+    border-top: 1px dashed #e5e7eb;
+    border-radius: 0 0 12px 12px;
+    padding-top: 20px;
+}
+
+#logoutBtn:hover {
+    background-color: #fef2f2;
+}
+
+.profile-content {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border, #e5e7eb);
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(62, 59, 57, 0.02);
+}
+
+.profile-content h1 {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--text-main, #3E3B39);
+    margin-bottom: 30px;
+    border-block: 2px solid var(--cream, #FFF8E7);
+    padding-bottom: 12px;
+}
+
+.user-info-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9fafb;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px dashed var(--sand, #D2B48C);
+}
+
+.user-info-card p {
+    font-size: 15px;
+    color: var(--text-main, #3E3B39);
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+
+.user-info-card p:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.user-info-card p strong {
+    width: 150px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.user-info-card p span {
+    font-weight: 700;
+    color: var(--text-main, #3E3B39);
+}
+
+.order-history-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.order-history-table th {
+    background-color: var(--cream, #FFF8E7);
+    color: var(--text-main, #3E3B39);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 2px solid var(--sand, #D2B48C);
+}
+
+.order-history-table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.order-history-table th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.order-history-table td {
+    padding: 18px 20px;
+    font-size: 14px;
+    color: var(--text-main, #3E3B39);
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 500;
+}
+
+.order-history-table tr:last-child td {
+    border-bottom: none;
+}
+
+.order-history-table tr:hover td {
+    background-color: #fcfbf9;
+}
+
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+}
+
+.empty-state p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-shop-now {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--primary, #808000);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(128, 128, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-shop-now:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+.order-tabs {
+    display: flex;
+    background: #fff;
+    margin-bottom: 24px;
+    border-bottom: 1.5px solid var(--border, #ddd5c4); /* Viền màu cát/nâu nhạt */
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main, #2c2c2c);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2.5px solid transparent;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+}
+
+.tab-item:hover {
+    color: var(--primary, #808000);
+}
+
+.tab-item.active {
+    color: var(--primary, #808000);
+    border-bottom: 2.5px solid var(--primary, #808000);
+}
+
+
+.btn-contact {
+    background: #fff;
+    color: var(--text-main, #2c2c2c);
+    border: 1px solid var(--border, #ddd5c4);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-family: var(--font-body, 'Be Vietnam Pro', sans-serif);
+}
+
+.btn-contact:hover {
+    background: var(--cream, #fffbf3);
+    border-color: var(--earthyBrown, #967451);
+}
+
+@media (max-width: 768px) {
+    .profile-layout {
+        padding: 0 15px !important;
+        margin: 20px auto !important;
+    }
+
+    .sidebar-menu,
+    .profile-content {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        padding: 24px 16px !important;
+        overflow: hidden !important; 
+    }
+
+    .user-info-card p {
+        flex-direction: column !important; 
+        align-items: flex-start !important;
+        gap: 6px;
+    }
+
+    .user-info-card p strong {
+        width: 100% !important; 
+    }
+
+    .user-info-card p span {
+        word-wrap: break-word !important; 
+        word-break: break-all !important; 
+        white-space: normal !important;
+        width: 100%;
+    }
+
+    .order-tabs {
+        flex-wrap: wrap; 
+    }
+
+    .tab-item {
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+
+    .profile-content h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .order-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}

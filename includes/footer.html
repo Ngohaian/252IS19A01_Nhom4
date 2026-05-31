@@ -1,42 +1,219 @@
-<footer style="background-color: #987A54; color: #FFF8E7; padding: 50px 30px; margin-top: 50px; width: 100vw; margin-left: calc(50% - 50vw); box-sizing: border-box; position: relative; bottom: 0; left: 0;">
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto;">
-        <div class="footer-col" style="flex: 1; min-width: 280px; display: flex; align-items: flex-start; gap: 15px;">
-             <img src="./assets/images/logo.png" alt="Mộc Miên Garden Logo" style="height: 60px; width: auto; opacity: 0.8;">
+<style>
+/* ====== CSS DÀNH CHO FOOTER ====== */
+.footer-section {
+    background-color: #3b6445; 
+    color: #FFF8E7; 
+    padding: 3.125rem 1.875rem; /* 50px 30px */
+    margin-top: 3.125rem; /* 50px */
+    width: 100%; 
+    box-sizing: border-box; 
+    position: relative; 
+    bottom: 0; 
+    left: 0;
+}
+
+.footer-row {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1.875rem; /* 30px */
+    max-width: 75rem; /* 1200px */
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+/* Cột Logo */
+.footer-col.brand {
+    min-width: 17.5rem; /* 280px */
+    display: flex; 
+    align-items: flex-start; 
+    gap: 0.9375rem; /* 15px */
+}
+
+/* Các cột Links */
+.footer-col.links {
+    min-width: 11.25rem; /* 180px */
+}
+
+.footer-logo {
+    height: 3.75rem; /* 60px */
+    width: auto; 
+    opacity: 0.8;
+}
+
+.footer-brand-title {
+    color: #F3E5AB; 
+    margin: 0 0 0.625rem 0; /* 10px */
+    font-family: serif; 
+    letter-spacing: 0.125rem; /* 2px */
+    font-size: 1.5rem; /* ~24px */
+}
+
+.footer-text {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6; 
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.footer-heading {
+    color: #F3E5AB; 
+    margin-bottom: 1.125rem; /* 18px */
+    font-size: 1rem; /* 16px */
+    font-family: sans-serif; 
+    letter-spacing: 0.0625rem; /* 1px */
+}
+
+.footer-list {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    line-height: 2.2; 
+    font-size: 0.875rem; /* 14px */
+    font-family: sans-serif;
+}
+
+.footer-social-wrapper {
+    display: flex; 
+    gap: 0.75rem; /* 12px */
+    font-family: sans-serif; 
+    font-weight: bold;
+}
+
+.footer-social-icon {
+    display: inline-block; 
+    width: 2.375rem; /* 38px */
+    height: 2.375rem; /* 38px */
+    border: 0.0625rem solid rgba(255, 248, 231, 0.6); /* 1px */
+    border-radius: 50%; 
+    text-align: center; 
+    line-height: 2.375rem; 
+    cursor: pointer; 
+    color: #F3E5AB;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover cho icon mạng xã hội */
+.footer-social-icon:hover {
+    background-color: #F3E5AB;
+    color: #8e9707;
+}
+
+.footer-bottom {
+    text-align: center; 
+    margin-top: 3.125rem; /* 50px */
+    border-top: 0.0625rem solid rgba(255, 248, 231, 0.15); /* 1px */
+    padding-top: 1.5625rem; /* 25px */
+    font-size: 0.75rem; /* 12px */
+    color: rgba(255, 248, 231, 0.7); 
+    font-family: sans-serif; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* =========================================
+   RESPONSIVE: DÀNH CHO TABLET VÀ MOBILE (Đã thiết kế lại gọn gàng)
+   ========================================= */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 1rem; /* Thu nhỏ lề 2 bên để tiết kiệm không gian */
+        margin-top: 2rem;
+    }
+    
+    .footer-row {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; /* Chia làm 2 cột song song cho Mobile */
+        gap: 1.5rem 1rem; /* Thu hẹp khoảng cách (dọc 1.5rem, ngang 1rem) */
+    }
+
+    /* 1. Phần Logo và Giới thiệu chiếm trọn 1 hàng trên cùng */
+    .footer-col.brand {
+        grid-column: 1 / -1; 
+        flex-direction: row; /* Cho logo và tên thương hiệu nằm ngang nhau */
+        align-items: center;
+    }
+
+    .footer-logo {
+        height: 3rem; /* Thu nhỏ logo lại một chút cho cân đối */
+    }
+
+    .footer-brand-title {
+        font-size: 1.25rem; 
+        margin-bottom: 0.25rem;
+    }
+
+    /* Ép bỏ thuộc tính min-width cũ đang gán cứng trong thẻ HTML */
+    .footer-col {
+        min-width: 0 !important; 
+    }
+
+    /* 2. Phần "Về Mộc Miên" và "Chính sách" sẽ tự động nằm song song ở giữa do dùng lưới 2 cột */
+
+    /* 3. Phần Kết nối (Mạng xã hội) cho xuống dòng cuối, chiếm trọn chiều ngang và căn giữa */
+    .footer-col:last-child {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(255, 248, 231, 0.2); /* Thêm đường viền đứt phân cách nhẹ */
+    }
+
+    .footer-col:last-child p {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .footer-col:last-child div {
+        justify-content: center; /* Đẩy các nút Tim/Facebook ra giữa */
+    }
+
+    .footer-bottom {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+}
+</style>
+
+<footer class="footer-section">
+    <div class="footer-row">
+        <div class="footer-col brand">
+             <img src="assets/images/logo.png" alt="Mộc Miên Garden Logo" class="footer-logo">
             <div>
-                <h2 style="color: #F3E5AB; margin: 0 0 10px 0; font-family: serif; letter-spacing: 2px;">MỘC MIÊN GARDEN</h2>
-                <p style="font-size: 14px; line-height: 1.6; margin: 0;">Mang hơi thở của đất mẹ vào không gian sống. Chuyên cung cấp giải pháp cây xanh mộc mạc, bền vững cho ngôi nhà Việt.</p>
+                <h2 class="footer-brand-title">MỘC MIÊN GARDEN</h2>
+                <p class="footer-text">Mang hơi thở của đất mẹ vào không gian sống. Chuyên cung cấp giải pháp cây xanh mộc mạc, bền vững cho ngôi nhà Việt.</p>
             </div>
         </div>
         
-        <div class="footer-col" style="flex: 1; min-width: 180px;">
-            <h3 style="color: #F3E5AB; margin-bottom: 18px; font-size: 16px; font-family: sans-serif; letter-spacing: 1px;">VỀ MỘC MIÊN</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.2; font-size: 14px; font-family: sans-serif;">
+        <div class="footer-col links">
+            <h3 class="footer-heading">VỀ MỘC MIÊN</h3>
+            <ul class="footer-list">
                 <li>Học viện Ngân hàng, Hà Nội</li>
                 <li>Hotline: 0961.xxx.xxx</li>
-                <li>Email: contact@mocmien.vn</li>
+                <li>Email: hotro@caycanhmocmien.vn</li>
             </ul>
         </div>
         
-        <div class="footer-col" style="flex: 1; min-width: 180px;">
-            <h3 style="color: #F3E5AB; margin-bottom: 18px; font-size: 16px; font-family: sans-serif; letter-spacing: 1px;">CHÍNH SÁCH</h3>
-            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.2; font-size: 14px; font-family: sans-serif;">
-                <li>Giao hàng tận tay</li>
-                <li>Bảo hành mầm xanh</li>
-                <li>Chính sách đổi trả</li>
+        <div class="footer-col" style="flex: 1; min-width: 11.25rem;">
+            <h3 style="color: #F3E5AB; margin-bottom: 1.125rem; font-size: 1rem; font-family: sans-serif; letter-spacing: 1px;">CHÍNH SÁCH</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.2; font-size: 0.875rem; font-family: sans-serif;">
+                <li><a href="pages/info/ShippingPolicy.html" style="text-decoration: none; color: #fff">Giao hàng tận tay</a></li>
+                <li><a href="pages/info/WarrantyPolicy.html" style="text-decoration: none; color: #fff">Bảo hành mầm xanh</a></li>
+                <li><a href="pages/info/ReturnPolicy.html" style="text-decoration: none; color: #fff">Chính sách đổi trả</a></li>
             </ul>
         </div>
         
-        <div class="footer-col" style="flex: 1; min-width: 180px;">
-            <h3 style="color: #F3E5AB; margin-bottom: 18px; font-size: 16px; font-family: sans-serif; letter-spacing: 1px;">KẾT NỐI</h3>
-            <p style="font-size: 14px; margin: 0 0 18px 0; font-family: sans-serif; line-height: 1.6;">Nhận mẹo chăm sóc cây mộc mạc hàng tuần qua email.</p>
-            <div style="display: flex; gap: 12px; font-family: sans-serif; font-weight: bold;">
-                <span style="display: inline-block; width: 38px; height: 38px; border: 1px solid rgba(255, 248, 231, 0.6); border-radius: 50%; text-align: center; line-height: 38px; cursor: pointer; color: #F3E5AB;">f</span>
-                <span style="display: inline-block; width: 38px; height: 38px; border: 1px solid rgba(255, 248, 231, 0.6); border-radius: 50%; text-align: center; line-height: 38px; cursor: pointer; color: #F3E5AB;">ig</span>
+        <div class="footer-col" style="flex: 1; min-width: 11.25rem;">
+            <h3 style="color: #F3E5AB; margin-bottom: 1.125rem; font-size: 1rem; font-family: sans-serif; letter-spacing: 1px;">KẾT NỐI</h3>
+            <p style="font-size: 0.875rem; margin: 0 0 1.125rem 0; font-family: sans-serif; line-height: 1.6;">Nhận mẹo chăm sóc cây mộc mạc hàng tuần qua email.</p>
+            <div style="display: flex; gap: 0.75rem; font-family: sans-serif; font-weight: bold;">
+                <span class="footer-social-icon">f</span>
+                <span class="footer-social-icon">ig</span>
             </div>
         </div>
     </div>
     
-    <div style="text-align: center; margin-top: 50px; border-top: 1px solid rgba(255, 248, 231, 0.15); padding-top: 25px; font-size: 12px; color: rgba(255, 248, 231, 0.7); font-family: sans-serif; width: 100vw; margin-left: calc(50% - 50vw); box-sizing: border-box;">
+    <div style="text-align: center; margin-top: 3rem; border-top: 1px solid rgba(255,248,231,0.15); padding-top: 1.5rem; font-size: 0.75rem; color: rgba(255,248,231,0.7); font-family: sans-serif; width: 100%; box-sizing: border-box;">
         <p style="margin: 0;">&copy; 2026 MỘC MIÊN GARDEN - NATURAL & RUSTIC LIFESTYLE. Nhóm 4 - Học viện Ngân hàng.</p>
     </div>
 </footer>

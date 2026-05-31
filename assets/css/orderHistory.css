@@ -1,0 +1,218 @@
+.order-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.tab-item {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.tab-item:hover {
+    color: var(--text-primary);
+}
+
+.tab-item.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+    font-weight: 500;
+}
+
+.order-card {
+    padding: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.order-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem 0.875rem;
+    background: transparent;
+}
+
+.order-id {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.order-date {
+    font-size: 0.9375rem;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+.order-status {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1.25rem;
+    font-weight: 500;
+}
+
+.status-placed {
+    background: #e1f5ee;
+    color: #0f6e56;
+}
+
+.status-shipping {
+    background: #e6f1fb;
+    color: #185fa5;
+}
+
+.status-done {
+    background: #eaf3de;
+    color: #3b6d11;
+}
+
+.status-cancel {
+    background: #fcebeb;
+    color: #a32d2d;
+}
+
+.order-items {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.order-item-row {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.order-item-img {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+}
+
+.order-item-name {
+    flex: 1;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.order-item-qty {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+.order-item-price {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.order-more {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    padding-top: 4px;
+}
+
+.order-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1.5rem 1.25rem;
+    border-top: none;
+}
+
+.order-total {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.order-total span {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.btn-detail {
+    font-size: 0.875rem;
+    padding: 0.375rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    background-color: var(--green-btn);
+}
+
+.btn-detail:hover {
+    background: var(--green-mid);
+    color: var(--cream);
+    transform: translateY(-1px);
+}
+
+.inline-order {
+    border: 0.5px solid var(--border);
+    color: var(--border);
+}
+
+.order-empty {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+}
+
+.order-empty i {
+    font-size: 2.25rem;
+    display: block;
+    margin-bottom: 0.625rem;
+}
+@media (max-width: 480px) {
+    .order-card-header{
+        padding: 0;
+    }
+    .order-card-footer{
+        padding: 0;
+    }
+    .order-status{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .order-items{
+        padding: 0;
+    }
+    .btn-detail{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
