@@ -180,14 +180,14 @@ body {
 }
 
 
-/* Khối mô tả ngắn (Shortdesc) trần - Căn đều khoảng cách chuẩn mẫu */
+
 .detail-shortdesc {
     grid-column: 1 / -1;
     position: relative;
     z-index: 6;
     
     /* Đã tăng margin-top để bù lại khoảng âm -12rem của header */
-    margin-top: 5rem;   /* ĐỔI THÀNH 11rem (hoặc điều chỉnh tùy ý bạn) */
+    margin-top: 5rem;  
     margin-bottom: 2rem; 
     
     padding: 0.15rem 0 0.15rem 1.5rem; 
@@ -201,7 +201,7 @@ body {
     font-style: italic; 
     color: #5b6574;     
 }
-/* Các hộp nội dung từng phần (Sections) */
+
 .detail-section{
     background: #fff;
 
@@ -282,7 +282,7 @@ body {
     margin-bottom: 1.4rem;
     position: relative;
 }
-/*
+
 .detail-section h2::after {
     content: '';
     position: absolute;
@@ -360,7 +360,7 @@ body {
    ========================================================================== */
 .blog-sidebar{
     position: sticky;
-    top: 2rem;
+    top: 8rem;
 
     display: flex;
     flex-direction: column;
