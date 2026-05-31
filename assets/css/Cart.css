@@ -355,8 +355,8 @@
 
     .item-cart-image {
         flex-shrink: 0;
-        height: 1rem;
-        width: 1rem;
+        height: 3.5rem;
+        width: 3.5rem;
         margin-right: 0.5rem;
     }
 
