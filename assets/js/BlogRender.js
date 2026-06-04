@@ -73,6 +73,8 @@ class BlogRender {
 
             <div class="blog-detail">
 
+
+                <div class="detail-hero">
                 <img 
                     src="${blog.image}" 
                     alt="${blog.title}"
@@ -80,7 +82,6 @@ class BlogRender {
                 >
 
                 <div class="detail-header">
-
                     <span class="detail-category">
                         ${blog.category}
                     </span>
@@ -90,20 +91,19 @@ class BlogRender {
                     </h1>
 
                     <div class="detail-meta">
-
                         <span>${blog.author}</span>
-
                         <span>${blog.createdAt}</span>
-
                     </div>
+                </div>
+            </div>
 
-                    <p class="detail-shortdesc">
-                        ${blog.shortDesc}
-                    </p>
 
                 </div>
-
-
+                <div class="detail-shortdesc-wrapper">
+                    <p class="detail-shortdesc">
+                    ${blog.shortDesc}
+                    </p>
+                </div>
 
                 <!-- 1 -->
 
