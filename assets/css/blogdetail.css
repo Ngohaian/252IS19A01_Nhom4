@@ -19,9 +19,7 @@ html{
     --radius-sm: .75rem;
 }
 body {
-    margin: 0;
     padding: 0;
-    font-family:  sans-serif, 'Segoe UI';
 }
 
 .container {
@@ -200,12 +198,8 @@ body {
     grid-column: 1 / -1;
 
     position: relative;
-    z-index: 6;
-
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-
-    padding: 0 2rem;
 }
 .detail-shortdesc{
     padding-left: 1rem;
@@ -228,7 +222,6 @@ body {
     
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
 }
 .detail-section p {
     margin-bottom: 0.5rem !important;
@@ -294,7 +287,7 @@ body {
     align-items: center;
     gap: .7rem;
 
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
 
     color: #222;
@@ -318,10 +311,10 @@ body {
     padding-left: 0;
     font-size: 1.05rem;
     line-height: 1.9;
-
+    text-align: justify;
     color: #444;
-
-    margin-bottom: .9rem;
+    margin-top:0.4rem ;
+    margin-bottom: 0.4rem;
 }
 .detail-section p::before{
     content: none !important;
@@ -592,7 +585,7 @@ body {
 }
 
 .related-section h3 {
-    font-size: 1.3rem; /* Thu nhỏ tiêu đề khối chính */
+    font-size: 2rem;
     font-weight: 700;
     color: #2d3748;
     margin-bottom: 1.2rem;
@@ -664,19 +657,18 @@ body {
 /* --- Tiêu đề bài viết --- */
 .blog-title {
     margin: 0;
-    font-size: 0.825rem; /* Cỡ chữ nhỏ nhắn ~13px */
+    font-size: 1.2rem !important;
     font-weight: 600;
     color: #333d4e;
-    line-height: 1.35; /* Độ cao dòng vừa phải để hiển thị đủ 2 dòng */
-    
-    /* Bộ thuộc tính bắt buộc để kích hoạt tính năng cắt chữ 2 dòng */
+    line-height: 1.35; 
+
     display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important; /* Giới hạn đúng 2 dòng */
+    -webkit-line-clamp: 2 !important; 
     -webkit-box-orient: vertical !important;
-    overflow: hidden !important; /* Ẩn toàn bộ chữ từ dòng thứ 3 trở đi */
-    text-overflow: ellipsis; /* Thêm dấu ba chấm (...) ở cuối dòng thứ 2 */
+    overflow: hidden !important;
+    text-overflow: ellipsis; 
     
-    word-break: break-word; /* Tránh việc từ quá dài làm vỡ khung */
+    word-break: break-word; 
     transition: color 0.2s;
 }
 .blog-card:hover .blog-title {

@@ -29,9 +29,9 @@ class BlogRender {
                         ${blog.category}
                     </span>
 
-                    <h3 class="blog-title">
+                    <p class="blog-title">
                         ${blog.title}
-                    </h3>
+                    </p>
 
                     <p class="blog-desc">
                         ${blog.shortDesc}
