@@ -97,8 +97,6 @@ class BlogRender {
                 </div>
             </div>
 
-
-                </div>
                 <div class="detail-shortdesc-wrapper">
                     <p class="detail-shortdesc">
                     ${blog.shortDesc}
