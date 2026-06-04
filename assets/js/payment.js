@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const phoneInput = document.querySelector('input[placeholder="Số điện thoại"]');
+    const phoneInput = document.querySelector('#sdtdathang');
     phoneInput.addEventListener('input', (e) => {
         const phone = e.target.value.trim() || '[Số điện thoại]';
         document.getElementById('transfer-content').innerText = `MOCMIEN ${phone}`;
@@ -78,6 +78,7 @@ function loadThongTin(){
     name.value = user.name;   
     phone.value = user.phone;
     email.value = user.email;
+    document.getElementById('transfer-content').innerHTML = `MOCMIEN ${phone.value}`;
 }
 
 function datHang() {
