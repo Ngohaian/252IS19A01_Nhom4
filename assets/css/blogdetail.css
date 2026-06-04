@@ -749,19 +749,27 @@ body {
         padding:1.25rem .875rem;
     }
 
-    .blog-layout{
-        grid-template-columns:1fr;
-        gap:1.5rem;
+    .blog-layout {
+        grid-template-columns: 1fr; /* Chuyển bố cục thành 1 cột (Hết chia đôi tả hữu) */
+        gap: 1.5rem;
     }
 
-    .blog-detail{
-        grid-template-columns:1fr;
-        gap:1rem;
+    .blog-detail {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
+   
+    .detail-hero {
+        height: 22rem;
+        border-radius: 1.5rem;
+    }
     .detail-image{
         height:16rem;
         border-radius:1.25rem;
+    }
+    .blog-detail::before {
+        display: none !important;
     }
 
     .blog-detail::before{
@@ -769,29 +777,36 @@ body {
         height:8rem;
     }
 
-    .detail-header{
-        margin-top:-8rem;
-        padding:0 1.25rem;
+    .detail-header {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 0 !important;
+        padding: 0 1.5rem 1.5rem 1.5rem; 
+        z-index: 5;
     }
 
-    .detail-header h1{
-        font-size:1.8rem;
+    .detail-header h1 {
+        font-size: 1.7rem; 
+        line-height: 1.3;
+        max-width: 100%;
     }
 
     .detail-meta{
-        font-size:.9rem;
+        font-size:.85rem;
         gap:.75rem;
     }
 
-    .detail-shortdesc-wrapper{
-        margin-top:2rem;
-        padding:0 1.25rem;
+    .detail-shortdesc-wrapper {
+        margin-top: 1rem;
+        padding: 0 1rem;
     }
 
-    .detail-shortdesc{
-        padding-left:1rem;
-        font-size:1rem;
-        line-height:1.8;
+    .detail-shortdesc {
+        padding-left: 1rem;
+        font-size: 1rem;
+        line-height: 1.7;
     }
 
     .detail-section{
@@ -829,117 +844,115 @@ body {
    MOBILE (<=480px)
    ========================================================================== */
 @media (max-width:30rem){
-
     html{
         font-size:15px;
     }
-
     .container{
         padding:1rem .75rem;
     }
-
     .breadcrumb{
         font-size:.8rem;
-        flex-wrap:wrap;
-    }
 
+        flex-wrap:wrap;
+
+    }
     .detail-image{
         height:13rem;
         border-radius:1rem;
     }
-
     .blog-detail::before{
         top:8rem;
         height:6rem;
     }
-
     .detail-header{
         margin-top:-6rem;
         padding:0 1rem;
     }
-
-    .detail-category{
-        font-size:.7rem;
-        padding:.35rem .7rem;
+    .detail-header {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 0 !important; /* Xóa hoàn toàn margin âm */
+        padding: 0 1rem 1.2rem 1rem;
+    }
+    .detail-hero {
+        height: 18rem; 
+        border-radius: 1.25rem;
+    }
+    .detail-category {
+        font-size: .65rem;
+        padding: .3rem .6rem;
+        margin-bottom: 0.6rem;
+    }
+    .detail-header h1 {
+        font-size: 1.35rem; 
+        line-height: 1.3;
+        margin-bottom: 0.3rem;
+    }
+    .detail-meta {
+        font-size: .75rem;
+        gap: 0.5rem;
+    }
+    .detail-shortdesc-wrapper {
+        margin-top: 1rem;
+        padding: 0 0.5rem;
     }
 
-    .detail-header h1{
-        font-size:1.5rem;
-        line-height:1.3;
+    .detail-shortdesc {
+        font-size: .95rem;
+        padding-left: .8rem;
+        line-height: 1.6;
     }
-
-    .detail-meta{
-        font-size:.8rem;
-    }
-    detail-shortdesc-wrapper{
-        margin-top:1.5rem;
-        padding: 0 1rem;
-    }
-    .detail-shortdesc{
-        font-size:.95rem;
-        padding-left:.8rem;
-    }
-
     .detail-section{
         padding:1rem;
         border-radius:.9rem;
     }
-
     .detail-section h2{
         font-size:1.25rem;
         margin-bottom:1rem;
-    }
 
+    }
     .detail-section p{
         font-size:.95rem;
         line-height:1.75;
         padding-left:1.4rem;
     }
-
     .comments-section,
     .related-section{
         padding:1rem;
         border-radius:1.25rem;
     }
-
     .comments-section h3,
     .related-section h3{
         font-size:1.25rem;
         margin-bottom:1.25rem;
     }
-
     .comment-item{
         padding:.85rem;
     }
-
     .comment-item b{
         font-size:.95rem;
     }
-
     .comment-item p{
         font-size:.9rem;
     }
-
     .comment-form textarea{
         min-height:6rem;
         padding:1rem;
         font-size:.95rem;
     }
-
     .comment-form input{
         padding:.9rem 1rem;
         font-size:.95rem;
     }
-
     .comment-form button{
         padding:.95rem;
         font-size:1rem;
     }
-
     .blog-card{
         gap:.75rem;
     }
-
     .blog-image{
         width:4.5rem;
         height:4.5rem;
@@ -956,7 +969,10 @@ body {
         bottom:1rem;
         font-size:1rem;
     }
+
 }
+
+
 
 
 /* ==========================================================================
@@ -971,9 +987,11 @@ body {
     .detail-image{
         height:11rem;
     }
-
+    .detail-hero {
+        height: 16rem; 
+    }
     .detail-header h1{
-        font-size:1.3rem;
+        font-size:1.15rem;
     }
 
     .detail-section h2{
