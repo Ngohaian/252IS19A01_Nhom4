@@ -269,8 +269,10 @@
         .category-section { background: var(--cream-dark); }
         .category-scroll {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+            max-width: 1050px;
+            margin: 0 auto;
         }
         @media (max-width: 900px) { .category-scroll { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
         @media (max-width: 480px) { .category-scroll { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
@@ -607,14 +609,12 @@
             const grid = document.getElementById('category-grid');
             if (!grid) return;
 
-            const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴', 'Trang trí':'🌸' };
-            
-            // Ép cứng 4 danh mục theo yêu cầu để lấp đầy hàng ngang máy tính
+            const icons = { 'Trong nhà':'🌿', 'Phong thủy':'🍀', 'Văn phòng':'🪴' };
+
             const map = {
                 'Trong nhà':  { count: 0, image: 'assets/images/lanchi.jpg' },
                 'Phong thủy': { count: 0, image: 'assets/images/xuongrong.jpg' },
-                'Văn phòng':  { count: 0, image: 'assets/images/luoiho.jpg' },
-                'Trang trí':  { count: 0, image: 'assets/images/lan_y.jpg' }
+                'Văn phòng':  { count: 0, image: 'assets/images/luoiho.jpg' }
             };
             
             products.forEach(p => {
