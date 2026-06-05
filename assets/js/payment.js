@@ -61,7 +61,7 @@ function renderOrderAndCalculateTotal() {
         <hr class="order-divider">
         <div class="shipping-row">
             <span class="shipping-label">Phí vận chuyển</span>
-            <span class="shipping-value">${shipping === 0 ? 'MIỄN PHÍ': shipping.toLocaleString('vi-VN')}đ</span>
+            <span class="shipping-value">${shipping === 0 ? 'MIỄN PHÍ': shipping.toLocaleString('vi-VN')+'đ'}</span>
         </div>
         <div class="total-row">
             <span class="total-label">Tổng cộng</span>
