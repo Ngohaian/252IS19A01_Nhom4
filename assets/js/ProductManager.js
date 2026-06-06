@@ -129,6 +129,5 @@ class ProductManager {
         product.isFavorite = !product.isFavorite;
         this.saveToLocalStorage();
     }
-
-    
 }
+
