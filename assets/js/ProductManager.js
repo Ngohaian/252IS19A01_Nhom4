@@ -129,36 +129,5 @@ class ProductManager {
         product.isFavorite = !product.isFavorite;
         this.saveToLocalStorage();
     }
-
-    // ================= CART =================
-    addToCart(id, quantity = 1) {
-        const product = this.findProduct(id);
-        if (!product) {
-            return { success: false, message: "Không tìm thấy sản phẩm!" };
-        }
-
-        if (product.stock < quantity) {
-            return { success: false, message: "Không đủ hàng!" };
-        }
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        const exist = cart.find(p => p.id === id);
-
-        if (exist) {
-            exist.quantity += quantity;
-        } else {
-            cart.push({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                quantity
-            });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        return { success: true, message: "Đã thêm vào giỏ!" };
-    }
 }
+
