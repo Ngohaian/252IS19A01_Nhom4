@@ -48,7 +48,7 @@ class UIRender{
     <!-- BREADCRUMB -->
     <section class="breadcrumb">
 
-        <a href="../../index.html">Trang chủ</a>
+        <a href="pages/index.html">Trang chủ</a>
         <span>/</span>
         <a href="pages/products/ProductList.html">Sản phẩm</a>
 
