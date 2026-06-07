@@ -33,8 +33,10 @@ class order{
     }
     saveToStorage(){
         let orders = [];
+        const user = JSON.parse(sessionStorage.getItem("currentUser"));
+        const storageKey = `orders_${user ? user.id : "guest"}`;
         try{
-            const saved = localStorage.getItem("orders");
+            const saved = localStorage.getItem("storageKey");
             if(saved){
                 orders = JSON.parse(saved);
             }
@@ -49,11 +51,13 @@ class order{
             orders.push(this);
         }
 
-        localStorage.setItem("orders", JSON.stringify(orders));
+        localStorage.setItem(storageKey, JSON.stringify(orders));
     }
     static loadFromStorage(){
         try{
-            const saved = localStorage.getItem("orders");
+            const user = JSON.parse(sessionStorage.getItem("currentUser"));
+            const storageKey = `orders_${user ? user.id : "guest"}`;
+            const saved = localStorage.getItem(storageKey);
             if(!saved) return [];
             const data = JSON.parse(saved);
             return data.map(i => {
