@@ -681,7 +681,6 @@ document.getElementById("sortPrice")?.addEventListener("change", e => {
 
 // ================= FIRST RENDER =================
 
-// Đọc ?search= từ URL và áp dụng filter
 const urlParams = new URLSearchParams(window.location.search);
 const searchKeyword = urlParams.get("search");
 const categoryFromUrl = urlParams.get("category");
@@ -698,7 +697,7 @@ if (categoryFromUrl) {
 if (searchKeyword) {
     manager.setSearch(searchKeyword);
 
-    // Hiển thị thông báo đang tìm kiếm
+
     const toolbar = document.querySelector(".toolbar");
     if (toolbar) {
         const notice = document.createElement("p");
@@ -709,7 +708,7 @@ if (searchKeyword) {
         toolbar.insertAdjacentElement("afterend", notice);
     }
 
-    // Đồng bộ input ô tìm kiếm trên header (nếu đã load)
+   
     const searchInput = document.getElementById("searchInput");
     if (searchInput) searchInput.value = searchKeyword;
 }
