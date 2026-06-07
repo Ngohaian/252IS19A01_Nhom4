@@ -227,7 +227,7 @@ body {
     margin-bottom: 0.5rem !important;
 }
 .detail-section:nth-of-type(1){
-    border-left: 5px solid #4caf50; /* xanh lá đậm hơn */
+    border-left: 5px solid #4caf50; 
 
     
 }
@@ -613,15 +613,15 @@ body {
 /* --- Card bài viết --- */
 .blog-card {
     display: flex;
-    gap: 0.85rem; /* Giảm nhẹ khoảng cách giữa ảnh và chữ */
+    gap: 0.85rem; 
     align-items: center;
-    padding: 0.7rem 0.6rem; /* Padding nhỏ lại để tổng thể gọn gàng */
+    padding: 0.7rem 0.6rem; 
     border-radius: 0.8rem;
     transition: all .25s ease;
     border-bottom: 1px solid #f2f2f2;
 }
 
-/* Xóa bỏ border của item cuối cùng */
+
 .blog-card:last-child {
     border-bottom: none;
 }
@@ -633,7 +633,7 @@ body {
 
 /* --- Ảnh bài viết --- */
 .blog-image {
-    width: 4.5rem;  /* Thu nhỏ ảnh từ 5rem xuống 4.5rem để cân bằng với chữ nhỏ */
+    width: 4.5rem; 
     height: 4.5rem;
     flex-shrink: 0;
     border-radius: 0.6rem;
@@ -682,9 +682,7 @@ body {
     display: block;
 }
 
-/* --- Dọn dẹp nút bấm ẩn/hiển thị lỗi --- */
-/* Nếu bạn không muốn hiển thị nút "Xem thêm / Đọc tiếp" ở sidebar, hãy ẩn hẳn nó đi để sạch giao diện */
-/* --- Triệt tiêu hoàn toàn nút bấm và thành phần thừa lỗi --- */
+
 .blog-content .blog-btn,
 .blog-category,
 .blog-desc,
