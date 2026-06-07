@@ -37,9 +37,8 @@ if (!product) {
     });
 
     // ================= FAVORITE =================
-    document.getElementById("favoriteBtn").onclick = () => {
-        product.isFavorite = !product.isFavorite;
-        detailManager.saveToLocalStorage();
+    document.getElementById("favoriteBtn").onclick = () => { 
+        detailManager.toggleFavorite(product.id);
         location.reload();
     };
 
