@@ -36,7 +36,7 @@ class order{
         const user = JSON.parse(sessionStorage.getItem("currentUser"));
         const storageKey = `orders_${user ? user.id : "guest"}`;
         try{
-            const saved = localStorage.getItem("storageKey");
+            const saved = localStorage.getItem(storageKey);
             if(saved){
                 orders = JSON.parse(saved);
             }
