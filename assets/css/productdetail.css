@@ -36,7 +36,7 @@ html{
 }
 
 .breadcrumb a:hover {
-    color: #808000; /* Màu chủ đạo mộc chi */
+    color: #808000;
 }
 
 .breadcrumb span {
@@ -48,7 +48,7 @@ html{
    ========================================================================== */
 .detail-main {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Chia đôi tỷ lệ 50% - 50% chuẩn */
+    grid-template-columns: 1fr 1fr; 
     gap: 3.125rem; /*50px*/
     align-items: start;
     margin-bottom: 3.75rem; /*60px*/
@@ -69,7 +69,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1 / 1; /* Giữ ảnh luôn vuông */
+    aspect-ratio: 1 / 1; 
 }
 
 .main-img {
@@ -100,7 +100,7 @@ html{
 /*category*/
 .product-tag-cat {
     display: inline-block;
-    background-color: #7a8a00; /* Màu xanh lá mộc chi */
+    background-color: #7a8a00; 
     color: #ffffff;
     font-size: 0.8125rem; /*13px*/
     font-weight: 600;
@@ -115,7 +115,7 @@ html{
 /* Tên sản phẩm */
 .product-name {
     font-size: 2.5rem; /*40px*/
-    font-family: 'Playfair Display', serif, Georgia; /* Font chữ có chân sang trọng */
+    font-family: 'Playfair Display', serif, Georgia; 
     color: #333333;
     font-weight: 700;
     line-height: 1.2;
@@ -131,7 +131,7 @@ html{
 }
 
 .rating-box h3 {
-    display: none; /* Ẩn chữ "Đánh giá" thừa để giống hình mẫu */
+    display: none; 
 }
 
 .rating-box p {
@@ -145,7 +145,7 @@ html{
 .product-price {
     font-size: 2.125rem; /* 34px */
     font-weight: 700;
-    color: #a39266; /* Màu vàng đất/nâu gold của giá */
+    color: #a39266; 
     margin-bottom: 1.25rem;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -249,7 +249,7 @@ html{
 #cartBtn {
     flex-grow: 1;
     max-width: 18.75rem; /* 300px */
-    background-color: #7a8a00; /* Màu xanh rêu úa chuẩn của nút */
+    background-color: #7a8a00; 
     color: white;
     border: none;
     padding: 0.9375rem 1.875rem; /* 15px 30px */
@@ -331,8 +331,8 @@ html{
     gap: 1.875rem; /* 30px */
 }
 .description-box, .care-guide {
-    background-color: #f3f6ee; /* Màu xanh lá pastel dịu mát */
-    border: 1px solid #e1e8d7; /* Viền xanh rêu nhạt */
+    background-color: #f3f6ee; 
+    border: 1px solid #e1e8d7; 
     border-radius: 1rem; /* 16px */
     padding: 1.625rem; /* 26px */
     box-shadow: 0 0.25rem 0.875rem rgba(122, 138, 0, 0.04); /* 4px 14px */
@@ -343,27 +343,27 @@ html{
     font-family: 'Segoe UI', 'Playfair Display', Georgia, sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #4a5400; /* Màu xanh rêu đậm hẳn để tạo điểm nhấn */
+    color: #4a5400; 
     margin-bottom: 1.125rem; /* 18px */
     display: flex;
     align-items: center;
     gap: 0.625rem; /* 10px */
     border-bottom: 1px dashed #d1d8a7; 
     padding-bottom: 0.75rem; /* 12px */
-    letter-spacing: 0.05rem; /* Giúp các chữ có khoảng cách thanh thoát */
+    letter-spacing: 0.05rem; 
 }
 
 .description-box:hover, .care-guide:hover {
     transform: translateY(-0.1875rem);
-    border-color: #7a8a00; /* Viền đậm lên thành màu thương hiệu */
+    border-color: #7a8a00; 
     box-shadow: 0 0.5rem 1.25rem rgba(122, 138, 0, 0.08);
 }
 
 .description-box p {
     font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; /* Font không chân hiện đại, dễ đọc */
-    font-size: 0.9375rem; /* SỬA TỪ 1.25rem THÀNH 0.9375rem (~15px) để chữ nhỏ gọn như hình */
-    color: #555555;      /* Màu xám nhẹ hơn chút cho thanh thoát */
-    line-height: 1.6;    /* Giãn dòng vừa phải */
+    font-size: 0.9375rem; 
+    color: #555555;     
+    line-height: 1.6;    
     letter-spacing: 0.0125rem;
     margin: 0;
 }
@@ -372,7 +372,7 @@ html{
     list-style: none; 
     display: flex;
     flex-direction: column;
-    gap: 0.875rem; /* Giãn cách các dòng rộng rãi hơn */
+    gap: 0.875rem; 
     padding: 0;
     margin: 0;
 }
@@ -389,7 +389,7 @@ html{
 .care-guide li::before {
     content: "•";
     color: #7a8a00;
-    font-size: 1.25rem; /* Giữ kích thước to rõ như bản tối ưu trước */
+    font-size: 1.25rem; 
     position: absolute;
     left: 0;
     top: 0.125rem; /* 2px */               
@@ -547,7 +547,7 @@ html{
 #commentList strong, 
 #commentList h4 {
     display: block;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1rem; /* px */
     font-weight: bold;
     color: #333333;
     margin-bottom: 0.25rem; /* 4px */
@@ -555,7 +555,7 @@ html{
 
 
 #commentList p {
-    font-size: 1.25rem; /* 20px */
+    font-size: 0.95rem; /* 15px */
     color: #555555;
     margin: 0;
     line-height: 1.5;
