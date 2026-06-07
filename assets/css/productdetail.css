@@ -10,7 +10,7 @@ html{
     box-sizing: border-box;
 }
 
-/* Container chính bao bọc toàn bộ code render của bạn */
+
 .detail {
     max-width: 75rem; /*1200px*/
     margin: 0 auto;
