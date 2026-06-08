@@ -607,7 +607,7 @@ body {
 .related-blogs {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem; /* Thu hẹp tối đa khoảng cách giữa các card */
+    gap: 0.1rem; 
 }
 
 /* --- Card bài viết --- */
@@ -677,7 +677,7 @@ body {
 
 /* --- Ngày tháng --- */
 .blog-content small {
-    font-size: 0.7rem; /* Cực kỳ nhỏ gọn ~11px */
+    font-size: 0.7rem; 
     color: #a0aec0;
     display: block;
 }

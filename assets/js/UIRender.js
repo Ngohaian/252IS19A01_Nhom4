@@ -138,16 +138,10 @@ class UIRender{
                 ${product.shortDescription || ""}
 
             </p>
-
-
-
             <!-- ATTRIBUTES -->
             <div class="attributes">
-
                 <h3>Thông tin</h3>
-
                 <ul>
-
                     <li>
                         Chiều cao:
                         ${product.attributes?.height || ""}

@@ -89,6 +89,7 @@ function datHang() {
     const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
     const note = document.getElementById('notedathang').value.trim();
     const orderItems = JSON.parse(localStorage.getItem('orderItems')) || [];
+    const items = JSON.parse(localStorage.getItem("products"));
     const order1= new order(
         order.generateOrderId(),  
         {
@@ -104,7 +105,14 @@ function datHang() {
      );
     orderItems.forEach(item =>{
         order1.addItem(item.product, item.quantity, item.product.price);
-     })
+        const product = productManager.getProductById(item.product.id);
+        if (product) {
+            product.stock -= item.quantity;
+            if (product.stock < 0) {
+                product.stock = 0;
+            }
+        }
+    });
     order1.saveToStorage();
      if (paymentMethod === 'transfer') {
         alert('Mộc Miên đã ghi nhận đơn hàng Chuyển Khoản của bạn. Vui lòng thanh toán theo thông tin trên màn hình để mầm sớm được đi đường nhé! 🌱');
