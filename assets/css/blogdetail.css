@@ -607,7 +607,7 @@ body {
 .related-blogs {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem; /* Thu hẹp tối đa khoảng cách giữa các card */
+    gap: 0.1rem; 
 }
 
 /* --- Card bài viết --- */
@@ -677,7 +677,7 @@ body {
 
 /* --- Ngày tháng --- */
 .blog-content small {
-    font-size: 0.7rem; /* Cực kỳ nhỏ gọn ~11px */
+    font-size: 0.7rem; 
     color: #a0aec0;
     display: block;
 }
@@ -736,7 +736,7 @@ body {
     }
 
     .blog-layout {
-        grid-template-columns: 1fr; /* Chuyển bố cục thành 1 cột (Hết chia đôi tả hữu) */
+        grid-template-columns: 1fr; 
         gap: 1.5rem;
     }
 
@@ -859,7 +859,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        margin-top: 0 !important; /* Xóa hoàn toàn margin âm */
+        margin-top: 0 !important; 
         padding: 0 1rem 1.2rem 1rem;
     }
     .detail-hero {
