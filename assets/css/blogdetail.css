@@ -736,7 +736,7 @@ body {
     }
 
     .blog-layout {
-        grid-template-columns: 1fr; /* Chuyển bố cục thành 1 cột (Hết chia đôi tả hữu) */
+        grid-template-columns: 1fr; 
         gap: 1.5rem;
     }
 
@@ -859,7 +859,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        margin-top: 0 !important; /* Xóa hoàn toàn margin âm */
+        margin-top: 0 !important; 
         padding: 0 1rem 1.2rem 1rem;
     }
     .detail-hero {
