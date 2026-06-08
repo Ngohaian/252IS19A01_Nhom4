@@ -15,10 +15,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // Khai báo Regex dùng chung
     const phoneRegex = /^(0|\+84)[0-9]{9}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // =====================================
-    // KIỂM TRA REAL-TIME: GÕ ĐẾN ĐÂU CHECK ĐẾN ĐÓ
-    // =====================================
     
     // Check Số điện thoại
     if (phoneInput) {
