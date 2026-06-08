@@ -103,6 +103,7 @@ function datHang() {
         paymentMethod,
         note
      );
+     const productManager = new ProductManager();
     orderItems.forEach(item =>{
         order1.addItem(item.product, item.quantity, item.product.price);
         const product = productManager.getProductById(item.product.id);
@@ -112,7 +113,9 @@ function datHang() {
                 product.stock = 0;
             }
         }
+        
     });
+    productManager.saveToLocalStorage();
     order1.saveToStorage();
      if (paymentMethod === 'transfer') {
         alert('Mộc Miên đã ghi nhận đơn hàng Chuyển Khoản của bạn. Vui lòng thanh toán theo thông tin trên màn hình để mầm sớm được đi đường nhé! 🌱');
